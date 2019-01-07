@@ -43,7 +43,7 @@
  <div class="field">
   <%= f.label :hobby %><br>
   <%= f.text_area :hobby, :size => "50x5", placeholder: "What do you like to do in your free time" %>
- </div>
+ </div> 
 
  <%= f.collection_check_boxes :tech_ids, Tech.all, :id, :name do |cb| %>
   <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
