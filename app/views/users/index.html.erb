@@ -19,9 +19,6 @@
           <%= link_to(user_path(user), class:"hull_a") do %>
             <div class="skill_info">
               <table>
-                <tr><th>Gender</th><td><%= user.gender %></td></tr>
-                <tr><th>Age</th><td><%= user.age %></td></tr>
-                <tr><th>Area</th><td><%= user.area %></td></tr>
                 <tr>
                   <th>Career</th>
                   <td>
@@ -47,7 +44,6 @@
                     <% end %>
                   </td>
                 </tr>
-                <tr><th><%= user.job_hunting %></th></tr>
               </table>
             </div>
           <% end %>
