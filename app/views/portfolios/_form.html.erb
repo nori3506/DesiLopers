@@ -1,0 +1,56 @@
+<%= render 'shared/errors', obj: @portfolio %>
+
+<%= form_for @portfolio do |f| %>
+ <div class="field">
+  <%= f.label:career %>
+  <%= select(:portfolio, :career, [['Developer', 1], ['Designer', 2],['DesiLoper', 3]]) %>
+ </div>
+ 
+ <div class="field">
+  <%= f.label :experience, "Experience" %> <br>
+  <%= f.text_area :experience, :size => "50x5", placeholder: "Your Experience" %>
+ </div>
+ 
+ <div class="field">
+  <%= f.label :message, "Message" %><br>
+  <%= f.text_area :message, :size => "50x5", placeholder: "Your Message" %>
+ </div>
+ 
+ <div class="field">
+  <h3>Your Main Portfolio</h3>
+  <%= f.label :first_site, "URL"%><br>
+  <%= f.text_area :first_site, :size => "40x3" %>
+ </div>
+ 
+ <div class="field">
+  <%= f.label :first_image,"Image" %>
+  <%= f.file_field :first_image %>
+ </div>
+ 
+  <div class="field">
+  <h3>Your Second Portfolio</h3>
+  <%= f.label :second_site,"URL" %><br>
+  <%= f.text_area :second_site, :size => "40x3"%>
+ </div>
+ 
+ <div class="field">
+  <%= f.label :second_image, "Image" %>
+  <%= f.file_field :second_image %>
+ </div>
+ 
+  <div class="field">
+  <h3>Your Third Portfolio</h3>
+  <%= f.label :third_site, "URL" %><br>
+  <%= f.text_area :third_site, :size => "40x3" %>
+ </div>
+ 
+ <div class="field">
+  <%= f.label :third_image, "Image" %>
+  <%= f.file_field :first_image %>
+ </div>
+  
+ <div class="actions">
+  <%= f.submit "Register" %>
+ </div>
+ 
+<% end %>

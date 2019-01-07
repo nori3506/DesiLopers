@@ -1,0 +1,39 @@
+<div align="center">
+ <%= will_paginate %> 
+</div>
+<% @portfolios.each do |portfolio| %>
+<ul>  
+  <%= portfolio.user.name %>
+  <% if portfolio.career == 1 %>
+    <li>タイプ<%= "Developer" %></li>
+  <% elsif portfolio.career == 2 %>
+    <li>タイプ<%= "Designer" %></li>
+  <% elsif portfolio.career == 3 %>
+    <li>タイプ<%= "DesiLoper" %></li>
+  <% end %>
+  <li>経験<%= portfolio.experience %></li>
+  <li>コメント<%= portfolio.message %></li>
+  <li>webサイト<%= link_to "Main Website", portfolio.first_site %></li>
+  <% if portfolio.first_image? %>
+    <div class="user_image"><%= image_tag portfolio.first_image.url, size: 130 if portfolio.first_image? %></div>
+  <% else %>
+    <div class="user_image"><%= image_tag("noimage.png", size: 130)%></div>
+  <% end %>
+  <li>webサイト<%= link_to "2nd Website", portfolio.second_site %></li>
+  <% if portfolio.second_image? %>
+    <div class="user_image"><%= image_tag portfolio.second_image.url, size: 130 if portfolio.second_image? %></div>
+  <% else %>
+    <div class="user_image"><%= image_tag("noimage.png", size: 130)%></div>
+  <% end %>
+  <li>webサイト<%= link_to "3rd Website", portfolio.third_site %></li>
+  <% if portfolio.third_image? %>
+    <div class="user_image"><%= image_tag portfolio.third_image.url, size: 130 if portfolio.third_image? %></div>
+  <% else %>
+    <div class="user_image"><%= image_tag("noimage.png", size: 130)%></div>
+  <% end %>
+</ul>
+  <%= link_to "Edit", edit_portfolio_path(portfolio), class:"signup" %>
+<% end %>
+<div align="center">
+ <%= will_paginate %> 
+</div>

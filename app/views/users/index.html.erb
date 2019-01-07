@@ -1,0 +1,61 @@
+<div align="center">
+ <%= will_paginate %> 
+</div>
+<div class="container">
+  <section class="user_index">
+    <% @users.each do |user| %>
+      <% if !user.portfolio.blank? %>
+        <ul class="user_box">
+          <%= link_to(user_path(user)) do %>
+            <div class="user_info">
+              <% if user.image? %>
+                <div class="user_image"><%= image_tag user.image.url, size: 130 if user.image? %></div>
+              <% else %>
+                <div class="user_image"><%= image_tag("avatar.png", size: 130)%></div>
+              <% end %>
+              <%= link_to "#{user.name}", user_path(user), class: "user_name" %>
+            </div>
+          <% end %>
+          <%= link_to(user_path(user), class:"hull_a") do %>
+            <div class="skill_info">
+              <table>
+                <tr><th>Gender</th><td><%= user.gender %></td></tr>
+                <tr><th>Age</th><td><%= user.age %></td></tr>
+                <tr><th>Area</th><td><%= user.area %></td></tr>
+                <tr>
+                  <th>Career</th>
+                  <td>
+                    <% if user.portfolio.present? %>
+                      <% if user.portfolio.career == 1 %>
+                        <%= "Developer" %>
+                      <% elsif user.portfolio.career == 2 %>
+                        <%= "Designer" %>
+                      <% elsif user.portfolio.career == 3 %>
+                        <%= "DesiLoper" %>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <th>How Long?</th> <td><%= user.career_year %></td>
+                </tr>
+                <tr>
+                  <th>Skills</th> 
+                  <td>
+                    <% if user.techs.any? %>
+                      <%= render user.techs %>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr><th><%= user.job_hunting %></th></tr>
+              </table>
+            </div>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  </section>
+</div>
+<div align="center">
+ <%= will_paginate %> 
+</div>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 1
+  experience: MyText
+  message: MyText
+  first_site: MyText
+  first_image: MyString
+  second_site: MyText
+  second_image: MyString
+  third_site: MyText
+  third_image: MyString
+
+two:
+  type: 1
+  experience: MyText
+  message: MyText
+  first_site: MyText
+  first_image: MyString
+  second_site: MyText
+  second_image: MyString
+  third_site: MyText
+  third_image: MyString

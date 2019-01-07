@@ -1,0 +1,33 @@
+<% if @portfolio.career == 1 %>
+  <li>タイプ<%= "Developer" %></li>
+  <% elsif @portfolio.career == 2 %>
+  <li>タイプ<%= "Designer" %></li>
+  <% elsif @portfolio.career == 3 %>
+  <li>タイプ<%= "DesiLoper" %></li>
+<% end %>
+<% if !@portfolio.experience.blank? %>
+  <li>経験<%= @portfolio.experience %></li>
+<% end %>
+<li>コメント<%= @portfolio.message %></li>
+<li>webサイト<%= link_to "Main Website", @portfolio.first_site %></li>
+<% if !@portfolio.first_image.blank? %>
+  <li><% if user.image? %>
+    <div class="user_image"><%= image_tag user.image.url, size: 130 if user.image? %></div>
+      <% else %></li>
+<% end %>
+<% if !@portfolio.second_site.blank? %>
+<li>webサイト<%= @portfolio.second_site %></li>
+<% end %>
+<% if !@portfolio.second_image.blank? %>
+<li>webイメージ<%= @portfolio.second_image %></li>
+<% end %>
+<% if !@portfolio.third_site.blank? %>
+<li>webサイト<%= @portfolio.third_site %></li>
+<% end %>
+<% if !@portfolio.third_image.blank? %>
+<li>webイメージ<%= @portfolio.third_image %></li>
+<% end %>
+
+<%= link_to "Edit", edit_portfolio_path(@portfolio) %>
+<%= link_to "Delete", portfolios_path(@portfolio), method: :delete,
+            data: {confirm: "Are you sure you want to delete the portfolio?"} %>

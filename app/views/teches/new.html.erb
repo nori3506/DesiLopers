@@ -1,0 +1,15 @@
+<%= render 'shared/errors', obj: @tech %>
+
+<%= form_for @tech do |f| %>
+ 
+ <div class="field">
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name, placeholder: "Put Technology name" %>
+ </div>
+ 
+  
+ <div class="actions">
+  <%= f.submit "Create Technology Tag" %>
+ </div>
+ 
+<% end %>

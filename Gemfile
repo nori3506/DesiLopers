@@ -38,6 +38,11 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+#画像アップロード
+gem 'carrierwave'
+
+#画像の加工とか
+gem 'rmagick'
 
 group :development, :test do
   gem 'sqlite3'

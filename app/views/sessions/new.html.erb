@@ -1,0 +1,18 @@
+<%= render'layouts/form' %>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+ <div class="field">
+  <%= f.label :email, "Email" %>
+  <%= f.text_field :email, placeholder: "Your Email" %>
+ </div>
+ 
+ <div class="field">
+  <%= f.label :password, "Password" %>
+  <%= f.password_field :password, placeholder: "Your Password" %>
+ </div>
+  
+ <div class="actions">
+  <%= f.submit "LogIn" %>
+ </div>
+<% end %>
+<%= link_to "New User?", new_user_path %>

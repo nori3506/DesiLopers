@@ -1,0 +1,5 @@
+<% @techs.each do |tech| %>
+  <ul>
+    <li><%= link_to tech.name, tech_path(tech) %></li>
+  </ul>
+<% end %>

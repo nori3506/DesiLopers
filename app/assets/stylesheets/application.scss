@@ -1,0 +1,201 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+*{
+  margin:0;
+  padding:0;
+  
+}
+
+html, body {
+	font-size: 16px;
+	font-family: sans-serif;
+	color: #393939;
+	background: #efefef;
+}
+body, div, p, h1, h2, h3, h4, ul, figure {
+	margin: 0;
+	padding: 0;
+}
+
+a, a:visited, a:hover {
+  color : black;
+  text-decoration:none;
+}
+
+li {
+  list-style-type:none;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+table td {
+  /*word-break: break-all;*/
+  overflow-wrap : break-word;
+}
+
+td{
+  overflow-wrap : break-word;
+}
+
+.navbar{
+  margin-bottom:0;
+}
+.navbar-collapse {
+  background:rgb(197, 183, 254);
+  padding:0 20px;
+  
+}
+
+.container-fluid{
+  padding-left:0px;
+  padding-right:0px;
+  
+}
+
+.container{
+  height:250%;
+  width:100%;
+  padding:0;
+
+}
+
+.main{
+  height:30rem;
+  width:100vm;
+}
+
+.main-massage{
+  height:100vh;
+  width:100vw;
+  background-image: linear-gradient(
+     to right bottom,
+     rgba(white, .8),
+     rgba(blue, .8)),
+  asset-url('human2.jpg');
+  background-size: cover;
+  background-position: top;
+  text-align:center;
+}
+
+.explanation{
+  text-align:center;
+  font-size:2rem;
+}
+
+.welcome{
+  text-align: center;
+  padding:40px 0 20px 0;
+  font-size:4rem;
+  margin-bottom:2rem;
+}
+
+.signup{
+  &,
+  &:link,
+  &:visited {
+  text-transform: uppercase;
+  font-size:3rem;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative;
+  //change for the <button> element
+  border: none;
+  cursor: pointer;
+  }
+  &:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(197, 183, 254, 0.9);
+
+    &::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+    }
+  }
+  &:active,
+  &:focus{
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem 1rem rgba(197, 183, 254, 0.9);
+  }
+}
+
+// User index =======================================
+.user_index{
+  display:flex;
+  flex-flow:column;
+  
+}
+
+.boxbox{
+  display:block;
+}
+
+.user_box{
+  display:flex;
+  flex-flow:row;
+  list-style:none;
+  border:solid 1px;
+  border-radius:5px;
+  margin:0.5rem 30px;
+  width:45vw;
+  position:relative;
+  left:25vw;
+
+}
+
+.user_info{
+  display:inline-block;
+  
+}
+
+.user_name{
+  display:block;
+  text-align:center;
+  font-size: 1.5rem;
+  
+  
+}
+
+.user_image{
+  
+}
+
+.skill_info{
+  display:block;
+  width:100%;
+  text-decoration:none;
+  padding:10px 3px;
+  
+}
+
+.hull_a{
+  width:100%;
+}
+
+.label{
+  margin-right:4px;
+}
