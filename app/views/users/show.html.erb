@@ -1,5 +1,6 @@
+<div class="container">
+  <div align="center">
 <%= @user.name %>
-
 <% if @user.portfolio.blank? %>
   <%= "No Portfolio was uploaded by #{@user.name} yet!" %>
 <% elsif %>
@@ -42,3 +43,5 @@
 <% end %>
 </br>
 <%= link_to "Back to User List", users_path %>
+</div>
+</div>

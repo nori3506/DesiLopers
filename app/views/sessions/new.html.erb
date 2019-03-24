@@ -1,18 +1,22 @@
-<%= render'layouts/form' %>
-
-<%= form_for(:session, url: sessions_path) do |f| %>
- <div class="field">
-  <%= f.label :email, "Email" %>
-  <%= f.text_field :email, placeholder: "Your Email" %>
+<div class="container">
+ <div align="center">
+   <%= render'layouts/form' %>
+   <div class="PageLayout-content">
+     <div class="FormContent">
+      <p class="login-head">Login</p>
+     <%= form_for(:session, url: sessions_path) do |f| %>
+      <div class="field">
+       <%= f.text_field :email, placeholder: "Email" %>
+      </div>
+      <div class="field">
+       <%= f.password_field :password, placeholder: "Password" %>
+      </div>
+      <div class="field">
+       <%= f.submit "LogIn" %>
+      </div>
+     <% end %>
+     <%= link_to "New User?", new_user_path %>
+     </div>
+   </div>
  </div>
- 
- <div class="field">
-  <%= f.label :password, "Password" %>
-  <%= f.password_field :password, placeholder: "Your Password" %>
- </div>
-  
- <div class="actions">
-  <%= f.submit "LogIn" %>
- </div>
-<% end %>
-<%= link_to "New User?", new_user_path %>
+</div>

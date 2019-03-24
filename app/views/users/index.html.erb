@@ -6,7 +6,7 @@
   <section class="user_index">
     <% @users.each do |user| %>
       <% if !user.portfolio.blank? %>
-        <ul class="user_box">
+        <div class="user_box">
           <%= link_to(user_path(user)) do %>
             <div class="user_info">
               <% if user.image? %>
@@ -19,7 +19,7 @@
           <% end %>
           <%= link_to(user_path(user), class:"hull_a") do %>
             <div class="skill_info">
-              <table>
+              <table class ="skill_list">
                 <tr>
                   <th>Career</th>
                   <td>
@@ -35,7 +35,8 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>How Long?</th> <td><%= user.career_year %></td>
+                  <th>How Long?</th> 
+                  <td><%= user.career_year %></td>
                 </tr>
                 <tr>
                   <th>Skills</th> 
@@ -48,7 +49,7 @@
               </table>
             </div>
           <% end %>
-        </ul>
+        </div>
       <% end %>
     <% end %>
   </section>

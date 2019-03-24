@@ -1,20 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -58,13 +41,40 @@ td{
   overflow-wrap : break-word;
 }
 
-.navbar{
-  margin-bottom:0;
+
+.header-list{
+  display:flex;
+  justify-content: center;
+  div{
+    margin:0 5vw;
+  }
 }
+
+.user-edit-link{
+  padding:3vh 0;
+}
+
+
 .navbar-collapse {
   background:rgb(197, 183, 254);
   padding:0 20px;
-  
+}
+
+.navbar{
+  margin-bottom:0px;
+}
+
+.user_nav{
+  display:flex;
+  margin: auto 0;
+
+}
+.nav-center{
+  margin:auto 0;
+}
+
+.align-center{
+  margin:auto 0;
 }
 
 .container-fluid{
@@ -74,10 +84,12 @@ td{
 }
 
 .container{
-  height:250%;
+  height:100%;
   width:100%;
   padding:0;
-
+}
+.center{
+  margin:0 auto;
 }
 
 .main{
@@ -86,12 +98,13 @@ td{
 }
 
 .main-massage{
-  height:100vh;
+  height:auto;
+  min-height:100vh;
   width:100vw;
   background-image: linear-gradient(
      to right bottom,
      rgba(white, .8),
-     rgba(blue, .8)),
+     rgba(32,100,243, .8)),
   asset-url('human2.jpg');
   background-size: cover;
   background-position: top;
@@ -143,6 +156,11 @@ td{
   }
 }
 
+.login-button{
+  font-size:1.5rem;
+  
+}
+
 // User index =======================================
 .user_index{
   display:flex;
@@ -164,6 +182,7 @@ td{
   width:45vw;
   position:relative;
   left:25vw;
+  background:white;
 
 }
 
@@ -186,11 +205,21 @@ td{
 
 .skill_info{
   display:block;
-  width:100%;
   text-decoration:none;
   padding:10px 3px;
   
 }
+
+.skill_list{
+  // width: 100%;
+  // table-layout: fixed;
+  
+  td{
+  // word-break: break-all;
+
+  }
+} 
+
 
 .hull_a{
   width:100%;
@@ -198,4 +227,57 @@ td{
 
 .label{
   margin-right:4px;
+}
+
+/////////////////////////// sessions new.html
+.field{
+  margin: 2vh 0;
+}
+
+//////////////////////////// user/_form.html
+
+.picture_create{
+  display:flex;
+  justify-content: center;
+}
+
+.skill_head{
+  font-weight:bold;
+}
+
+.picture_head{
+  text-align:center;
+  margin: auto 1rem;
+  font-weight:bold;
+}
+
+#wide-border{
+  
+}
+
+.PageLayout-content {
+    margin: 0 auto;
+    max-width: 480px;
+    width: 100%;
+}
+
+.FormContent {
+    background-color: #fff;
+    padding: 1rem;
+    font-family: Helvetica Neue,Helvetica,Arial,Liberation Sans,Roboto,Noto,sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0;
+    line-height: 1.5rem;
+    font-weight: 400;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 4rem 0;
+}
+
+
+////////////////////////////sessions/ new.html
+
+.login-head{
+  font-weight:bold;
+  font-size:1.5rem;
 }
