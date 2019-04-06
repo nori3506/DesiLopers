@@ -41,6 +41,11 @@ td{
   overflow-wrap : break-word;
 }
 
+.alert {
+  margin-bottom:0;
+  
+}
+
 
 .header-list{
   display:flex;
@@ -138,6 +143,9 @@ td{
   //change for the <button> element
   border: none;
   cursor: pointer;
+  background:#547ded;
+  color:white;
+  margin:3rem 0;
   }
   &:hover {
   transform: translateY(-3px);
@@ -158,8 +166,21 @@ td{
 
 .login-button{
   font-size:1.5rem;
+  color:white;
+  &:link,
+  &:visited {
+    color :white;
+  }
+}
+.button-against-whitebackground{
+  color:blue;
+  &:link,
+  &:visited {
+    color :blue;
+  }
   
 }
+
 
 // User index =======================================
 .user_index{
@@ -280,4 +301,11 @@ td{
 .login-head{
   font-weight:bold;
   font-size:1.5rem;
+}
+
+/////////////////////////////portfolios/ form
+
+.required:after {
+    content: " *";
+    color: #E00;
 }

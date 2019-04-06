@@ -6,16 +6,16 @@
       <p class="login-head">Login</p>
      <%= form_for(:session, url: sessions_path) do |f| %>
       <div class="field">
-       <%= f.text_field :email, placeholder: "Email" %>
+       <%= f.text_field :email, placeholder: "Email",:size => "50x1" %>
       </div>
       <div class="field">
-       <%= f.password_field :password, placeholder: "Password" %>
+       <%= f.password_field :password, placeholder: "Password",:size => "50x1" %>
       </div>
       <div class="field">
        <%= f.submit "LogIn" %>
       </div>
      <% end %>
-     <%= link_to "New User?", new_user_path %>
+     <%= link_to "New User?", new_user_path, class: "button-against-whitebackground" %>
      </div>
    </div>
  </div>
