@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController 
-  before_action :login_require
+  before_action :login_require, except: :index
   before_action :set_portfolio, only: [:edit, :show, :update, :destroy]
   before_action :same_user, only: [:edit, :update, :destroy]
   
@@ -35,7 +35,7 @@ class PortfoliosController < ApplicationController
   def update
     if @portfolio.update(portfolio_param)
       flash[:success] = "User data was updated successfully!"
-      redirect_to @portfolio
+      redirect_to @portfolio.user
     else
       render 'edit'
     end

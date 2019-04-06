@@ -5,13 +5,53 @@
         <%= link_to "DesiLopers", root_path %>
       </div>
       <div class="user-edit-link">
+        <% if @current_user.portfolio.nil? %>
+          <li><%= link_to "Create Portfolio", new_portfolio_path %></li>
+        <% else %>
+          <li><%= link_to "Edit Portfolio", edit_portfolio_path(@current_user.portfolio) %></li>
+        <% end %>
+      </div>
+      <div class="user-edit-link">
+        <li><%= link_to "User's List", users_path %></li>
+      </div>
+      <div class="user-edit-link">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Skill<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% Tech.all.each do |tech| %>
+              <li><%= link_to tech.name, tech_path(tech) %></li>
+            <% end %>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Create New Skill List", new_tech_path %></li>
+          </ul>
+        </li>
+      </div>
+      <div class="user-edit-link">
+          <%= link_to "#{current_user.name}", user_path(current_user)%>
+      </div>
+      <div class="user-edit-link">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Edit<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Edit User info", edit_user_path(current_user)%></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+<% else %>
+  <nav class="navbar navbar-default">
+    <div class="header-list">
+      <div class="user-edit-link">
+        <%= link_to "DesiLopers", root_path %>
+      </div>
+      <div class="user-edit-link">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Portfolio<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Portfolio List", portfolios_path %></li>
-              <li><%= link_to "Create Your Portfolio", new_portfolio_path %></li>
-            </ul>
+            <%= link_to "Create Portfolio", new_portfolio_path %>
+          </a>
         </li>
       </div>
       <div class="user-edit-link">
@@ -24,19 +64,20 @@
             <% Tech.all.each do |tech| %>
               <li><%= link_to tech.name, tech_path(tech) %></li>
             <% end %>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Create New Skill List", new_tech_path %></li>
           </ul>
         </li>
       </div>
       <div class="user-edit-link">
-        <%= link_to "#{current_user.name}", user_path(current_user)%>
+          <li class="emphasize"><%= link_to "Login as TRIAL", users_trial_path %></li>
       </div>
       <div class="user-edit-link">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Edit<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Edit User info", edit_user_path(current_user)%></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
+              <li><%= link_to "Sign up", new_user_path %></li>
+              <li><%= link_to "Login", new_sessions_path%></li>
           </ul>
         </li>
       </div>
