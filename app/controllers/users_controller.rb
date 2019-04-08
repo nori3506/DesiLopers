@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :loggedin?, except:[:index, :show]
+  # before_action :loggedin?, except:[:index, :show]
   before_action :set_user, only: [:edit, :show, :update, :destroy]
   before_action :admin_check, only: [:delete]
   before_action :same_user, only: [:edit,:update,:delete]
@@ -21,7 +21,6 @@ class UsersController < ApplicationController
       flash[:danger] = "Failed!"
       render 'new'
     end
-    
   end
   
   def new
@@ -32,6 +31,9 @@ class UsersController < ApplicationController
   end
   
   def show
+    if current_user && @current_user.portfolio.nil?
+      redirect_to new_portfolio_path
+    end
   end
   
   def update
@@ -47,6 +49,18 @@ class UsersController < ApplicationController
     if @user.destroy
       flash[:success] = "User was deleted successfully"
       redirect_to users_path
+    end
+  end
+  
+  def create_trial_user
+    trial_user_new
+    if @user.save
+      log_in(@user)
+      flash[:success] = "TRY this APP!, Welcome!"
+      redirect_to users_path
+    else
+      flash[:danger] = "Please click 'TRIAL' again"
+      render 'users_path'
     end
   end
   
@@ -74,6 +88,10 @@ private
       flash[:danger] = "you are not permitted to delete someone's data"
       redirect_to root_path
     end
+  end
+  
+  def trial_user_new
+    @user = User.new(name:"TRIAL USER",email:"test#{rand(1..100000)}@test.test", password: "password", password_confirmation: "password")
   end
   
 

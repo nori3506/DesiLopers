@@ -7,7 +7,7 @@ class TechesController < ApplicationController
   def create
     @tech = Tech.create(tech_params)
     if @tech.save
-      redirect_to teches_path
+      redirect_to users_path
     else
       flash[:danger]="Something Wrong"
       render 'new'

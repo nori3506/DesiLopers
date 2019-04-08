@@ -2,7 +2,6 @@
   <div align="center">
    <%= will_paginate @users%> 
   </div>
-  
   <% @users.each do |user| %>
     <% if !user.portfolio.blank? %>
       <ul class="user_box">
@@ -44,17 +43,23 @@
                   <% end %>
                 </td>
               </tr>
-              
             </table>
           </div>
         <% end %>
       </ul>
     <% end %>
   <% end %>
-  
   <div align="center">
    <%= will_paginate @users%> 
   </div>
 <% else %>
-  <h1>no user</h1>
+<div class="container">
+  <div align="center">
+    <div class="PageLayout-content">
+      <div class="FormContent">
+        <%= "Sorry, No user who can use ''#{@tech.name}'' was found" %>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>

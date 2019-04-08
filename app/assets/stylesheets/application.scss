@@ -204,6 +204,20 @@ td{
   position:relative;
   left:25vw;
   background:white;
+  
+  tr{
+  border-bottom:solid 1px #b9b7bc;
+  }
+  
+  th{
+    border-right:solid 1px #b9b7bc;
+    background:#eeeeee;
+    width:10vw;
+  }
+  
+  td{
+    text-align:left;
+  }
 
 }
 
@@ -227,9 +241,10 @@ td{
 .skill_info{
   display:block;
   text-decoration:none;
-  padding:10px 3px;
+  padding:0px 3px;
   
 }
+
 
 .skill_list{
   // width: 100%;
@@ -272,10 +287,6 @@ td{
   font-weight:bold;
 }
 
-#wide-border{
-  
-}
-
 .PageLayout-content {
     margin: 0 auto;
     max-width: 480px;
@@ -308,4 +319,12 @@ td{
 .required:after {
     content: " *";
     color: #E00;
+}
+
+.emphasize a{
+  color: #E00;
+}
+
+.bigger{
+  font-size:1.5rem;
 }
