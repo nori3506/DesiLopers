@@ -1,5 +1,6 @@
 class Portfolio < ApplicationRecord
   belongs_to :user
+  default_scope -> { order(created_at: :desc) }
   validates :first_site,presence:true, format: /\A#{URI::regexp(%w(http https))}\z/
   mount_uploader :first_image, ImageUploader
   validates :second_site, format: /\A#{URI::regexp(%w(http https))}\z/, if: :second_site?

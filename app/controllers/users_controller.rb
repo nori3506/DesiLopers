@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
   
   def index
-    @users = User.paginate(page: params[:page], per_page: 10)
+    @users = User.paginate(page: params[:page], per_page: 20)
     # @user_portfolio =@user.portfolio
     # @user_portfolio = @users.portfolio.career
   end

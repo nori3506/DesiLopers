@@ -2,64 +2,75 @@
   <div align="center">
    <%= will_paginate @users%> 
   </div>
-  <% @users.each do |user| %>
-    <% if !user.portfolio.blank? %>
-      <ul class="user_box">
-        <%= link_to(user_path(user)) do %>
-          <div class="user_info">
-            <% if user.image? %>
-              <div class="user_image"><%= image_tag user.image.url, size: 130 if user.image? %></div>
-            <% else %>
-              <div class="user_image"><%= image_tag("avatar.png", size: 130)%></div>
-            <% end %>
-            <%= link_to "#{user.name}", user_path(user), class: "user_name" %>
-          </div>
-        <% end %>
-        <%= link_to(user_path(user), class:"hull_a") do %>
-          <div class="skill_info">
-            <table>
-              <tr>
-                <th>Career</th>
-                <td>
-                  <% if user.portfolio.present? %>
-                    <% if user.portfolio.career == 1 %>
-                      <%= "Developer" %>
-                    <% elsif user.portfolio.career == 2 %>
-                      <%= "Designer" %>
-                    <% elsif user.portfolio.career == 3 %>
-                      <%= "DesiLoper" %>
+  <div class="container">
+  <section class="user_index">
+    <% @users.each do |user| %>
+      <% if !user.portfolio.blank? %>
+        <div class="user_box">
+          <%= link_to(user_path(user)) do %>
+            <div class="user_info">
+              <% if user.image? %>
+                <div class="user_image"><%= image_tag user.image.url, size: 170 if user.image? %></div>
+              <% else %>
+                <div class="user_image"><%= image_tag("noprofile.png", size: 170)%></div>
+              <% end %>
+            </div>
+          <% end %>
+          <%= link_to(user_path(user), class:"hull_a") do %>
+            <div class="skill_info">
+              <table class ="skill_list">
+                <tr>
+                  <th>Name</th>
+                  <td>
+                    <%= link_to "#{user.name}", user_path(user) %>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Career</th>
+                  <td>
+                    <% if user.portfolio.present? %>
+                      <% if user.portfolio.career == 1 %>
+                        <%= "Developer" %>
+                      <% elsif user.portfolio.career == 2 %>
+                        <%= "Designer" %>
+                      <% elsif user.portfolio.career == 3 %>
+                        <%= "DesiLoper" %>
+                      <% end %>
                     <% end %>
-                  <% end %>
-                </td>
-              </tr>
-              <tr>
-                <th>How Long?</th> <td><%= user.career_year %></td>
-              </tr>
-              <tr>
-                <th>Skills</th> 
-                <td>
-                  <% if user.techs.any? %>
-                    <%= render user.techs %>
-                  <% end %>
-                </td>
-              </tr>
-            </table>
-          </div>
-        <% end %>
-      </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th>How Long?</th> 
+                  <td><%= user.career_year %></td>
+                </tr>
+                <tr>
+                  <th>Skills</th> 
+                  <td>
+                    <% if user.techs.any? %>
+                      <%= render user.techs %>
+                    <% end %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-  <div align="center">
-   <%= will_paginate @users%> 
-  </div>
+  </section>
+</div>
+<div align="center">
+ <%= will_paginate @users%> 
+</div>
+  
 <% else %>
-<div class="container">
-  <div align="center">
-    <div class="PageLayout-content">
-      <div class="FormContent">
-        <%= "Sorry, No user who can use ''#{@tech.name}'' was found" %>
+  <div class="container">
+    <div align="center">
+      <div class="PageLayout-content">
+        <div class="FormContent">
+          <%= "Sorry, No user who can use ''#{@tech.name}'' was found" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <% end %>

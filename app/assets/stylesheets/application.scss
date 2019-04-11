@@ -185,7 +185,7 @@ td{
 // User index =======================================
 .user_index{
   display:flex;
-  flex-flow:column;
+  flex-flow:wrap;
   
 }
 
@@ -202,7 +202,6 @@ td{
   margin:0.5rem 30px;
   width:45vw;
   position:relative;
-  left:25vw;
   background:white;
   
   tr{

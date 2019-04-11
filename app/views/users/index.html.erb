@@ -9,9 +9,9 @@
           <%= link_to(user_path(user)) do %>
             <div class="user_info">
               <% if user.image? %>
-                <div class="user_image"><%= image_tag user.image.url, size: 150 if user.image? %></div>
+                <div class="user_image"><%= image_tag user.image.url, size: 170 if user.image? %></div>
               <% else %>
-                <div class="user_image"><%= image_tag("avatar.png", size: 150)%></div>
+                <div class="user_image"><%= image_tag("noprofile.png", size: 170)%></div>
               <% end %>
             </div>
           <% end %>
