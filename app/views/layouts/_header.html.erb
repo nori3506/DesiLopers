@@ -15,7 +15,6 @@
       <ul class="nav navbar-nav nav-design">
       <% if loggedin? %>
         <li class="nav-child"><%= link_to "DesiLopers", root_path %></li> 
-      
         <% if @current_user.portfolio.nil? %>
           <li class="nav-child"><%= link_to "Create Portfolio", new_portfolio_path %></li>
         <% else %>

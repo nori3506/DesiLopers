@@ -281,7 +281,7 @@ td{
   border:solid 1px;
   border-radius:5px;
   margin:0.5rem 30px;
-  width:45vw;
+  width:44vw;
   position:relative;
   background:white;
   
@@ -298,8 +298,130 @@ td{
   td{
     text-align:left;
   }
-
 }
+
+@media (min-width: 250px) and (max-width: 424px){
+  .user_box{
+    width:85vw;
+    
+  th{
+    border-right:solid 1px #b9b7bc;
+    background:#eeeeee;
+    width:13vw;
+    font-size:0.6rem;
+    
+  }
+  
+  td{
+    text-align:center;
+    font-size:0.6rem;
+  }
+    
+    
+  }
+  img{
+    width: 100px;
+    height: 100px;
+  }
+  
+}
+
+@media (min-width: 425px) and (max-width: 528px){
+  .user_box{
+    width:85vw;
+    
+  th{
+    border-right:solid 1px #b9b7bc;
+    background:#eeeeee;
+    width:12vw;
+    font-size:0.8rem;
+    
+  }
+  
+  td{
+    text-align:center;
+    font-size:0.8rem;
+  }
+    
+    
+  }
+  img{
+    width: 120px;
+    height: 120px;
+  }
+  
+}
+
+
+@media (min-width: 528px) and (max-width: 670px){
+  .user_box{
+    width:85vw;
+    
+  th{
+    border-right:solid 1px #b9b7bc;
+    background:#eeeeee;
+    width:12vw;
+    
+  }
+  
+  td{
+    text-align:center;
+  }
+    
+    
+  }
+  img{
+    width: 120px;
+    height: 120px;
+  }
+  
+}
+
+@media (min-width: 670px) and (max-width: 750px){
+  .user_box{
+    width:100vw;
+  }
+  img{
+    width: 170px;
+    height: 170px;
+  }
+  
+}
+
+@media (min-width: 750px) and (max-width: 858px){
+  .user_box{
+    width:42vw;
+  }
+  img{
+    width: 100px;
+    height: 100px;
+  }
+  
+}
+
+@media (min-width: 858px) and (max-width: 1000px){
+  .user_box{
+    width:43vw;
+  }
+  img{
+    width: 130px;
+    height: 130px;
+  }
+  
+}
+
+
+@media (min-width: 1000px){
+  .user_box{
+    width:44vw;
+  }
+  img{
+    width: 170px;
+    height: 170px;
+  }
+}
+
+
 
 .user_info{
   display:inline-block;
@@ -342,7 +464,7 @@ td{
 }
 
 .label{
-  margin-right:4px;
+  margin-right:10px;
 }
 
 /////////////////////////// sessions new.html
