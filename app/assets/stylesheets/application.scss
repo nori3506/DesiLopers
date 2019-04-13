@@ -473,12 +473,9 @@ td{
 }
 
 //////////////////////////// user/_form.html
-
-// .picture_create{
-//   display:flex;
-//   justify-content: center;
-// }
-
+textarea select input{
+  border: 1px solid;
+}
 .skill_head{
   font-weight:bold;
 }
