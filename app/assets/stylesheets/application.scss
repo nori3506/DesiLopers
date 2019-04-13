@@ -86,6 +86,13 @@ td{
   margin:auto 0;
 }
 
+.navbar-default .navbar-nav > .emphasize > a{
+  color:red;
+  &:visited, &:hover{
+    color:red;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 851px){
 .navbar-nav > .nav-child2 > a {
     padding: 15px 1.5vw;
@@ -523,10 +530,6 @@ textarea select input{
 .required:after {
     content: " *";
     color: #E00;
-}
-
-.emphasize a{
-  color: #E00;
 }
 
 .bigger{
