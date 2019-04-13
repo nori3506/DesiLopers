@@ -5,16 +5,16 @@
     <h3>Sign Up</h3>
     <%= form_for @user do |f| %>
      <div class="field">
-      <%= f.text_field :name, placeholder: "Name", :size => "50x1" %>
+      <%= f.text_field :name, placeholder: "Name", class:"text-sm-field"  %>
      </div>
      <div class="field">
-      <%= f.text_field :email, placeholder: "Email", :size => "50x1" %>
+      <%= f.text_field :email, placeholder: "Email", class:"text-sm-field" %>
      </div>
      <div class="field">
-      <%= f.password_field :password, placeholder: "Password", :size => "50x1" %>
+      <%= f.password_field :password, placeholder: "Password", class:"text-sm-field" %>
      </div>
      <div class="field">
-      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", :size => "50x1" %>
+      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class:"text-sm-field" %>
      </div>
      <div class="field">
       <%= f.label:career_year, 'Career' %>
@@ -29,7 +29,7 @@
       <% end %>
      </div>
      <div class="picture_create">
-      <div class="picture_head">Profile Picture</div>
+      <div class="picture_head">Profile Picture</div> 
       <div class="field">
        <%= f.file_field :image %>
       </div>

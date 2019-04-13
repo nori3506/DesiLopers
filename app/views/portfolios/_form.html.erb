@@ -10,16 +10,16 @@
      </div>
      <div class="field">
       <%= f.label :experience, "Experience", class:"required" %> <br>
-      <%= f.text_area :experience, :size => "50x5", placeholder: "Your Experience", required: true %>
+      <%= f.text_area :experience, placeholder: "Your Experience",class:"text-field", required: true %>
      </div>
      <div class="field">
       <%= f.label :message, "Message", class:"required" %><br>
-      <%= f.text_area :message, :size => "50x5", placeholder: "Your Message", required: true %>
+      <%= f.text_area :message, placeholder: "Your Message",class:"text-field", required: true %>
      </div>
      <div class="field">
       <h3>Main Portfolio</h3>
       <%= f.label :first_site, "URL", class:"required" %><br>
-      <%= f.text_area :first_site, :size => "50x3", required: true %>
+      <%= f.text_area :first_site, class:"text-field", required: true %>
      </div>
      <div class="field">
       <%= f.label :first_image,"Image" %>
@@ -28,7 +28,7 @@
      <div class="field">
       <h3>Second Portfolio</h3>
       <%= f.label :second_site,"URL" %><br>
-      <%= f.text_area :second_site, :size => "50x3"%>
+      <%= f.text_area :second_site, class:"text-field" %>
      </div>
      <div class="field">
       <%= f.label :second_image, "Image" %>
@@ -37,7 +37,7 @@
      <div class="field">
       <h3>Third Portfolio</h3>
       <%= f.label :third_site, "URL" %><br>
-      <%= f.text_area :third_site, :size => "50x3" %>
+      <%= f.text_area :third_site, class:"text-field"%>
      </div>
      <div class="field">
       <%= f.label :third_image, "Image" %>

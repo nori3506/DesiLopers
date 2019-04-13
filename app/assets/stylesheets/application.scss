@@ -474,10 +474,10 @@ td{
 
 //////////////////////////// user/_form.html
 
-.picture_create{
-  display:flex;
-  justify-content: center;
-}
+// .picture_create{
+//   display:flex;
+//   justify-content: center;
+// }
 
 .skill_head{
   font-weight:bold;
@@ -508,6 +508,11 @@ td{
     margin: 4rem 0;
 }
 
+.text-sm-field{
+  height: 2rem;
+  width: 80%; 
+}
+
 
 ////////////////////////////sessions/ new.html
 
@@ -529,4 +534,9 @@ td{
 
 .bigger{
   font-size:1.5rem;
+}
+
+.text-field{
+  width: 80%;
+  height: 15vh;
 }
