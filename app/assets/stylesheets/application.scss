@@ -474,6 +474,88 @@ td{
   margin-right:10px;
 }
 
+////////////////////////////user show.html
+.user_image-size img{
+  height: 400px;
+  width: 400px;
+}
+
+#profile-pic {
+  float:left;
+}
+
+.user-related-box{
+  display:flex;
+  flex-flow:row;
+  list-style:none;
+  border:solid 1px;
+  border-radius:5px;
+  margin:0.5rem 30px;
+  width:57%;
+  position:relative;
+  background:white;
+  
+  tr{
+  border-bottom:solid 1px #b9b7bc;
+  }
+  
+  th{
+    border-right:solid 1px #b9b7bc;
+    background:#eeeeee;
+    width:10vw;
+    text-align: center;
+  }
+  
+  td{
+    text-align:left;
+  }
+}
+
+
+.experience-part{
+  p{
+    width:80%;
+    border: black 1px solid;
+  }
+}
+.experience{
+  clear: both;
+  margin: 7rem 0 1rem 0;
+  background: #86a3f7
+}
+
+.portfolio-part{
+  margin:0 5rem;
+}
+
+.portfolio1{
+  img{
+    float:left;
+  }
+}
+
+.portfolio2{
+  clear: both;
+  img{
+    float:right;
+  }
+}
+.portfolio3{
+  clear: both;
+  img{
+    float:left;
+  }
+}
+
+#profile-pic-size{
+  height:300px;
+  width:300px;
+}
+
+.back-button{
+  clear: both;
+}
+
 /////////////////////////// sessions new.html
 .field{
   margin: 2vh 0;
@@ -495,7 +577,7 @@ textarea select input{
 
 .PageLayout-content {
     margin: 0 auto;
-    max-width: 480px;
+    max-width: 63rem;
     width: 100%;
 }
 
@@ -505,7 +587,7 @@ textarea select input{
     font-family: Helvetica Neue,Helvetica,Arial,Liberation Sans,Roboto,Noto,sans-serif;
     font-size: 1rem;
     letter-spacing: 0;
-    line-height: 1.5rem;
+    line-height: 2.5rem;
     font-weight: 400;
     width: 100%;
     box-sizing: border-box;

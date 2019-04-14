@@ -2,48 +2,196 @@
   <div align="center">
     <div class="PageLayout-content">
       <div class="FormContent">
-        <h1><%= @user.name %></h1>
-        <% if @user.portfolio.blank? %>
-          <%= "No Portfolio was uploaded by #{@user.name} yet!" %>
-        <% elsif %>
-          <% if @user.portfolio.career == 1 %>
-            <li><%= "Developer" %></li>
-            <% elsif @user.portfolio.career == 2 %>
-            <li><%= "Designer" %></li>
-            <% elsif @user.portfolio.career == 3 %>
-            <li><%= "Developer Designer" %></li>
-          <% end %>
-        <% end %>
-        <% if !@user.portfolio.experience.blank? %>
-          <li>経験</li>
-          <%= @user.portfolio.experience %>
-        <% end %>
-        <li>コメント<%= @user.portfolio.message %></li>
-        <li>webサイト<%= link_to "Main Website", @user.portfolio.first_site %></li>
-        <% if !@user.portfolio.first_image.blank? %>
-          <div class="user_image"><%= image_tag @user.portfolio.first_image.url, size: 130 %></div>
-        <% else %>
-          <div class="user_image"><%= image_tag("noimage.png", size: 130)%></div>
-        <% end%>
-        <li>webサイト<%= link_to "2nd Website", @user.portfolio.second_site %></li>
-          <% if @user.portfolio.second_image? %>
-            <div class="user_image"><%= image_tag @user.portfolio.second_image.url, size: 130 %></div>
-          <% else %>
-            <div class="user_image"><%= image_tag("noimage.png", size: 130)%></div>
-          <% end %>
-          <li>webサイト<%= link_to "3rd Website", @user.portfolio.third_site %></li>
-          <% if @user.portfolio.third_image? %>
-            <div class="user_image"><%= image_tag @user.portfolio.third_image.url, size: 130 %></div>
-          <% else %>
-            <div class="user_image"><%= image_tag("noimage.png", size: 130)%></div>
-          <% end %>
+        <div class="user_image-size">
+         <% if !@user.image.blank? %>
+           <%= image_tag @user.image.url, id:"profile-pic" %>
+         <% else %>
+           <%= image_tag "noprofile.png", id:"profile-pic" %>
+         <% end %>
+        </div>
+        <h1><%= @user.name %></h1> 
         <% if loggedin? && (current_user.admin? || current_user == @user) && !@user.admin? %>
-        <%= link_to "Edit", edit_user_path(@user) %>
-        <%= link_to "Delete", user_path(@user), method: :delete,
-                    data: {confirm: "Are you sure you want to delete the portfolio?"} %>
-        <% end %>
+          <%= link_to "Edit", edit_portfolio_path(@user.portfolio) %>
+          <%= link_to "Delete", user_path(@user), method: :delete,
+                      data: {confirm: "Are you sure you want to delete the portfolio?"} %>
+        <% end %><hr>
+        
+        <div class="skill_info">
+          <div class="user-related-box">
+            <table class ="skill_list">
+              <tr>
+                <th>Age</th> 
+                <td></td>
+              </tr>
+              <tr>
+                <th>Gender</th> 
+                <td>
+                </td>
+              </tr>
+              <tr>
+                <th>Area</th> 
+                <td>
+                </td>
+              </tr>
+              <tr>
+                <th>Career</th>
+                <td>
+                  <% if @user.portfolio.blank? %>
+                    <%= "No Portfolio was uploaded by #{@user.name} yet!" %>
+                  <% elsif %>
+                    <% if @user.portfolio.career == 1 %>
+                      <li><%= "Developer" %></li>
+                    <% elsif @user.portfolio.career == 2 %>
+                      <li><%= "Designer" %></li>
+                    <% elsif @user.portfolio.career == 3 %>
+                      <li><%= "Developer Designer" %></li>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <th>How Long?</th> 
+                <td><%= @user.career_year %></td>
+              </tr>
+              <tr>
+                <th>Skills</th> 
+                <td>
+                  <% if @user.techs.any? %>
+                    <%= render @user.techs %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <th>コメント</th> 
+                <td>
+                  <%= @user.portfolio.message %>
+                </td>
+              </tr>
+              <tr>
+                <th>job-hungting?</th> 
+                <td></td>
+              </tr>
+              <tr>
+                <th>Hobby</th> 
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        
+        <div class="experience-part">
+          <h2 class="experience">Work/Study Experience</h2> 
+          <p>
+            <% if !@user.portfolio.experience.blank? %>
+              <%= @user.portfolio.experience %>
+            <% end %>
+          </p>
+        </div>
+        <div class="portfolio-part">
+          <h2 class="experience">Portfolio</h2> 
+          <div class="portfolio1">
+            <% if !@user.portfolio.first_image.blank? %>
+              <div class="user_image"><%= image_tag @user.portfolio.first_image.url,id:"profile-pic-size" %></div>
+            <% else %>
+              <div class="user_image"><%= image_tag("noimage.png",id:"profile-pic-size" )%></div>
+            <% end%>
+            <div class="user-related-box">
+              <table class ="skill_list">
+                <tr>
+                  <th>Web Name</th> 
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>Summary</th> 
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>URL</th> 
+                  <td><%= link_to "アクセス", @user.portfolio.first_site %></td>
+                </tr>
+                <tr>
+                  <th>制作期間</th> 
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>使用技術</th> 
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <% if !@user.portfolio.second_site.blank? %>
+            <div class="portfolio2">
+              <% if @user.portfolio.second_image? %>
+                <div class="user_image"><%= image_tag @user.portfolio.second_image.url, id:"profile-pic-size" %></div>
+              <% else %>
+                <div class="user_image"><%= image_tag("noimage.png", id:"profile-pic-size")%></div>
+              <% end %>
+              <div class="user-related-box">
+                <table class ="skill_list">
+                  <tr>
+                    <th>Web Name</th> 
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Summary</th> 
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>URL</th> 
+                    <td><%= link_to "2nd Website", @user.portfolio.second_site %></td>
+                  </tr>
+                  <tr>
+                    <th>制作期間</th> 
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>使用技術</th> 
+                    <td></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          <% end %>
+          <% if !@user.portfolio.third_site.blank? %>
+            <div class="portfolio3">
+              <% if @user.portfolio.third_image? %>
+                <div class="user_image"><%= image_tag @user.portfolio.third_image.url, id:"profile-pic-size" %></div>
+              <% else %>
+                <div class="user_image"><%= image_tag("noimage.png", id:"profile-pic-size")%></div>
+              <% end %>
+              <div class="user-related-box">
+                <table class ="skill_list">
+                  <tr>
+                    <th>Web Name</th> 
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Summary</th> 
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>URL</th> 
+                    <td><%= link_to "3rd Website", @user.portfolio.third_site %></td>
+                  </tr>
+                  <tr>
+                    <th>制作期間</th> 
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>使用技術</th> 
+                    <td></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
         </br>
-        <%= link_to "Back to User List", users_path %>
+        <div class="back-button">
+          <%= link_to "Back to User List", users_path %>
+        </div>
       </div>
     </div>
   </div>
