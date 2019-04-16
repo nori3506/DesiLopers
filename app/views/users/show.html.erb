@@ -2,6 +2,7 @@
   <div align="center">
     <div class="PageLayout-content">
       <div class="FormContent">
+        <h1><%= @user.name %></h1> <hr>
         <div class="user_image-size">
          <% if !@user.image.blank? %>
            <%= image_tag @user.image.url, id:"profile-pic" %>
@@ -13,13 +14,12 @@
            <%= image_tag "noprofile.png", id:"profile-pic" %>
          <% end %>
         </div>
-        <h1><%= @user.name %></h1> 
         <% if loggedin? && (current_user.admin? || current_user == @user) && !@user.admin? %>
-          <%= link_to "Edit", edit_portfolio_path(@user.portfolio) %>
-          <%= link_to "Delete", user_path(@user), method: :delete,
-                      data: {confirm: "Are you sure you want to delete the portfolio?"} %>
-        <% end %><hr>
-        
+          <%= link_to "User Edit", edit_user_path(@user), class:"button" %>
+          <%= link_to "Portfolio Edit", edit_portfolio_path(@user.portfolio), class:"button"%>
+          <%= link_to "Delete Portfolio", portfolio_path(@user.portfolio), method: :delete,
+                      data: {confirm: "Are you sure you want to delete the portfolio?"}, class:"button" %>
+        <% end %>
         <div class="skill_info">
           <div class="user-related-box">
             <table class ="skill_list">
@@ -95,11 +95,11 @@
           <h2 class="experience">Portfolio</h2> 
           <div class="portfolio1">
             <% if !@user.portfolio.first_image.blank? %>
-              <div class="user_image"><%= image_tag @user.portfolio.first_image.url,id:"profile-pic-size" %></div>
+              <div class="user_image"><%= link_to image_tag(@user.portfolio.first_image.url,id:"profile-pic-size"),@user.portfolio.first_site, target: :_blank %></div>
             <% elsif @user.portfolio.first_site == "https://github.com/nori3506" %>
-              <div class="user_image"><%= link_to image_tag("noriportfolio.png",id:"profile-pic-size"), @user.portfolio.first_site %></div>
+              <div class="user_image"><%= link_to image_tag("noriportfolio.png",id:"profile-pic-size"), @user.portfolio.first_site, target: :_blank %></div>
             <% else %>
-              <div class="user_image"><%= image_tag("noimage.png",id:"profile-pic-size" )%></div>
+              <div class="user_image"><%= link_to image_tag("no_portfolio_image.png",id:"profile-pic-size"),@user.portfolio.first_site, target: :_blank%></div>
             <% end%>
             <div class="user-related-box">
               <table class ="skill_list">
@@ -129,9 +129,9 @@
           <% if !@user.portfolio.second_site.blank? %>
             <div class="portfolio2">
               <% if @user.portfolio.second_image? %>
-                <div class="user_image"><%= image_tag @user.portfolio.second_image.url, id:"profile-pic-size" %></div>
+                <div class="user_image"><%= link_to image_tag(@user.portfolio.second_image.url, id:"profile-pic-size"),@user.portfolio.second_site, target: :_blank %></div>
               <% else %>
-                <div class="user_image"><%= image_tag("noimage.png", id:"profile-pic-size")%></div>
+                <div class="user_image"><%= link_to image_tag("no_portfolio_image.png", id:"profile-pic-size"),@user.portfolio.second_site, target: :_blank %></div>
               <% end %>
               <div class="user-related-box">
                 <table class ="skill_list">
@@ -162,9 +162,9 @@
           <% if !@user.portfolio.third_site.blank? %>
             <div class="portfolio3">
               <% if @user.portfolio.third_image? %>
-                <div class="user_image"><%= image_tag @user.portfolio.third_image.url, id:"profile-pic-size" %></div>
+                <div class="user_image"><%= link_to image_tag(@user.portfolio.third_image.url, id:"profile-pic-size"),@user.portfolio.third_site, target: :_blank %></div>
               <% else %>
-                <div class="user_image"><%= image_tag("noimage.png", id:"profile-pic-size")%></div>
+                <div class="user_image"><%= link_to image_tag("no_portfolio_image.png", id:"profile-pic-size"),@user.portfolio.third_site, target: :_blank%></div>
               <% end %>
               <div class="user-related-box">
                 <table class ="skill_list">

@@ -31,7 +31,12 @@
             <li class="nav-child"><%= link_to "Create New Skill List", new_tech_path %></li>
           </ul>
         </li>
-        <li class="nav-child"><%= link_to "#{current_user.name}", user_path(current_user)%></li>
+        <li class="nav-child">
+          <% if current_user.portfolio.nil? %>
+            <%= link_to "#{current_user.name}", new_portfolio_path%></li>
+          <% else %>
+            <%= link_to "#{current_user.name}", user_path(current_user)%></li>
+          <% end %>
         <li class="dropdown nav-child">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Edit<span class="caret"></span></a>
           <ul class="dropdown-menu">

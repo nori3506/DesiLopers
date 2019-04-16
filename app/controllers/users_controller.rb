@@ -39,7 +39,12 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = "User data was updated successfully!"
-      redirect_to @user
+      if @user.portfolio.nil?
+        flash[:danger]="Please set your portfolio infomation in this page"
+        redirect_to new_portfolio_path
+      else
+        redirect_to @user
+      end
     else
       render 'edit'
     end

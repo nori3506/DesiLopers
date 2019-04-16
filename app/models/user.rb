@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {maximum: 40}
   mount_uploader :image, ImageUploader
   has_secure_password
-  has_one :portfolio, dependent: :destroy
+  has_one :portfolio,:dependent => :delete
   has_many :tech_users
   has_many :techs, through: :tech_users
   
