@@ -56,6 +56,7 @@ class UsersController < ApplicationController
     trial_user_new
     if @user.save
       log_in(@user)
+      trial_user_create_portfolio
       flash[:success] = "TRY this APP!, Welcome!"
       redirect_to users_path
     else
@@ -92,6 +93,11 @@ private
   
   def trial_user_new
     @user = User.new(name:"TRIAL USER",email:"test#{rand(1..100000)}@test.test", password: "password", password_confirmation: "password")
+  end
+  
+  def trial_user_create_portfolio
+    @user.portfolio = Portfolio.new(career: 1, experience:"Sorry,I am just trying this app", message:"Hi, Nice to meet you!", first_site:"https://github.com/nori3506")
+    @user.portfolio.save
   end
   
 

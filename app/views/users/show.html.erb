@@ -5,6 +5,10 @@
         <div class="user_image-size">
          <% if !@user.image.blank? %>
            <%= image_tag @user.image.url, id:"profile-pic" %>
+         <% elsif @user.name == "TRIAL USER" %>
+           <div class="user_image">
+             <%= image_tag("sampleman.jpg" , id:"profile-pic") %>
+           </div>
          <% else %>
            <%= image_tag "noprofile.png", id:"profile-pic" %>
          <% end %>
@@ -92,6 +96,8 @@
           <div class="portfolio1">
             <% if !@user.portfolio.first_image.blank? %>
               <div class="user_image"><%= image_tag @user.portfolio.first_image.url,id:"profile-pic-size" %></div>
+            <% elsif @user.portfolio.first_site == "https://github.com/nori3506" %>
+              <div class="user_image"><%= link_to image_tag("noriportfolio.png",id:"profile-pic-size"), @user.portfolio.first_site %></div>
             <% else %>
               <div class="user_image"><%= image_tag("noimage.png",id:"profile-pic-size" )%></div>
             <% end%>
