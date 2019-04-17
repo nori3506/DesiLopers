@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  validates :user, presence:true
+  belongs_to :user
+  validates :user, presence:true, length: {minimum: 3}
+  
 end

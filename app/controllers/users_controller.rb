@@ -31,9 +31,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    # if current_user && @current_user.portfolio.nil?
-    #   redirect_to new_portfolio_path
-    # end
+    @comments = @user.comments
   end
   
   def update

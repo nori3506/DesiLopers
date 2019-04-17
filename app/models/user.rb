@@ -12,9 +12,6 @@ class User < ApplicationRecord
   has_one :portfolio,:dependent => :delete
   has_many :tech_users
   has_many :techs, through: :tech_users
+  has_many :comments, dependent: :destroy
   
-  
-  
-
-
 end
