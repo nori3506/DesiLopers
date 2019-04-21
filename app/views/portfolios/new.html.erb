@@ -1,3 +1,5 @@
 <%= render 'shared/errors', obj: @portfolio %>
+<% provide(:portfolio_head, 'Create Portfolio') %>
+<% provide(:button_text, 'Create') %>
 
 <%= render 'form' %>

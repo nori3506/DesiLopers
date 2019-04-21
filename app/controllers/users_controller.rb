@@ -31,7 +31,9 @@ class UsersController < ApplicationController
   end
   
   def show
-    @comments = @user.comments
+    @comment = Comment.new
+
+    @portfolio = @user.portfolio
   end
   
   def update
@@ -95,7 +97,8 @@ private
   end
   
   def trial_user_new
-    @user = User.new(name:"TRIAL USER",email:"test#{rand(1..100000)}@test.test", password: "password", password_confirmation: "password")
+    random_number = rand(1..100000)
+    @user = User.new(name:"TRIAL USER#{random_number}",email:"test#{random_number}@test.test", password: "password", password_confirmation: "password")
   end
   
   def trial_user_create_portfolio

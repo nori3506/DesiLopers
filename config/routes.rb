@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'users/trial', to: 'users#create_trial_user'
   
   resources :users
-  resources :comments, only:[:create, :edit, :update, :destroy]
+  resource :comments, only:[:create, :edit, :update, :destroy]
   resource :sessions, only: [:new, :create, :destroy]
   resources :portfolios
   resources :teches

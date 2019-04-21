@@ -1,14 +1,16 @@
 class CommentsController < ApplicationController
   
   def create
-    @user = User.find_by(id:params[:id])
-    comment = @user.comment.build(comment_params)
+    user = User.find(params[:commented_user])
+    comment = user.comments.build(comment_params)
+    comment.user = current_user
+    comment.portfolio_id = user.portfolio.id
     if comment.save
       flash[:success] = "your comment was uploaded successfully"
-      render @user
+      redirect_to user
     else
       flash[:danger] = "failed to upload your comment, Try again"
-      render @user
+      redirect_to users_path
     end
   end
   
@@ -30,6 +32,6 @@ class CommentsController < ApplicationController
   
 private 
   def comment_params
-    params.require(:comment).permit[:content]
+    params.require(:comment).permit(:content)
   end
 end

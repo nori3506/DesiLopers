@@ -3,6 +3,7 @@
  <div align="center">
   <div class="PageLayout-content">
    <div class="FormContent">
+    <h1><%= yield(:portfolio_head) %></h1>
     <%= form_for @portfolio do |f| %>
      <div class="field">
       <%= f.label:career %>
@@ -44,7 +45,7 @@
       <%= f.file_field :first_image %>
      </div>
      <div class="actions">
-      <%= f.submit "Register" %>
+      <%= f.submit yield(:button_text) %>
      </div>
     <% end %>
    </div>

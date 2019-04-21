@@ -194,6 +194,29 @@
           <% end %>
         </div>
         
+        <div class="comment-part">
+          <% if @portfolio.comments.any? %>
+            <% @portfolio.comments.each do |comment| %>
+                <%= comment.content %>
+                <% if comment.user.portfolio.nil? %>
+                  <%= "User without portfolio" %>
+                <% else %>
+                  <%= link_to comment.user.name, user_path(comment.user), class:"name_color" %>
+                <% end %>
+                <br>
+            <% end %>
+          <% end %>
+          <% if loggedin? %>
+            <div class="comment-form">
+              <%= form_for(@comment, url:comments_path) do |f| %>
+                <%= hidden_field_tag :comment_user, @current_user.id %>
+                <%= hidden_field_tag :commented_user, @user.id %>
+                <%= f.text_field :content %>
+                <%= f.submit %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
 
         </br>
         <div class="back-button">
