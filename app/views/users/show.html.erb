@@ -193,16 +193,36 @@
             </div>
           <% end %>
         </div>
-        
         <div class="comment-part">
+          <h2 class="experience">Comment</h2>
           <% if @portfolio.comments.any? %>
             <% @portfolio.comments.each do |comment| %>
-                <%= comment.content %>
+              <div class="commented-user">
+                <% if comment.user.image? %>
+                  <div class="user_image">
+                    <%= image_tag(comment.user.image.url, class:"small-pic-size") %>
+                  </div>
+                <% elsif comment.user.name.include?("TRIAL USER") %>
+                  <div class="user_image">
+                    <%= image_tag("sampleman.jpg",class:"small-pic-size") %>
+                  </div>
+                <% else %>
+                  <div class="user_image">
+                    <%= image_tag("noprofile.png",class:"small-pic-size") %>
+                    </div>
+                <% end %>
+              
+                
                 <% if comment.user.portfolio.nil? %>
-                  <%= "User without portfolio" %>
+                  <%= "User without portfolio"%>
                 <% else %>
                   <%= link_to comment.user.name, user_path(comment.user), class:"name_color" %>
                 <% end %>
+              </div>
+                <div class="comment-area">
+                  <%= comment.content %>
+                </div>
+              
                 <br>
             <% end %>
           <% end %>

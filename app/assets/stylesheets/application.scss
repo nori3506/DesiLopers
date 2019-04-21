@@ -598,7 +598,7 @@ td{
 }
 .experience{
   clear: both;
-  margin: 7rem 0 1rem 0;
+  margin: 9rem 0 1rem 0;
   background: #86a3f7
 }
 
@@ -642,6 +642,23 @@ td{
 
 .comment-part .name_color{
   color:blue;
+}
+
+.comment-area{
+  max-width:50%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.small-pic-size{
+  height:50px;
+  width:50px;
+}
+
+.commented-user{
+  display:flex;
+  flex-flow:row;
+  justify-content:center;
 }
 
 /////////////////////////// sessions new.html
