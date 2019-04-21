@@ -123,7 +123,7 @@ td{
 
 @media (min-width: 1149px) and (max-width: 1305px){
 .navbar-nav > .nav-child2 > a {
-    padding: 15px 2.5vw;
+    padding: 15px 2vw;
   }
 }
 
@@ -485,6 +485,48 @@ td{
   margin-top: 0.2rem;
 }
 
+@media (min-width: 320px) and (max-width: 425px){
+.user_image-size img{
+  height:290px;
+  width:300px;
+}
+
+#profile-pic {
+  float:inherit;
+}
+  
+}
+
+@media (min-width: 425px) and (max-width: 525px){
+.user_image-size img{
+  height:400px;
+  width:400px;
+}
+
+#profile-pic {
+  float:inherit;
+}
+  
+}
+
+@media (min-width: 525px) and (max-width: 648px){
+.user_image-size img{
+  height: 500px;
+  width: 500px;
+}
+#profile-pic {
+  float:inherit;
+}
+}
+
+@media (min-width: 648px) and (max-width: 768px){
+.user_image-size img{
+  height: 300px;
+  width: 300px;
+}
+}
+
+
 .user-related-box{
   display:flex;
   flex-flow:row;
@@ -503,7 +545,7 @@ td{
   th{
     border-right:solid 1px #b9b7bc;
     background:#eeeeee;
-    width:10vw;
+    width:12vw;
     text-align: center;
   }
   
@@ -512,6 +554,41 @@ td{
   }
 }
 
+@media (min-width: 320px) and (max-width: 425px){
+  .user-related-box{
+  width: 90%;
+  th{
+    width:24vw;
+  }
+}
+}
+
+@media (min-width: 425px) and (max-width: 648px){
+  .user-related-box{
+  width: 82%;
+  th{
+    width:19vw;
+  }
+}
+}
+
+@media (min-width: 648px) and (max-width: 768px){
+.user-related-box{
+  width: 49%;
+}
+}
+
+@media (min-width: 768px) and (max-width: 892px){
+.user-related-box{
+  width: 42%;
+}
+}
+
+@media (min-width: 892px) and (max-width: 1024px){
+.user-related-box{
+  width: 50%;
+}
+}
 
 .experience-part{
   p{
