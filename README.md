@@ -12,7 +12,7 @@
  ・Comment  
  ・Responsive Design  
 
-## 3. Usage
+## 3. 使い方　Usage
  ・Initialy, please login clicking "Login as TRIAL" in navbar so that you are able to user whole functions in this application.  
  ・When screen displays the user name such as "TRIAL USER12345", you have successuflly logged in and good to go to further function.  
  ・Even though you logged in as TRIAL USER through this step, you can modify your user information in User Edit page.  
