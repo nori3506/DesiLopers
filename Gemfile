@@ -41,7 +41,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #画像アップロード
 gem 'carrierwave'
 
-#画像の加工とか
+#画像の加工とか 
 gem 'rmagick'
 
 group :development, :test do
