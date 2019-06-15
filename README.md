@@ -25,7 +25,7 @@
 　Noriaki.N
 
 
-test commentttttmmmnnnnooolll
+comment was deleted!
 this is new line
 
 add more line
