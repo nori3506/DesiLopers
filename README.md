@@ -23,10 +23,3 @@
 
 # Author
 　Noriaki.N
-
-
-this line was revised by 1st change branch
-hello!! this is same as previous line.
-this is new line
-
-add more line
