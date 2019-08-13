@@ -1,7 +1,9 @@
 <div align="center">
- <%= will_paginate %> 
+ <%= will_paginate %>
 </div>
 <div class="container">
+
+  <% form_with (model:@user, url: 'users') %>
   <section class="user_index">
     <% @users.each do |user| %>
       <% if !user.portfolio.blank? %>
@@ -41,11 +43,11 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>How Long?</th> 
+                  <th>How Long?</th>
                   <td><%= user.career_year %></td>
                 </tr>
                 <tr>
-                  <th>Skills</th> 
+                  <th>Skills</th>
                   <td>
                     <% if user.techs.any? %>
                       <%= render user.techs %>
@@ -61,5 +63,5 @@
   </section>
 </div>
 <div align="center">
- <%= will_paginate %> 
+ <%= will_paginate %>
 </div>
