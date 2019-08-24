@@ -6,7 +6,29 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 20)
+
+    @users = User.all
+
+    if params[:user].present?
+
+    keyword = filter_param
+
+    # @users = User.where(User.name == keyword).or(User.where(portfolio.experience == keyword)).or(User.where(portfolio.message == keyword))
+
+    @users = User.where(name: keyword)
+  else
+    @users = User.all
+    end
+
+
+
+
+
+    # if params[:user].nil?
+    #   return @users = User.paginate(page: params[:page], per_page: 20)
+    # else
+    #   user_filter(filter_param)
+    # end
     # @user_portfolio =@user.portfolio
     # @user_portfolio = @users.portfolio.career
   end
@@ -70,8 +92,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
 private
 
   def user_params
@@ -106,5 +126,11 @@ private
     @user.portfolio.save
   end
 
+  def user_filter(keyword)
+    @users = User.where(name == keyword).or(User.portfolios.where(experience == keyword)).or(User.portfolios.where(message == keyword))
+  end
 
+  def filter_param
+    params.require(:user).permit(:keyword)
+  end
 end
