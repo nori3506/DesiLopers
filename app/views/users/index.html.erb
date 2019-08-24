@@ -2,8 +2,6 @@
  <%= will_paginate %>
 </div>
 <div class="container">
-
-  <% form_with (model:@user, url: 'users') %>
   <section class="user_index">
     <% @users.each do |user| %>
       <% if !user.portfolio.blank? %>
