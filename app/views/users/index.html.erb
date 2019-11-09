@@ -1,5 +1,5 @@
-<%= form_with(model:User.new, url: '/users', method: :get) do |f|%>
-  <%= f.text_field :keyword, value: (params[:user][:keyword] if params[:user]) %>
+<%= form_with(url: users_path, method: :get, local: true) do |f|%>
+  <%= f.text_field :name, value: params[:name] %>
   <%= f.submit "検索する" %>
 <% end %>
 <div align="center">
