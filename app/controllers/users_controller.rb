@@ -6,9 +6,8 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 20)
-    # @user_portfolio =@user.portfolio
-    # @user_portfolio = @users.portfolio.career
+    filtered = fileter_users(User.all)
+    @users = filtered
   end
 
   def create
@@ -70,8 +69,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
 private
 
   def user_params
@@ -106,5 +103,15 @@ private
     @user.portfolio.save
   end
 
+  def fileter_users(users)
+    if params[:name] && params[:name] != ""
+      name = params[:name]
+      return users.where(name: name)
+    end
+    users
+  end
 
+  def filter_param
+    params.require(:user).permit(:name)
+  end
 end
