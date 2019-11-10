@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_24_120254) do
+ActiveRecord::Schema.define(version: 2019_11_10_140555) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 2019_08_24_120254) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_portfolios_on_user_id"
+  end
+
+  create_table "samples", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tech_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
