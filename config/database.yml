@@ -23,8 +23,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: heroku_81bc8f6e5427ccf
+  database: heroku_a21d9219bde0cba
   pool: 5
-  username: bd7aa878d62361
-  password: 924fc2bf
+  username: bb1677845492a0
+  password: 4e526e70
   host: us-cdbr-iron-east-05.cleardb.net
