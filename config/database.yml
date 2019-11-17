@@ -27,4 +27,4 @@ production:
   pool: 5
   username: bd7aa878d62361
   password: 924fc2bf
-  host: localhost
+  host: us-cdbr-iron-east-05.cleardb.net
