@@ -21,7 +21,6 @@ test:
   host: localhost
 
 production:
-  <<: *default
   adapter: mysql2
   encoding: utf8
   database: heroku_81bc8f6e5427ccf
