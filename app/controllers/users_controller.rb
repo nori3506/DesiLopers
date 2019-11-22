@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :admin_check, only: [:delete]
   before_action :same_user, only: [:edit,:update,:delete]
 
-
   def index
     filtered = fileter_users(User.all)
     @users = filtered
