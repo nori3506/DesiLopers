@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :same_user, only: [:edit,:update,:delete]
 
   def index
-    filtered = fileter_users(User.all)
+    filtered = fileter_users(User.includes([:portfolio, :techs]).all)
     @users = filtered
   end
 
