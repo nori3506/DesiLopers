@@ -1,6 +1,6 @@
 <% if @tech.users.count != 0 %>
   <div align="center">
-   <%= will_paginate @users%> 
+   <%= will_paginate @users%>
   </div>
   <div class="container">
   <section class="user_index">
@@ -40,11 +40,11 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>How Long?</th> 
+                  <th>How Long?</th>
                   <td><%= user.career_year %></td>
                 </tr>
                 <tr>
-                  <th>Skills</th> 
+                  <th>Skills</th>
                   <td>
                     <% if user.techs.any? %>
                       <%= render user.techs %>
@@ -60,9 +60,9 @@
   </section>
 </div>
 <div align="center">
- <%= will_paginate @users%> 
+ <%= will_paginate @users%>
 </div>
-  
+
 <% else %>
   <div class="container">
     <div align="center">

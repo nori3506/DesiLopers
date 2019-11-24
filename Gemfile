@@ -20,7 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt', '~> 3.1.7'
-gem 'will_paginate', '3.1.0'
+gem 'will_paginate', '3.2.1'
 gem 'bootstrap-will_paginate', '0.0.10'
 # gem 'mini_magick', '~> 4.8'
 

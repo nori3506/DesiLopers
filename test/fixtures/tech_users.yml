@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: tech_users
+#
+#  id      :bigint           not null, primary key
+#  tech_id :integer
+#  user_id :integer
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the
