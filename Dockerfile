@@ -9,4 +9,4 @@ ADD Gemfile /desilopers/Gemfile
 ADD Gemfile.lock /desilopers/Gemfile.lock
 
 RUN bundle install
-ADD . /app
+ADD . /desilopers
