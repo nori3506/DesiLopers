@@ -338,6 +338,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemodel-serializers-xml
   annotate
   bcrypt (~> 3.1.7)
   better_errors

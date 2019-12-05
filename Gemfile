@@ -28,6 +28,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem 'activemodel-serializers-xml'
 gem 'draper'
 gem 'pundit'
 gem 'ransack'
@@ -35,7 +36,6 @@ gem 'enumerize'
 gem 'rinku'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rails-controller-testing'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6.0'

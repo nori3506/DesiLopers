@@ -10,10 +10,19 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     ports:
       - "3306:3306"
+  db_test:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: desilopers_test
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - "3307:3306"
   web:
     build:
       context: .
-      dockerfile: Dockerfile
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     tty: true
     stdin_open: true
