@@ -10,5 +10,31 @@
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
+
+# ネストが深すぎる
+Metrics/BlockNesting:
+  Max: 5
+
+# クラスの行数が多すぎる
+Metrics/ClassLength:
+  Enabled: false
+
+# 循環的複雑度が高すぎる(ifやforなどを1メソッド内で使いすぎている)
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+# 例外を抑制している
+Lint/HandleExceptions:
+  Enabled: false
+
+# 行が長すぎる
 Metrics/LineLength:
-  Max: 90
+  Enabled: false
+
+# メソッドの行数が多すぎる
+Metrics/MethodLength:
+  Enabled: false
+
+# 引数の数が多すぎる
+Metrics/ParameterLists:
+  Max: 12
