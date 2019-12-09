@@ -21,21 +21,26 @@
 #
 
 require 'rails_helper'
+require 'factory_bot_rails'
 
 RSpec.describe User, type: :model do
   # valid with name, email, and password
   it 'is valid with name, email, password' do
-    user = User.new(
-      name: 'Aaron',
-      email: 'tester@example.com',
-      password: 'dottle-nouveau-pavilion-tights-furze'
-    )
-    expect(user).to be_valid
+    @user = FactoryBot.create(:user)
+    @user1 = create(:user, name: 'King', email: 'a@aaa.aaa')
+    expect(@user).to be_valid
+    expect(@user1).to be_valid
   end
   # invalid without name
   it 'is invalid without a name' do
     user = User.new(name: nil)
     user.valid?
-    expect(user.errors[:name]).to_not include("can't be blank")
+    expect(user.errors[:name]).to include("can't be blank")
+  end
+
+  it 'is invalid without an email' do
+    user = User.new(email: nil)
+    user.valid?
+    expect(user.errors[:email]).to include("can't be blank")
   end
 end
