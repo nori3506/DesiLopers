@@ -37,6 +37,6 @@ class Portfolio < ApplicationRecord
   mount_uploader :third_image, ImageUploader
   validates :career, presence: true
   min_number = 5
-  validates :experience, presence: true, length: { minimum: 5, too_short: "最大#{ min_number }文字以上入力してください。" }
-  validates :message, presence: true, length: { minimum: 5, too_short: "最大#{ min_number }文字以上入力してください。"  }
+  validates :experience, presence: true, length: { minimum: 5, too_short: "must be more than #{ min_number } letters" }
+  validates :message, presence: true, length: { minimum: 5, too_short: "must be more than #{ min_number } letters"  }
 end
