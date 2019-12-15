@@ -106,7 +106,7 @@ private
   def fileter_users(users)
     if params[:name] && params[:name] != ""
       name = params[:name]
-      return users.where(name: name)
+      return users.techs_and_portfolio.where('name LIKE(?)', "%#{ name }%")
     end
     users
   end

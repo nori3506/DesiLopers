@@ -34,6 +34,10 @@ class User < ApplicationRecord
   has_many :techs, through: :tech_users
   has_many :comments, dependent: :destroy
 
+  scope :techs_and_portfolio, -> {
+    includes(:portfolio, :techs)
+  }
+
 
 
 
