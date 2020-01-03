@@ -1,7 +1,11 @@
-<%= form_with(url: users_path, method: :get, local: true) do |f|%>
-  <%= f.text_field :name, value: params[:name] %>
-  <%= f.submit "検索する" %>
+<%= sort_link(@q, :name) %>
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+  <% f.collection_radio_buttons :%>
+  <%= f.submit %>
 <% end %>
+
 <div align="center">
  <%# will_paginate %>
 </div>

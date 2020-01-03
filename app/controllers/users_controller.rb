@@ -5,20 +5,31 @@ class UsersController < ApplicationController
   before_action :same_user, only: [:edit,:update,:delete]
 
   def index
-    filtered = fileter_users(User.includes([:portfolio, :techs]).all)
-    @users = filtered
+    # filtered = fileter_users(User.includes([:portfolio, :techs]).all)
+    # @users = filtered
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
+    @form = UserRegistForm.new(User.new, params[:user])
+    @user = @form.user
+    if @form.save
       log_in(@user)
-      flash[:success] = "New User Was Successfully Created, Welcome!"
       redirect_to new_portfolio_path
     else
       flash[:danger] = "Failed!"
       render 'new'
     end
+    # @user = User.new(user_params)
+    # if @user.save
+    #   log_in(@user)
+    #   flash[:success] = "New User Was Successfully Created, Welcome!"
+    #   redirect_to new_portfolio_path
+    # else
+    #   flash[:danger] = "Failed!"
+    #   render 'new'
+    # end
   end
 
   def new
@@ -106,7 +117,9 @@ private
   def fileter_users(users)
     if params[:name] && params[:name] != ""
       name = params[:name]
-      return users.techs_and_portfolio.where('name LIKE(?)', "%#{ name }%")
+      result_users = users.techs_and_portfolio.where('name LIKE(?) OR hobby LIKE(?) OR area LIKE(?)', "%#{ name }%", "%#{ name }%", "%#{ name }%")
+      result_users += users.techs_and_portfolio.where('teches.name LIKE(?)', "%#{ name }%")
+      return result_users
     end
     users
   end
