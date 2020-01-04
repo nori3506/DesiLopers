@@ -7,6 +7,7 @@ class UserRegistForm < ApplicationForm
 		:image,
 		:career_year,
 		:age,
+		:birthday,
 		:gender,
 		:area,
 		:job_hunting,
@@ -25,6 +26,7 @@ class UserRegistForm < ApplicationForm
 			:image,
 			:career_year,
 			:age,
+			:birthday,
 			:gender,
 			:area,
 			:job_hunting,
@@ -46,7 +48,8 @@ class UserRegistForm < ApplicationForm
 			@user.password_confirmation = password_confirmation
 			@user.image = image
 			@user.career_year = career_year
-			@user.age = age
+			@user.age = (Date.today.strftime('%Y%m%d').to_i - Date.parse(birthday).strftime('%Y%m%d').to_i) / 10000
+			@user.birthday = birthday
 			@user.gender = gender
 			@user.area = area
 			@user.job_hunting = job_hunting
@@ -68,6 +71,7 @@ class UserRegistForm < ApplicationForm
 		self.image ||= @user.image
 		self.career_year ||= @user.career_year
 		self.age ||= @user.age
+		self.birthday ||= @user.birthday
 		self.gender ||= @user.gender
 		self.hobby ||= @user.hobby
 		self.job_hunting ||= @user.job_hunting

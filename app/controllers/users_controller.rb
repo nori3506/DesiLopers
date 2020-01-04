@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     # filtered = fileter_users(User.includes([:portfolio, :techs]).all)
     # @users = filtered
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).includes([:portfolio, :techs, :tech_users])
   end
 
   def create
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :career_year, :age, :gender, :hobby, :job_hunting, :area, tech_ids: [])
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :career_year, :age, :birthday, :gender, :hobby, :job_hunting, :area, tech_ids: [])
   end
 
   def set_user
