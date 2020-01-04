@@ -1,49 +1,67 @@
 <div class="container">
- <div align="center">
-  <div class="PageLayout-content">
-   <div class="FormContent">
-    <h3><%= yield(:head_text) %></h3>
-    <%= form_for @user do |f| %>
-     <div class="field">
-      <%= f.text_field :name, placeholder: "Name", class:"text-sm-field"  %>
-     </div>
-     <div class="field">
-      <%= f.text_field :email, placeholder: "Email", class:"text-sm-field" %>
-     </div>
-     <div class="field">
-      <%= f.password_field :password, placeholder: "Password", class:"text-sm-field" %>
-     </div>
-     <div class="field">
-      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class:"text-sm-field" %>
-     </div>
-     <div class="field">
-      <%= f.label:career_year, 'Career' %>
-      <%= select(:user, :career_year, [['Nothing/Self-Learning ONLY'], ['1 year'],['2 years'],['3 years'],['4 years'],['5 years'],
-      ['6 years'],['7 years'],['8 years'],['9 years'],['10 years'],['11 years'],['12 years'],['13 years'],['14 years'],['15 years'],
-      ['16 years'],['17 years'],['18 years'],['19 years'],['20 years'],['More Than 20 years']])  %>
-     </div>
-     <p class="skill_head">Select your skills below</p>
-     <div class="field">
-      <%= f.collection_check_boxes :tech_ids, Tech.all, :id, :name do |cb| %>
-       <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
-      <% end %>
-     </div>
-     <div class="picture_create">
-      <div class="picture_head">Profile Picture</div> 
-      <div class="field">
-       <%= f.file_field :image %>
+  <div align="center">
+    <div class="PageLayout-content">
+      <div class="FormContent">
+        <h3><%= yield(:head_text) %></h3>
+        <%= form_for @user do |f| %>
+          <div class="field">
+            <span><%= f.label:name, 'Name' %></span>
+            <%= f.text_field :name, placeholder: "Alexandle Ronald", class:"text-sm-field"  %>
+          </div>
+          <div class="field">
+            <span><%= f.label:email, 'Email' %></span>
+            <%= f.text_field :email, placeholder: "desilopers@example.com", class:"text-sm-field" %>
+          </div>
+          <div class="field">
+            <span><%= f.label:password, 'Password' %></span>
+            <%= f.password_field :password, placeholder: "More Than 8 Letter", class:"text-sm-field" %>
+          </div>
+          <div class="field">
+            <span><%= f.label:password_confirmation, 'Password Confirm' %></span>
+            <%= f.password_field :password_confirmation, placeholder: "More Than 8 Letter", class:"text-sm-field" %>
+          </div>
+          <% if false%>
+            <div class="field">
+              <span class="aaa"><%= f.label:career_year, 'Career' %></span>
+              <div class="text-sm-aa">
+                <%= select(:user, :career_year, [['Nothing/Self-Learning ONLY'], ['1 year'],['2 years'],['3 years'],['4 years'],['5 years'],
+                ['6 years'],['7 years'],['8 years'],['9 years'],['10 years'],['11 years'],['12 years'],['13 years'],['14 years'],['15 years'],
+                ['16 years'],['17 years'],['18 years'],['19 years'],['20 years'],['More Than 20 years']])  %>
+              </div>
+            </div>
+          <% end %>
+          <div class="field">
+            <span><%= f.label:birthday, 'Birthday' %></span>
+            <%= f.date_field :birthday, placeholder: "Birthday", class:"text-sm-field", required: true %>
+          </div>
+          <div class="field adjust">
+            <span><%= f.label :gender, 'Sex' %></span>
+            <%= f.radio_button :gender, :male, class:"" %>Male
+            <%= f.radio_button :gender, :female, class:"" %>Female
+            <%= f.radio_button :gender, :other, class:"" %>Other
+          </div>
+          <p class="skill_head">Select your skills below</p>
+          <div class="field">
+            <%= f.collection_check_boxes :tech_ids, Tech.all, :id, :name do |cb| %>
+              <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+            <% end %>
+          </div>
+          <div class="picture_create">
+            <div class="picture_head">Profile Picture</div> 
+            <div class="field">
+              <%= f.file_field :image %>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.submit yield(:button_text) %>
+          </div>
+        <% end %>
+        <% if !loggedin? %>
+          <p class="under-little-space">
+            <%="Have an account？"%> <%= link_to "Login", new_sessions_path,class:"button-against-whitebackground" %>
+          </p>
+        <% end %>
       </div>
-     </div>
-     <div class="field">
-      <%= f.submit yield(:button_text) %>
-     </div>
-    <% end %>
-    <% if !loggedin? %>
-     <p class="under-little-space">
-      <%="Have an account？"%> <%= link_to "Login", new_sessions_path,class:"button-against-whitebackground" %>
-     </p>
-    <% end %>
-   </div>
+    </div>
   </div>
- </div>
 </div>
