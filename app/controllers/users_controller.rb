@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     # filtered = fileter_users(User.includes([:portfolio, :techs]).all)
     # @users = filtered
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).includes([:portfolio, :techs, :tech_users])
+    @users = @q.result(distinct: true).includes([:portfolio])
   end
 
   def create
@@ -106,7 +106,7 @@ private
 
   def trial_user_new
     random_number = rand(1..100000)
-    @user = User.new(name:"TRIAL USER#{random_number}",email:"test#{random_number}@test.test", password: "password", password_confirmation: "password")
+    @user = User.new(name:"TRIAL USER#{random_number}",email:"test#{random_number}@test.test", password: "password", password_confirmation: "password", birthday: "1990-08-09", gender: "male" )
   end
 
   def trial_user_create_portfolio
