@@ -54,7 +54,7 @@ class User < ApplicationRecord
   validate :validate_birthday
   validates :gender, presence: true
   mount_uploader :image, ImageUploader
-  has_secure_password
+  # has_secure_password
   has_one :portfolio,:dependent => :delete
   has_many :tech_users
   has_many :techs, through: :tech_users

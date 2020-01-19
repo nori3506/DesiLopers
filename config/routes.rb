@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-	resources :samples, only: [:index, :create, :update, :destroy] do
-    collection do
-      get "/all", to: "samples#all"
-    end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+  
+  # devise_for :users, controllers: {
+  #   sessions: 'users/sessions'
+  # }
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+	# resources :samples, only: [:index, :create, :update, :destroy] do
+  #   collection do
+  #     get "/all", to: "samples#all"
+  #   end
+  # end
   root 'users#index'
   get 'users/trial', to: 'users#create_trial_user'
 

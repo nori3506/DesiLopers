@@ -1,0 +1,16 @@
+current directory: /Users/nakajimayasutaka/Desktop/works/Desilopers/desilopers/vendor/cache/ruby/2.6.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+/Users/nakajimayasutaka/.rbenv/versions/2.6.5/bin/ruby -I /Users/nakajimayasutaka/.rbenv/versions/2.6.5/lib/ruby/2.6.0 -r ./siteconf20200106-6859-1qgr7m.rb extconf.rb
+
+current directory: /Users/nakajimayasutaka/Desktop/works/Desilopers/desilopers/vendor/cache/ruby/2.6.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" clean
+make: *** No rule to make target `clean'.  Stop.
+
+current directory: /Users/nakajimayasutaka/Desktop/works/Desilopers/desilopers/vendor/cache/ruby/2.6.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+current directory: /Users/nakajimayasutaka/Desktop/works/Desilopers/desilopers/vendor/cache/ruby/2.6.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" install
+echo "Nada."
+Nada.

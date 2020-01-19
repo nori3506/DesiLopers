@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   # before_action :loggedin?, except:[:index, :show]
+  # before_action :authenticate_user!
   before_action :set_user, only: [:edit, :show, :update, :destroy]
   before_action :admin_check, only: [:delete]
   before_action :same_user, only: [:edit,:update,:delete]
@@ -15,8 +16,9 @@ class UsersController < ApplicationController
     @form = UserRegistForm.new(User.new, params[:user])
     @user = @form.user
     if @form.save
-      log_in(@user)
-      redirect_to new_portfolio_path
+      sign_in(@user)
+      # after_sign_in_path_for new_portfolio_path
+      # redirect_to new_portfolio_path
     else
       flash[:danger] = "Failed!"
       render 'new'
