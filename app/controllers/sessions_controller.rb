@@ -1,7 +1,7 @@
-class SessionsController < ApplicationController
- 
+class SessionsController < Devise::SessionsController
+  include ActiveModel::Model
   def new
- 
+    @user = User.new(session_params)
   end
  
   def create
@@ -21,14 +21,9 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     flash[:success] = "Logged out successfully"
     redirect_to root_path
-  
   end
-  
 private
-
-  # def session_params
-  #   require.params(:session).permit[:email,:password]
-  # end
-  
-  
+  def session_params
+    params.permit(:email,:password)
+  end
 end

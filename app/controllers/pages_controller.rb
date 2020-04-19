@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    redirect_to users_path if loggedin?
+    redirect_to users_path if user_signed_in?
   end
 
 end
