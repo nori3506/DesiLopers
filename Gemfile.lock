@@ -374,7 +374,6 @@ DEPENDENCIES
   enumerize
   factory_bot_rails
   faker
-  ffi (~> 1.11, >= 1.11.3)
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener_web
