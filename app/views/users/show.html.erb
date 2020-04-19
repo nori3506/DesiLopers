@@ -14,7 +14,7 @@
            <%= image_tag "noprofile.png", id:"profile-pic" %>
          <% end %>
         </div>
-        <% if loggedin? && (current_user.admin? || current_user == @user) && !@user.admin? %>
+        <% if user_signed_in? && (current_user.admin? || current_user == @user) && !@user.admin? %>
           <%= link_to "User Edit", edit_user_path(@user), class:"button" %>
           <%= link_to "Portfolio Edit", edit_portfolio_path(@user.portfolio), class:"button"%>
           <%= link_to "Delete Portfolio", portfolio_path(@user.portfolio), method: :delete,
@@ -226,10 +226,10 @@
                 <br>
             <% end %>
           <% end %>
-          <% if loggedin? %>
+          <% if user_signed_in? %>
             <div class="comment-form">
               <%= form_for(@comment, url:comments_path) do |f| %>
-                <%= hidden_field_tag :comment_user, @current_user.id %>
+                <%= hidden_field_tag :comment_user, current_user.id %>
                 <%= hidden_field_tag :commented_user, @user.id %>
                 <%= f.text_field :content %>
                 <%= f.submit %>

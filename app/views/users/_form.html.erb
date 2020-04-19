@@ -56,9 +56,9 @@
             <%= f.submit yield(:button_text) %>
           </div>
         <% end %>
-        <% if !loggedin? %>
+        <% if !user_signed_in? %>
           <p class="under-little-space">
-            <%="Have an account？"%> <%= link_to "Login", new_sessions_path,class:"button-against-whitebackground" %>
+            <%="Have an account？"%> <%= link_to "Login", new_user_session_path,class:"button-against-whitebackground" %>
           </p>
         <% end %>
       </div>

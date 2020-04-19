@@ -14,24 +14,13 @@ class UsersController < ApplicationController
 
   def create
     @form = UserRegistForm.new(User.new, params[:user])
-    @user = @form.user
     if @form.save
-      sign_in(@user)
-      # after_sign_in_path_for new_portfolio_path
-      # redirect_to new_portfolio_path
+      flash[:success] = "Confirmation mail was sent to you"
+      redirect_to new_user_session_path
     else
       flash[:danger] = "Failed!"
       render 'new'
     end
-    # @user = User.new(user_params)
-    # if @user.save
-    #   log_in(@user)
-    #   flash[:success] = "New User Was Successfully Created, Welcome!"
-    #   redirect_to new_portfolio_path
-    # else
-    #   flash[:danger] = "Failed!"
-    #   render 'new'
-    # end
   end
 
   def new
@@ -108,11 +97,11 @@ private
 
   def trial_user_new
     random_number = rand(1..100000)
-    @user = User.new(name:"TRIAL USER#{random_number}",email:"test#{random_number}@test.test", password: "password", password_confirmation: "password", birthday: "1990-08-09", gender: "male" )
+    @user = User.new(name: "TRIAL USER#{random_number}",email:"test#{random_number}@test.test", password: "password", password_confirmation: "password", birthday: "1990-08-09", gender: "male" )
   end
 
   def trial_user_create_portfolio
-    @user.portfolio = Portfolio.new(career: 1, experience:"Sorry,I am just trying this app", message:"Hi, Nice to meet you!", first_site:"https://github.com/nori3506")
+    @user.portfolio = Portfolio.new(career: 1, experience: "Sorry,I am just trying this app", message:"Hi, Nice to meet you!", first_site:"https://github.com/nori3506")
     @user.portfolio.save
   end
 

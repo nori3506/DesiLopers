@@ -1,4 +1,4 @@
-<% if loggedin? %>
+<% if user_signed_in? %>
   <nav class="navbar navbar-default">
     <div class="header-list">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
@@ -15,10 +15,10 @@
         </div>
 
             <div class="user-edit-link">
-              <% if @current_user.portfolio.nil? %>
+              <% if current_user.portfolio.nil? %>
                 <li class=""><%= link_to "Create Portfolio", new_portfolio_path %></li>
               <% else %>
-                <li><%= link_to "Edit Portfolio", edit_portfolio_path(@current_user.portfolio) %></li>
+                <li><%= link_to "Edit Portfolio", edit_portfolio_path(current_user.portfolio) %></li>
               <% end %>
             </div>
             <div class="user-edit-link">
