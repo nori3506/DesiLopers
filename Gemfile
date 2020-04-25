@@ -66,6 +66,7 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
   gem 'redis', '~> 3.3'
+  gem 'rails_12factor'
 end
 
 group :test do
