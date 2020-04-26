@@ -4,30 +4,33 @@ class TechesController < ApplicationController
     @techs = Tech.all
   end
 
+  def new
+    @tech=Tech.new
+    @techs = Tech.all
+  end
+
   def create
     @tech = Tech.create(tech_params)
     if @tech.save
-      redirect_to users_path
+      respond_to do |format|
+        format.html { redirect_to :new_tech, notice: 'New skill was successfully created!' }
+        format.json
+      end
     else
       flash[:danger]="Something Wrong"
       render 'new'
     end
   end
 
-  def new
-    @tech=Tech.new
+  def edit
   end
 
-  def edit
+  def update
   end
 
   def show
     @tech= Tech.find(params[:id])
     @users = @tech.users.paginate(page: params[:page], per_page:8)
-
-  end
-
-  def update
   end
 
   def destroy
@@ -37,6 +40,4 @@ private
   def tech_params
      params.require(:tech).permit(:name)
   end
-
-
 end
