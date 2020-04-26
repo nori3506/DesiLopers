@@ -3,14 +3,23 @@
   <div align="center">
     <div class="PageLayout-content">
       <div class="FormContent">
-        <%= form_for @tech do |f| %>
+        <%= form_for @tech, html: { id: "tech_form" } do |f| %>
           <div class="field">
-            <%= f.text_field :name, placeholder: "Technology name" %>
+            <%= f.text_field :name, class: "tech_text", placeholder: "Technology name", required: true %>
           </div>
           <div class="actions">
-            <%= f.submit "Create Tag" %>
+            <%= f.submit "Create Tag", class: 'tech_submit' %>
           </div>
         <% end %>
+        <table class="tech_item">
+          <tr>
+            <td class="tech_list">
+              <% @techs.each do |tech| %>
+                <%= link_to tech.name, tech_path(tech) %>
+              <% end %>
+            </td>
+          </tr>
+        </table>  
       </div>
     </div>
   </div>
