@@ -6,7 +6,7 @@ class TechesController < ApplicationController
 
   def new
     @tech=Tech.new
-    @techs = Tech.all
+    @techs = Tech.friendly.all
   end
 
   def create
@@ -29,7 +29,7 @@ class TechesController < ApplicationController
   end
 
   def show
-    @tech= Tech.find(params[:id])
+    @tech= Tech.friendly.find(params[:id])
     @users = @tech.users.paginate(page: params[:page], per_page:8)
   end
 

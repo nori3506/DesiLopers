@@ -29,6 +29,8 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem 'friendly_id', '~> 5.2.4'
+
 gem 'draper'
 gem 'pundit'
 gem 'ransack'
