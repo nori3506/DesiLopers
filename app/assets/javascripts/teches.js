@@ -1,6 +1,6 @@
 $(function(){
 	function buildHtml(tech){
-		var html = `<td><a href = /teches/${tech.id}>${tech.name}</a></td>`
+		var html = `<td><a href = /teches/${tech.slug}>${tech.name}</a></td>`
 		return	html;
 	}	
 	$('#tech_form').on('submit', function(e) {
