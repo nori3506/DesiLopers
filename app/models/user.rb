@@ -43,19 +43,19 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
-  before_save {self.email = email.downcase}
+  before_save { self.email = email.downcase }
   default_scope -> { order(created_at: :desc) }
-  validates :password, presence:true, length:{minimum: 6}, allow_nil: true
+  validates :password, presence:true, length:{ minimum: 6 }, allow_nil: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length:{maximum: 255},
-                    format: {with: VALID_EMAIL_REGEX},
-                    uniqueness: {case_sensitive: false}
-  validates :name, presence: true, length: {maximum: 40}
+  validates :email, presence: true, length:{ maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: { maximum: 40 }
   validate :validate_birthday
   validates :gender, presence: true
   mount_uploader :image, ImageUploader
   # has_secure_password
-  has_one :portfolio,:dependent => :delete
+  has_one :portfolio, dependent: :delete
   has_many :tech_users
   has_many :techs, through: :tech_users
   has_many :comments, dependent: :destroy

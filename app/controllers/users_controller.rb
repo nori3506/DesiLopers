@@ -60,8 +60,9 @@ class UsersController < ApplicationController
 
   def create_trial_user
     trial_user_new
+    @user.skip_confirmation!
     if @user.save
-      log_in(@user)
+      sign_in @user
       trial_user_create_portfolio
       flash[:success] = "TRY this APP!, Welcome!"
       redirect_to users_path
