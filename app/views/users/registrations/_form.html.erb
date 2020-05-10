@@ -53,7 +53,7 @@
             </div>
           </div>
           <div class="field">
-            <%= f.submit yield(:button_text), data: { disable_with: 'Creating...' } %>
+            <%= f.submit yield(:button_text) %>
           </div>
         <% end %>
         <% if !user_signed_in? %>

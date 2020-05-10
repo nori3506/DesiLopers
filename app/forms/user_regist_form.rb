@@ -17,6 +17,10 @@ class UserRegistForm < ApplicationForm
 
 	attr_reader(:user)
 
+	validate :validate_unique_email
+	validates :password, length: { minimum:8, maximum:32 }
+  validates_presence_of %w(name email password password_confirmation gender)
+
 	def sanitize_params params
 		params.permit(
 			:name,
@@ -42,25 +46,25 @@ class UserRegistForm < ApplicationForm
 	end
 
 	def save
-			@user.name = name
-			@user.email = email
-			@user.password = password
-			@user.password_confirmation = password_confirmation
-			@user.image = image
-			@user.career_year = career_year
-			@user.age = (Date.today.strftime('%Y%m%d').to_i - Date.parse(birthday).strftime('%Y%m%d').to_i) / 10000
-			@user.birthday = birthday
-			@user.gender = gender
-			@user.area = area
-			@user.job_hunting = job_hunting
-			@user.hobby = hobby
-			@user.tech_ids = tech_ids
 
-		if valid?
-			@user.transaction do
+		@user.name = name
+		@user.email = email
+		@user.password = password
+		@user.password_confirmation = password_confirmation
+		@user.image = image
+		@user.career_year = career_year
+		@user.age = (Date.today.strftime('%Y%m%d').to_i - Date.parse(birthday).strftime('%Y%m%d').to_i) / 10000
+		@user.birthday = birthday
+		@user.gender = gender
+		@user.area = area
+		@user.job_hunting = job_hunting
+		@user.hobby = hobby
+		@user.tech_ids = tech_ids
+
+		if @user.valid?
 				@user.save
-			end
 		end
+
 	end
 
 	def set_defaults
@@ -78,4 +82,10 @@ class UserRegistForm < ApplicationForm
 		self.area ||= @user.area
 		self.tech_ids ||= @user.tech_ids
 	end
+
+	def validate_unique_email
+    if !errors.key?(:email) && User.where(email: email).where.not(id: @user.id).any?
+      errors.add(:email, 'はすでに登録されています')
+    end
+  end
 end

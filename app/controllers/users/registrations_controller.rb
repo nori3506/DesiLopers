@@ -5,18 +5,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
+  # def new
+  #   super
+  # end
   def new
-    super
+    @user = User.new
+    @form = UserRegistForm.new(@user)
   end
 
   def create
     @form = UserRegistForm.new(User.new, params[:user])
+
     if @form.save
-      flash[:success] = "Confirmation mail was sent to you"
-      redirect_to new_user_session_path
+      flash[:success] = 'Confirmation mail was sent to you'
+      return redirect_to new_user_session_path
     else
-      flash[:danger] = "Failed!"
-      render 'new'
+      @user = @form.user
+      render 'users/registrations/new'
     end
   end
 

@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users,
+    path: '',
+    path_names: {
+      sign_up: '',
+      sign_in: 'login',
+      sign_out: 'logout',
+      registration: "signup",
+    },
     controllers: {
       registrations: 'users/registrations',
       confirmations: 'users/confirmations',
@@ -27,7 +34,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'users/trial', to: 'users#create_trial_user'
 
-  resources :users
+  resources :users, except:[:new, :create]
   resource :comments, only:[:create, :edit, :update, :destroy]
   resource :sessions, only: [:new, :create, :destroy]
   resources :portfolios
