@@ -13,6 +13,7 @@
 #  confirmed_at             :datetime
 #  current_sign_in_at       :datetime
 #  current_sign_in_ip       :string(255)
+#  deleted_at               :datetime
 #  email                    :string(255)
 #  encrypted_password       :string(255)      default(""), not null
 #  gender                   :string(255)
@@ -34,6 +35,7 @@
 # Indexes
 #
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_users_on_deleted_at            (deleted_at)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
@@ -59,6 +61,7 @@ class User < ApplicationRecord
   has_many :tech_users
   has_many :techs, through: :tech_users
   has_many :comments, dependent: :destroy
+  acts_as_paranoid
 
   scope :techs_and_portfolio, -> {
     includes(:portfolio, :teches)

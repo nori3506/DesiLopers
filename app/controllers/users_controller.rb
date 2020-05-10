@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     # filtered = fileter_users(User.includes([:portfolio, :techs]).all)
     # @users = filtered
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).includes([:portfolio, :tech_users, :techs])
+    @users = @q.result(distinct: true).includes([:portfolio])
   end
 
   # def create
