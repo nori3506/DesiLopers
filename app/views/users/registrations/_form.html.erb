@@ -3,7 +3,7 @@
     <div class="PageLayout-content">
       <div class="FormContent">
         <h3><%= yield(:head_text) %></h3>
-        <%= form_for @user do |f| %>
+        <%= form_for(@user, url: {controller: 'users/registrations', action: 'create' }) do |f| %>
           <div class="field">
             <span><%= f.label:name, 'Name' %></span>
             <%= f.text_field :name, placeholder: "Alexandle Ronald", class:"text-sm-field", required: true  %>

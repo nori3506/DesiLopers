@@ -26,6 +26,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 # gem 'mini_magick', '~> 4.8'
 
 gem 'mini_racer'
+gem 'concurrent-ruby', '~> 1.1', '>= 1.1.6'
 
 #画像アップロード
 gem 'carrierwave'
