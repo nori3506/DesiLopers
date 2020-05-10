@@ -40,6 +40,7 @@ gem 'ransack'
 gem 'enumerize'
 gem 'rinku'
 gem 'paranoia'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'sqlite3'
