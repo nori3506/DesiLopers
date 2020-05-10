@@ -38,6 +38,7 @@ gem 'pundit'
 gem 'ransack'
 gem 'enumerize'
 gem 'rinku'
+gem 'paranoia'
 
 group :development, :test do
   gem 'sqlite3'
