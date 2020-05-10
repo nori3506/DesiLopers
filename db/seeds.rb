@@ -1,7 +1,52 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+['HTML',
+	'CSS',
+	'SCSS',
+	'JavaScript',
+	'TypeScript',
+	'AngularJS',
+	'React',
+	'Vue.js',
+	'Riot.js',
+	'jQuery',
+	'Node.js',
+	'Ruby',
+	'Ruby on Rails',
+	'Python',
+	'Django',
+	'Flask',
+	'Bottle',
+	'Pyramid',
+	'Plone',
+	'PHP',
+	'CakePHP',
+	'Laravel',
+	'Symfony',
+	'codeigniter',
+	'FuelPHP',
+	'Java',
+	'C',
+	'C++',
+	'C#',
+	'Objective-C',
+	'.Net',
+	'Swift',
+	'SQL',
+	'MySQL',
+	'Oracle',
+	'SQL Server',
+	'PostgreSQL',
+	'SQLite',
+	'MariaDB',
+	'Git',
+	'Docker',
+	'Sketch',
+	'Adobe XD',
+	'Figma',
+	'InVision Studio',
+	'Photoshop',
+	'Illustrator',
+	'STUDIO',
+	'AWS'
+].each do |tech|
+	Tech.create(name: tech)
+end
