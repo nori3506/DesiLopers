@@ -27,13 +27,9 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 gem 'mini_racer'
 gem 'concurrent-ruby', '~> 1.1', '>= 1.1.6'
-
-#画像アップロード
 gem 'carrierwave'
 gem 'rmagick'
-
 gem 'friendly_id', '~> 5.2.4'
-
 gem 'draper'
 gem 'pundit'
 gem 'ransack'
@@ -41,6 +37,7 @@ gem 'enumerize'
 gem 'rinku'
 gem 'paranoia'
 gem 'activeadmin'
+gem 'gritter', '~> 1.2'
 
 group :development, :test do
   gem 'sqlite3'
