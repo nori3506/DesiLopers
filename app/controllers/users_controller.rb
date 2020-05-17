@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      sign_in(@user, :bypass => true)
       flash[:success] = "User data was updated successfully!"
       if @user.portfolio.nil?
         flash[:danger]="Please set your portfolio infomation in this page"
