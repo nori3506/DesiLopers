@@ -1,9 +1,0 @@
-<% if flash[:alert] %>
-  <%= js add_gritter(flash[:alert], title: "Desilopers Alert!") %>
-<% elsif flash[:error] %>
-  <%= js add_gritter(flash[:error], title: "Desilopers Alert!") %>
-<% elsif flash[:notice] %>
-  <%= js add_gritter(flash[:notice], title: "Desilopers Alert!") %>
-<% else %>
-  <%= js add_gritter(flash[:success], title: "Desilopers Alert!") %>
-<% end %>
