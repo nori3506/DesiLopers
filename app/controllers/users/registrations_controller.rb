@@ -14,9 +14,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    params[:user][:birthday] = birthday_join
     @form = UserRegistForm.new(User.new, params[:user])
 
-    if @form.save
+    if @form.save      
       flash[:success] = 'Confirmation mail was sent to you'
       return redirect_to new_user_session_path
     else
@@ -69,5 +70,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     super(resource)
+  end
+
+private
+  def birthday_join
+    date = params[:birthday]
+    Date.new date["birthday(1i)"].to_i, date["birthday(2i)"].to_i, date["birthday(3i)"].to_i
   end
 end

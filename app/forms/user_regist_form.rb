@@ -46,14 +46,13 @@ class UserRegistForm < ApplicationForm
 	end
 
 	def save
-
 		@user.name = name
 		@user.email = email
 		@user.password = password
 		@user.password_confirmation = password_confirmation
 		@user.image = image
 		@user.career_year = career_year
-		@user.age = (Date.today.strftime('%Y%m%d').to_i - Date.parse(birthday).strftime('%Y%m%d').to_i) / 10000
+		@user.age = (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
 		@user.birthday = birthday
 		@user.gender = gender
 		@user.area = area
@@ -64,7 +63,6 @@ class UserRegistForm < ApplicationForm
 		if @user.valid?
 				@user.save
 		end
-
 	end
 
 	def set_defaults

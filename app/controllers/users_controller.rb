@@ -9,24 +9,8 @@ class UsersController < ApplicationController
     # filtered = fileter_users(User.includes([:portfolio, :techs]).all)
     # @users = filtered
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).includes([:portfolio])
+    @users = @q.result(distinct: true).includes([:portfolio, :techs, :tech_users])
   end
-
-  # def create
-  #   @form = UserRegistForm.new(User.new, params[:user])
-  #   if @form.save
-  #     flash[:success] = "Confirmation mail was sent to you"
-  #     redirect_to new_user_session_path
-  #   else
-  #     flash[:danger] = "Failed!"
-  #     render 'new'
-  #   end
-  # end
-
-  # def new
-  #   @user = User.new
-  #   @form = UserRegistForm.new(@user)
-  # end
 
   def edit
 
