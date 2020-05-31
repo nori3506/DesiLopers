@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_154729) do
+ActiveRecord::Schema.define(version: 2020_05_31_070525) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +38,19 @@ ActiveRecord::Schema.define(version: 2020_05_10_154729) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "careers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "company_name"
+    t.string "category"
+    t.text "detail"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.boolean "is_working"
+    t.integer "salary"
+    t.text "url"
+    t.index ["user_id"], name: "index_careers_on_user_id"
+  end
+
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
@@ -56,6 +69,19 @@ ActiveRecord::Schema.define(version: 2020_05_10_154729) do
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "category"
+    t.string "school_name"
+    t.string "department"
+    t.text "activity"
+    t.text "url"
+    t.datetime "graduated_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_educations_on_user_id"
   end
 
   create_table "friendly_id_slugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -139,6 +165,8 @@ ActiveRecord::Schema.define(version: 2020_05_10_154729) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "careers", "users"
   add_foreign_key "comments", "portfolios"
+  add_foreign_key "educations", "users"
   add_foreign_key "portfolios", "users"
 end
