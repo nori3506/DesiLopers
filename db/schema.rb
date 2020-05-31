@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_154729) do
+ActiveRecord::Schema.define(version: 2020_05_31_061948) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -56,6 +56,19 @@ ActiveRecord::Schema.define(version: 2020_05_10_154729) do
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "category"
+    t.string "school_name"
+    t.string "department"
+    t.text "activity"
+    t.text "url"
+    t.datetime "graduated_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_educations_on_user_id"
   end
 
   create_table "friendly_id_slugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -140,5 +153,6 @@ ActiveRecord::Schema.define(version: 2020_05_10_154729) do
   end
 
   add_foreign_key "comments", "portfolios"
+  add_foreign_key "educations", "users"
   add_foreign_key "portfolios", "users"
 end
