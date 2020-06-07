@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_114648) do
+ActiveRecord::Schema.define(version: 2020_06_07_125533) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -146,6 +146,15 @@ ActiveRecord::Schema.define(version: 2020_06_07_114648) do
     t.index ["slug"], name: "index_teches_on_slug", unique: true
   end
 
+  create_table "user_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_user_jobs_on_job_id"
+    t.index ["user_id"], name: "index_user_jobs_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -186,4 +195,6 @@ ActiveRecord::Schema.define(version: 2020_06_07_114648) do
   add_foreign_key "educations", "users"
   add_foreign_key "jobs", "job_categories"
   add_foreign_key "portfolios", "users"
+  add_foreign_key "user_jobs", "jobs"
+  add_foreign_key "user_jobs", "users"
 end
