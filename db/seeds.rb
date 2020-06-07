@@ -128,7 +128,7 @@ category = [
 			id: 9999,
 			name: 'その他',
 			sequence: 15
-	},
+	}
 ]
 
 job = [
@@ -665,7 +665,7 @@ job = [
 			name: 'その他',
 			sequence: 9999,
 			job_category_id: 9999
-	},
+	}
 ]
 
 category.each do |c|
