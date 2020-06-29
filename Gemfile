@@ -25,6 +25,7 @@ gem 'will_paginate', '3.2.1'
 gem 'bootstrap-will_paginate', '0.0.10'
 # gem 'mini_magick', '~> 4.8'
 
+gem 'active_model_serializers', '~> 0.10.10'
 gem 'mini_racer'
 gem 'concurrent-ruby', '~> 1.1', '>= 1.1.6'
 gem 'carrierwave'
@@ -38,6 +39,7 @@ gem 'rinku'
 gem 'paranoia'
 gem 'activeadmin'
 gem 'gritter', '~> 1.2'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'sqlite3'

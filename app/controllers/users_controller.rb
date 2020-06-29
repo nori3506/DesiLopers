@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     # @users = filtered
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).includes([:portfolio, :techs, :tech_users])
+    # render json: { id: @users.map(&:id) }
+    render json: @users, each_serializer: UserSerializer
   end
 
   def edit
@@ -104,5 +106,13 @@ private
 
   def filter_param
     params.require(:user).permit(:name)
+  end
+
+  def response_fields(user_json)
+    user_parse = JSON.parse(user_json)
+    # レスポンスから除外したいパラメータ
+    response = user_parse.except('created_at', 'updated_at', 'deleted_at')
+    # JSON を見やすく整形して返す
+    JSON.pretty_generate(response)
   end
 end

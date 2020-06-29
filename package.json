@@ -1,11 +1,9 @@
 {
   "name": "desilopers",
   "private": true,
-  "dependencies": {},
-  "devDependencies": {
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0",
-    "webpack-manifest-plugin": "^2.2.0"
-  }
+  "dependencies": {
+    "axios": "^0.19.2",
+    "create-react-app": "^3.4.1"
+  },
+  "devDependencies": {}
 }
