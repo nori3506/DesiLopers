@@ -40,6 +40,7 @@ gem 'paranoia'
 gem 'activeadmin'
 gem 'gritter', '~> 1.2'
 gem 'rack-cors'
+gem 'serviceworker-rails'
 
 group :development, :test do
   gem 'sqlite3'

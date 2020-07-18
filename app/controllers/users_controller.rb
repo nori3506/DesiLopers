@@ -10,8 +10,7 @@ class UsersController < ApplicationController
     # @users = filtered
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).includes([:portfolio, :techs, :tech_users])
-    # render json: { id: @users.map(&:id) }
-    render json: @users, each_serializer: UserSerializer
+    # render json: @users, each_serializer: UserSerializer
   end
 
   def edit
