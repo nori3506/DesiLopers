@@ -28,11 +28,11 @@ Rails.application.routes.draw do
   #   sessions: 'users/sessions'
   # }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-	resources :samples, only: [:index, :create, :update, :destroy] do
-    collection do
-      get "/all", to: "samples#all"
-    end
-  end
+	# resources :samples, only: [:index, :create, :update, :destroy] do
+  #   collection do
+  #     get "/all", to: "samples#all"
+  #   end
+  # end
   root 'pages#home'
   get 'users/trial', to: 'users#create_trial_user'
 
@@ -41,4 +41,11 @@ Rails.application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
   resources :portfolios
   resources :teches
+
+  namespace :api do
+    namespace :v1 do
+      resources :lists
+    end
+  end
+
 end
