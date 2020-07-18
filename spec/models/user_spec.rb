@@ -33,13 +33,19 @@
 #  unconfirmed_email        :string(255)
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
+#  company_id(企業ID)       :bigint
 #
 # Indexes
 #
+#  index_users_on_company_id            (company_id)
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_deleted_at            (deleted_at)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (company_id => companies.id)
 #
 
 require 'rails_helper'
