@@ -77,4 +77,8 @@ class User < ApplicationRecord
       flash[:danger] = "kuso"
     end
   end
+
+  def company_user?
+    company_id.present?
+  end
 end
