@@ -5,7 +5,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :email, :deleted_at, :password, :gender
+  permit_params :name, :email, :company_id, :deleted_at, :password, :gender
   #
   # or
   #
@@ -19,6 +19,7 @@ ActiveAdmin.register User do
     f.inputs do
       f.input :name
       f.input :email
+      f.input :company_id, as: :select, collection: Company.all.map { |company| [company.name, company.id] }
       f.input :deleted_at
       f.input :gender
       if f.object.new_record?

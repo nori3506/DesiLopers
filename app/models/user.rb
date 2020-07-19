@@ -60,7 +60,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :name, presence: true, length: { maximum: 40 }
   validate :validate_birthday
-  validates :gender, presence: true
   mount_uploader :image, ImageUploader
   # has_secure_password
   has_one :portfolio, dependent: :delete
