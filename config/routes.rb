@@ -14,11 +14,6 @@ Rails.application.routes.draw do
       confirmations: 'users/confirmations',
       sessions: 'users/sessions'
     }
-    # devise_scope :user do 
-    #   get "sessions", :to => "sessions#new"
-    #   post "sessions", :to => "sessions#create"
-    #   delete "sessions", :to => "devise/sessions#destroy"  
-    # end
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
@@ -48,4 +43,7 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :dashboards do
+    resources :home, only: [:index]
+  end
 end

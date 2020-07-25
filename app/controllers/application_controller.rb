@@ -4,12 +4,12 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include Pundit
 
-  def after_sign_in_path_for(resource)    
+  def after_sign_in_path_for(resource)
     if resource.class == AdminUser
       admin_root_path
     elsif resource.company_user?
-      root_path
-    else      
+      dashboards_home_index_path
+    else
       new_portfolio_path
     end
   end
