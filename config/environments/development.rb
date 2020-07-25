@@ -83,6 +83,9 @@ Rails.application.configure do
     Bullet.bullet_logger = true # log/bullet.logへの出力
     Bullet.console = true # ブラウザのコンソールログに記録
     Bullet.rails_logger = true # Railsログに出力
+    Bullet.add_whitelist :type => :n_plus_one_query, :class_name => "User", :association => :tech_users
+    Bullet.add_whitelist :type => :unused_eager_loading, :class_name => "User", :association => :tech_users
+    Bullet.add_whitelist :type => :counter_cache, :class_name => "User", :association => :tech_users
   end
 
 end
