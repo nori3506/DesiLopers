@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_091306) do
+ActiveRecord::Schema.define(version: 2020_07_25_052004) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -127,6 +127,26 @@ ActiveRecord::Schema.define(version: 2020_07_18_091306) do
     t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
+  create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", comment: "募集タイトル"
+    t.bigint "company_id"
+    t.text "background", comment: "募集背景"
+    t.text "allocation", comment: "配属部署"
+    t.text "detail", comment: "業務内容"
+    t.text "requirement", comment: "応募資格"
+    t.text "benefit", comment: "仕事で得られるもの"
+    t.string "emp_type", comment: "雇用形態"
+    t.integer "min_salary", comment: "下限想定年収"
+    t.integer "max_salary", comment: "上限想定年収"
+    t.integer "number_of_hire", comment: "採用人数"
+    t.text "process", comment: "採用プロセス"
+    t.text "place", comment: "勤務地"
+    t.text "welfare", comment: "福利厚生"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_projects_on_company_id"
+  end
+
   create_table "samples", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: ""
     t.datetime "created_at", precision: 6, null: false
@@ -197,6 +217,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_091306) do
   add_foreign_key "educations", "users"
   add_foreign_key "jobs", "job_categories"
   add_foreign_key "portfolios", "users"
+  add_foreign_key "projects", "companies"
   add_foreign_key "user_jobs", "jobs"
   add_foreign_key "user_jobs", "users"
   add_foreign_key "users", "companies"
