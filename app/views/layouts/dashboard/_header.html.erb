@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class ="some-space">
+        <ul class="nav navbar-nav nav-design">
+					<li class="nav-child">
+						<%= link_to "DesiLopers", root_path %>
+					</li> 
+					<li class="nav-child">
+						<%= link_to "Deshboard", root_path %>
+					</li> 
+					<li class="nav-child">
+						<%= link_to "Find Candidates", users_path %>
+					</li>
+					<li class="nav-child"><%= link_to current_user.company.name, root_path %></li>			
+					<li class="dropdown nav-child">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-user-edit"></i>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li class="nav-child"><%= link_to "Edit User", edit_user_path(current_user)%></li>
+							<li class="nav-child"><%= link_to "Edit Company", edit_user_path(current_user)%></li>
+							<li role="separator" class="divider"></li>
+							<li class="nav-child"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+						</ul>
+					</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

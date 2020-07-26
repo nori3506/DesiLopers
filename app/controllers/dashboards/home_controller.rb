@@ -1,4 +1,5 @@
 class Dashboards::HomeController < ApplicationController
+	layout 'dashboard'
 	before_action :authorize_home
 
 	def index

@@ -3,6 +3,7 @@ class CreateProjects < ActiveRecord::Migration[6.0]
     create_table :projects do |t|
       t.string :title, comment: '募集タイトル'
       t.references :company, foreign_key: true, nil: false
+      t.string :status, comment: '募集状況'
       t.text :background, comment: '募集背景'
       t.text :allocation, comment: '配属部署'
       t.text :detail, comment: '業務内容'
@@ -16,7 +17,6 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.text :place, comment: '勤務地'
       t.text :welfare, comment: '福利厚生'
       t.timestamps
-
     end
   end
 end
