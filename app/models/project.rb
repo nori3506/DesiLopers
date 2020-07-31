@@ -29,4 +29,6 @@
 #  fk_rails_...  (company_id => companies.id)
 #
 class Project < ApplicationRecord
+	extend Enumerize
+	enumerize :status, in: [:active, :stop, :done], default: :stop
 end
