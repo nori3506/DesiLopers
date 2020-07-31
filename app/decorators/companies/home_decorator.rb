@@ -1,4 +1,4 @@
-class Dashboards::HomeDecorator < Draper::Decorator
+class Companies::HomeDecorator < Draper::Decorator
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through

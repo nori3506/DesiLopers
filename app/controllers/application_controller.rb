@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     if resource.class == AdminUser
       admin_root_path
     elsif resource.company_user?
-      dashboards_home_index_path
+      companies_home_index_path
     else
       new_portfolio_path
     end

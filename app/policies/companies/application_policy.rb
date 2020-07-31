@@ -1,4 +1,4 @@
-class Dashboards::ApplicationPolicy
+class Companies::ApplicationPolicy
 	attr_reader :user, :record
 
   def initialize(user, record)

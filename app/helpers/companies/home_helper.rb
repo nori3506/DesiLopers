@@ -1,0 +1,2 @@
+module Companies::HomeHelper
+end
