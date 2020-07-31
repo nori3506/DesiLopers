@@ -1,4 +1,4 @@
-class Dashboards::HomeController < ApplicationController
+class Companies::HomeController < ApplicationController
 	layout 'dashboard'
 	before_action :authorize_home
 
@@ -8,6 +8,6 @@ class Dashboards::HomeController < ApplicationController
 	private
 
   def authorize_home
-    authorize [:dashboards, :home]
+    authorize [:companies, :home]
   end
 end

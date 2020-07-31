@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :dashboards do
+  namespace :companies do
     resources :home, only: [:index]
   end
 end
