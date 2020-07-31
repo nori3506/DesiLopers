@@ -45,5 +45,6 @@ Rails.application.routes.draw do
 
   namespace :companies do
     resources :home, only: [:index]
+    resources :projects
   end
 end
