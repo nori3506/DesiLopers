@@ -1,5 +1,4 @@
-class Companies::HomeController < ApplicationController
-	layout 'company/layout'
+class Companies::HomeController < Companies::ApplicationController
 	before_action :authorize_home
 
 	def index
