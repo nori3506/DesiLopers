@@ -14,7 +14,6 @@ class Devise::RegistrationsController < DeviseController
 
   # POST /resource
   def create
-    binding.pry
 
     build_resource(sign_up_params)
 

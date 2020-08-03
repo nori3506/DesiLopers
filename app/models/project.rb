@@ -31,4 +31,10 @@
 class Project < ApplicationRecord
 	extend Enumerize
 	enumerize :status, in: [:active, :stop, :done], default: :stop
+	validates :title, presence: true
+	validates :background, presence: true
+	validates :detail, presence: true
+	validates :requirement, presence: true
+	validates :place, presence: true
+	validates_numericality_of :number_of_hire, message: "is not a number"
 end

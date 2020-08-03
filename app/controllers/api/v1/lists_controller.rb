@@ -3,9 +3,7 @@ module Api::V1
     before_action :set_list, only: [:show, :update, :destroy]
   
     # GET /lists
-		def index
-		binding.pry
-			
+		def index			
       @lists = User.all.order(:id)
   
       render json: @lists

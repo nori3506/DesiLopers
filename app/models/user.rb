@@ -66,7 +66,7 @@ class User < ApplicationRecord
   has_many :tech_users
   has_many :techs, through: :tech_users
   has_many :comments, dependent: :destroy
-  belongs_to :company
+  belongs_to :company, optional: true
   acts_as_paranoid
 
   scope :techs_and_portfolio, -> {

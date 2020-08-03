@@ -1,0 +1,52 @@
+<%= form_with(model: form, url: url, local: true) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.label :background %>
+	<%= f.text_area :background %>
+
+	<%= f.label :detail %>
+	<%= f.text_area :detail %>
+
+	<%= f.label :requirement %>
+	<%= f.text_area :requirement %>
+
+	<%= f.label :benefit %>
+	<%= f.text_area :benefit %>
+
+	<%= f.radio_button :emp_type, :正社員 %>
+	<%= f.label :emp_type_regular, '正社員' %>
+	
+	<%= f.label :allocation %>
+	<%= f.text_area :allocation %>
+
+	<%= f.label :min_salary %>
+	<%= select_tag :min_salary, options_for_select(
+		{ '100万円' => 1000000, '200万円' => 2000000 }) %>
+	
+	<%= f.label :max_salary %>
+	<%= select_tag :max_salary, options_for_select(
+		{ '200万円' => 2000000, '300万円' => 3000000 }) %>
+
+	<%= f.label :process %>
+	<%= f.text_area :process %>
+
+	<%= f.label :welfare %>
+	<%= f.text_area :welfare %>
+
+	<%= f.label :place %>
+	<%= f.text_area :place %>
+
+	<%= f.label :number_of_hire %>
+	<%= f.number_field :number_of_hire %>
+
+	<%= f.hidden_field :company_id, :value => current_user.company.id %>
+
+	<%= f.label :status %>
+	<%= select_tag :status, options_for_select(
+		{ '下書き' => :stop, '募集中' => :active }) %>
+
+	<%= f.submit "Create" %>
+
+	
+	<% end %>

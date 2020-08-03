@@ -1,7 +1,5 @@
 class Companies::HomePolicy < Companies::ApplicationPolicy
-	
-	def index?	
+	def index?
 		user.company_user?
 	end
-
 end
