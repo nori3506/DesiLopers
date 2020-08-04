@@ -43,7 +43,7 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
 		@project.detail = detail
 		@project.requirement = requirement
 		@project.benefit = benefit
-		@project.emp_type = emp_type
+		# @project.emp_type = emp_type
 		@project.min_salary = min_salary
 		@project.max_salary = max_salary
 		@project.number_of_hire = number_of_hire
@@ -63,7 +63,7 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
 		self.detail ||= @project.detail
 		self.requirement ||= @project.requirement
 		self.benefit ||= @project.benefit
-		self.emp_type ||= @project.emp_type
+		# self.emp_type ||= @project.emp_type
 		self.min_salary ||= @project.min_salary
 		self.max_salary ||= @project.max_salary
 		self.number_of_hire ||= @project.number_of_hire

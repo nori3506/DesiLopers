@@ -14,4 +14,6 @@
 #
 
 class Company < ApplicationRecord
+	extend Enumerize
+	enumerize :status, in: [:active, :stop, :applying, :ban], default: :active
 end
