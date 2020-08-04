@@ -9,7 +9,6 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.text :detail, comment: '業務内容'
       t.text :requirement, comment: '応募資格'
       t.text :benefit, comment: '仕事で得られるもの'
-      t.string :emp_type, comment: '雇用形態'
       t.integer :min_salary, comment: '下限想定年収'
       t.integer :max_salary, comment: '上限想定年収'
       t.integer :number_of_hire, comment: '採用人数'

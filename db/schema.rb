@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_082644) do
+ActiveRecord::Schema.define(version: 2020_08_04_002709) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -84,6 +84,10 @@ ActiveRecord::Schema.define(version: 2020_07_26_082644) do
     t.index ["user_id"], name: "index_educations_on_user_id"
   end
 
+  create_table "emp_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false, comment: "雇用形態"
+  end
+
   create_table "friendly_id_slugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -127,7 +131,14 @@ ActiveRecord::Schema.define(version: 2020_07_26_082644) do
     t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
-  create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "project_emp_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "emp_type_id"
+    t.index ["emp_type_id"], name: "index_project_emp_types_on_emp_type_id"
+    t.index ["project_id"], name: "index_project_emp_types_on_project_id"
+  end
+
+  create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", comment: "募集タイトル"
     t.bigint "company_id"
     t.string "status", comment: "募集状況"
@@ -136,7 +147,6 @@ ActiveRecord::Schema.define(version: 2020_07_26_082644) do
     t.text "detail", comment: "業務内容"
     t.text "requirement", comment: "応募資格"
     t.text "benefit", comment: "仕事で得られるもの"
-    t.string "emp_type", comment: "雇用形態"
     t.integer "min_salary", comment: "下限想定年収"
     t.integer "max_salary", comment: "上限想定年収"
     t.integer "number_of_hire", comment: "採用人数"
@@ -167,7 +177,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_082644) do
     t.index ["slug"], name: "index_teches_on_slug", unique: true
   end
 
-  create_table "user_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "user_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "job_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -218,6 +228,8 @@ ActiveRecord::Schema.define(version: 2020_07_26_082644) do
   add_foreign_key "educations", "users"
   add_foreign_key "jobs", "job_categories"
   add_foreign_key "portfolios", "users"
+  add_foreign_key "project_emp_types", "emp_types"
+  add_foreign_key "project_emp_types", "projects"
   add_foreign_key "projects", "companies"
   add_foreign_key "user_jobs", "jobs"
   add_foreign_key "user_jobs", "users"
