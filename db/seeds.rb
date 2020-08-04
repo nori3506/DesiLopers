@@ -48,10 +48,26 @@
 	'STUDIO',
 	'AWS'
 ].each do |tech|
-	Tech.create(name: tech)
+	Tech.find_or_create_by(name: tech)
 end
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+if Rails.env.development?
+	Company.create!(name: 'First Company')
+	Company.create!(name: 'Second Company')
+end
+
+if Rails.env.development?
+	User.create!(name: 'FirstCompanyの社員 1', email: 'a@aaa.aaa', password: 'aaaaaaaa', company_id: 1, confirmed_at: "2020-08-01 02:19:44")
+	User.create!(name: 'FirstCompanyの社員 2', email: 'b@aaa.aaa', password: 'aaaaaaaa', company_id: 1, confirmed_at: "2020-08-01 02:19:44")
+	User.create!(name: 'FirstCompanyの社員 3', email: 'c@aaa.aaa', password: 'aaaaaaaa', company_id: 1, confirmed_at: "2020-08-01 02:19:44")
+	User.create!(name: 'SecondCompanyの社員 1', email: 'a@bbb.bbb', password: 'aaaaaaaa', company_id: 2, confirmed_at: "2020-08-01 02:19:44")
+	User.create!(name: 'SecondCompanyの社員 2', email: 'b@bbb.bbb', password: 'aaaaaaaa', company_id: 2, confirmed_at: "2020-08-01 02:19:44")
+	User.create!(name: 'SecondCompanyの社員 3', email: 'c@bbb.bbb', password: 'aaaaaaaa', company_id: 2, confirmed_at: "2020-08-01 02:19:44")
+	User.create!(name: '一般ユーザー　1', email: 'a@ccc.ccc', password: 'aaaaaaaa', confirmed_at: "2020-08-01 02:19:44")
+	User.create!(name: '一般ユーザー　2', email: 'b@ccc.ccc', password: 'aaaaaaaa', confirmed_at: "2020-08-01 02:19:44")
+end
 
 category = [
 	{
@@ -678,4 +694,53 @@ job.each do |j|
   job.name     = j[:name]
   job.job_category_id = j[:job_category_id]
   job.save!
+end
+
+emp_types = [
+	{
+		id: 1,
+		name: '正社員'
+	},
+	{
+		id: 2,
+		name: 'アルバイト・パート'
+	},
+	{
+		id: 3,
+		name: '派遣社員'
+	},
+	{
+		id: 4,
+		name: '契約社員'
+	},
+	{
+		id: 5,
+		name: '業務委託'
+	},
+	{
+		id: 6,
+		name: '請負'
+	},
+	{
+		id: 7,
+		name: '嘱託社員'
+	},
+	{
+		id: 8,
+		name: '新卒'
+	},
+	{
+		id: 9,
+		name: 'インターンシップ'
+	},
+	{
+		id: 10,
+		name: 'ボランティア'
+	}
+]
+
+emp_types.each do |et|
+  emp_type = EmpType.find_or_initialize_by(id: et[:id])
+  emp_type.name = et[:name]
+  emp_type.save!
 end
