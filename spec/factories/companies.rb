@@ -15,11 +15,11 @@
 
 FactoryBot.define do
   factory :company do
-    name { "MyString" }
-    status { "MyString" }
-    phone { "MyString" }
-    zip { "MyString" }
-    prefecture { "MyString" }
-    address { "MyString" }
+    name { "First company" }
+    status { :active }
+    phone { "080-111-2222" }
+    zip { "111-1111" }
+    prefecture { "Tokyo" }
+    address { "Tokyo city 123-4556" }
   end
 end

@@ -30,6 +30,18 @@
 #
 FactoryBot.define do
   factory :project do
-    
+    title { 'Hiring intermidiate Rails Developer!!' }
+    company
+    status { :active }
+    background { 'Because we need more hands to help...' }
+    allocation { 'Engineering Team' }
+    detail { 'Engineering Team' }
+    requirement { 'Nothing really' }
+    benefit { 'can improve your tech skills such as Rails and Java' }
+    min_salary { 1000000 }
+    max_salary { 7000000 }
+    process { '3 times interviews including code test' }
+    place { 'Japan of US' }
+    welafare { 'insurance and paid vacation for 30 days' }
   end
 end
