@@ -11,8 +11,6 @@ ActiveAdmin.register Company do
   #
   permit_params do
     permitted = [:name, :status, :phone, :zip, :prefecture, :address]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
-    permitted
   end
   
 end
