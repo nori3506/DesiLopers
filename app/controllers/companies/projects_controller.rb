@@ -1,4 +1,5 @@
 class Companies::ProjectsController < Companies::ApplicationController
+	before_action :authorize_home
 	before_action :set_project, only: [:edit, :update, :destroy]
 
 	def index
@@ -32,6 +33,10 @@ class Companies::ProjectsController < Companies::ApplicationController
 	end
 
 	private
+
+	def authorize_home
+    authorize [:companies, :project]
+  end
 
 	def set_project
 		@project = Project.find(params[:id])

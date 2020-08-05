@@ -31,6 +31,8 @@
 class Project < ApplicationRecord
 	extend Enumerize
 	enumerize :status, in: [:active, :stop, :done], default: :stop
+	# enumerize :emp_type, in: [:full_time, :part_time, :temporary, :contract, :intern, :outsourcing_contract, :volunteer, :service_contract]
+
 	validates :title, presence: true
 	validates :background, presence: true
 	validates :detail, presence: true
