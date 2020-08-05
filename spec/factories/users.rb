@@ -25,7 +25,6 @@
 #  last_sign_in_at          :datetime
 #  last_sign_in_ip          :string(255)
 #  name                     :string(255)
-#  password_digest          :string(255)
 #  remember_created_at      :datetime
 #  reset_password_sent_at   :datetime
 #  reset_password_token     :string(255)
@@ -52,6 +51,7 @@
 FactoryBot.define do
   factory :user do
     name { 'nori' }
+    company
     age { '20' }
     area { 'Canada' }
     career_year { '30years' }
@@ -61,5 +61,10 @@ FactoryBot.define do
     image { '' }
     job_hunting { true }
     password { 'password' }
+    password_confirmation { 'password' }
+
+    after :create do |user|
+      user.confirm
+    end
   end
 end
