@@ -26,7 +26,6 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
 	validates :process, presence: true
 	validates :place, presence: true
 
-
 	def initialize(project, params = nil)
 		@project = project
 		set_defaults

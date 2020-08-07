@@ -8,19 +8,15 @@ class Companies::ProjectsController < Companies::ApplicationController
 	def new
 		@form = Companies::ProjectRegistForm.new(Project.new)
 	end
-	
+
 	def create
 		@form = Companies::ProjectRegistForm.new(Project.new, params)
-
 		if @form.save
 			return redirect_to companies_home_index_path
 		end
-
 		render :new
-
-
 	end
-	
+
 	def edit
 		@form = Companies::ProjectRegistForm.new(@project)
 	end
@@ -35,8 +31,7 @@ class Companies::ProjectsController < Companies::ApplicationController
 
 	def show
 	end
-	
-	
+
 	def destroy
 
 	end
