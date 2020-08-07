@@ -45,9 +45,4 @@ class Companies::ProjectsController < Companies::ApplicationController
 	def set_project
 		@project = Project.find(params[:id])
 	end
-
-	def project_param
-		params.require(:project).permit(:title)
-	end
-
 end
