@@ -1,1 +1,8 @@
 <%= link_to  "create Job Post", new_companies_project_path %>
+
+
+<% @projects.each do |project| %>
+	<%= link_to  project.title, companies_project_path(project) %> 
+	<br>
+	
+<% end %>

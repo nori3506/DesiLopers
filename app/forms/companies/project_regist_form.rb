@@ -17,7 +17,7 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
 
 	attr_reader :project
 
-	validates :title, presence: true, length: {maximum: 50}
+	validates :title, presence: true, length: { maximum: 50 }
 	validates :company_id, presence: true
 	validates :background, presence: true
 	validates :detail, presence: true
@@ -26,12 +26,10 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
 	validates :process, presence: true
 	validates :place, presence: true
 
-
 	def initialize(project, params = nil)
 		@project = project
 		set_defaults
 		params ? super(sanitize_params(params)) : super()
-		params ? super(rest_params(params)) : super()
 	end
 
 	def save
@@ -72,8 +70,8 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
 		self.welfare ||= @project.welfare
 	end
 
-	def sanitize_params(params)		
-		params.require(:companies_project_regist_form)
+	def sanitize_params(params)
+		params.require(:project)
 					.permit(:title,
 									:company_id,
 									:background,
@@ -85,11 +83,10 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
 									:number_of_hire,
 									:process,
 									:place,
-									:welfare
+									:welfare,
+									:min_salary,
+									:max_salary,
+									:status
 					)
-	end
-
-	def rest_params(params)
-		params.permit(:min_salary, :max_salary, :status)
 	end
 end
