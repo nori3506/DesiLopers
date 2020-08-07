@@ -39,4 +39,6 @@ class Project < ApplicationRecord
 	validates :requirement, presence: true
 	validates :place, presence: true
 	validates_numericality_of :number_of_hire, message: "is not a number"
+
+	scope :my_projects, ->(company){ where(company_id: company.id) }
 end
