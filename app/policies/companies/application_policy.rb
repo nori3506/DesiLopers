@@ -7,33 +7,37 @@ class Companies::ApplicationPolicy
   end
 
   def index?
-    false
+    company_user?
   end
 
   def show?
-    false
+    company_user?
   end
 
   def create?
-    false
+    company_user?
   end
 
   def new?
-    create?
+    company_user?
   end
 
   def update?
-    false
+    company_user?
   end
 
   def edit?
-    update?
+    company_user?
   end
 
   def destroy?
-    false
-  end
+    company_user?
+	end
 
+	def	company_user?
+		user&.company_user?
+	end
+	
   class Scope
     attr_reader :user, :scope
 

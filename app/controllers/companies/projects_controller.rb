@@ -3,6 +3,7 @@ class Companies::ProjectsController < Companies::ApplicationController
 	before_action :set_project, only: [:edit, :update, :destroy, :show]
 
 	def index
+		@projects = Project.my_projects(current_user.company)
 	end
 
 	def new
