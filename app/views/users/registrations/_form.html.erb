@@ -20,7 +20,7 @@
             <span><%= f.label:password_confirmation, 'Password Confirm' %></span>
             <%= f.password_field :password_confirmation, placeholder: "More Than 8 Letter", class:"text-sm-field", required: true, autocomplete: 'off' %>
           </div>
-	  <%= hidden_field_tag :company_user_regist, params[:company_user_regist] %>
+					<%= hidden_field_tag :company_user_regist, params[:company_user_regist] %>
           <% if false%>
             <div class="field">
               <span class="aaa"><%= f.label:career_year, 'Career' %></span>
