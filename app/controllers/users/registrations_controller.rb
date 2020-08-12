@@ -5,9 +5,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
   def new
     @user = User.new
     @form = UserRegistForm.new(@user)
@@ -16,10 +13,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     params[:user][:birthday] = birthday_join
     @form = UserRegistForm.new(User.new, params[:user])
-
-    if @form.save      
+    if @form.save
       flash[:success] = 'Confirmation mail was sent to you'
-      return redirect_to new_user_session_path
+      if ActiveRecord::Type::Boolean.new.cast(params[:company_user_regist])
+        return redirect_to root_path
+      else
+        return redirect_to new_user_session_path
+      end
     else
       @user = @form.user
       render 'users/registrations/new'
