@@ -1,54 +1,54 @@
 <%= form_with(model: form, url: url, local: true) do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
-	<%= f.label :background %>
-	<%= f.text_area :background %>
+  <%= f.label :background %>
+  <%= f.text_area :background %>
 
-	<%= f.label :detail %>
-	<%= f.text_area :detail %>
+  <%= f.label :detail %>
+  <%= f.text_area :detail %>
 
-	<%= f.label :requirement %>
-	<%= f.text_area :requirement %>
+  <%= f.label :requirement %>
+  <%= f.text_area :requirement %>
 
-	<%= f.label :benefit %>
-	<%= f.text_area :benefit %>
+  <%= f.label :benefit %>
+  <%= f.text_area :benefit %>
 
-	<%= f.radio_button :emp_type, :正社員 %>
-	<%= f.label :emp_type_regular, '正社員' %>
-	
-	<%= f.label :allocation %>
-	<%= f.text_area :allocation %>
+  <%= f.radio_button :emp_type, :正社員 %>
+  <%= f.label :emp_type_regular, '正社員' %>
+  
+  <%= f.label :allocation %>
+  <%= f.text_area :allocation %>
 
-	<%= f.label :min_salary %>
-	<%= f.select :min_salary, options_for_select(
-		{ '100万円' => 1000000, '200万円' => 2000000,'300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
-		'700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000  }) %>
-	
-	<%= f.label :max_salary %>
-	<%= f.select :max_salary, options_for_select(
-		{ '200万円' => 2000000, '300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
-		'700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000 }) %>
+  <%= f.label :min_salary %>
+  <%= f.select :min_salary, options_for_select(
+    { '100万円' => 1000000, '200万円' => 2000000,'300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
+    '700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000  }) %>
+  
+  <%= f.label :max_salary %>
+  <%= f.select :max_salary, options_for_select(
+    { '200万円' => 2000000, '300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
+    '700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000 }) %>
 
-	<%= f.label :process %>
-	<%= f.text_area :process %>
+  <%= f.label :process %>
+  <%= f.text_area :process %>
 
-	<%= f.label :welfare %>
-	<%= f.text_area :welfare %>
+  <%= f.label :welfare %>
+  <%= f.text_area :welfare %>
 
-	<%= f.label :place %>
-	<%= f.text_area :place %>
+  <%= f.label :place %>
+  <%= f.text_area :place %>
 
-	<%= f.label :number_of_hire %>
-	<%= f.number_field :number_of_hire %>
+  <%= f.label :number_of_hire %>
+  <%= f.number_field :number_of_hire %>
 
-	<%= f.hidden_field :company_id, :value => current_user.company.id %>
+  <%= f.hidden_field :company_id, :value => current_user.company.id %>
 
-	<%= f.label :status %>
-	<%= f.select :status, options_for_select(
-		{ '下書き' => :stop, '募集中' => :active }) %>
+  <%= f.label :status %>
+  <%= f.select :status, options_for_select(
+    { '下書き' => :stop, '募集中' => :active }) %>
 
-	<%= f.submit "Create" %>
+  <%= f.submit "Create" %>
 
-	
-	<% end %>
+  
+  <% end %>

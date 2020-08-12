@@ -39,8 +39,8 @@ FactoryBot.define do
     requirement { 'Nothing really' }
     benefit { 'can improve your tech skills such as Rails and Java' }
     min_salary { 1000000 }
-		max_salary { 7000000 }
-		number_of_hire { 2 }
+    max_salary { 7000000 }
+    number_of_hire { 2 }
     process { '3 times interviews including code test' }
     place { 'Japan of US' }
     welfare { 'insurance and paid vacation for 30 days' }

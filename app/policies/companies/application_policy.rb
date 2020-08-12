@@ -1,5 +1,5 @@
 class Companies::ApplicationPolicy
-	attr_reader :user, :record
+  attr_reader :user, :record
 
   def initialize(user, record)
     @user = user
@@ -32,12 +32,12 @@ class Companies::ApplicationPolicy
 
   def destroy?
     company_user?
-	end
+  end
 
-	def	company_user?
-		user&.company_user?
-	end
-	
+  def	company_user?
+    user&.company_user?
+  end
+  
   class Scope
     attr_reader :user, :scope
 

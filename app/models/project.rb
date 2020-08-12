@@ -29,16 +29,16 @@
 #  fk_rails_...  (company_id => companies.id)
 #
 class Project < ApplicationRecord
-	extend Enumerize
-	enumerize :status, in: [:active, :stop, :done], default: :stop
-	# enumerize :emp_type, in: [:full_time, :part_time, :temporary, :contract, :intern, :outsourcing_contract, :volunteer, :service_contract]
+  extend Enumerize
+  enumerize :status, in: [:active, :stop, :done], default: :stop
+  # enumerize :emp_type, in: [:full_time, :part_time, :temporary, :contract, :intern, :outsourcing_contract, :volunteer, :service_contract]
 
-	validates :title, presence: true
-	validates :background, presence: true
-	validates :detail, presence: true
-	validates :requirement, presence: true
-	validates :place, presence: true
-	validates_numericality_of :number_of_hire, message: "is not a number"
+  validates :title, presence: true
+  validates :background, presence: true
+  validates :detail, presence: true
+  validates :requirement, presence: true
+  validates :place, presence: true
+  validates_numericality_of :number_of_hire, message: "is not a number"
 
-	scope :my_projects, ->(company){ where(company_id: company.id) }
+  scope :my_projects, ->(company){ where(company_id: company.id) }
 end

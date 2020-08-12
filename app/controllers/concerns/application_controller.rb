@@ -1,16 +1,16 @@
 module Concerns::ApplicationController
-	extend ActiveSupport::Concern
+  extend ActiveSupport::Concern
 
-	def render_403
-		render 'errors/403', layout: false
-	end
+  def render_403
+    render 'errors/403', layout: false
+  end
 
-	protected
+  protected
 
-	def user_not_authorized
-		redirect_to new_user_session_path and return unless current_user
+  def user_not_authorized
+    redirect_to new_user_session_path and return unless current_user
 
     render_403
-	end	
-	
+  end	
+  
 end

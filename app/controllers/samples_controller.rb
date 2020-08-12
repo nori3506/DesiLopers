@@ -1,5 +1,5 @@
 class SamplesController < ApplicationController
-	before_action :getsample, only: [:update, :destroy]
+  before_action :getsample, only: [:update, :destroy]
 
   def index
   end
