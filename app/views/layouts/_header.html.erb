@@ -80,7 +80,7 @@
                   <li class="nav-child2"><%= link_to "Login",  new_user_session_path %></li>
               </ul>
             </li>
-            <li class="emphasize nav-child2"><%= link_to "Employers" %></li>
+            <li class="emphasize nav-child2"><%= link_to "Employers", new_user_registration_path(params: { company_user_regist: true }) %></li>
           <% end %>
         </ul>
       </div>
