@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-	def new
+  def new
     @user = User.new
     @form = UserRegistForm.new(@user)
   end
@@ -24,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = @form.user
       render 'users/registrations/new'
     end
-	end
+  end
 
   # GET /resource/edit
   # def edit
