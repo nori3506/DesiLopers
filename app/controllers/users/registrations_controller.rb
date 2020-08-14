@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @form.save
       flash[:success] = 'Confirmation mail was sent to you'
       if ActiveRecord::Type::Boolean.new.cast(params[:company_user_regist])
-        return redirect_to root_path
+        return redirect_to new_companies_company_path
       else
         return redirect_to new_user_session_path
       end
