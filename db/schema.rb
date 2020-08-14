@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_081614) do
+ActiveRecord::Schema.define(version: 2020_08_14_122525) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_081614) do
     t.string "mission", comment: "企業ミッション"
     t.text "mission_detail", comment: "ミッション詳細"
     t.text "overview", comment: "会社概要"
-    t.text "URL", comment: "会社HP URL"
+    t.text "url"
     t.string "phone"
     t.string "zip"
     t.string "prefecture"

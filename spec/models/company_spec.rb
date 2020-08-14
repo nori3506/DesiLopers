@@ -3,7 +3,6 @@
 # Table name: companies
 #
 #  id                             :bigint           not null, primary key
-#  URL(会社HP URL)                :text(65535)
 #  address                        :string(255)
 #  avarage_age(従業員平均年齢)    :integer
 #  capital(資本金)                :integer
@@ -17,6 +16,7 @@
 #  prefecture                     :string(255)
 #  slogan(企業スローガン)         :string(255)
 #  status                         :string(255)      not null
+#  url                            :text(65535)
 #  zip                            :string(255)
 #  created_at                     :datetime         not null
 #  updated_at                     :datetime         not null
