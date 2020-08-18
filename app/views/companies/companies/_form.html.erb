@@ -1,16 +1,156 @@
-<%= form_with(model: form, url: url, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+	<%= form_with(model: form, url: url, local: true) do |f| %>
+		<div class="company-form__first">
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :name %>
+				</div>
+				<div class="company-form__input">
+					<%= f.text_field :name, class: 'company-form__input-area' %>
+				</div>
+			</div>
 
-	<%= f.label :zip %>
-  <%= f.text_area :zip %>
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :zip %>
+				</div>
+				<div class="company-form__input">
+					<%= f.text_field :zip, class: 'company-form__input-area' %>
+				</div>
+			</div>
 
-  <%= f.label :address %>
-  <%= f.text_area :address %>
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :address %>
+				</div>
+				<div class="company-form__input">
+					<%= f.text_area :address, class: 'company-form__input-area' %>
+				</div>
+			</div>
 
-  <%= f.label :phone %>
-  <%= f.text_area :phone %>
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :phone %>
+				</div>
+				<div class="company-form__input">
+					<%= f.text_field :phone, class: 'company-form__input-area' %>
+				</div>
+			</div>
 
-  <%= f.submit "Create" %>
+			<div class="company-form__element">
+				<div class="company-form__btn js-first-form-button">
+					Next
+				</div>
+			</div>
+		</div>
 
-  <% end %>
+		<div class="company-form__second">
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :slogan %>
+				</div>
+				<div class="company-form__input">
+					<%= f.text_field :slogan, class: 'company-form__input-area' %>
+				</div>
+			</div>
+
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :mission %>
+				</div>
+				<div class="company-form__input">
+					<%= f.text_field :mission, class: 'company-form__input-area' %>
+				</div>
+			</div>
+
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :mission_detail %>
+				</div>
+				<div class="company-form__input">
+					<%= f.text_area :mission_detail, class: 'company-form__input-area' %>
+				</div>
+			</div>
+
+
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :overview %>
+				</div>
+				<div class="company-form__input">
+					<%= f.text_area :overview, class: 'company-form__input-area'%>
+				</div>
+			</div>
+
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :url %>
+				</div>
+				<div class="company-form__input">
+					<%= f.text_field :url, class: 'company-form__input-area' %>
+				</div>
+			</div>
+
+			<div class="company-form__element company-form__btn-area">
+				<div class="company-form__back-btn js-second-form-back">
+					Back
+				</div>
+				<div class="company-form__btn js-second-form-button">
+					Next
+				</div>
+			</div>
+		</div>
+
+		<div class="company-form__third">
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :emp_number %>
+				</div>
+				<div class="company-form__input">
+					<%= f.number_field :emp_number, class: 'company-form__input-area' %>
+				</div>
+			</div>
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :avarage_age %>
+				</div>
+				<div class="company-form__input">
+					<%= f.number_field :avarage_age, class: 'company-form__input-area' %>
+				</div>
+			</div>
+
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :capital %>
+				</div>
+				<div class="company-form__input">
+					<%= f.number_field :capital, class: 'company-form__input-area' %>
+				</div>
+			</div>
+
+			<div class="company-form__element">
+				<div class="company-form__label">
+					<%= f.label :foundation_date %>
+				</div>
+				<div class="company-form__input">
+					<%= raw sprintf(
+						f.date_select(
+							:foundation_date,
+							use_month_numbers: true,
+							start_year: 1940,
+							end_year: 2022,
+							default: Date.new(1990, 1, 1),
+							prefix: :foundation_date,
+							date_separator: '%s'), 'year ', 'month ') + 'day' %>
+				</div>
+			</div>
+
+			<div class="company-form__element company-form__btn-area">
+				<div class="company-form__back-btn js-third-form-back">
+					Back
+				</div>
+				<div class="company-form__btn js-third-form-button">
+					<%= f.submit %>
+				</div>
+			</div>
+		</div>
+	<% end %>
