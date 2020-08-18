@@ -1,0 +1,66 @@
+.company-form{
+	max-width: 480px;
+	background:#ffffff;
+	margin: 0 auto;
+	width: 100%;
+	height: 600px;
+
+	&__first{
+		padding: 10px;
+
+	}
+	
+	&__label{
+		text-align: left;
+	}
+	
+	&__input{
+	}
+
+	&__input-area{
+		width: 100%;
+		line-height: 2;
+		border-radius: .25rem;
+    border: 2px solid #ccc;
+
+	}
+
+	&__element{
+		margin-bottom: 1rem;
+	}
+
+	&__second{
+		padding: 10px;
+		display: none;
+	}
+
+	&__third{
+		padding: 10px;
+		display: none;
+	}
+
+	&__btn{
+		margin: 0 auto;
+		background-color: #085ff7;
+    border: .125rem solid #085ff7;
+    border-radius: 6.25rem;
+		cursor: pointer;
+		color: #ffffff;
+		line-height: 2.5;
+		width: 50%;
+	}
+
+	&__back-btn{
+		line-height: 3;
+	}
+
+	&__btn-area{
+		display: flex;
+		flex-flow: row;
+	}
+
+	&__content{
+		padding: 1rem;
+		font-size: 1rem;
+	}
+}

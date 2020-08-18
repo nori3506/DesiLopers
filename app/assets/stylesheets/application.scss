@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "gritter";
+@import 'companies/_company_form';
+@import 'companies/_base';
 
 *{
   margin:0;
