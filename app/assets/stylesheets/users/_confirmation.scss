@@ -1,0 +1,52 @@
+.confirmation-form{
+	max-width: 650px;
+	background:#ffffff;
+	margin: 0 auto;
+	width: 100%;
+	height: 400px;
+
+	&__input-area{
+		width: 100%;
+		line-height: 2;
+		border-radius: .25rem;
+    border: 2px solid #ccc;
+	}
+
+	&__element{
+		max-width: 650px;
+    background: #ffffff;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 1rem;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+    align-items: center;
+	}
+
+	&__btn{
+		margin: 0 auto;
+		background-color: #085ff7;
+    border: .125rem solid #085ff7;
+    border-radius: 6.25rem;
+		cursor: pointer;
+		color: #ffffff;
+		line-height: 2.5;
+		width: 300px;
+		margin-top: 2rem;
+	}
+
+	&__content{
+		padding: 1rem;
+		font-size: 1rem;
+	}
+
+	&__input-area{
+		width: 100%;
+		line-height: 2;
+		border-radius: .25rem;
+		border: 2px solid #ccc;
+		min-width: 300px;
+    font-size: inherit;
+	}
+}

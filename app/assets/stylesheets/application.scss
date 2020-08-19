@@ -1,8 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "gritter";
+
+@import 'foundation/valiable/_valiables';
+@import 'foundation/mixin/_mixins';
+@import 'foundation/base/_base';
+
+@import 'utility/_utility';
 @import 'companies/_company_form';
 @import 'companies/_base';
+@import 'users/_confirmation';
+
 
 *{
   margin:0;

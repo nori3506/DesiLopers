@@ -1,0 +1,72 @@
+@charset "utf-8";
+// color name ------------------------------
+$color_black_dark: #222;
+$color_black: #1b2736;
+$color_white: #fff;
+
+$color_gray: #3b3b3b;
+$color_gray2: #51595F;
+$color_gray3: #707070;
+$color_light_gray: #ccc;
+$color_light_gray2: #e4e8ec;
+$color_gray_dark: #666;
+$color_gray_blue: #7c868d;
+$color_gray_blue2: #cfd7dd;
+$color_gray_blue3: #eff2f6;
+$color_gray_blue4: #e4e8ec;
+$color_yellow: #F1ED64;
+$color_dark_yellow: #e7e717;
+$color_light_yellow: #FFFCD3;
+$color_blue: #259edd;
+$color_red: #e65050;
+$color_green: #1DA76C;
+$color_orange:#EB6620;
+$color_dark_green: #41B267;
+$color_light_green: #3BC97C;
+$color_gray_job: #999;
+$color_disable: #595f65;
+
+// color variable ------------------------------
+
+$color_error: $color_red;
+$color_font_base: $color_black;
+$color_font_light: $color_gray_blue;
+$color_shadow: rgba($color_black, .08);
+$color_cover: rgba($color_black, .7);
+$color_shadow2: rgba(0,0,0,0.15);
+$color_button_bg: $color_black;
+$color_button_text: $color_black;
+$color_button_bg2: $color_gray_blue2;
+$color_border: $color_light_gray2;
+$color_box_border: $color_light_gray2;
+$color_header_border: $color_gray_blue4;
+$color_bg: $color_gray_blue3;
+$color_dark_bg: $color_black;
+$color_arrow: $color_gray_blue;
+$color_check_border: $color_black;
+
+// color variable ------------------------------
+$global-colors: (
+  primary: #101E2A,
+
+  // status
+  error: #FF1F00,
+
+  // tables
+  th-bg: #f5f8fa,
+  table-border: #eff2f6
+);
+@function color($key) {
+  @return map-get($global-colors, $key);
+}
+
+$responsive_size0: 1200px;
+$responsive_size1: 1000px;
+$responsive_size2: 840px; //メニューを下に下ろす サイト名表示
+$responsive_size3: 768px; //768タブレット以下サイズ: 
+                             //・zakkuri非表示
+                             //・メッセージと通知をリンク遷移に
+                             //・ヘルプ非表示
+                             //・マイメニューにヘルプ追加
+                             //・マイメニューの見た目変更
+$responsive_size4: 480px; //480
