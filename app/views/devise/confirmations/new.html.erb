@@ -1,7 +1,11 @@
 <div class="outline">
 	<div class="confirmation-form">
 		<section class="confirmation-form__content">
-			<h2>Resend Confirmation Email</h2>
+			<h2 class="u-mb10">Please Confirm your email!</h2>
+			<p>Confirmation email was sent to you.</p>
+			<p>To complete your registration, please click confirm link there.</p>
+			<p>In case you did not receive any confirmation email, please fill the email form below and click button.</p> 	
+
 			<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 				<%= render "devise/shared/error_messages", resource: resource %>
 				<div class="confirmation-form__element">
