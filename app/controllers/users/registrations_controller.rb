@@ -13,13 +13,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     params[:user][:birthday] = birthday_join
     @form = UserRegistForm.new(User.new, params[:user])
-    if @form.save
-      flash[:success] = 'Confirmation mail was sent to you'
-      if ActiveRecord::Type::Boolean.new.cast(params[:company_user_regist])
-        return redirect_to new_companies_company_path
-      else
-        return redirect_to new_user_session_path
-      end
+		if @form.save
+			RegistrationMailer.confirm_email(@form.user, params[:company_user_regist]).deliver
+      flash[:success] = 'Confirmation email was sent to you'
+      return redirect_to new_user_confirmation_path
     else
       @user = @form.user
       render 'users/registrations/new'
