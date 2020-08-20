@@ -10,7 +10,7 @@ class Companies::CompaniesController < Companies::ApplicationController
 		@form = Companies::CompanyRegistForm.new(Company.new, params)
 		if @form.save
 			flash[:success] = "Company was successfully created"
-			redirect_to root_path
+			redirect_to companies_home_index_path
 		else
 			flash[:error] = "Something went wrong"
 			render 'new'

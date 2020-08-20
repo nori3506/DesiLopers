@@ -80,5 +80,10 @@ class User < ApplicationRecord
 
   def company_user?
     company_id.present?
-  end
+	end
+
+	#not send dejault devise confirm email to user
+	def send_on_create_confirmation_instructions
+    false
+	end
 end

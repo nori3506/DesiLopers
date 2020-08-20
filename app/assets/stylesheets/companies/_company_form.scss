@@ -7,18 +7,15 @@
 
 	&__first{
 		padding: 10px;
-
 	}
 	
 	&__label{
 		text-align: left;
 	}
 	
-	&__input{
-	}
-
 	&__input-area{
 		width: 100%;
+		min-width: 315px;
 		line-height: 2;
 		border-radius: .25rem;
     border: 2px solid #ccc;

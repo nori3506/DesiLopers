@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+// braakpoint settings ------------------------------
+@mixin bp($bp_1: 0, $bp_2: 0) {
+  $bp_main: 480;
+  $bp_sub: 768;
+
+  @if $bp_1== "sp" {
+    @media (max-width: #{$bp_main}px) {
+      @content;
+    }
+  }
+
+  @elseif $bp_1=='tab' {
+    @media (max-width: #{$bp_sub}px ) {
+      @content;
+    }
+  }
+
+  @elseif $bp_1=='pc' {
+    @media (min-width: #{$bp_sub + 1}px) {
+      @content;
+    }
+  }
+
+  @elseif $bp_1=='ls' {
+    @media (orientation: landscape) {
+      @content;
+    }
+  }
+
+  @elseif $bp_1=='pt' {
+    @media (orientation: portrait) {
+      @content;
+    }
+  }
+
+ @else {
+    @if $bp_1 !=0 and $bp_2 !=0 {
+      @media (min-width: $bp_1) and (max-width: $bp_2) {
+        @content;
+      }
+    }
+
+    @elseif $bp_1==0 {
+      @media (max-width: $bp_2) {
+        @content;
+      }
+    }
+
+    @elseif $bp_2==0 {
+      @media (min-width: $bp_1) {
+        @content;
+      }
+    }
+  }
+}
+
+// common mixins ------------------------------
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin fs($fontsize: 16, $lineheight: 1.4, $base: 16) {
+  font-size: $fontsize + px;
+  line-height: ceil($lineheight * 1000 / $fontsize) / 1000;
+}
+
+.only-pc {
+  @include bp(tab) {
+    display: none !important;
+  }
+}
+
+.only-sp {
+  @include bp(pc) {
+    display: none !important;
+  }
+}
