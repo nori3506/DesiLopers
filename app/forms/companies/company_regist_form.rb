@@ -17,10 +17,11 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
 
 	attr_reader :company
 
-def initialize(company, params = nil)
+	def initialize(company, params = nil, current_user)
 		@company = company
+		@user = current_user
     set_defaults
-    params ? super(sanitize_params(params)) : super()
+		params ? super(sanitize_params(params)) : super()
 	end
 
 	def save
@@ -38,9 +39,16 @@ def initialize(company, params = nil)
     @company.emp_number 		 = emp_number
     @company.avarage_age 		 = avarage_age
     @company.capital 				 = capital
-    @company.foundation_date = foundation_date
-    @company.save
-		
+		@company.foundation_date = foundation_date
+
+		begin
+			ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
+				@company.save!
+				@user.update!(company_id: @company.id)
+			end
+		rescue ActiveRecord::RecordInvalid, ActiveRecord::InvalidForeignKey, StandardError => e
+			false
+		end
 	end
 
 	def set_defaults
