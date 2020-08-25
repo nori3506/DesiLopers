@@ -22,4 +22,10 @@
 #  fk_rails_...  (image_id => images.id)
 #
 class CompanyImage < ApplicationRecord
+	extend Enumerize
+
+  enumerize :use_purpose, in: [:main], default: :main
+	belongs_to :image, dependent: :destroy
+  belongs_to :company
+
 end
