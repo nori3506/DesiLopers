@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_122525) do
+ActiveRecord::Schema.define(version: 2020_08_25_141505) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -80,6 +80,18 @@ ActiveRecord::Schema.define(version: 2020_08_14_122525) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "company_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "company_id"
+    t.bigint "image_id"
+    t.string "use_purpose", null: false, comment: "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id", "image_id"], name: "index_company_images_on_company_id_and_image_id", unique: true
+    t.index ["company_id"], name: "index_company_images_on_company_id"
+    t.index ["image_id"], name: "index_company_images_on_image_id"
+    t.index ["use_purpose"], name: "index_company_images_on_use_purpose"
+  end
+
   create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.string "category"
@@ -106,6 +118,10 @@ ActiveRecord::Schema.define(version: 2020_08_14_122525) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, length: { slug: 70, scope: 70 }
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", length: { slug: 140 }
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "file_name", null: false
   end
 
   create_table "job_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -145,6 +161,18 @@ ActiveRecord::Schema.define(version: 2020_08_14_122525) do
     t.bigint "emp_type_id"
     t.index ["emp_type_id"], name: "index_project_emp_types_on_emp_type_id"
     t.index ["project_id"], name: "index_project_emp_types_on_project_id"
+  end
+
+  create_table "project_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "image_id"
+    t.string "use_purpose", null: false, comment: "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_project_images_on_image_id"
+    t.index ["project_id", "image_id"], name: "index_project_images_on_project_id_and_image_id", unique: true
+    t.index ["project_id"], name: "index_project_images_on_project_id"
+    t.index ["use_purpose"], name: "index_project_images_on_use_purpose"
   end
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -233,11 +261,15 @@ ActiveRecord::Schema.define(version: 2020_08_14_122525) do
 
   add_foreign_key "careers", "users"
   add_foreign_key "comments", "portfolios"
+  add_foreign_key "company_images", "companies"
+  add_foreign_key "company_images", "images"
   add_foreign_key "educations", "users"
   add_foreign_key "jobs", "job_categories"
   add_foreign_key "portfolios", "users"
   add_foreign_key "project_emp_types", "emp_types"
   add_foreign_key "project_emp_types", "projects"
+  add_foreign_key "project_images", "images"
+  add_foreign_key "project_images", "projects"
   add_foreign_key "projects", "companies"
   add_foreign_key "user_jobs", "jobs"
   add_foreign_key "user_jobs", "users"
