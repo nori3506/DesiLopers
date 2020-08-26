@@ -24,5 +24,7 @@
 
 class Company < ApplicationRecord
   extend Enumerize
-  enumerize :status, in: [:active, :stop, :applying, :ban], default: :active
+	enumerize :status, in: [:active, :stop, :applying, :ban], default: :active
+	has_many :company_images, dependent: :destroy, autosave: true
+  has_many :images, through: :company_images
 end
