@@ -22,10 +22,9 @@
 #  fk_rails_...  (project_id => projects.id)
 #
 class ProjectImage < ApplicationRecord
-	extend Enumerize
-
+  extend Enumerize
   enumerize :use_purpose, in: [:main], default: :main
-	belongs_to :image, dependent: :destroy
+  belongs_to :image, dependent: :destroy
   belongs_to :project
 
 end
