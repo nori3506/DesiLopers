@@ -11,10 +11,15 @@
 
 			<div class="company-form__element">
 				<div class="company-form__label">
-					<%= f.label :file_name,"Image" %>
+					<%= f.label :file_name,"Company Main Image" %>
 				</div>
+				<% if form.main_image.present? %>
+  				<%= image_tag form.main_image, id: 'js-img_prev' %>
+				<% else %>
+					<%= image_tag "human.jpg", id: 'js-img_prev' %>
+				<% end %>
 				<div class="company-form__input">
-					<%= f.file_field :file_name %>
+					<%= f.file_field :file_name, id: 'js-user_img' %>
 				</div>
 			</div>
 
