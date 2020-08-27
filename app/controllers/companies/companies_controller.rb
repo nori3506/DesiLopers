@@ -2,13 +2,16 @@ class Companies::CompaniesController < Companies::ApplicationController
 	layout 'company/regist'
 
 	def new
-		@form = Companies::CompanyRegistForm.new(Company.new, current_user)
+		@company = Company.new
+		@form = Companies::CompanyRegistForm.new(	@company, current_user, 	@company.images.build)
 	end
 
 	def create
 		params[:company][:foundation_date] = fondation_date_join
-		@form = Companies::CompanyRegistForm.new(Company.new, params, current_user)
+		@company = Company.new
+		@form = Companies::CompanyRegistForm.new(@company, params, current_user, @company.images)
 		if @form.save
+			@company.images.create(file_name: params[:company][:file_name])
 			flash[:success] = "Company was successfully created"
 			redirect_to companies_home_index_path
 		else

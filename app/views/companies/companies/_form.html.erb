@@ -11,6 +11,15 @@
 
 			<div class="company-form__element">
 				<div class="company-form__label">
+					<%= f.label :file_name,"Image" %>
+				</div>
+				<div class="company-form__input">
+					<%= f.file_field :file_name %>
+				</div>
+			</div>
+
+			<div class="company-form__element">
+				<div class="company-form__label">
 					<%= f.label :zip %>
 				</div>
 				<div class="company-form__input">

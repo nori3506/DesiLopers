@@ -1,5 +1,6 @@
 class Companies::CompanyRegistForm < ::Companies::ApplicationForm
 	attr_accessor :name,
+								:file_name,
 								:status,
 								:slogan,
 								:mission,
@@ -17,7 +18,7 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
 
 	attr_reader :company
 
-	def initialize(company, params = nil, current_user)
+	def initialize(company, params = nil, current_user, images)
 		@company = company
 		@user = current_user
     set_defaults
@@ -40,6 +41,8 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
     @company.avarage_age 		 = avarage_age
     @company.capital 				 = capital
 		@company.foundation_date = foundation_date
+		
+		# save_image
 
 		begin
 			ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
@@ -50,6 +53,16 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
 			false
 		end
 	end
+
+	def save_image
+		company_image = CompanyImage.find_or_initialize_by(company:@company, use_purpose: :main)
+		binding.pry
+		
+		self.file_name.each do |fn|
+			@company.company_images = fn
+		end
+	end
+	
 
 	def set_defaults
 		self.name						 ||=	@company.name
@@ -67,6 +80,7 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
 		self.avarage_age 		 ||=	@company.avarage_age
 		self.capital				 ||=	@company.capital
 		self.foundation_date ||= 	@company.foundation_date
+		self.file_name       ||=  @company.images.map { |image| image.id }
 	end
 
 	def sanitize_params(params)
@@ -84,7 +98,8 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
 																		:emp_number,
 																		:avarage_age,
 																		:capital,
-																		:foundation_date
-		)
+																		:foundation_date,
+																		file_name: []
+		)		
 	end
 end
