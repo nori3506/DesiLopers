@@ -24,13 +24,13 @@
 
 class Company < ApplicationRecord
   extend Enumerize
-	enumerize :status, in: [:active, :stop, :applying, :ban], default: :active
-	has_many :company_images, dependent: :destroy, autosave: true
-	has_many :images, through: :company_images do
-		def filter(purpose)
-			merge(CompanyImage.where(use_purpose: purpose))
-		end
-	end
+  enumerize :status, in: [:active, :stop, :applying, :ban], default: :active
+  has_many :company_images, dependent: :destroy, autosave: true
+  has_many :images, through: :company_images do
+    def filter(purpose)
+      merge(CompanyImage.where(use_purpose: purpose))
+    end
+  end
 
-	has_one :main_image, ->{main}, class_name: 'CompanyImage'
+  has_one :main_image, ->{main}, class_name: 'CompanyImage'
 end
