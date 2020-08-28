@@ -49,4 +49,6 @@ class Project < ApplicationRecord
   validates_numericality_of :number_of_hire, message: "is not a number"
 
   scope :my_projects, ->(company){ where(company_id: company.id) }
+  scope :active_projects, -> { where(:status => :active)}
+  # Ex:- scope :active, -> {where(:active => true)}
 end

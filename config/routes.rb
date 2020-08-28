@@ -36,7 +36,8 @@ Rails.application.routes.draw do
   resource :comments, only:[:create, :edit, :update, :destroy]
   resource :sessions, only: [:new, :create, :destroy]
   resources :portfolios
-  resources :teches
+	resources :teches
+	resources :projects
 
   namespace :api do
     namespace :v1 do

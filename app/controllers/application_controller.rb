@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     elsif resource.company_user?
       companies_home_index_path
     else
-      new_portfolio_path
+      projects_path
     end
   end
 end
