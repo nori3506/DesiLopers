@@ -31,6 +31,14 @@
 class Project < ApplicationRecord
   extend Enumerize
   enumerize :status, in: [:active, :stop, :done], default: :stop
+  has_many :project_images, dependent: :destroy, autosave: true
+  has_many :images, through: :project_images do
+    def filter(purpose)
+      merge(ProjectImage.where(use_purpose: purpose))
+    end
+  end
+
+  has_one :main_image, ->{main}, class_name: 'ProjectImage'
   # enumerize :emp_type, in: [:full_time, :part_time, :temporary, :contract, :intern, :outsourcing_contract, :volunteer, :service_contract]
 
   validates :title, presence: true

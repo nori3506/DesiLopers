@@ -1,9 +1,9 @@
-.company-form{
-  max-width: 480px;
+.project-form{
+  max-width: 1000px;
   background:#ffffff;
   margin: 0 auto;
   width: 100%;
-  height: 600px;
+  height: 800px;
 
   &__first{
     padding: 10px;
@@ -16,7 +16,6 @@
   &__input-area{
     width: 100%;
     min-width: 315px;
-    line-height: 2;
     border-radius: .25rem;
     border: 2px solid #ccc;
 
