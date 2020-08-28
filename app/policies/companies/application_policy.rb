@@ -37,7 +37,7 @@ class Companies::ApplicationPolicy
   def	company_user?
     user&.company_user?
   end
-  
+
   class Scope
     attr_reader :user, :scope
 

@@ -3,7 +3,7 @@ class Companies::CompaniesController < Companies::ApplicationController
 
 	def new
 		@company = Company.new
-		@form = Companies::CompanyRegistForm.new(	@company, current_user, 	@company.images.build)
+		@form = Companies::CompanyRegistForm.new(@company, current_user, @company.images.build)
 	end
 
 	def create

@@ -12,8 +12,9 @@ class Companies::ProjectsController < Companies::ApplicationController
 
   def create
     @form = Companies::ProjectRegistForm.new(Project.new, params)
-    if @form.save
-      return redirect_to companies_home_index_path
+		if @form.save
+			@form.project.images.create(file_name: params[:project][:file_name])
+			return redirect_to companies_home_index_path
     end
     render :new
   end

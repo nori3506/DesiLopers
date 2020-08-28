@@ -1,54 +1,160 @@
 <%= form_with(model: form, url: url, local: true) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :background %>
-  <%= f.text_area :background %>
-
-  <%= f.label :detail %>
-  <%= f.text_area :detail %>
-
-  <%= f.label :requirement %>
-  <%= f.text_area :requirement %>
-
-  <%= f.label :benefit %>
-  <%= f.text_area :benefit %>
-
-  <%= f.radio_button :emp_type, :正社員 %>
-  <%= f.label :emp_type_regular, '正社員' %>
-  
-  <%= f.label :allocation %>
-  <%= f.text_area :allocation %>
-
-  <%= f.label :min_salary %>
-  <%= f.select :min_salary, options_for_select(
-    { '100万円' => 1000000, '200万円' => 2000000,'300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
-    '700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000  }) %>
-  
-  <%= f.label :max_salary %>
-  <%= f.select :max_salary, options_for_select(
-    { '200万円' => 2000000, '300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
-    '700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000 }) %>
-
-  <%= f.label :process %>
-  <%= f.text_area :process %>
-
-  <%= f.label :welfare %>
-  <%= f.text_area :welfare %>
-
-  <%= f.label :place %>
-  <%= f.text_area :place %>
-
-  <%= f.label :number_of_hire %>
-  <%= f.number_field :number_of_hire %>
-
-  <%= f.hidden_field :company_id, :value => current_user.company.id %>
-
-  <%= f.label :status %>
-  <%= f.select :status, options_for_select(
-    { '下書き' => :stop, '募集中' => :active }) %>
-
-  <%= f.submit "Create" %>
-
-  
-  <% end %>
+	<%= f.hidden_field :company_id, :value => current_user.company.id %>
+	<div class="project-form__first">
+  	<div class="project-form__element">
+    	<div class="project-form__label">
+  			<%= f.label :title %>
+	    </div>
+      <div class="project-form__input">
+			  <%= f.text_field :title, class: 'project-form__input-area' %>
+			</div>
+    </div>
+		<div class="project-form__element">
+			<div class="project-form__label">
+				<%= f.label :file_name,"Project Main Image" %>
+			</div>
+			<% if form.main_image.present? %>
+				<%= image_tag form.main_image, id: 'js-img_prev' %>
+			<% else %>
+				<%= image_tag "human.jpg", id: 'js-img_prev' %>
+			<% end %>
+			<div class="project-form__input">
+				<%= f.file_field :file_name, id: 'js-user_img' %>
+			</div>
+		</div>		
+	 	<div class="project-form__element">
+      <div class="project-form__label">
+				<%= f.label :background %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.text_area :background, class: 'project-form__input-area', rows: 6, placeholder: "why does your company need this position?" %>
+			</div>
+		</div>
+  	<div class="project-form__element">
+      <div class="project-form__label">
+				<%= f.label :detail %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.text_area :detail, class: 'project-form__input-area' %>
+			</div>
+    </div>
+  	<div class="project-form__element">
+      <div class="project-form__label">
+				<%= f.label :requirement %>
+			</div>
+      <div class="project-form__input">
+				<%= f.text_area :requirement, class: 'project-form__input-area' %>
+			</div>
+    </div>
+		<div class="project-form__element project-form__btn-area">
+			<div class="project-form__btn js-first-form-button">
+				Next
+			</div>
+		</div>
+	</div>
+	<div class="project-form__second">
+		<div class="project-form__element">
+      <div class="project-form__label">
+				<%= f.label :benefit %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.text_area :benefit, class: 'project-form__input-area' %>
+			</div>
+    </div>
+  	<div class="project-form__element">
+      <div class="project-form__input">
+				<%= f.radio_button :emp_type, :正社員, class: 'project-form__input-area' %>
+			</div>
+	    <div class="project-form__label">
+				<%= f.label :emp_type_regular, '正社員' %>
+	    </div>
+		</div>
+  	<div class="project-form__element">
+      <div class="project-form__label">
+				<%= f.label :allocation %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.text_area :allocation, class: 'project-form__input-area' %>
+			</div>
+    </div>
+		<div class="project-form__element">
+      <div class="project-form__label">
+				<%= f.label :min_salary %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.select :min_salary, options_for_select(
+					{ '100万円' => 1000000, '200万円' => 2000000,'300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
+					'700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000  }) %>
+			</div>
+		</div>
+  	<div class="project-form__element">	
+		  <div class="project-form__label">
+				<%= f.label :max_salary %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.select :max_salary, options_for_select(
+					{ '200万円' => 2000000, '300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
+					'700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000 }) %>
+			</div>
+		</div>
+		<div class="project-form__element project-form__btn-area">
+			<div class="project-form__back-btn js-second-form-back">
+				Back
+			</div>
+			<div class="project-form__btn js-second-form-button">
+				Next
+			</div>
+		</div>
+	</div>
+	<div class="project-form__third">
+		<div class="project-form__element">	
+      <div class="project-form__label">
+				<%= f.label :process %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.text_area :process, class: 'project-form__input-area' %>
+			</div>
+		</div>
+  	<div class="project-form__element">
+      <div class="project-form__label">
+				<%= f.label :welfare %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.text_area :welfare, class: 'project-form__input-area' %>
+			</div>
+		</div>
+  	<div class="project-form__element">
+      <div class="project-form__label">
+				<%= f.label :place %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.text_area :place, class: 'project-form__input-area' %>
+			</div>
+		</div>
+  	<div class="project-form__element">
+			<div class="project-form__label">
+				<%= f.label :number_of_hire %>
+	    </div>
+      <div class="project-form__input">
+				<%= f.number_field :number_of_hire, class: 'project-form__input-area' %>
+			</div>
+		</div>
+  	<div class="project-form__element">
+		  <div class="project-form__label">
+				<%= f.label :status %>
+	    </div>
+			<div class="project-form__input">
+				<%= f.select :status, options_for_select(
+					{ '下書き' => :stop, '募集中' => :active }) %>
+			</div>
+		</div>
+		<div class="project-form__element project-form__btn-area">
+			<div class="project-form__back-btn js-third-form-back">
+				Back
+			</div>
+      <div class="project-form__btn js-third-form-button">
+				<%= f.submit "Create" %>
+			</div>
+		</div>
+	</div>  	
+<% end %>

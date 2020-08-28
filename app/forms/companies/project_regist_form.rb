@@ -1,5 +1,6 @@
 class Companies::ProjectRegistForm < ::Companies::ApplicationForm
   attr_accessor :title,
+                :file_name,
                 :company_id,
                 :status,
                 :background,
@@ -86,7 +87,8 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
                   :welfare,
                   :min_salary,
                   :max_salary,
-                  :status
+                  :status,
+                  :file_name
           )
   end
 end
