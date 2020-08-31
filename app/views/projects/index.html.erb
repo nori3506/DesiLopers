@@ -3,7 +3,7 @@
 <% @projects.each do |project| %>
   <img src="<%= project.company.main_image %>">
   <img src="<%= project.main_image %>">
-	<%= link_to  project.title,  project_path(project) %>
-	<%= link_to  project.detail,  project_path(project) %>
-	<%= link_to  project.company.name,  project_path(project) %>
+  <%= link_to  project.title,  project_path(project) %>
+  <%= link_to  project.detail,  project_path(project) %>
+  <%= link_to  project.company.name,  project_path(project) %>
 <% end %>
