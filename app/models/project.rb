@@ -38,9 +38,9 @@ class Project < ApplicationRecord
     end
   end
 
-  has_one :main_image, ->{main}, class_name: 'ProjectImage'
+  has_one :main_image, ->{ main }, class_name: 'ProjectImage'
   # enumerize :emp_type, in: [:full_time, :part_time, :temporary, :contract, :intern, :outsourcing_contract, :volunteer, :service_contract]
-
+  belongs_to :company
   validates :title, presence: true
   validates :background, presence: true
   validates :detail, presence: true

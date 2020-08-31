@@ -27,4 +27,8 @@ class ProjectImage < ApplicationRecord
   belongs_to :image, dependent: :destroy
   belongs_to :project
 
+  delegate :to_s, :url, to: :image
+
+  scope :project_image_filter, ->(purpose){ where(use_purpose: purpose) }
+  scope :main, -> { project_image_filter(:main) }
 end
