@@ -26,4 +26,9 @@ class CompanyImage < ApplicationRecord
   enumerize :use_purpose, in: [:main], default: :main
   belongs_to :image, dependent: :destroy
   belongs_to :company
+  
+  delegate :to_s, :url, to: :image
+
+  scope :company_image_filter, ->(purpose){ where(use_purpose: purpose) }
+  scope :main, -> { company_image_filter(:main) }
 end

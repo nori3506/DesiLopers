@@ -32,5 +32,6 @@ class Company < ApplicationRecord
     end
   end
 
-  has_one :main_image, ->{main}, class_name: 'CompanyImage'
+  has_one :main_image, ->{ main }, class_name: 'CompanyImage'
+  has_many :projects, dependent: :destroy, autosave: true
 end
