@@ -1,3 +1,8 @@
-<h2>求人編集</h2>
-
-<%= render "form", form: @form.project, url: companies_project_path(@form.project) %>
+<div class="outline">
+  <div class="project-form">
+    <section class="project-form__content">
+      <h2>Update Job Post </h2>
+      <%= render "form", form: @form.project, url: companies_project_path(@form.project) %>
+    </section>
+  </div>
+</div>

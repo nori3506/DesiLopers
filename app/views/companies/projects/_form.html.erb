@@ -14,7 +14,7 @@
         <%= f.label :file_name,"Project Main Image" %>
       </div>
       <% if form.main_image.present? %>
-        <%= image_tag form.main_image, id: 'js-img_prev' %>
+        <img src="<%= form.main_image %>", id="js-img_prev">
       <% else %>
         <%= image_tag "human.jpg", id: 'js-img_prev' %>
       <% end %>
@@ -153,7 +153,7 @@
         Back
       </div>
       <div class="project-form__btn js-third-form-button">
-        <%= f.submit "Create" %>
+        <%= f.submit %>
       </div>
     </div>
   </div>  	
