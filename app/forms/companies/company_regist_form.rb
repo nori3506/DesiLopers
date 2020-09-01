@@ -18,7 +18,7 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
 
   attr_reader :company
 
-  def initialize(company, params = nil, current_user, images)
+  def initialize(company, params = nil, current_user)
     @company = company
     @user = current_user
     set_defaults
@@ -77,7 +77,6 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
     self.avarage_age      ||=	@company.avarage_age
     self.capital          ||=	@company.capital
     self.foundation_date  ||= @company.foundation_date
-    self.file_name        ||= @company.images.map { |image| image.id }
   end
 
   def sanitize_params(params)
