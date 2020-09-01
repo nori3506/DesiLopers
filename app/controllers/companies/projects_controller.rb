@@ -27,7 +27,7 @@ class Companies::ProjectsController < Companies::ApplicationController
     @form = Companies::ProjectRegistForm.new(@project, params)
     if @form.save
       @form.project.images.update(file_name: params[:project][:file_name])	
-      return redirect_to companies_home_index_path
+      return redirect_to companies_project_path(@project)
     end
     render :edit
   end
