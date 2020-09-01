@@ -52,7 +52,7 @@ class UserRegistForm < ApplicationForm
     @user.password_confirmation = password_confirmation
     @user.image = image
     @user.career_year = career_year
-    @user.age = (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
+    @user.age = (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000 if birthday.present?
     @user.birthday = birthday
     @user.gender = gender
     @user.area = area

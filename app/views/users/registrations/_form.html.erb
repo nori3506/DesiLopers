@@ -31,37 +31,39 @@
               </div>
             </div>
           <% end %>
-          <div class="field">
-            <span><%= f.label:birthday, 'Birthday' %></span>
-            <%= raw sprintf(
-              f.date_select(
-                :birthday,
-                use_month_numbers: true,
-                start_year: 1940,
-                end_year: 2010,
-                default: Date.new(1990, 1, 1),
-                prefix: :birthday,
-                date_separator: '%s'), '年 ', '月 ') + '日' %>
-          </div>
-          <div class="field adjust">
-            <span><%= f.label :gender, 'Sex' %></span>
-            <%= f.radio_button :gender, :male, class:"", checked: true %>Male
-            <%= f.radio_button :gender, :female, class:"" %>Female
-          </div>
-          <% if false%>
-            <p class="skill_head">Select your skills below</p>
+          <% unless params[:company_user_regist].present? %>
             <div class="field">
-              <%= f.collection_check_boxes :tech_ids, Tech.all, :id, :name do |cb| %>
-                <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
-              <% end %>
+              <span><%= f.label:birthday, 'Birthday' %></span>
+              <%= raw sprintf(
+                f.date_select(
+                  :birthday,
+                  use_month_numbers: true,
+                  start_year: 1940,
+                  end_year: 2010,
+                  default: Date.new(1990, 1, 1),
+                  prefix: :birthday,
+                  date_separator: '%s'), '年 ', '月 ') + '日' %>
             </div>
-            <div class="picture_create">
-              <div class="picture_head">Profile Picture</div> 
+            <div class="field adjust">
+              <span><%= f.label :gender, 'Sex' %></span>
+              <%= f.radio_button :gender, :male, class:"", checked: true %>Male
+              <%= f.radio_button :gender, :female, class:"" %>Female
+            </div>
+            <% if false%>
+              <p class="skill_head">Select your skills below</p>
               <div class="field">
-                <%= f.file_field :image %>
+                <%= f.collection_check_boxes :tech_ids, Tech.all, :id, :name do |cb| %>
+                  <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                <% end %>
               </div>
-            </div>
-          <% end %>
+              <div class="picture_create">
+                <div class="picture_head">Profile Picture</div> 
+                <div class="field">
+                  <%= f.file_field :image %>
+                </div>
+              </div>
+            <% end %>
+          <% end%>
           <div class="field">
             <%= f.submit yield(:button_text) %>
           </div>
