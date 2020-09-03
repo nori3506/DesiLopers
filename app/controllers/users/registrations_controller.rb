@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    params[:user][:birthday] = birthday_join unless params[:company_user_regist].present?
+    # params[:user][:birthday] = birthday_join unless params[:company_user_regist].present?
     @form = UserRegistForm.new(User.new, params[:user])
     if @form.save
       RegistrationMailer.confirm_email(@form.user, params[:company_user_regist]).deliver
