@@ -1,8 +1,10 @@
+<% provide(:button_text, 'Regist') %>
+
 <div class="outline">
-	<div class="company-form">
-		<section class="company-form__content">
-			<h2>Compnay Registration</h2>
-			<%= render "form", form: @form.company, url: companies_companies_path %>
-		</section>
-	</div>
+  <div class="company-form">
+    <section class="company-form__content">
+      <h2>Company Registration</h2>
+      <%= render "form", form: @form.company, url: companies_companies_path %>
+    </section>
+  </div>
 </div>

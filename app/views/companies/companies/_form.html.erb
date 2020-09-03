@@ -14,9 +14,13 @@
           <%= f.label :file_name,"Company Main Image" %>
         </div>
         <% if form.main_image.present? %>
-          <img src="<%= form.main_image %>", id="js-img_prev">
+          <div class="company-form__image-area">
+            <img src="<%= form.main_image %>", id="js-img_prev">
+          </div>
         <% else %>
-          <%= image_tag "human.jpg", id: 'js-img_prev' %>
+          <div class="company-form__image-area">
+            <%= image_tag "human.jpg", id: 'js-img_prev' %>
+          </div>
         <% end %>
         <div class="company-form__input">
           <%= f.file_field :file_name, id: 'js-user_img' %>
@@ -51,7 +55,16 @@
       </div>
 
       <div class="company-form__element">
-        <div class="company-form__btn js-first-form-button">
+        <div class="company-form__label">
+          <%= f.label :url %>
+        </div>
+        <div class="company-form__input">
+          <%= f.text_field :url, class: 'company-form__input-area' %>
+        </div>
+      </div>
+
+      <div class="company-form__element">
+        <div class="company-form__btn-area js-first-form-button">
           Next
         </div>
       </div>
@@ -63,7 +76,7 @@
           <%= f.label :slogan %>
         </div>
         <div class="company-form__input">
-          <%= f.text_field :slogan, class: 'company-form__input-area' %>
+          <%= f.text_field :slogan, rows: 2, class: 'company-form__input-area' %>
         </div>
       </div>
 
@@ -72,7 +85,7 @@
           <%= f.label :mission %>
         </div>
         <div class="company-form__input">
-          <%= f.text_field :mission, class: 'company-form__input-area' %>
+          <%= f.text_area :mission, rows: 2, class: 'company-form__input-area' %>
         </div>
       </div>
 
@@ -81,7 +94,7 @@
           <%= f.label :mission_detail %>
         </div>
         <div class="company-form__input">
-          <%= f.text_area :mission_detail, class: 'company-form__input-area' %>
+          <%= f.text_area :mission_detail, rows: 8, class: 'company-form__input-area' %>
         </div>
       </div>
 
@@ -91,25 +104,16 @@
           <%= f.label :overview %>
         </div>
         <div class="company-form__input">
-          <%= f.text_area :overview, class: 'company-form__input-area'%>
+          <%= f.text_area :overview, rows: 8, class: 'company-form__input-area'%>
         </div>
       </div>
 
       <div class="company-form__element">
-        <div class="company-form__label">
-          <%= f.label :url %>
-        </div>
-        <div class="company-form__input">
-          <%= f.text_field :url, class: 'company-form__input-area' %>
-        </div>
-      </div>
-
-      <div class="company-form__element company-form__btn-area">
-        <div class="company-form__back-btn js-second-form-back">
-          Back
-        </div>
-        <div class="company-form__btn js-second-form-button">
+        <div class="js-second-form-button company-form__btn-area">
           Next
+        </div>
+        <div class="company-form__back-btn js-second-form-back">
+          <span class="u-pointer">Back</span>
         </div>
       </div>
     </div>
@@ -125,7 +129,7 @@
       </div>
       <div class="company-form__element">
         <div class="company-form__label">
-          <%= f.label :avarage_age %>
+          <%= f.label :avarage_age, "Employee's average age" %>
         </div>
         <div class="company-form__input">
           <%= f.number_field :avarage_age, class: 'company-form__input-area' %>
@@ -158,12 +162,12 @@
         </div>
       </div>
 
-      <div class="company-form__element company-form__btn-area">
-        <div class="company-form__back-btn js-third-form-back">
-          Back
+      <div class="company-form__element">
+        <div class="company-form__btn-area js-third-form-button company-form__btn-area">
+          <%= f.submit yield(:button_text), class: "company-form__btn" %>
         </div>
-        <div class="company-form__btn js-third-form-button">
-          <%= f.submit %>
+        <div class="company-form__back-btn js-third-form-back">
+          <span class="u-pointer">Back</span>
         </div>
       </div>
     </div>
