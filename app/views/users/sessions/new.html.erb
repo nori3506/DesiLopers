@@ -1,16 +1,4 @@
-<div class="container">
-  <div align="center">
-    <%= render'layouts/form' %>
-    <div class="PageLayout-content">
-      <div class="FormContent">
-        <h2>Log in</h2>
-        <%= render 'form' %>  
-        <%= render "devise/shared/links" %>
-        <div class="field">
-          <li>Hassle? Then, <span class="emphasize bigger"><%= link_to "Login as TRIAL", users_trial_path %></span></li>
-        </div>
-        <%= link_to "New User?", new_user_registration_path, class: "button-against-whitebackground" %>
-      </div>
-    </div>
-  </div>
-</div>
+<% provide(:button_text, 'Sign in') %>
+<% provide(:head_text, 'Sign in') %>
+<%= render 'shared/errors', obj: @user %>
+<%= render 'form' %>  

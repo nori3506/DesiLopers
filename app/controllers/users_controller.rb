@@ -51,8 +51,8 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       trial_user_create_portfolio
-      flash[:success] = "TRY this APP!, Welcome!"
-      redirect_to users_path
+      flash[:success] = "TRY this APP! Welcome!"
+      redirect_to projects_path
     else
       flash[:danger] = "Please click 'TRIAL' again"
       render 'users_path'
