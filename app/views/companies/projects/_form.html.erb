@@ -3,7 +3,7 @@
   <div class="project-form__first">
     <div class="project-form__element">
       <div class="project-form__label">
-        <%= f.label :title %>
+        <%= f.label :title, class: 'required' %>
       </div>
       <div class="project-form__input">
         <%= f.text_field :title, class: 'project-form__input-area' %>
@@ -11,12 +11,16 @@
     </div>
     <div class="project-form__element">
       <div class="project-form__label">
-        <%= f.label :file_name,"Project Main Image" %>
+        <%= f.label :file_name,"Project Main Image", class: 'required' %>
       </div>
       <% if form.main_image.present? %>
-        <img src="<%= form.main_image %>", id="js-img_prev">
+        <div class="project-form__image-area">
+          <img src="<%= form.main_image %>", id="js-img_prev">
+        </div>
       <% else %>
-        <%= image_tag "select_image.png", id: 'js-img_prev' %>
+        <div class="project-form__image-area">
+          <%= image_tag "select_image.png", id: 'js-img_prev' %>
+        </div>
       <% end %>
       <div class="project-form__input">
         <%= f.file_field :file_name, id: 'js-user_img' %>
@@ -24,31 +28,31 @@
     </div>		
      <div class="project-form__element">
       <div class="project-form__label">
-        <%= f.label :background %>
+        <%= f.label :background, class: 'required' %>
       </div>
       <div class="project-form__input">
-        <%= f.text_area :background, class: 'project-form__input-area', rows: 6, placeholder: "why does your company need this position?" %>
+        <%= f.text_area :background, class: 'project-form__input-area', rows: 8, placeholder: "why does your company need this position?" %>
       </div>
     </div>
     <div class="project-form__element">
       <div class="project-form__label">
-        <%= f.label :detail %>
+        <%= f.label :detail, class: 'required' %>
       </div>
       <div class="project-form__input">
-        <%= f.text_area :detail, class: 'project-form__input-area' %>
+        <%= f.text_area :detail, class: 'project-form__input-area', rows: 8 %>
       </div>
     </div>
     <div class="project-form__element">
       <div class="project-form__label">
-        <%= f.label :requirement %>
+        <%= f.label :requirement, class: 'required' %>
       </div>
       <div class="project-form__input">
-        <%= f.text_area :requirement, class: 'project-form__input-area' %>
+        <%= f.text_area :requirement, class: 'project-form__input-area', rows: 8 %>
       </div>
     </div>
-    <div class="project-form__element project-form__btn-area">
-      <div class="project-form__btn js-first-form-button">
-        Next
+    <div class="project-form__element">
+      <div class="project-form__btn-area js-first-form-button">
+        <span class="project-form__btn">Next</span>
       </div>
     </div>
   </div>
@@ -58,7 +62,7 @@
         <%= f.label :benefit %>
       </div>
       <div class="project-form__input">
-        <%= f.text_area :benefit, class: 'project-form__input-area' %>
+        <%= f.text_area :benefit, class: 'project-form__input-area', rows: 4 %>
       </div>
     </div>
     <div class="project-form__element">
@@ -74,7 +78,7 @@
         <%= f.label :allocation %>
       </div>
       <div class="project-form__input">
-        <%= f.text_area :allocation, class: 'project-form__input-area' %>
+        <%= f.text_area :allocation, class: 'project-form__input-area', rows: 4 %>
       </div>
     </div>
     <div class="project-form__element">
@@ -97,22 +101,12 @@
           '700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000 }) %>
       </div>
     </div>
-    <div class="project-form__element project-form__btn-area">
-      <div class="project-form__back-btn js-second-form-back">
-        <span class="u-pointer">Back</span>
-      </div>
-      <div class="project-form__btn js-second-form-button">
-        Next
-      </div>
-    </div>
-  </div>
-  <div class="project-form__third">
     <div class="project-form__element">	
       <div class="project-form__label">
         <%= f.label :process %>
       </div>
       <div class="project-form__input">
-        <%= f.text_area :process, class: 'project-form__input-area' %>
+        <%= f.text_area :process, class: 'project-form__input-area', rows: 4 %>
       </div>
     </div>
     <div class="project-form__element">
@@ -120,7 +114,7 @@
         <%= f.label :welfare %>
       </div>
       <div class="project-form__input">
-        <%= f.text_area :welfare, class: 'project-form__input-area' %>
+        <%= f.text_area :welfare, class: 'project-form__input-area', rows: 4 %>
       </div>
     </div>
     <div class="project-form__element">
@@ -148,13 +142,13 @@
           { '下書き' => :stop, '募集中' => :active }) %>
       </div>
     </div>
-    <div class="project-form__element project-form__btn-area">
-      <div class="project-form__back-btn js-third-form-back">
+    <div class="project-form__element">
+      <div class="project-form__btn-area js-third-form-button">
+        <%= f.submit yield(:button_text), class: "project-form__btn"%>
+      </div>
+      <div class="project-form__back-btn js-second-form-back">
         <span class="u-pointer">Back</span>
       </div>
-      <div class="project-form__btn js-third-form-button">
-        <%= f.submit %>
-      </div>
     </div>
-  </div>  	
+  </div>
 <% end %>
