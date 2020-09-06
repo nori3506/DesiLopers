@@ -23,7 +23,6 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
   validates :background, presence: true
   validates :detail, presence: true
   validates :requirement, presence: true
-  validates :emp_type, presence: true
   validates :process, presence: true
   validates :place, presence: true
 
@@ -34,6 +33,8 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
   end
 
   def save
+    return false if invalid?
+
     @project.title = title
     @project.company_id = company_id
     @project.status = status
@@ -90,5 +91,11 @@ class Companies::ProjectRegistForm < ::Companies::ApplicationForm
                   :status,
                   :file_name
           )
+  end
+
+  private
+
+  def validate_file_name
+    errors[:base] << 'Project main image is required' if file_name.nil?
   end
 end
