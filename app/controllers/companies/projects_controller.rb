@@ -7,7 +7,9 @@ class Companies::ProjectsController < Companies::ApplicationController
   end
 
   def new
-    @form = Companies::ProjectRegistForm.new(Project.new)
+    @project = Project.new
+    @form = Companies::ProjectRegistForm.new(@project)
+    # @images = @project.images.build
   end
 
   def create
@@ -16,6 +18,7 @@ class Companies::ProjectsController < Companies::ApplicationController
       @form.project.images.create(file_name: params[:project][:file_name])
       return redirect_to companies_home_index_path
     end
+    # @images = @form.project.images.build(file_name: params[:project][:file_name])
     render :new
   end
 
