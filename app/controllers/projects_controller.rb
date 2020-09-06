@@ -7,5 +7,4 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     # todo: other projects list @other_projects shoud be defined
   end
-  
 end

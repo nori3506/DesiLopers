@@ -15,7 +15,6 @@ class Companies::CompaniesController < Companies::ApplicationController
       flash[:success] = "Company was successfully created"
       redirect_to companies_home_index_path
     else
-      flash[:error] = "Something went wrong"
       render 'new'
     end
   end
@@ -31,15 +30,12 @@ class Companies::CompaniesController < Companies::ApplicationController
 
       if @form.save
         @company.images.update(file_name: params[:company][:file_name])
-        flash[:success] = "Object was successfully updated"
+        flash[:success] = "Company was successfully updated"
         redirect_to companies_home_index_path
       else
-        flash[:error] = "Something went wrong"
         render 'edit'
       end
   end
-  
-  
 
   private
   def fondation_date_join

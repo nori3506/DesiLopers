@@ -16,7 +16,7 @@
       <% if form.main_image.present? %>
         <img src="<%= form.main_image %>", id="js-img_prev">
       <% else %>
-        <%= image_tag "human.jpg", id: 'js-img_prev' %>
+        <%= image_tag "select_image.png", id: 'js-img_prev' %>
       <% end %>
       <div class="project-form__input">
         <%= f.file_field :file_name, id: 'js-user_img' %>

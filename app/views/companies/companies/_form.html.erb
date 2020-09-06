@@ -2,7 +2,7 @@
     <div class="company-form__first">
       <div class="company-form__element">
         <div class="company-form__label">
-          <%= f.label :name, "Company Name" %>
+          <%= f.label :name, "Company Name", class: 'required' %>
         </div>
         <div class="company-form__input">
           <%= f.text_field :name, class: 'company-form__input-area' %>
@@ -11,7 +11,7 @@
 
       <div class="company-form__element">
         <div class="company-form__label">
-          <%= f.label :file_name,"Company Main Image" %>
+          <%= f.label :file_name,"Company Main Image", class: 'required' %>
         </div>
         <% if form.main_image.present? %>
           <div class="company-form__image-area">
@@ -19,7 +19,7 @@
           </div>
         <% else %>
           <div class="company-form__image-area">
-            <%= image_tag "human.jpg", id: 'js-img_prev' %>
+            <%= image_tag "select_image.png", id: 'js-img_prev' %>
           </div>
         <% end %>
         <div class="company-form__input">
@@ -29,7 +29,7 @@
 
       <div class="company-form__element">
         <div class="company-form__label">
-          <%= f.label :zip %>
+          <%= f.label :zip, class: 'required' %>
         </div>
         <div class="company-form__input">
           <%= f.text_field :zip, class: 'company-form__input-area' %>
@@ -38,7 +38,7 @@
 
       <div class="company-form__element">
         <div class="company-form__label">
-          <%= f.label :address %>
+          <%= f.label :address, class: 'required' %>
         </div>
         <div class="company-form__input">
           <%= f.text_area :address, class: 'company-form__input-area' %>
@@ -47,7 +47,7 @@
 
       <div class="company-form__element">
         <div class="company-form__label">
-          <%= f.label :phone %>
+          <%= f.label :phone, class: 'required' %>
         </div>
         <div class="company-form__input">
           <%= f.text_field :phone, class: 'company-form__input-area' %>

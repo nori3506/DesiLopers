@@ -18,6 +18,12 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
 
   attr_reader :company
 
+  validates :name, presence: true
+  validates :zip, presence: true
+  validates :address, presence: true
+  validates :phone, presence: true
+  validate :validate_file_name
+
   def initialize(company, params = nil, current_user)
     @company = company
     @user = current_user
@@ -26,6 +32,8 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
   end
 
   def save
+    return false if invalid?
+
     @company.name             = name
     @company.status           = status
     @company.slogan           = slogan
@@ -41,10 +49,9 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
     @company.avarage_age      = avarage_age
     @company.capital          = capital
     @company.foundation_date  = foundation_date
-
     begin
       ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
-        @company.save!
+        @company.save!(validate: false)
         @user.update!(company_id: @company.id)
       end
     rescue ActiveRecord::RecordInvalid, ActiveRecord::InvalidForeignKey, StandardError => e
@@ -95,7 +102,14 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
                                     :avarage_age,
                                     :capital,
                                     :foundation_date,
-                                    file_name: []
+                                    :file_name
     )
   end
+
+  private
+
+  def validate_file_name
+    errors[:base] << 'company image is required' if file_name.nil?
+  end
+  
 end
