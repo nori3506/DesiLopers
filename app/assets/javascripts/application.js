@@ -19,3 +19,35 @@
 $(function(){
   setTimeout("$('.alert').fadeOut('linear')", 3000) 
 })//= require serviceworker-companion
+
+$(function() {
+  $('.slider').slick({
+    autoplay: true,
+    autoplaySpeed: 3000,
+
+    responsive:[
+      {
+        breakpoint: 1500,
+        settings:{
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '170px',
+          focusOnSelect:true,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings:{
+          centerPadding: '110px',
+          slidesToShow:2,
+        }
+      },
+      {
+        breakpoint: 500,
+        settings:{
+            slidesToShow:1,
+        }
+      },
+    ]
+  });
+});

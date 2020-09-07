@@ -1,3 +1,12 @@
-// Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.slider{
+  height: 350px;
+  width: 100%;
+}
+
+button.slick-prev {
+  display: none !important;
+}
+
+button.slick-next {
+  display: none !important;
+}
