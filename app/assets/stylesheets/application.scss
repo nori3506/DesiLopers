@@ -745,3 +745,17 @@ textarea select input{
   width: 80%;
   height: 15vh;
 }
+
+.note{
+  padding: 10px 40px;
+  display: flex;
+  flex-flow: column;
+  background: lightpink;
+  width: 48%;
+  margin: auto;
+  min-width: 340px;
+}
+
+.note_content {
+  text-align: center;
+}

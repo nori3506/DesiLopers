@@ -140,6 +140,15 @@
       <div class="project-form__input">
         <%= f.select :status, options_for_select(
           { 'stop' => :stop, 'active' => :active }) %>
+          <div class="note">
+            <div class="note_content">
+              "stop"   ・・・Draft(Not display)
+            </div>
+            <div class="note_content">
+              "active" ・・・Open to users     
+            </div>   
+          </div>
+
       </div>
     </div>
     <div class="project-form__element">
