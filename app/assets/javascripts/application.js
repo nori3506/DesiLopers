@@ -31,7 +31,7 @@ $(function() {
         settings:{
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: '170px',
+          centerPadding: '220px',
           focusOnSelect:true,
         }
       },
