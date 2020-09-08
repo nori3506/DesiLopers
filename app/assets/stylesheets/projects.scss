@@ -48,5 +48,22 @@ button.slick-next {
   width: 450px;
   height: auto;
   max-height: 450px;
+}
 
+.project-main-image{
+  height: 500px;
+  width: 1080px;
+  background-size: cover;
+  background-position: top;
+
+  img{
+    object-fit: cover;
+    width: 1080px;
+    height: 500px;
+  }
+}
+
+.project-detail-container{
+  width: 1080px;
+  margin: 0 auto;
 }

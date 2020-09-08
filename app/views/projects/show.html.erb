@@ -1,9 +1,20 @@
-  <%= @project.title %>
-  <img src="<%= @project.main_image %>">
-  <%= @project.detail %>
-  <%= @project.background %>
-  <%= @project.requirement %>
-  <%= @project.process %>
-
-
-<h3>Other Job Posts from <%= @project.company.name %></h3>
+<div class="project-detail-container">
+  <h1><%= @project.title %></h1>
+  <div class="project-main-image">
+    <img src="<%= @project.main_image %>">
+  </div>
+  <h1>Job Detail</h1>
+  <div class="project-detail">
+    <%= @project.detail %>
+  </div>
+  <div class="project-detail">
+    <%= @project.background %>
+  </div>
+  <div class="project-detail">
+    <%= @project.requirement %>
+  </div>
+  <div class="project-detail">
+    <%= @project.process %>
+  </div>
+  <h3>Other Job Posts from <%= @project.company.name %></h3>
+</div>
