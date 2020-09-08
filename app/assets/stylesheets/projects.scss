@@ -10,3 +10,42 @@ button.slick-prev {
 button.slick-next {
   display: none !important;
 }
+
+.main-container {
+  display: flex;
+}
+
+.project-main-container {
+  padding: 0px 20px;
+  flex: 1 0;
+  background: green;
+  overflow: scroll;
+  width: 100%;
+}
+
+.side-container {
+  min-width: 240px;
+  flex: 0 0;
+  background: pink;
+}
+
+.project-container {  
+  height: 475px;
+  background: white;
+  overflow-x: scroll;
+  min-width: 600px;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.project-image-area {
+  display: flex;
+
+}
+
+.image-content {
+  width: 450px;
+  height: 300px;
+
+}

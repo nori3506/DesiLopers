@@ -1,4 +1,3 @@
-<%= render 'side' %>
 <div class="slider slider-size">
   <div><%= image_tag 'human.jpg', size: "380x350" %></div>
   <div><%= image_tag 'avatar.png', size: "380x350" %></div>
@@ -8,18 +7,25 @@
 
 </div>
 
-<% @projects.each do |project| %>
-  <div class="project-container">
-    <div class="project-image-area">
-      <div class="image-content">
-        <img src="<%= project.company.main_image %>">
-      </div>
-      <div class="image-content">
-        <img src="<%= project.main_image %>">
-      </div>
-    </div>
-    <h2> <%= link_to  project.title,  project_path(project) %></h2>
-    <%= link_to  project.detail,  project_path(project) %>
-    <%= link_to  project.company.name,  project_path(project) %>
+<div class="main-container">
+  <div class="side-container">
+    <%= render 'side' %>
   </div>
-<% end %>
+  <div class="project-main-container">
+    <% @projects.each do |project| %>
+      <div class="project-container">
+        <div class="project-image-area">
+          <div class="image-content">
+            <img src="<%= project.company.main_image %>">
+          </div>
+          <div class="image-content">
+            <img src="<%= project.main_image %>">
+          </div>
+        </div>
+        <h2> <%= link_to  project.title,  project_path(project) %></h2>
+        <%= link_to  project.detail,  project_path(project) %>
+        <%= link_to  project.company.name,  project_path(project) %>
+      </div>
+    <% end %>
+  </div>
+</div>

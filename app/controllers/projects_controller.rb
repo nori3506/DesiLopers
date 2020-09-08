@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.active_projects
+    @projects = Project.includes([company: :main_image], :main_image).active_projects
   end
 
   def show
