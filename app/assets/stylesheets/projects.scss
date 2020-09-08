@@ -46,6 +46,7 @@ button.slick-next {
 
 .image-content {
   width: 450px;
-  height: 300px;
+  height: auto;
+  max-height: 450px;
 
 }
