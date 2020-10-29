@@ -1,0 +1,26 @@
+.company-header {
+    background: rgba(0, 0, 0, 0.8);
+    color: whitesmoke;
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 11rem;
+    top: 16rem;
+    left: -9rem;
+    max-width: 640px;
+
+}
+
+.image-area {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.company-image {
+    padding: 12rem;
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+    position: relative;
+    top: -64px;
+}
