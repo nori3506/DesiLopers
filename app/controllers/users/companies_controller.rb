@@ -4,7 +4,7 @@ class Users::CompaniesController < ApplicationController
 	before_action :set_company, only: [:show]
 
 	def show
-	
+		@projects = @company.projects.active_projects
 	end
 
 	 private
