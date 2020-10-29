@@ -1,24 +1,24 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
-  devise_for :users,
-    path: '',
-    path_names: {
-      sign_up: '',
-      sign_in: 'login',
-      sign_out: 'logout',
-      registration: "signup",
-    },
-    controllers: {
-      registrations: 'users/registrations',
-      confirmations: 'users/confirmations',
-      sessions: 'users/sessions'
-    }
 
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+  devise_for :users,
+             path: '',
+             path_names: {
+               sign_up: '',
+               sign_in: 'login',
+               sign_out: 'logout',
+               registration: 'signup'
+             },
+             controllers: {
+               registrations: 'users/registrations',
+               confirmations: 'users/confirmations',
+               sessions: 'users/sessions'
+             }
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   # devise_for :users, controllers: {
   #   sessions: 'users/sessions'
@@ -32,12 +32,15 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'users/trial', to: 'users#create_trial_user'
 
-  resources :users, except:[:new, :create]
-  resource :comments, only:[:create, :edit, :update, :destroy]
-  resource :sessions, only: [:new, :create, :destroy]
+  resources :users, except: %i[new create]
+  scope module: :users do
+    resources :companies, only: %i[show index], path: 'company_detail'
+  end
+  resource :comments, only: %i[create edit update destroy]
+  resource :sessions, only: %i[new create destroy]
   resources :portfolios
-	resources :teches
-	resources :projects
+	 resources :teches
+	 resources :projects
 
   namespace :api do
     namespace :v1 do
