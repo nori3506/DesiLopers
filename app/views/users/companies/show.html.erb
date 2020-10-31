@@ -1,66 +1,66 @@
 <div class="wrapper">
-	<nav>
-		<ul class="link-list">
-			<li><%= link_to  "job" %></li>
-			<li><%= link_to  "job" %></li>
-		</ul>
-	</nav>
-	<header class="u-mb10">
-		<button type="button" class="interest-button u-mb10">Interest!</button>
-		<div class="image-area">
-		  <div class="company-image" style="background-image: url(<%= @company.main_image %>)">
-				<div class="header-title">
-					<h1 class="company-header"><%= @company.name %></h1>
-					<p class="company-slogan"><%= @company.slogan %></p>
-				</div>
-				
-			</div>
-		</div>
-	</header>
-	<main class="u-mb20 u-pb15">
-		<section class="mission u-mb20">
-			<h2 class="mission-title u-mb10"><%= @company.mission %></h2>
-			<p><%= @company.mission_detail %></p>
-		</section>
-		<section class="overview u-mb20">
-			<h2 class="mission-title u-mb10">Company Overview</h2>
-			<p><%= @company.overview %></p>
-		</section>
-		<section class="information u-mb20">
-			<h2 class="mission-title u-mb10">Company Infomation </h2>
-			<p class="u-pb10">Company Name</p>
-			<p><%= @company.name %></p>
-			<p class="u-pb10">Foundation Date</p>
-			<p><%= @company.foundation_date %></p>
-			<p class="u-pb10">Employee Number</p>
-			<p><%= @company.emp_number %></p>
-			<p class="u-pb10">Capital</p>
-			<p><%= @company.capital %></p>
-			<p class="u-pb10">Ararage Age</p>
-			<p><%= @company.avarage_age %></p>
-			<p class="u-pb10">Company Address</p>
-			<p><%= @company.address %> , <%= @company.zip %> </p>
-			<p class="u-pb10">URL</p>
-			<p><%= link_to "#{ @company.url }" , @company.url, target: "_blank" %></p>
-		</section>
+  <nav>
+    <ul class="link-list">
+      <li><%= link_to  "job" %></li>
+      <li><%= link_to  "job" %></li>
+    </ul>
+  </nav>
+  <header class="u-mb10">
+    <button type="button" class="interest-button u-mb10">Interest!</button>
+    <div class="image-area">
+      <div class="company-image" style="background-image: url(<%= @company.main_image %>)">
+        <div class="header-title">
+          <h1 class="company-header"><%= @company.name %></h1>
+          <p class="company-slogan"><%= @company.slogan %></p>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <main class="u-mb20 u-pb15">
+    <section class="mission u-mb20">
+      <h2 class="mission-title u-mb10"><%= @company.mission %></h2>
+      <p><%= @company.mission_detail %></p>
+    </section>
+    <section class="overview u-mb20">
+      <h2 class="mission-title u-mb10">Company Overview</h2>
+      <p><%= @company.overview %></p>
+    </section>
+    <section class="information u-mb20">
+      <h2 class="mission-title u-mb10">Company Infomation </h2>
+      <p class="u-pb10">Company Name</p>
+      <p><%= @company.name %></p>
+      <p class="u-pb10">Foundation Date</p>
+      <p><%= @company.foundation_date %></p>
+      <p class="u-pb10">Employee Number</p>
+      <p><%= @company.emp_number %></p>
+      <p class="u-pb10">Capital</p>
+      <p><%= @company.capital %></p>
+      <p class="u-pb10">Ararage Age</p>
+      <p><%= @company.avarage_age %></p>
+      <p class="u-pb10">Company Address</p>
+      <p><%= @company.address %> , <%= @company.zip %> </p>
+      <p class="u-pb10">URL</p>
+      <p><%= link_to "#{ @company.url }" , @company.url, target: "_blank" %></p>
+    </section>
 
-		<section class="company-projects u-mb20">
-			<h2 class="mission-title u-mb10">Other job posts of <%= @company.name %> </h2>
-			<% @projects.each do |project| %>
-			<div class="project-area">
-				<div class="other-project-img">
-					<img src="<%= project.company.main_image %>">
-				</div>
-				<div class="project_description">
-					<h3><%= project.title %></h3>
-					<p><%= project.detail %></p>
-				</div>
-			</div>
-			<% end %>
-		</section>
-		<button type="button" class="u-center interest-button">Interest!</button>
-	</main>
-	<footer>
+    <section class="company-projects u-mb20">
+      <h2 class="mission-title u-mb10">Other job posts of <%= @company.name %> </h2>
+      <% @projects.each do |project| %>
+      <div class="project-area">
+        <div class="other-project-img">
+          <img src="<%= project.company.main_image %>">
+        </div>
+        <div class="project_description">
+          <h3><%= project.title %></h3>
+          <p><%= project.detail %></p>
+        </div>
+      </div>
+      <% end %>
+    </section>
+    <button type="button" class="u-center interest-button">Interest!</button>
+  </main>
+  <footer>
 
-	</footer>
+  </footer>
 </div>
