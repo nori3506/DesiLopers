@@ -41,6 +41,9 @@
               <% else %>
                 <%= link_to "#{current_user.name}", user_path(current_user)%></li>
               <% end %>
+            <li class="nav-child">
+              <%= link_to  "interest", interests_path %>
+            </li>
             <li class="dropdown nav-child">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 User Edit<span class="caret"></span>

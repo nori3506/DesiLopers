@@ -1,0 +1,27 @@
+<div class="interest-wrapper">
+  <nav>
+   <ul>
+    <li><%= link_to  "Your Interest" %></li>
+    <li><%= link_to  "Your Interest" %></li>
+   </ul>
+  </nav>
+  <main class="u-mb20">
+    <% @projects.each do |project| %>
+      <%= link_to(project_path(project), class:"") do %>
+        <div class="interest-project-area u-mb20">
+          <img src="<%= project.main_image %>", id="js-img_prev", class="project-img">
+          <div class="project-description">
+            <p class="u-right u-my10" ><%= project.created_at.strftime("%x") %></p>
+            <h2 class="u-left u-mb10"><%= project.title %></h1>
+            <p class="u-mb10"><%= project.detail.truncate(130) %></p>
+            <ul class="u-left">
+              <li class="u-left project-header u-mb5"><%= project.company.name %></li>
+              <li class="company-prefecture">【Place】 <%= project.company.prefecture %></li>
+              <li class="company-emp-number">【Employee Number】 <%= project.company.emp_number %></li>
+            </ul>            
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </main>
+</div>
