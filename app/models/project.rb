@@ -52,8 +52,6 @@ class Project < ApplicationRecord
 
   scope :my_projects, ->(company){ where(company_id: company.id) }
   scope :active_projects, -> { where(:status => :active)}
-  scope :interest_projects, -> (project) {
-    where('interests.project' => project, 'interests.is_interest_by_user' => true)
-  }
+  scope :interest_projects, -> { where('interests.is_interest_by_user' => true) }
   # Ex:- scope :active, -> {where(:active => true)}
 end
