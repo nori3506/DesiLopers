@@ -8,5 +8,4 @@ class InterestsController < ApplicationController
       format.json
     end
   end
-
 end
