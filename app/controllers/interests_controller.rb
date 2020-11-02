@@ -1,7 +1,7 @@
 class InterestsController < ApplicationController
 
   def index
-    @interests = current_user.projects.interest_projects
+    @projects = current_user.projects.includes(:company, [main_image: :image]).interest_projects
   end
 
   def create
