@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   resources :portfolios
   resources :teches
   resources :projects
-  resources :interests, only: [:create]
+  resources :interests, only: %i[create inces]
 
   namespace :api do
     namespace :v1 do
