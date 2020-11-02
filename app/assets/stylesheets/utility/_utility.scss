@@ -154,3 +154,23 @@ $margin-max: 10;
 .u-pointer{
   cursor: pointer;
 }
+
+.u-disable-button {
+  background: #EFEFEF;
+  cursor: default;
+  display: block;
+  padding: 0.3rem 4rem;
+  color: #1b2736;
+}
+
+.u-block-right {
+  margin: 0 0 0 auto;
+}
+
+.u-block-center {
+  margin: 0 auto;
+}
+
+.u-block-left {
+  margin: 0 auto 0 0;
+}

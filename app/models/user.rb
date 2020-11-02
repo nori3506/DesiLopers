@@ -65,6 +65,8 @@ class User < ApplicationRecord
   has_many :tech_users
   has_many :techs, through: :tech_users
   has_many :comments, dependent: :destroy
+  has_many :interests 
+  has_many :projects, through: :interests 
   belongs_to :company, optional: true
   acts_as_paranoid
 

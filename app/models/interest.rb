@@ -21,4 +21,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Interest < ApplicationRecord
+	belongs_to :user
+	belongs_to :project
 end
