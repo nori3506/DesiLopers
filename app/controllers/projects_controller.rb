@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.find(params[:id]).decorate
     # todo: other projects list @other_projects shoud be defined
   end
 end

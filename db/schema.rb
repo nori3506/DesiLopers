@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_141505) do
+ActiveRecord::Schema.define(version: 2020_10_31_060826) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -122,6 +122,17 @@ ActiveRecord::Schema.define(version: 2020_08_25_141505) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "file_name", null: false
+  end
+
+  create_table "interests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.boolean "is_interest_by_user", default: true, comment: "interest by user"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_interests_on_project_id"
+    t.index ["user_id", "project_id"], name: "index_interests_on_user_id_and_project_id", unique: true
+    t.index ["user_id"], name: "index_interests_on_user_id"
   end
 
   create_table "job_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -264,6 +275,8 @@ ActiveRecord::Schema.define(version: 2020_08_25_141505) do
   add_foreign_key "company_images", "companies"
   add_foreign_key "company_images", "images"
   add_foreign_key "educations", "users"
+  add_foreign_key "interests", "projects"
+  add_foreign_key "interests", "users"
   add_foreign_key "jobs", "job_categories"
   add_foreign_key "portfolios", "users"
   add_foreign_key "project_emp_types", "emp_types"
