@@ -1,92 +1,72 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <div class ="some-space">
-        <ul class="nav navbar-nav nav-design">
-          <% if user_signed_in? %>
-            <li class="nav-child">
-              <%= link_to "DesiLopers", root_path %>
-            </li> 
-            <% if current_user.portfolio&.id.nil? %>
-              <li class="nav-child"><%= link_to "Create Portfolio", new_portfolio_path %></li>
-            <% else %>
-              <li class="nav-child"><%= link_to "Edit Portfolio", edit_portfolio_path(current_user.portfolio) %></li>
-            <% end %>
-            <li class="nav-child">
-              <%= link_to "User's List", users_path %>
-            </li>
-            <li class="dropdown nav-child">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Skill<span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <% Tech.all.each do |tech| %>
-                  <li class="nav-child"><%= link_to tech.name, tech_path(tech) %></li>
-                <% end %>
-                <li role="separator" class="divider"></li>
-                <li class="nav-child"><%= link_to "Create New Skill List", new_tech_path %></li>
-              </ul>
-            </li>
-            <li class="nav-child">
-              <% if current_user.portfolio.nil? %>
-                <%= link_to "#{current_user.name}", new_portfolio_path%></li>
-              <% else %>
-                <%= link_to "#{current_user.name}", user_path(current_user)%></li>
-              <% end %>
-            <li class="nav-child">
-              <%= link_to  "interest", interests_path %>
-            </li>
-            <li class="dropdown nav-child">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                User Edit<span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="nav-child"><%= link_to "Edit User info", edit_user_path(current_user)%></li>
-                <li role="separator" class="divider"></li>
-                <li class="nav-child"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-              </ul>
-            </li>
-          <% else %>
-            <li class="nav-child2"><%= link_to "DesiLopers", root_path %></li> 
-            <li class="nav-child2">
-            <li class="nav-child2"><%= link_to "Create Portfolio", new_portfolio_path %></li>
-            <li class="nav-child2"><%= link_to "User's List", users_path %></li>
-            <li class="dropdown nav-child2">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Skill<span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu nav-child2">
-                <% Tech.all.each do |tech| %>
-                  <li class="nav-child2"><%= link_to tech.name, tech_path(tech) %></li>
-                <% end %>
-                <li role="separator" class="divider"></li>
-                <li class="nav-child2"><%= link_to "Create New Skill List", new_tech_path %></li>
-              </ul>
-            </li>
-            <li class="emphasize nav-child2">
-              <%= link_to "Login as TRIAL", users_trial_path %>
-            </li>
-            <li class="dropdown nav-child2">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                User Edit<span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                  <li class="nav-child2"><%= link_to "Sign up", new_user_registration_path %></li>
-                  <li class="nav-child2"><%= link_to "Login",  new_user_session_path %></li>
-              </ul>
-            </li>
-            <li class="emphasize nav-child2"><%= link_to "Employers", new_user_registration_path(params: { company_user_regist: true }) %></li>
-          <% end %>
+<nav class="header-nav">
+  <ul class="u-px5">
+    <% if user_signed_in? %>
+      <%= link_to root_path do %>
+        <%= image_tag("logo.png") %>
+      <% end %>
+      <% if current_user.portfolio&.id.nil? %>
+        <li class="header-nav-link"><%= link_to "Create Portfolio", new_portfolio_path %></li>
+      <% else %>
+        <li class="header-nav-link"><%= link_to "Edit Portfolio", edit_portfolio_path(current_user.portfolio) %></li>
+      <% end %>
+      <li class="">
+        <% if current_user.portfolio.nil? %>
+          <%= link_to "#{current_user.name}", new_portfolio_path%></li>
+        <% else %>
+          <%= link_to "#{current_user.name}", user_path(current_user)%></li>
+        <% end %>
+      <li class="header-nav-link">
+        <%= link_to interests_path do %>
+          <i class="far fa-thumbs-up"></i>
+        <% end %>
+      </li>
+      <li class="">
+        <a href="#" class="">
+          User Edit
+        </a>
+        <ul class="">
+          <li class=""><%= link_to "Edit User info", edit_user_path(current_user)%></li>
+          <li class=""><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
         </ul>
+      </li>
+    <% else %>
+      <%= link_to root_path do %>
+        <%= image_tag("logo.png") %>
+      <% end %>
+      <div class="nav-link-area">
+        <li class="header-nav-link"><%= link_to "Search Jobs", projects_path %></li>
+        <!--
+          <li class="">
+            <a href="#" class=""  role="button" aria-haspopup="true" aria-expanded="false">
+              Skill<span class="caret"></span>
+            </a>
+          
+            <ul class=" ">
+              <% Tech.all.each do |tech| %>
+                <li class=""><%= link_to tech.name, tech_path(tech) %></li>
+              <% end %>
+              <li class=""><%= link_to "Create New Skill List", new_tech_path %></li>
+            </ul>
+          </li>
+        -->
+        <li class="header-nav-link ">
+          <%= link_to "TRIAL Login", users_trial_path, class:"trial-color" %>
+        </li>
+        <li class="header-nav-link "><%= link_to "Employers", new_user_registration_path(params: { company_user_regist: true }) %></li>
+        <li class="header-nav-link"><%= link_to "Sign up", new_user_registration_path %></li>
+        <li class="header-nav-link"><%= link_to "Login",  new_user_session_path %></li>
+        <!--
+          <li class="dropdown ">
+            <a href="#" class=""  role="button" aria-haspopup="true" aria-expanded="false">
+              User Edit<span class="caret"></span>
+            </a>
+            <ul class="">
+                <li class=""><%= link_to "Sign up", new_user_registration_path %></li>
+                <li class=""><%= link_to "Login",  new_user_session_path %></li>
+            </ul>
+          </li>
+        -->
       </div>
-    </div>
-  </div>
+    <% end %>
+  </ul>
 </nav>
