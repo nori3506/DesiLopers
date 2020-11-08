@@ -1,0 +1,68 @@
+// .navbar-collapse {
+//   background:rgb(248, 248, 248);
+//   // padding:0 20px;
+// }
+
+// .navbar-default .navbar-nav > .emphasize > a{
+//   color:red;
+//   &:visited, &:hover{
+//     color:red;
+//   }
+// }
+
+// .container-fluid{
+//   padding-left:0px;
+//   padding-right:0px;
+  
+// }
+
+// .nav > li > a > img {
+//     max-width: 70%;
+// }
+
+// .navbar{
+//   margin-bottom:0;
+// }
+
+// .nav-child2{
+// 	padding: 2rem 0;
+// }
+.header-nav ul{
+	display: flex;
+  justify-content: space-between;
+}
+
+.header-nav ul li {
+	display: inline-block;
+	padding: 0 1rem;
+
+	.header-logo-img{
+		text-align: left;
+	}
+
+	a{
+		font-size: x-large;
+	}
+
+	.trial-color{
+		color: rgb(236, 75, 34);
+	}
+}
+
+.nav-link-area{
+		display: inline-block;
+		text-align: right;
+    margin: auto 0;
+	}
+
+
+	@media screen and (max-width: 1230px){
+		img{
+			padding: 1rem 0;
+    	width: 255px;
+		}
+
+		.header-nav ul li a{
+			font-size: larger;
+		}
+	}
