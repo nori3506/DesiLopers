@@ -57,6 +57,11 @@ td{
   overflow-wrap : break-word;
 }
 
+.list-toggle-con {
+    height: 0;
+    overflow: hidden;
+}
+
 .alert {
   margin-bottom:0;
   text-align: center;

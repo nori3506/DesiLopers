@@ -10,6 +10,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://kit.fontawesome.com/cbf2b7d4c6.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
+    <script>
+      $(function() {
+          $(".jsToggle").on("click", function() {
+              $(this).toggleCSS3();
+              return false;
+          });
+      });
+    </script>
     <%# <link rel="manifest" href="/manifest.json" /> %>
     <meta name="apple-mobile-web-app-capable" content="yes">
   </head>

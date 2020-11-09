@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery.min
 //= require rails-ujs
 //= require_tree .
 //= require gritter
@@ -51,3 +51,29 @@ $(function() {
     ]
   });
 });
+
+(function ($) {
+
+  $.fn.toggleCSS3 = function () {
+
+    var toggleCon = $(this).next();
+
+    if (!toggleCon.hasClass('state-active')) {
+
+      toggleCon.css('height', 'auto');
+      var h = toggleCon.innerHeight();
+      toggleCon.css('height', 0);
+      toggleCon.stop().velocity({ height: h }, 300, "easeInQuad");
+
+      toggleCon.addClass("state-active");
+
+    } else {
+
+      toggleCon.stop().velocity({ height: 0 }, 300, "easeInQuad");
+
+      toggleCon.removeClass("state-active");
+
+    }
+  };
+
+})(jQuery);
