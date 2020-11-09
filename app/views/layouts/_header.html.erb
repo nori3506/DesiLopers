@@ -4,37 +4,38 @@
       <%= link_to root_path do %>
         <%= image_tag("logo.png") %>
       <% end %>
-      <% if current_user.portfolio&.id.nil? %>
-        <li class="header-nav-link"><%= link_to "Create Portfolio", new_portfolio_path %></li>
-      <% else %>
-        <li class="header-nav-link"><%= link_to "Edit Portfolio", edit_portfolio_path(current_user.portfolio) %></li>
-      <% end %>
-      <li class="">
-        <% if current_user.portfolio.nil? %>
-          <%= link_to "#{current_user.name}", new_portfolio_path%></li>
-        <% else %>
-          <%= link_to "#{current_user.name}", user_path(current_user)%></li>
-        <% end %>
-      <li class="header-nav-link">
-        <%= link_to interests_path do %>
-          <i class="far fa-thumbs-up"></i>
-        <% end %>
-      </li>
-      <li class="">
-        <a href="#" class="">
-          User Edit
-        </a>
-        <ul class="">
-          <li class=""><%= link_to "Edit User info", edit_user_path(current_user)%></li>
-          <li class=""><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-        </ul>
-      </li>
+      <div class="nav-link-area u-mr20">
+        <li class="header-nav-list"><%= link_to "Search Jobs", projects_path, class: "nav-main-list" %></li>
+        <li class="header-nav-list">
+          <%= link_to interests_path do %>
+            <i class="far fa-thumbs-up fa-2x"></i>
+          <% end %>
+        </li>
+        <div class="u-mt5 nav-user-link">
+          <a href="#" class="jsToggle nav-main-list">
+            <span class="nav-main-list"><%= current_user.name %> <i class="fas fa-caret-down"></i></span>
+          </a>
+          <ul class="list-toggle-con u-mt15">
+            <li class="u-px10 sub-nav-list"><%= link_to('Logout', destroy_user_session_path, method: :delete, class:"small-font") %></li>
+            <li class="u-px10 sub-nav-list"><%= link_to "Edit Acount", edit_user_path(current_user), class:"small-font"%></li>
+            <% if current_user.portfolio.nil? %>
+              <li class="header-nav-list u-px10 sub-nav-list">
+                <%= link_to "Create Resume", new_portfolio_path, class:"small-font"%>
+              </li>
+            <% else %>
+              <li class="header-nav-list u-px10 sub-nav-list">
+                <%= link_to "Edit Resume", edit_portfolio__path(current_user.portfolio)%>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     <% else %>
       <%= link_to root_path do %>
         <%= image_tag("logo.png") %>
       <% end %>
       <div class="nav-link-area">
-        <li class="header-nav-link"><%= link_to "Search Jobs", projects_path %></li>
+        <li class="header-nav-list"><%= link_to "Search Jobs", projects_path, class:"nav-main-list" %></li>
         <!--
           <li class="">
             <a href="#" class=""  role="button" aria-haspopup="true" aria-expanded="false">
@@ -49,12 +50,12 @@
             </ul>
           </li>
         -->
-        <li class="header-nav-link ">
-          <%= link_to "TRIAL Login", users_trial_path, class:"trial-color" %>
+        <li class="header-nav-list ">
+          <%= link_to "TRIAL Login", users_trial_path, class:"trial-color nav-main-list" %>
         </li>
-        <li class="header-nav-link "><%= link_to "Employers", new_user_registration_path(params: { company_user_regist: true }) %></li>
-        <li class="header-nav-link"><%= link_to "Sign up", new_user_registration_path %></li>
-        <li class="header-nav-link"><%= link_to "Login",  new_user_session_path %></li>
+        <li class="header-nav-list "><%= link_to "Employers", new_user_registration_path(params: { company_user_regist: true }), class:"nav-main-list" %></li>
+        <li class="header-nav-list"><%= link_to "Sign up", new_user_registration_path, class:"nav-main-list" %></li>
+        <li class="header-nav-list"><%= link_to "Login",  new_user_session_path, class:"nav-main-list" %></li>
         <!--
           <li class="dropdown ">
             <a href="#" class=""  role="button" aria-haspopup="true" aria-expanded="false">
