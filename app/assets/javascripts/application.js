@@ -24,30 +24,17 @@ $(function() {
   $('.slider').slick({
     autoplay: true,
     autoplaySpeed: 3000,
-
-    responsive:[
+    centerMode: true, //要素を中央寄せにする
+    variableWidth: true,
+    //Todo：以下のレスポンシブが効いてないきがする。
+    responsive: [
       {
-        breakpoint: 1500,
-        settings:{
-          slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: '220px',
-          focusOnSelect:true,
+        breakpoint: 540,
+        settings: {
+          slidesToShow: 1,
         }
       },
-      {
-        breakpoint: 768,
-        settings:{
-          centerPadding: '110px',
-          slidesToShow:2,
-        }
-      },
-      {
-        breakpoint: 500,
-        settings:{
-            slidesToShow:1,
-        }
-      },
+      
     ]
   });
 });

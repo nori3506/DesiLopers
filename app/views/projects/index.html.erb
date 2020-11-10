@@ -1,9 +1,11 @@
-<div class="slider slider-size">
-  <div><%= image_tag 'human2.jpg', size: "380x350" %></div>
-  <div><%= image_tag 'avatar.png', size: "380x350" %></div>
-  <div><%= image_tag 'logo.png', size: "380x350" %></div>
-  <div><%= image_tag 'logo.png', size: "380x350" %></div>
-  <div><%= image_tag 'logo.png', size: "380x350" %></div>
+<div class="slider-area">
+  <div class="slider slider-size image-area">
+    <div class="slider-img"><img src="<%= @projects.first.main_image %>"></div>
+    <div class="slider-img"><img src="<%= @projects.last.main_image %>"></div>
+    <div class="slider-img"><img src="<%= @projects.first.main_image %>"></div>
+    <div class="slider-img"><img src="<%= @projects.last.main_image %>"></div>
+    <div class="slider-img"><img src="<%= @projects.first.main_image %>"></div>
+  </div>
 </div>
 
 <div class="main-container">

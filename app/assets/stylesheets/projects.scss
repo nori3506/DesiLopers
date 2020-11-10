@@ -1,6 +1,35 @@
-.slider{
-  height: 380px;
-  width: 100%;
+.slider {
+max-width: 280px;
+margin: 0 auto;
+padding: 0;
+}
+
+.slider-area {
+  overflow: hidden;
+}
+
+.slider-img {
+  width: 700px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and(max-width: 1000px){
+  .slider-img {
+    width: 400px;
+  }
+}
+
+@media screen and(max-width: 540px){
+  .slider-img {
+    width: 250px;
+  }
+}
+
+.slider .slick-list {
+  overflow: visible;
 }
 
 button.slick-prev {
