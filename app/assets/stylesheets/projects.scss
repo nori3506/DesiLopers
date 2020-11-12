@@ -41,42 +41,37 @@ button.slick-next {
 }
 
 .main-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
 }
 
 .project-main-container {
-  padding: 0px 20px;
-  flex: 1 0;
   background: green;
-  overflow: scroll;
-  width: 100%;
 }
 
 .side-container {
-  min-width: 240px;
-  flex: 0 0;
   background: pink;
 }
 
-.project-container {  
-  height: 475px;
+.project-container {
+  max-width: 100%;  
   background: white;
-  overflow-x: scroll;
-  min-width: 600px;
-  max-width: 900px;
   margin: 0 auto;
   margin-bottom: 1rem;
+  padding: 2rem;
 }
 
 .project-image-area {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  img {
+    width: 100%;
+  }
 
 }
 
 .image-content {
-  width: 450px;
-  height: auto;
-  max-height: 450px;
 }
 
 .project-main-image{
