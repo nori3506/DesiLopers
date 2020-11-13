@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.includes([company: :main_image], :main_image).active_projects
+    @carousel_projects = @projects.limit(5)
     authorize @projects
   end
 

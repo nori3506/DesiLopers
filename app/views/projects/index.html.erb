@@ -1,10 +1,12 @@
 <div class="slider-area">
   <div class="slider slider-size image-area">
-    <div class="slider-img"><img src="<%= @projects.first.main_image %>"></div>
-    <div class="slider-img"><img src="<%= @projects.last.main_image %>"></div>
-    <div class="slider-img"><img src="<%= @projects.first.main_image %>"></div>
-    <div class="slider-img"><img src="<%= @projects.last.main_image %>"></div>
-    <div class="slider-img"><img src="<%= @projects.first.main_image %>"></div>
+    <% @carousel_projects.each do |carousel_project| %>
+      <div class="slider-img">
+        <%= link_to(project_path(carousel_project)) do %>
+          <img src="<%= carousel_project.main_image %>">
+        <% end %>
+      </div>
+    <% end%>
   </div>
 </div>
 
