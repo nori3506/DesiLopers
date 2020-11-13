@@ -18,9 +18,27 @@
   text-align:center;
 }
 
-.explanation{
-  text-align:center;
-  font-size:2rem;
+.home-grid{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.home-left-side {
+  display: grid;
+  grid-template-columns: 2fr 1.4fr;
+}
+
+.home-right-side{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1f71c5;
+}
+
+.home-main-image{
+  background-image: url(image-path("home_img.jpg"));
+  background-size: cover;
+  background-position: center;
 }
 
 .welcome{
@@ -35,9 +53,9 @@
   &:link,
   &:visited {
   text-transform: uppercase;
-  font-size:3rem;
+  font-size:1.5rem;
   text-decoration: none;
-  padding: 1.5rem 4rem;
+  padding: 1rem 3rem;
   display: inline-block;
   border-radius: 10rem;
   transition: all .2s;
@@ -45,8 +63,8 @@
   //change for the <button> element
   border: none;
   cursor: pointer;
-  background:#547ded;
-  color:white;
+  background: white;
+  color: #1f71c5;
   margin:3rem 0;
   }
   &:hover {
