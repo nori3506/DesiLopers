@@ -7,13 +7,14 @@
   height:auto;
   min-height:100vh;
   width:100vw;
-  background-image: linear-gradient(
-     to right bottom,
-     rgba(white, .8),
-     rgba(32,100,243, .8)),
-  asset-url('human2.jpg');
-  background-size: cover;
-  background-position: top;
+  // background-image: linear-gradient(
+  //    to right bottom,
+  //    rgba(white, .8),
+  //    rgba(32,100,243, .8)),
+  // asset-url('human2.jpg');
+  // background-size: cover;
+  // background-position: top;
+  background-color:  #efefef;
   text-align:center;
 }
 
