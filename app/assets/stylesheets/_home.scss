@@ -1,11 +1,10 @@
 .main{
-  height:30rem;
+  // height:30rem;
   width:100vm;
 }
 
 .main-massage{
   height:auto;
-  min-height:100vh;
   width:100vw;
   // background-image: linear-gradient(
   //    to right bottom,
@@ -26,6 +25,24 @@
 .home-left-side {
   display: grid;
   grid-template-columns: 2fr 1.4fr;
+}
+
+.home-text{
+  padding: 1rem;
+  color: white;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+  .home-first-text-area{
+    font-size: 2rem;
+    background: #1f71c5;
+  }
+
+  .home-explanation{
+    text-align: left;
+    color: #1f71c5;
+    font-size: 1.2rem;
+  }
 }
 
 .home-right-side{
@@ -90,5 +107,61 @@
   &:link,
   &:visited {
     color :white;
+  }
+}
+
+@media screen and (max-width: 1280px){
+  .welcome{
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 1130px){
+  .home-text{
+    .home-first-text-area{
+      font-size: 1.5rem;
+      padding: 1rem 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1010px){
+  
+  .home-left-side {
+    display: block;
+  }
+
+  .home-main-image{
+    background-image: unset;
+  }
+
+  .signup, .signup:link, .signup:visited {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 770px){
+
+  .home-grid{
+    display: block;
+  }
+
+  .welcome{
+    padding: 0;
+  }
+  
+  .home-right-side{
+    display: block;
+  }
+
+  .signup, .signup:link, .signup:visited {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .login-button-area {
+    padding: 1rem 0;
   }
 }
