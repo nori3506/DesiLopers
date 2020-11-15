@@ -46,19 +46,22 @@ button.slick-next {
 }
 
 .project-main-container {
-  background: green;
+  background: $color_blue;
 }
 
 .side-container {
-  background: pink;
+  background: $color_main-grey;
 }
 
 .project-container {
   max-width: 100%;  
   background: white;
   margin: 0 auto;
-  margin-bottom: 1rem;
   padding: 2rem;
+}
+
+.project-container:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 .project-image-area {
@@ -68,10 +71,6 @@ button.slick-next {
   img {
     width: 100%;
   }
-
-}
-
-.image-content {
 }
 
 .project-main-image{

@@ -165,7 +165,7 @@ $margin-max: 10;
 }
 
 .u-disable-button {
-  background: #EFEFEF;
+  background: $color_main-grey;
   cursor: default;
   display: block;
   padding: 0.3rem 4rem;
