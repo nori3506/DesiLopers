@@ -1,3 +1,5 @@
+// ***************************   project index    ***************************
+
 .slider {
 max-width: 280px;
 margin: 0 auto;
@@ -52,32 +54,43 @@ button.slick-next {
 
 .project-main-container {
   background: $color_blue;
+  padding: 1rem 1rem;
+
+  .project-container {
+    max-width: 100%;  
+    background: white;
+    margin: 0 auto;
+    padding: 2rem;
+
+    .company-name :hover, .project-header :hover{
+      color: $color_blue;
+    }
+
+    &:hover{
+      background: $color_main-grey;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    .project-image-area {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .side-container {
   background: $color_main-grey;
 }
 
-.project-container {
-  max-width: 100%;  
-  background: white;
-  margin: 0 auto;
-  padding: 2rem;
-}
 
-.project-container:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-.project-image-area {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  img {
-    width: 100%;
-  }
-}
-
+// ***************************   project show    ***************************
 .project-main-image{
   height: 500px;
   width: 1080px;
