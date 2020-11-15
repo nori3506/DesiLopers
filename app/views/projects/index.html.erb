@@ -25,15 +25,15 @@
             <img src="<%= project.main_image %>">
           </div>
         </div>
-        <h3 class="project-element u-my10"> 
+        <h3 class="project-element u-my25 project-header"> 
           <%= link_to  project.title, project_path(project) %>
         </h3>
         <div class="project-element u-mb10">
+          <%= link_to  truncate(project.detail, length: 750), project_path(project) %>
+        </div>
+        <h3 class="project-element u-mt40 u-left">
           <%= link_to  project.company.name, company_path(project.company) %>
-        </div>
-        <div class="project-element u-mb10">
-          <%= link_to  truncate(project.detail, length: 150), project_path(project) %>
-        </div>
+        </h3>
       </div>
     <% end %>
   </div>
