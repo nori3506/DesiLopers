@@ -6,7 +6,7 @@ module ApplicationHelper
   def alerts
     alert = flash[:alert] || flash[:error] || flash[:notice] || flash[:success]
     if alert
-      js add_gritter(alert, title: "Desilopers")
+      js add_gritter(alert, title: "DesiLopers")
     end
   end
 end
