@@ -6,16 +6,55 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
     span {
+			font-size: 1.1rem;
       color: #1f71c5;
-    }
+		}
+		
+		section {
+			max-width: 1000px;
+			text-align: center;
+			background: #efefef;
+			padding: 2rem;
+		}
+
+		img{
+			display: block;
+			margin: 0 auto;
+		}
+
+		.veryfy-button{
+			padding: 1rem;
+			display:block;
+			background: #1f71c5;
+		}
+
+		a:-webkit-any-link {
+			font-size: 1.2rem;
+    	font-weight: 700;
+    	text-decoration: none;
+			color: white;
+			padding: 2rem;
+  	  background: #1f71c5;
+    	display: inline-block;
+		}
   </style>
 </head>
 <body>
-	<p>Welcome to <span>DesiLopers</span> <%= @user.name %>!</p>
+	<section>
+		<div ></div>
+		<%= image_tag 'logo_2.png', class: "logo-image"%>
+		<p>Welcome to <span>DesiLopers, </span> <%= @user.name %>!</p>
+		<p>
+			This email address (<%=@user.email %>) has been added to an account on DesiLopers. <br>
+			You must verify this email address before you start job searching.
+		</p> 
+		<p>You can confirm your account email through the link below:</p>
 
-	<p>You can confirm your account email through the link below:</p>
-
-	<p><%= link_to 'Confirm my account', confirmation_url(@user, confirmation_token: @token, company_user_flag: @flag), target: "_blank" %></p>
-
+		<%= link_to 'Confirm My Account', confirmation_url(@user, confirmation_token: @token, company_user_flag: @flag, class: "veryfy-button"), target: "_blank" %>
+		
+		<p>Best, <br>
+		DesiLopers Team
+		</p>
+	</section>
 </body>
 </html>
