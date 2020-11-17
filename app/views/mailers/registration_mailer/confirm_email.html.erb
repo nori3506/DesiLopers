@@ -1,5 +1,21 @@
-<p>Welcome to Desilopers <%= @user.name %></p>
 
-<p>You can confirm your account email through the link below:</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+    span {
+      color: #1f71c5;
+    }
+  </style>
+</head>
+<body>
+	<p>Welcome to <span>Desilopers</span> <%= @user.name %>!</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@user, confirmation_token: @token, company_user_flag: @flag), target: "_blank" %></p>
+	<p>You can confirm your account email through the link below:</p>
+
+	<p><%= link_to 'Confirm my account', confirmation_url(@user, confirmation_token: @token, company_user_flag: @flag), target: "_blank" %></p>
+
+</body>
+</html>

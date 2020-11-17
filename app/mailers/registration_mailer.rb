@@ -5,6 +5,6 @@ class RegistrationMailer < ApplicationMailer
 		@flag = company_user_refgist_flag
     email = user.email
 
-    mail(to: email, subject: 'メールアドレス確認のお知らせ') if email.present?
+    mail(to: email, subject: 'Action Required: Verify email linked to DesiLopers') if email.present?
 	end
 end
