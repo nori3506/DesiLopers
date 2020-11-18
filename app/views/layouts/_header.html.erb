@@ -1,8 +1,8 @@
 <nav class="header-nav">
   <ul class="u-px5">
     <% if user_signed_in? %>
-      <%= link_to root_path do %>
-        <%= image_tag("logo_2.png") %>
+      <%= link_to(root_path, "aria-label" => "Link to Home") do %>
+        <%= image_tag("logo_2.png", alt: 'Logo') %>
       <% end %>
       <div class="nav-link-area u-mr20">
         <li class="header-nav-list"><%= link_to "Search Jobs", projects_path, class: "nav-main-list" %></li>
