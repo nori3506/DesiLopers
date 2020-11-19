@@ -1,16 +1,20 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="password-reset-wrapper u-p50">
+  <div class="password-reset-form u-py35">
+    <h2 class="u-mt20">Forgot your password?</h2>
+    <section class="session-form__content">
+      <div class="password-reset-grid">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="pass-reset-input-area">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "pass-reset-width" %>
+          </div>
+          <div class="actions u-mb40">
+            <%= f.submit "Send", class: "reset-button u-mt30 u-px50 u-py10" %>
+          </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </section>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
