@@ -1,0 +1,47 @@
+.user-regist-wrapper{
+	margin: auto;
+	max-width: 1000px;
+	padding: 2.5rem;
+}
+
+.user-regist-form {
+  background: white;
+	height: 575px;
+
+	&__input{
+		width: 100%;
+    line-height: 2;
+    border-radius: .25rem;
+    border: 2px solid #ccc;
+    font-size: inherit;
+	}
+}
+
+.user-regist-form__content {
+  padding: 1rem 1rem;
+}
+
+.regist-button{
+	padding: 0.5rem 2rem;
+  color: white;
+  background: #1f71c5;
+}
+
+.user-regist-input-area{
+	margin: 2vh auto;
+  max-width: 400px;
+}
+
+.user-regist-width{
+	width:100%;
+}
+
+.block-label{
+	display: block;
+}
+
+@media screen and (max-width: 450px){
+	.user-regist-wrapper{
+		padding: .5rem;
+	}
+}

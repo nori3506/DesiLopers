@@ -1,7 +1,7 @@
 <div class="password-reset-wrapper u-p50">
   <div class="password-reset-form u-py35">
     <h2 class="u-mt20">Forgot your password?</h2>
-    <section class="session-form__content">
+    <section class="pass-reset-form__content">
       <div class="password-reset-grid">
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
