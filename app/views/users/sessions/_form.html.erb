@@ -1,25 +1,15 @@
-<div class="outline">
-  <div class="session-form">
-    <section class="session-form__content">
-      <h2 class="u-mb15">
-        <%= yield(:head_text) %>
-      </h2>
+<div class="user-regist-wrapper">
+  <div class="user-regist-form u-py35">
+    <h2 class="u-mb15">
+      <%= yield(:head_text) %>
+    </h2>
+    <section class="user-regist-form__content">
       <%= form_with(model: @user, as: resource_name, url: session_path(resource_name),local: true) do |f| %>
-        <div class="session-form__element">
-          <div class="session-form__label">
-            <%= f.label :email %>
-          </div>
-          <div class="session-form__input">
-            <%= f.email_field :email, class: 'session-form__input-area', autofocus: true, autocomplete: "email", :size => "50x1", required: true %>
-          </div>
-        </div>
-        <div class="session-form__element">
-          <div class="session-form__label">
-            <%= f.label :password %>
-          </div>
-          <div class="session-form__input">
-            <%= f.password_field :password, class: 'session-form__input-area', autocomplete: "current-password",:size => "50x1", required: true %>
-          </div>
+        <div class="user-regist-input-area">
+          <%= f.label :email, class: "u-left block-label" %>
+          <%= f.email_field :email, class: 'user-regist-form__input u-mb20', autofocus: true, autocomplete: "email", :size => "50x1", required: true %>
+          <%= f.label :password, class: "u-left block-label" %>
+          <%= f.password_field :password, class: 'user-regist-form__input u-mb20', autocomplete: "current-password",:size => "50x1", required: true %>
         </div>
         <% if devise_mapping.rememberable? %>
           <div class="session-form__element">
@@ -32,7 +22,7 @@
         </div>
       <% end %>
       <div class="session-form__element">
-        <li>Hassle? Then, <span class="emphasize bigger"><%= link_to "Login as TRIAL", users_trial_path %></span></li>
+        <li><span class="emphasize bigger"><%= link_to "Login as TRIAL", users_trial_path %></span></li>
       </div>
       <%= render "devise/shared/links" %>
     </section>
