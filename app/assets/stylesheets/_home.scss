@@ -19,11 +19,13 @@
 }
 
 .home-grid{
+  margin: 2rem 2rem;
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
 
 .home-left-side {
+  margin: 0 2rem;
   display: grid;
   grid-template-columns: 2fr 1.4fr;
 }
@@ -42,11 +44,12 @@
   .home-explanation{
     text-align: left;
     color: $color_dark_blue;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 
 .home-right-side{
+  margin: 0 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,17 +151,31 @@
 }
 
 @media screen and (max-width: 770px){
-
   .home-grid{
+    margin: 0;
     display: block;
   }
 
   .welcome{
+    margin-top: 1rem;
     padding: 0;
   }
   
   .home-right-side{
     display: block;
+    margin: 1rem 0;
+  }
+
+  .home-left-side{
+    margin: 0;
+  } 
+
+  .home-explanation{
+    padding: 0 1rem;
+  }
+
+  .home-text{
+    padding: 0;
   }
 
   .signup, .signup:link, .signup:visited {
@@ -168,6 +185,12 @@
   }
 
   .login-button-area {
-    padding: 1rem 0;
+    padding: 4rem 0;
+  }
+}
+
+@media screen and (max-width: 390px){
+  .welcome{
+    font-size: 2.5rem;
   }
 }
