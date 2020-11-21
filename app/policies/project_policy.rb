@@ -1,11 +1,11 @@
 class ProjectPolicy < ApplicationPolicy
-	def index?
-		normal_user?
-	end
+  def index?
+    return false if company_user?
 
-	def normal_user?
-		user.present? && !user.company_user?
-	end
-	
-	
+    true
+  end
+
+  def company_user?
+    user&.company_user?
+  end
 end
