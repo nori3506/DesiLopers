@@ -46,10 +46,14 @@
 #
 
 class User < ApplicationRecord
+  extend Enumerize
+  # email_confirmation・・・ User received a confirmation email but not yet activated
+  # company_email_confirmation・・・ same as above but Company user ver.
+  # company_regist・・・ Confirmation is done but not yet create company infomation.
+  enumerize :status, in: [:active, :deactive, :email_confirmation, :company_email_confirmation, :company_regist], default: :email_confirmation
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  extend Enumerize
-  enumerize :status, in: [:active, :deactive, :email_confirmation], default: :email_confirmation
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
   before_save { self.email = email.downcase }
@@ -84,10 +88,10 @@ class User < ApplicationRecord
 
   def company_user?
     company_id.present?
-	end
+  end
 
-	#not send dejault devise confirm email to user
-	def send_on_create_confirmation_instructions
+  #not send dejault devise confirm email to user
+  def send_on_create_confirmation_instructions
     false
-	end
+  end
 end
