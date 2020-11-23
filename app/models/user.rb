@@ -48,6 +48,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  extend Enumerize
+  enumerize :status, in: [:active, :deactive, :email_confirmation], default: :email_confirmation
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
   before_save { self.email = email.downcase }
