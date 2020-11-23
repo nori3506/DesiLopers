@@ -85,11 +85,11 @@ private
 
   def trial_user_new
     random_number = rand(1..100000)
-    @user = User.new(name: "TRIAL USER#{random_number}",email:"test#{random_number}@test.test", password: "password", password_confirmation: "password", birthday: "1990-08-09", gender: "male" )
+    @user = User.new(name: "TRIAL USER#{random_number}",email:"test#{random_number}@test.test", status: :active, password: "password", password_confirmation: "password", birthday: "1990-08-09", gender: "male" )
   end
 
   def trial_user_create_portfolio
-    @user.portfolio = Portfolio.new(career: 1, experience: "Sorry,I am just trying this app", message:"Hi, Nice to meet you!", first_site:"https://github.com/nori3506")
+    @user.portfolio = Portfolio.new(career: 1, experience: "I am just trying this app", message:"Hi, Nice to meet you!", first_site:"https://github.com/nori3506")
     @user.portfolio.save
   end
 
