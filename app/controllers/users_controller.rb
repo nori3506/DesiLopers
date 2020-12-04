@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   def destroy
     if @user.destroy
       flash[:success] = "User was deleted successfully"
-      redirect_to users_path
+      redirect_to projects_path
     end
   end
 
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
       redirect_to projects_path
     else
       flash[:danger] = "Please click 'TRIAL' again"
-      render 'users_path'
+      render 'projects_path'
     end
   end
 
