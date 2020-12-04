@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'users/trial', to: 'users#create_trial_user'
 
-  resources :users, except: %i[new create]
+  resources :users, except: %i[new create index]
   scope module: :users do
     resources :companies, only: %i[show index], path: 'company_detail'
   end

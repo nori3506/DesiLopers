@@ -12,7 +12,7 @@ class PortfoliosController < ApplicationController
     @portfolio.user = current_user
     if @portfolio.save
       flash[:success] = "New User Was Successfully Created, Welcome!"
-      redirect_to users_path
+      redirect_to projects_path
     else
       flash[:danger] = "Failed!"
       render 'new'
@@ -41,7 +41,7 @@ class PortfoliosController < ApplicationController
   def destroy
     if @portfolio.destroy
       flash[:success] = "User was deleted successfully"
-      redirect_to users_path
+      redirect_to user_path(current_user)
     end
   end
   

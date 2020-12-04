@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       redirect_to user
     else
       flash[:danger] = "failed to upload your comment, Try again"
-      redirect_to users_path
+      # redirect_to users_path
     end
   end
   
