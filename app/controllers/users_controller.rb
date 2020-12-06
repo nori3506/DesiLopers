@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if @user.destroy
+    if @user.discard
       flash[:success] = "User was deleted successfully"
       redirect_to projects_path
     end
