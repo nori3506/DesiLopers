@@ -5,12 +5,12 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :email, :company_id, :deleted_at, :password, :gender
+  permit_params :name, :email, :company_id, :discarded_at, :password, :gender
   #
   # or
   #
   # permit_params do
-  #   permitted = [:name, :email, :deleted_at, :password_digest, :image, :career_year, :admin, :age, :birthday, :gender, :area, :job_hunting, :hobby, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email]
+  #   permitted = [:name, :email, :discarded_at, :password_digest, :image, :career_year, :admin, :age, :birthday, :gender, :area, :job_hunting, :hobby, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
@@ -20,7 +20,7 @@ ActiveAdmin.register User do
       f.input :name
       f.input :email
       f.input :company_id, as: :select, collection: Company.all.map { |company| [company.name, company.id] }
-      f.input :deleted_at
+      f.input :discarded_at
       f.input :gender
       if f.object.new_record?
         f.input :password, as: :password
