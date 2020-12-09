@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.discard
+      sign_out @user
       flash[:success] = "User was deleted successfully"
       redirect_to projects_path
     end
