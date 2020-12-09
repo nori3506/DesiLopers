@@ -48,6 +48,7 @@
 
 class User < ApplicationRecord
   include Discard::Model
+  default_scope -> { kept }
   extend Enumerize
   # email_confirmation・・・ User received a confirmation email but not yet activated
   # company_email_confirmation・・・ same as above but Company user ver.
