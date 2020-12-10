@@ -73,8 +73,10 @@ class User < ApplicationRecord
   has_many :tech_users
   has_many :techs, through: :tech_users
   has_many :comments, dependent: :destroy
-  has_many :interests 
-  has_many :projects, through: :interests 
+  has_many :interests
+  has_many :interesting_projects, through: :interests, source: 'project'
+  has_many :user_projects
+  has_many :applied_projects, through: :user_projects, source: 'project'
   belongs_to :company, optional: true
 
   scope :techs_and_portfolio, -> {

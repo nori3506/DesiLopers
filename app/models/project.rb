@@ -37,9 +37,10 @@ class Project < ApplicationRecord
       merge(ProjectImage.where(use_purpose: purpose))
     end
   end
-  has_many :users, through: :interests
   has_many :interests
-
+  has_many :interest_users, through: :interests
+  has_many :user_projects
+  has_many :candidates, through: :user_projects
   has_one :main_image, ->{ main }, class_name: 'ProjectImage'
   # enumerize :emp_type, in: [:full_time, :part_time, :temporary, :contract, :intern, :outsourcing_contract, :volunteer, :service_contract]
   belongs_to :company
@@ -52,6 +53,6 @@ class Project < ApplicationRecord
 
   scope :my_projects, ->(company){ where(company_id: company.id) }
   scope :active_projects, -> { where(:status => :active)}
-  scope :interest_projects, -> { where('interests.is_interest_by_user' => true) }
+  scope :interested_by_user, -> { where('interests.is_interest_by_user' => true) }
   # Ex:- scope :active, -> {where(:active => true)}
 end
