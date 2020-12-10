@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_161157) do
+ActiveRecord::Schema.define(version: 2020_12_10_112431) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -234,6 +234,17 @@ ActiveRecord::Schema.define(version: 2020_12_06_161157) do
     t.index ["user_id"], name: "index_user_jobs_on_user_id"
   end
 
+  create_table "user_projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.string "status", default: "processing", comment: "selection status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_user_projects_on_project_id"
+    t.index ["user_id", "project_id"], name: "index_user_projects_on_user_id_and_project_id", unique: true
+    t.index ["user_id"], name: "index_user_projects_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -287,5 +298,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_161157) do
   add_foreign_key "projects", "companies"
   add_foreign_key "user_jobs", "jobs"
   add_foreign_key "user_jobs", "users"
+  add_foreign_key "user_projects", "projects"
+  add_foreign_key "user_projects", "users"
   add_foreign_key "users", "companies"
 end
