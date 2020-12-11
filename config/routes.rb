@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'user_projects/create'
+  get 'user_projects/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -42,6 +44,7 @@ Rails.application.routes.draw do
   resources :teches
   resources :projects
   resources :interests, only: %i[create index]
+  resources :user_projects, only: %i[create index]
 
   namespace :api do
     namespace :v1 do
