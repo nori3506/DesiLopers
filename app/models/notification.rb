@@ -11,4 +11,10 @@
 #  source_id  :integer
 #
 class Notification < ApplicationRecord
+  extend Enumerize
+  validates :type, presence: true
+  enumerize :type, in: [
+    "Notifications::Company",
+    "Notifications::User"
+  ]
 end
