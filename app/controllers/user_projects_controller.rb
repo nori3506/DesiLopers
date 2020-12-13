@@ -5,7 +5,10 @@ class UserProjectsController < ApplicationController
 
   def create
     project = Project.find(params[:project_id])
-    current_user.applied_projects << project
+    UserProjects.transaction do
+      current_user.applied_projects << project
+      Modules::Notification.notice_company_user_apply(current_user, project)
+    end
     respond_to do |format|
       format.html { redirect_to project_path(project), notice: 'Applied Successfully' }
       format.json
