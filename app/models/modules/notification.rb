@@ -1,6 +1,6 @@
 module Modules::Notification
 	class << self
-		def notice_company_user_interesst(user, project)
+		def notice_company_user_interest(user, project)
 			Notifications::Company.create!(title: "#{user.name} is interested in the job #{project.title} ", source_id: project.company.id)
 		end
 
