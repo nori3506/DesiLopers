@@ -5,7 +5,7 @@ class UserProjectsController < ApplicationController
 
   def create
     project = Project.find(params[:project_id])
-    UserProjects.transaction do
+    UserProject.transaction do
       current_user.applied_projects << project
       Modules::Notification.notice_company_user_apply(current_user, project)
     end
