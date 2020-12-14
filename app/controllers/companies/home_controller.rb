@@ -3,6 +3,13 @@ class Companies::HomeController < Companies::ApplicationController
 
   def index
     @projects = Project.my_projects(current_user.company)
+    @active_projects = Project.my_projects(current_user.company).active_projects
+    @active_projects_number = Project.my_projects(current_user.company).active_projects.size
+    @doen_projects = Project.my_projects(current_user.company).done_projects
+    @doen_projects_number = Project.my_projects(current_user.company).done_projects.size
+    @stop_projects = Project.my_projects(current_user.company).stop_projects
+    @stop_projects_number = Project.my_projects(current_user.company).stop_projects.size
+    @company = current_user.company
   end
 
   private
