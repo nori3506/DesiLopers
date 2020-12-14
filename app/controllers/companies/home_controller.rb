@@ -10,6 +10,8 @@ class Companies::HomeController < Companies::ApplicationController
     @stop_projects = Project.my_projects(current_user.company).stop_projects
     @stop_projects_number = Project.my_projects(current_user.company).stop_projects.size
     @company = current_user.company
+    @notifications = Notifications::Company.my_notifications(current_user.company)
+    
   end
 
   private

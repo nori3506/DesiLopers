@@ -17,4 +17,7 @@ class Notification < ApplicationRecord
     "Notifications::Company",
     "Notifications::User"
   ]
+
+  scope :my_notifications, ->(object){ where(source_id: object.id) }
+
 end
