@@ -21,6 +21,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class UserProject < ApplicationRecord
+	extend Enumerize
+	enumerize :status, in: [:screening, :skill_check, :interview, :recruitement_offer, :signed, :reject], default: :screening
 	belongs_to :user
 	belongs_to :project
 end
