@@ -97,4 +97,34 @@ class User < ApplicationRecord
   def send_on_create_confirmation_instructions
     false
   end
+
+  class << self
+    def candidates_users(company)
+      User.includes([applied_projects: :company]).where('companies.id' => company.id)
+    end
+
+    def screening_users(company)
+      User.includes([applied_projects: :company]).where('companies.id' => company.id, 'user_projects.status' => "screening")
+    end
+
+    def skill_check_users(company)
+      User.includes([applied_projects: :company]).where('companies.id' => company.id, 'user_projects.status' => "skill_check")
+    end
+
+    def interview_users(company)
+      User.includes([applied_projects: :company]).where('companies.id' => company.id, 'user_projects.status' => "interview")
+    end
+
+    def recruitement_offer_users(company)
+      User.includes([applied_projects: :company]).where('companies.id' => company.id, 'user_projects.status' => "recruitement_offer")
+    end
+
+    def signed_users(company)
+      User.includes([applied_projects: :company]).where('companies.id' => company.id, 'user_projects.status' => "signed")
+    end
+
+    def rejected_users(company)
+      User.includes([applied_projects: :company]).where('companies.id' => company.id, 'user_projects.status' => "rejected")
+    end
+  end
 end
