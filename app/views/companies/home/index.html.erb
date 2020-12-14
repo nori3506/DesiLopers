@@ -1,36 +1,34 @@
-<div class="login-button-area">
-  <p><%= link_to  "create Job Post", new_companies_project_path, class:"job_post_button" %></p>
+<div class="company_home_container">
+  <div class="company_home_news_area u-mt30">
+    <h2 class="u-mb15">News</h2>
+    <% @notifications.each do |notification| %>
+      <hr>
+      <p class="notification-date">
+        <%= notification.created_at %>
+      </p>
+      <p class="notification-item">
+      <%= notification.title %>
+      </p>
+    <% end %>
+    <hr>
+  </div>
+  <div class="job-post-create-button-area">
+    <p class="job-post-button-area">
+      <%= link_to  "Create Job Post", new_companies_project_path, class:"job_post_button" %>
+    </p>
+    <div class="projects-number-area">
+      <div class="project-number-grid">
+        <h2>Jobs</h2>
+        <p>Active</p>
+        <%= @active_projects_number %>
+        <p>Stop</p>
+        <%= @doen_projects_number %>
+        <p>Done</p>
+        <%= @stop_projects_number %>
+      </div>
+    </div>
+    <div class="candidates-area u-mt20">
+      <h2>Candidates</h2>
+    </div>
+  </div>
 </div>
-
-<h2>Job posts</h2>
-<% @projects.each do |project| %>
-  <%= link_to  project.title, companies_project_path(project) %> 
-  <br>
-<% end %>
-
-<div class="company_home_news_area">
-<h2>News</h2>
-  <% @notifications.each do |notification| %>
-    <%= notification.title %> <br>
-  <% end %>
-</div>
-
-<div class="projects_number_area">
-  <h2>Jobs</h2>
-  <p>Active</p>
-  <%= @active_projects_number %>
-  <p>Stop</p>
-  <%= @doen_projects_number %>
-  <p>Done</p>
-  <%= @stop_projects_number %>
-</div>
-
-<h2>Candidates</h2>
-<%#
-# お知らせ（応募があった or メッセージがあったなど）
-
-# Candidates
-
-
-# 最近の更新
->
