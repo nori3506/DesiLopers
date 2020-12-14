@@ -40,7 +40,7 @@ class Project < ApplicationRecord
   has_many :interests
   has_many :interest_users, through: :interests
   has_many :user_projects
-  has_many :candidates, through: :user_projects
+  has_many :candidates, through: :user_projects, :source => :user
   has_one :main_image, ->{ main }, class_name: 'ProjectImage'
   # enumerize :emp_type, in: [:full_time, :part_time, :temporary, :contract, :intern, :outsourcing_contract, :volunteer, :service_contract]
   belongs_to :company
