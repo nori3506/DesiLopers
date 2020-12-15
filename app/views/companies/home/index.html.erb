@@ -3,12 +3,16 @@
     <h2 class="u-mb15">News</h2>
     <% @notifications.each do |notification| %>
       <hr>
-      <p class="notification-date">
-        <%= notification.created_at %>
-      </p>
-      <p class="notification-item">
-      <%= notification.title %>
-      </p>
+      <%= link_to(companies_candidate_path(notification.user_id)) do %>
+        <div class="notification-area">
+          <p class="notification-date">
+            <%= notification.created_at %>
+          </p>
+          <p class="notification-item">
+          <%= notification.title %>
+          </p>
+        </div>
+      <% end %>
     <% end %>
     <hr>
   </div>
