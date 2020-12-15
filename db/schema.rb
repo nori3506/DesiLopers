@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_132041) do
+ActiveRecord::Schema.define(version: 2020_12_15_135500) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2020_12_15_132041) do
     t.integer "salary"
     t.text "url"
     t.index ["user_id"], name: "index_careers_on_user_id"
+  end
+
+  create_table "channel_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "channel_id"
+    t.integer "source_id"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_channel_users_on_channel_id"
   end
 
   create_table "channels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -310,6 +319,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_132041) do
   end
 
   add_foreign_key "careers", "users"
+  add_foreign_key "channel_users", "channels"
   add_foreign_key "comments", "portfolios"
   add_foreign_key "company_images", "companies"
   add_foreign_key "company_images", "images"
