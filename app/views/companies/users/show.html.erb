@@ -1,10 +1,26 @@
-<button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsModalOpen" value="<%=  %>">Send Message</button>
+<% unless @is_channel %>
+  <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsModalOpen">Send Message</button>
+<% else%>
+  <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="">Open Message</button>
+<% end%>
+<%= @user.name %> <br>
+<%= @user.id %>
+
+
+
 <div id="overlay">
-	<div id="modalWindow">
-		<div class="modal-message-box">
-      <p>are you?</p>
-			<button id="modal-close-btn">キャンセル</button>
-			<button id="delete-comformation-btn">Action</button>
-		</div>
-	</div>
+  <div id="modalWindow">
+    <div class="modal-message-box">
+      <p>Send Message to <%= @user.name %></p>
+      <%= form_with(url: api_messages_path, local: true) do |f| %>
+        <%= f.label :content, "Message" %>
+        <%= f.text_area :content, required: true %>
+        <%= f.hidden_field :company_id, value: current_user.company.id %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+        <%= f.submit value:"Send" %>
+      <% end %>
+      <button id="modal-close-btn">キャンセル</button>
+      <button id="delete-comformation-btn">Action</button>
+    </div>
+  </div>
 </div>
