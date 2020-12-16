@@ -77,6 +77,8 @@ class User < ApplicationRecord
   has_many :interesting_projects, through: :interests, source: 'project'
   has_many :user_projects
   has_many :applied_projects, through: :user_projects, source: 'project'
+  has_many :channel_users
+  has_many :channels, through: :channel_users
   belongs_to :company, optional: true
 
   scope :techs_and_portfolio, -> {

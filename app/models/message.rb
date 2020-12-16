@@ -20,4 +20,6 @@
 #  fk_rails_...  (channel_id => channels.id)
 #
 class Message < ApplicationRecord
+	extend Enumerize
+  enumerize :type, in: ["Messages::Company", "Messages::User"], default: "Messages::User"
 end
