@@ -6,9 +6,8 @@ class Companies::ChannelsController < Companies::ApplicationController
   end
 
   def show
+    @messages = @channel.messages
   end
-
-
 
   private
 
