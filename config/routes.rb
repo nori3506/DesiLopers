@@ -56,5 +56,6 @@ Rails.application.routes.draw do
     resources :projects
     resources :companies
     resources :users, as: :candidates
+    resources :channels
   end
 end
