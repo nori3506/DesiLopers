@@ -7,7 +7,7 @@
 #  updated_at :datetime         not null
 #
 class Channel < ApplicationRecord
-	has_many :channel_users
-	has_many :users, through: :channel_users
-	has_many :messages
+  has_many :channel_users
+  has_many :users, through: :channel_users
+  has_many :messages
 end
