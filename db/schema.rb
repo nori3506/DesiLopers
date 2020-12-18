@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_184759) do
+ActiveRecord::Schema.define(version: 2020_12_18_190754) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -53,9 +53,13 @@ ActiveRecord::Schema.define(version: 2020_12_18_184759) do
 
   create_table "channel_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "channel_id"
+    t.bigint "user_id", comment: "sender user"
+    t.bigint "company_id", comment: "sender company"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["channel_id"], name: "index_channel_users_on_channel_id"
+    t.index ["company_id"], name: "index_channel_users_on_company_id"
+    t.index ["user_id"], name: "index_channel_users_on_user_id"
   end
 
   create_table "channels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -165,13 +169,15 @@ ActiveRecord::Schema.define(version: 2020_12_18_184759) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "channel_id"
-    t.integer "source_id"
-    t.string "type"
+    t.bigint "user_id", comment: "sender user"
+    t.bigint "company_id", comment: "sender company"
     t.text "content"
     t.boolean "is_read", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["channel_id"], name: "index_messages_on_channel_id"
+    t.index ["company_id"], name: "index_messages_on_company_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -318,6 +324,8 @@ ActiveRecord::Schema.define(version: 2020_12_18_184759) do
 
   add_foreign_key "careers", "users"
   add_foreign_key "channel_users", "channels"
+  add_foreign_key "channel_users", "companies"
+  add_foreign_key "channel_users", "users"
   add_foreign_key "comments", "portfolios"
   add_foreign_key "company_images", "companies"
   add_foreign_key "company_images", "images"
@@ -326,6 +334,8 @@ ActiveRecord::Schema.define(version: 2020_12_18_184759) do
   add_foreign_key "interests", "users"
   add_foreign_key "jobs", "job_categories"
   add_foreign_key "messages", "channels"
+  add_foreign_key "messages", "companies"
+  add_foreign_key "messages", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "portfolios", "users"
   add_foreign_key "project_emp_types", "emp_types"
