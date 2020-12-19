@@ -1,21 +1,18 @@
 class Api::MessagesController < ApplicationController
   def create
-    Channel.transaction do
-      @channel = Channel.create
-      @channel.channel_users.create(user_id: message_params[:user_id], company_id: current_user.company.id)
-      @channel.messages.create(company_id:message_params[:company_id], content: message_params[:content])
+    channel = Channel.find(params[:channel_id])
+    if Modules::Message::create_message(channel, params[:company_id], params[:content])
       flash[:success] = "Your message was successfully sent"
-      redirect_to companies_channel_path(@channel)
-    rescue => e
+      redirect_to companies_channel_path(channel)
+    else
       flash[:alert] = "Sorry, Message could not be sent"
-      @user = User.find(message_params[:user_id])
-      render "companies/users/show"
+      render "companies/channels/show"
     end
   end
 
   private
 
   def message_params
-    params.permit(:content, :company_id, :user_id)
+    params.permit(:content, :company_id, :user_id, :channel)
   end
 end
