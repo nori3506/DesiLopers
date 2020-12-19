@@ -12,7 +12,7 @@
   <div id="modalWindow">
     <div class="modal-message-box">
       <p>Send Message to <%= @user.name %></p>
-      <%= form_with(url: api_messages_path, local: true) do |f| %>
+      <%= form_with(url: companies_channels_path, local: true) do |f| %>
         <%= f.label :content, "Message" %>
         <%= f.text_area :content, required: true %>
         <%= f.hidden_field :company_id, value: current_user.company.id %>
