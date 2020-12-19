@@ -1,4 +1,6 @@
 <% @messages.each do |message| %>
-	<%= message.content %><br>
-	<%= message.channel.users.first.name %> <br>
+	<%= link_to(companies_channel_path(message.channel)) do %>
+		<%= message.content %><br>
+		<%= message.channel.users.first.name %> <br>
+	<% end %>
 <% end %>
