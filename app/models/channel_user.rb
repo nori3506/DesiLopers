@@ -22,9 +22,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class ChannelUser < ApplicationRecord
-	extend Enumerize
-	enumerize :type, in: ["Channels::Company", "Channels::User"], default: "Channels::User"
 	belongs_to :channel
-	belongs_to :user, class_name: "user", foreign_key: "user_id", optional: true
-	belongs_to :company, class_name: "company", foreign_key: "company_id", optional: true
+	belongs_to :user
+	belongs_to :company
 end

@@ -24,8 +24,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Message < ApplicationRecord
-	extend Enumerize
-	enumerize :type, in: ["Messages::Company", "Messages::User"], default: "Messages::User"
 	belongs_to :channel, touch: true
 	belongs_to :user, class_name: "user", foreign_key: "user_id", optional: true
 	belongs_to :company, class_name: "company", foreign_key: "company_id", optional: true

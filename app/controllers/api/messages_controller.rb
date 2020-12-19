@@ -2,7 +2,7 @@ class Api::MessagesController < ApplicationController
   def create
     Channel.transaction do
       @channel = Channel.create
-      @channel.channel_users.create(user_id: message_params[:user_id])
+      @channel.channel_users.create(user_id: message_params[:user_id], company_id: current_user.company.id)
       @channel.messages.create(company_id:message_params[:company_id], content: message_params[:content])
       flash[:success] = "Your message was successfully sent"
       redirect_to companies_channel_path(@channel)

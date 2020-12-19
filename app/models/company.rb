@@ -34,4 +34,6 @@ class Company < ApplicationRecord
 
   has_one :main_image, ->{ main }, class_name: 'CompanyImage'
   has_many :projects, dependent: :destroy, autosave: true
+  has_many :channel_users
+  has_many :channels, through: :channel_users
 end
