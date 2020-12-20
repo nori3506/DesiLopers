@@ -1,7 +1,9 @@
 <% unless @is_channel %>
   <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsModalOpen">Send Message</button>
 <% else%>
+  <%= link_to(companies_channel_path(@channel)) do %>
   <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="">Open Message</button>
+  <% end %>
 <% end%>
 <%= @user.name %> <br>
 <%= @user.id %>
