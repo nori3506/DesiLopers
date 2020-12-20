@@ -121,8 +121,8 @@ class User < ApplicationRecord
       User.includes([applied_projects: :company]).where('companies.id' => company.id, 'user_projects.status' => "interview")
     end
 
-    def recruitement_offer_users(company)
-      User.includes([applied_projects: :company]).where('companies.id' => company.id, 'user_projects.status' => "recruitement_offer")
+    def recruitment_offer_users(company)
+      User.includes([applied_projects: :company]).where('companies.id' => company.id, 'user_projects.status' => "recruitment_offer")
     end
 
     def signed_users(company)

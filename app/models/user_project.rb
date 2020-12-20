@@ -22,7 +22,7 @@
 #
 class UserProject < ApplicationRecord
 	extend Enumerize
-	enumerize :status, in: [:screening, :skill_check, :interview, :recruitement_offer, :signed, :reject], default: :screening
+	enumerize :status, in: [:screening, :skill_check, :interview, :recruitment_offer, :signed, :reject], default: :screening
 	belongs_to :user
 	belongs_to :project
 end

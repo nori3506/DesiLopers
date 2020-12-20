@@ -17,8 +17,8 @@ class Companies::HomeController < Companies::ApplicationController
     @skill_check_users_number = @skill_check_users.size
     @interview_users = User.interview_users(company)
     @interview_users_number = @interview_users.size
-    @recruitement_offer_users = User.recruitement_offer_users(company)
-    @recruitement_offer_users_number = @recruitement_offer_users.size
+    @recruitment_offer_users = User.recruitment_offer_users(company)
+    @recruitment_offer_users_number = @recruitment_offer_users.size
     @signed_users = User.signed_users(company)
     @signed_users_number = @signed_users.size
     @reject_users = User.rejected_users(company)
