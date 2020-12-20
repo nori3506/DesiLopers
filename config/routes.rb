@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :interests, only: %i[create index]
   resources :user_projects, only: %i[create index]
+  resources :channels, only: %i[show index]
 
   namespace :api do
     resources :messages, only:[:create]

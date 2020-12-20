@@ -1,0 +1,6 @@
+<% @messages.each do |message| %>
+	<%= link_to(channel_path(message.channel)) do %>
+		<%= message.content %><br>
+		<%= message.channel.companies.first.name %> <br>
+	<% end %>
+<% end %>

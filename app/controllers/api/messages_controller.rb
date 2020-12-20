@@ -3,7 +3,11 @@ class Api::MessagesController < ApplicationController
     channel = Channel.find(params[:channel_id])
     if Modules::Message::create_message(channel, params[:company_id], params[:content])
       flash[:success] = "Your message was successfully sent"
-      redirect_to companies_channel_path(channel)
+      if current_user.company_user?
+        redirect_to companies_channel_path(channel)
+      else
+        redirect_to channel_path(channel)
+      end
     else
       flash[:alert] = "Sorry, Message could not be sent"
       render "companies/channels/show"
