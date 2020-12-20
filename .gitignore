@@ -29,6 +29,10 @@
 
 # Ignore uploaded files in development
  /public/uploads/
+/public/uploads/tmp/
+/public/uploads/user/
+/public/uploads/image/
+/public/uploads/portfolio/
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
