@@ -1,0 +1,18 @@
+<div class="company_home_container">
+  <div class="company_home_news_area u-mt30">
+    <h2 class="u-mb15">News</h2>
+		<% @notifications.each do |notification| %>
+			<hr>
+			<%= link_to(companies_candidate_path(notification.user_id)) do %>
+				<div class="notification-area">
+					<p class="notification-date">
+						<%= notification.created_at %>
+					</p>
+					<p class="notification-item">
+					<%= notification.title %>
+					</p>
+				</div>
+			<% end %>
+		<% end %>
+    <hr>
+  </div>

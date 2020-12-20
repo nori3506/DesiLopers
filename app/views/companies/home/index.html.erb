@@ -1,17 +1,36 @@
 <div class="company_home_container">
   <div class="company_home_news_area u-mt30">
     <h2 class="u-mb15">News</h2>
-    <% @notifications.each do |notification| %>
-      <hr>
-      <%= link_to(companies_candidate_path(notification.user_id)) do %>
-        <div class="notification-area">
-          <p class="notification-date">
-            <%= notification.created_at %>
-          </p>
-          <p class="notification-item">
-          <%= notification.title %>
-          </p>
-        </div>
+    <% if @more_than_five_notifications %>
+      <% @notifications.limit(5).each do |notification| %>
+        <hr>
+        <%= link_to(companies_candidate_path(notification.user_id)) do %>
+          <div class="notification-area">
+            <p class="notification-date">
+              <%= notification.created_at %>
+            </p>
+            <p class="notification-item">
+            <%= notification.title %>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+      <p class="job-post-button-area">
+        <%= link_to  "More News", companies_notifications_path, class:"job_post_button" %>
+      </p>
+    <% else %>
+      <% @notifications.each do |notification| %>
+        <hr>
+        <%= link_to(companies_candidate_path(notification.user_id)) do %>
+          <div class="notification-area">
+            <p class="notification-date">
+              <%= notification.created_at %>
+            </p>
+            <p class="notification-item">
+            <%= notification.title %>
+            </p>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
     <hr>
