@@ -1,0 +1,20 @@
+<div class="main-container u-mt15">
+  <div class="side-container">
+  </div>
+  <div class="project-main-container">
+    <% @users.each do |user| %>
+      <%= link_to(companies_candidate_path(user)) do %>
+        <div class="project-container">
+          <div class="project-image-area">
+            <div class="image-content">
+              <img src="<%= user.image %>">
+            </div>
+          </div>
+          <h3 class="project-element u-my25 project-header"> 
+            <%= user.name %>
+          </h3>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
