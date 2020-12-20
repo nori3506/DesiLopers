@@ -1,6 +1,10 @@
 class Companies::UsersController < Companies::ApplicationController
   before_action :find_user, only: [:show]
 
+  def index
+    @users = User.normal_users.order(updated_at: :desc)
+  end
+
   def show
     user_channel = Channel.includes(:channel_users).where('channel_users.user_id' => @user.id)
     company_channel = Channel.includes(:channel_users).where('channel_users.company_id' => current_user.company.id)

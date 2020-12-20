@@ -85,6 +85,10 @@ class User < ApplicationRecord
     includes(:portfolio, :teches)
   }
 
+  scope :normal_users, -> {
+    where(company_id: nil)
+  }
+
   def validate_birthday
     if birthday == ""
       flash[:danger] = "kuso"
