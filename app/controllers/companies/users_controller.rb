@@ -2,6 +2,26 @@ class Companies::UsersController < Companies::ApplicationController
   before_action :find_user, only: [:show]
 
   def index
+    if params[:filter].present?
+      case params[:filter]
+      when "interested_by_user"
+        return @users = current_user.company.projects.includes([interests: :user], :interest_users).map(&:interest_users).flatten
+      # when "interested_by_company"
+      #   @users = 
+      when "under_screening"
+        return @users = User.candidates_users(current_user.company, "screening")
+      when "under_skill_checking"
+        return @users = User.candidates_users(current_user.company, "skill_check")
+      when "under_interview"
+        return @users = User.candidates_users(current_user.company, "interview")
+      when "under_offerring"
+        return @users = User.candidates_users(current_user.company, "recruitment_offer")
+      when "under_signed"
+        return @users = User.candidates_users(current_user.company, "signed")
+      when "rejected"
+        return @users = User.candidates_users(current_user.company, "rejected")
+      end
+    end
     @users = User.normal_users.order(updated_at: :desc)
   end
 
@@ -16,5 +36,4 @@ class Companies::UsersController < Companies::ApplicationController
     def find_user
       @user = User.find(params[:id])
     end
-
 end

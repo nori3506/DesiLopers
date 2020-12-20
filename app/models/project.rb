@@ -38,7 +38,7 @@ class Project < ApplicationRecord
     end
   end
   has_many :interests
-  has_many :interest_users, through: :interests
+  has_many :interest_users, through: :interests, :source => :user
   has_many :user_projects
   has_many :candidates, through: :user_projects, :source => :user
   has_one :main_image, ->{ main }, class_name: 'ProjectImage'
