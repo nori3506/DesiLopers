@@ -30,7 +30,7 @@ table td{
 }
 
 table td a{
-  color: #black;
+  color: black;
 }
 
 tbody td:nth-child(1) a {
@@ -79,4 +79,69 @@ thead th:nth-child(6) {
   table td{
     white-space: unset;
   }
+}
+
+
+// companies_ projects show page
+
+.companies_project_show_area{
+	padding: 2rem 0;
+}
+
+.companies_project_container{
+	padding: 1rem;
+	margin: auto;
+	background: white;
+	max-width: 1200px;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	border: 1px solid black;
+	
+	p {
+		border-bottom: 1px solid black;
+		padding: 1rem;
+	}
+
+	.job-post-button-area{
+		text-align: center;
+	}
+
+}
+
+.company-project-edit-button{
+	a {
+		color: white;
+	}
+	&,
+	&:link,
+	&:visited{
+	font-size: 1.5rem;
+	text-decoration: none;
+	padding: 1rem 5rem;
+	display: inline-block;
+	border-radius: 10rem;
+	transition: all .2s;
+	position: relative;
+	border: none;
+	cursor: pointer;
+	margin:2rem 0;
+	background: $color_blue;
+	color: white;
+	}
+	&:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 1rem 2rem rgba(197, 183, 254, 0.9);
+
+		&::after {
+		transform: scaleX(1.4) scaleY(1.6);
+		opacity: 0;
+		}
+	}
+	
+	&:active,
+	&:focus{
+	outline: none;
+	transform: translateY(-1px);
+	box-shadow: 0 .5rem 1rem rgba(197, 183, 254, 0.9);
+	}
 }

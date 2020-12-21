@@ -1,8 +1,31 @@
-  <%= @project.title %>
-  <img src="<%= @project.main_image %>">
-  <%= @project.detail %>
-  <%= @project.background %>
-  <%= @project.requirement %>
-  <%= @project.process %>
-
-  <%= link_to  "edit", edit_companies_project_path(@project) %>
+<div class="companies_project_show_area">
+  <div class="companies_project_container u-mt20">
+    <p>Title</p>
+    <p class="u-left"><%= @project.title %></p>
+    <p>Image</p>
+    <p><img src="<%= @project.main_image %>"></p>
+    <p>Detail</p>
+    <p class="u-left"><%= @project.detail %></p>
+    <p>Backgound</p>
+    <p class="u-left"><%= @project.background %></p>
+    <p>Requirement</p>
+    <p class="u-left"><%= @project.requirement %></p>
+    <p>Process</p>
+    <p class="u-left"><%= @project.process %></p>
+    <p>Allocation</p>
+    <p class="u-left"><%= @project.allocation %></p>
+    <p>Benefit</p>
+    <p class="u-left"><%= @project.benefit %></p>
+    <p>Minimum Salary</p>
+    <p class="u-left"><%= @project.min_salary %></p>
+    <p>Maximum Salary</p>
+    <p class="u-left"><%= @project.max_salary %></p>
+    <p>Number of hire</p>
+    <p class="u-left"><%= @project.number_of_hire %></p>
+    <p>Welfare</p>
+    <p class="u-left"><%= @project.welfare %></p>
+  </div> 
+</div>
+<p class="company-project-edit-button">
+  <%= link_to  "Edit", edit_companies_project_path(@project) %>
+</p>
