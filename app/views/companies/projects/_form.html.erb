@@ -139,7 +139,7 @@
       </div>
       <div class="project-form__input">
         <%= f.select :status, options_for_select(
-          { 'stop' => :stop, 'active' => :active }) %>
+          { 'stop' => :stop, 'active' => :active }, @form.status) %>
           <div class="note">
             <div class="note_content">
               "stop"   ・・・Draft(Not display)
