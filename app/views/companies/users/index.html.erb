@@ -31,15 +31,23 @@
   <div class="project-main-container">
     <% @users.each do |user| %>
       <%= link_to(companies_candidate_path(user)) do %>
-        <div class="image-content">
-          <img src="<%= user.image %>" class="candidate-img">
+        <div class="candidate-area">
+          <div class="image-content">
+            <% if user.image? %>
+              <img src="<%= user.image %>" class="candidate-img">
+            <% else %>
+              <img src="../assets/user-icon.png" class="candidate-img">
+            <% end %>
+          </div>
+          <div class="candidate-info">
+            <h3 class="project-element u-mb25 project-header"> 
+              <%= user.name %>
+            </h3>
+            <%= user.age %>
+            <%= user.career_year %>
+            <%= user.area %>
+          </div>
         </div>
-        <%= user.age %>
-        <%= user.career_year %>
-        <%= user.area %>
-        <h3 class="project-element u-my25 project-header"> 
-          <%= user.name %>
-        </h3>
       <% end %>
     <% end %>
   </div>
