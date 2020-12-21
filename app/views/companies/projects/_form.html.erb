@@ -139,14 +139,17 @@
       </div>
       <div class="project-form__input">
         <%= f.select :status, options_for_select(
-          { 'stop' => :stop, 'active' => :active }, @form.status) %>
-          <div class="note">
+          { 'Stop' => :stop, 'Active' => :active, 'Done' => :done }, @form.status) %>
+          <div class="note u-mt20">
             <div class="note_content">
-              "stop"   ・・・Draft(Not display)
+              <p class="u-left">"Stop"   ・・・Draft(Not Display to Users)</p>
             </div>
             <div class="note_content">
-              "active" ・・・Open to users     
-            </div>   
+              <p class="u-left">"Active" ・・・Open to users</p>
+            </div>
+            <div class="note_content">
+              <p class="u-left">"Done" ・・・Not Display  </p>   
+            </div>     
           </div>
 
       </div>
