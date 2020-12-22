@@ -39,6 +39,9 @@ class Project < ApplicationRecord
   end
   has_many :interests
   has_many :interest_users, through: :interests, :source => :user
+  has_many :company_interests_users, ->{
+    where(is_interest_by_user: false)
+  }, class_name: 'Interest'
   has_many :user_projects
   has_many :candidates, through: :user_projects, :source => :user
   has_one :main_image, ->{ main }, class_name: 'ProjectImage'
@@ -56,4 +59,5 @@ class Project < ApplicationRecord
   scope :done_projects, -> { where(:status => :done)}
   scope :stop_projects, -> { where(:status => :stop)}
   scope :interested_by_user, -> { where('interests.is_interest_by_user' => true) }
+  scope :interested_by_company, -> { where('interests.is_interest_by_user' => false) }
 end

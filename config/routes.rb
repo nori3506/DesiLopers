@@ -59,5 +59,6 @@ Rails.application.routes.draw do
     resources :users, as: :candidates
     resources :channels
     resources :notifications, only: [:index]
+    resources :interests, only: [:create]
   end
 end

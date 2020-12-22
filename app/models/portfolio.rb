@@ -26,6 +26,8 @@
 #
 
 class Portfolio < ApplicationRecord
+  extend Enumerize
+  enumerize :career, in: {:developer => 1, :designer => 2}
   belongs_to :user
   has_many :comments
   default_scope -> { order(created_at: :desc) }

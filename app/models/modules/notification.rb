@@ -1,7 +1,7 @@
 module Modules::Notification
 	class << self
-		def notice_company_user_interest(user, project)
-			Notifications::Company.create!(title: "#{user.name} is interested in the job #{project.title} ", source_id: project.company.id, user_id: user.id)
+		def notice_company_user_interest(company_user, project, user)
+			Notifications::User.create!(title: "#{company_user.company.name} is interested in you and recommends the job【 #{project.title} 】", source_id: user.id, user_id: company_user.id)
 		end
 
 		def notice_company_user_apply(user, project)

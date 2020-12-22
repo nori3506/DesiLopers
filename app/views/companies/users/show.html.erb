@@ -1,3 +1,14 @@
+<% if @user.interest_user? %>
+  <button type="button" class="u-mb10 u-disable-button u-p2 u-block-right" disabled> Already Interest </button>
+<% else %>
+  <%= form_with(url: companies_interests_path, local: true) do |f| %>
+    <%= f.select :project_id, options_for_select(@projects.map{|c|[c[:title], c[:id]]}) %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.submit %>
+    <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsInterestByCompany" %>Interest</button>
+  <% end %>
+<% end %>
+
 <% unless @is_channel %>
   <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsModalOpen">Send Message</button>
 <% else%>
@@ -5,8 +16,30 @@
   <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="">Open Message</button>
   <% end %>
 <% end%>
-<%= @user.name %> <br>
-<%= @user.id %>
+<div class="companies_candidate_show_area">
+  <div class="companies_candiate_container u-mt20">
+    <div class="image-content u-pt30">
+      <% if @user.image? %>
+        <img src="<%= @user.image %>" class="candidate-img">
+      <% else %>
+        <img src="../../assets/user-icon.png" class="candidate-img">
+      <% end %><br>
+      <p class="u-pt30"><%= @user.name %></p>
+      <p class="u-pt5"><%= @user.portfolio.career_text %></p>
+    </div>
+    <div class="companies-user-show-profile">
+      <p class="u-left"><%= @user.career_year %></p>
+      <p><%= @user.age %></p>
+      <p><%= @user.area %></p>
+      <p><%= @user.current_sign_in_at.strftime("%Y/%m/%d/%H:%M") %></p>
+      <p class="u-left"><%= @user.portfolio.message %></p>
+      <p><%= @user.portfolio.experience %></p>
+      <p><%= @user.portfolio.first_site%></p>
+      <p><%= @user.portfolio.first_image%></p>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -22,7 +55,6 @@
         <%= f.submit value:"Send" %>
       <% end %>
       <button id="modal-close-btn">キャンセル</button>
-      <button id="delete-comformation-btn">Action</button>
     </div>
   </div>
 </div>
