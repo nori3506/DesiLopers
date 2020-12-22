@@ -11,9 +11,8 @@
 #
 # Indexes
 #
-#  index_interests_on_project_id              (project_id)
-#  index_interests_on_user_id                 (user_id)
-#  index_interests_on_user_id_and_project_id  (user_id,project_id) UNIQUE
+#  index_interests_on_project_id  (project_id)
+#  index_interests_on_user_id     (user_id)
 #
 # Foreign Keys
 #
