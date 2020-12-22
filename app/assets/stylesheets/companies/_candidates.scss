@@ -1,15 +1,12 @@
-//**************************  companies_ projects index page  **************************
+//**************************  companies_candidates index page  **************************
 
 .candidate-img{
-  height: 130px;
-  width: 130px;
+  height: 150px;
+  width: 150px;
   object-fit: none;
   border-radius: 125px;
 	object-position: center;
 	border: 1px solid $color_blue;
-}
-
-.image-content{
 }
 
 .candidate-area{
@@ -27,4 +24,22 @@
 	h3{
 		text-align: left;
 	}
+}
+
+//**************************  companies_candidates show page  **************************
+
+.companies_candidate_show_area{
+    margin: auto;
+    max-width: 1200px;
+    background: white;
+}
+
+.companies_candiate_container{
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+}
+
+.companies-user-show-profile {
+    padding: 2rem;
+    border-left: 1px solid black;
 }
