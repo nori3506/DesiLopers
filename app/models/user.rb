@@ -19,6 +19,13 @@
 #  gender                   :string(255)
 #  hobby                    :string(255)
 #  image                    :string(255)
+#  invitation_accepted_at   :datetime
+#  invitation_created_at    :datetime
+#  invitation_limit         :integer
+#  invitation_sent_at       :datetime
+#  invitation_token         :string(255)
+#  invitations_count        :integer          default(0)
+#  invited_by_type          :string(255)
 #  job_hunting              :boolean
 #  last_sign_in_at          :datetime
 #  last_sign_in_ip          :string(255)
@@ -32,14 +39,18 @@
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  company_id(企業ID)       :bigint
+#  invited_by_id            :bigint
 #
 # Indexes
 #
-#  index_users_on_company_id            (company_id)
-#  index_users_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_users_on_discarded_at          (discarded_at)
-#  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_company_id                         (company_id)
+#  index_users_on_confirmation_token                 (confirmation_token) UNIQUE
+#  index_users_on_discarded_at                       (discarded_at)
+#  index_users_on_email                              (email) UNIQUE
+#  index_users_on_invitation_token                   (invitation_token) UNIQUE
+#  index_users_on_invited_by_id                      (invited_by_id)
+#  index_users_on_invited_by_type_and_invited_by_id  (invited_by_type,invited_by_id)
+#  index_users_on_reset_password_token               (reset_password_token) UNIQUE
 #
 # Foreign Keys
 #
@@ -57,7 +68,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
   before_save { self.email = email.downcase }
   default_scope -> { order(created_at: :desc) }
