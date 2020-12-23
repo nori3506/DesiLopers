@@ -15,8 +15,12 @@ Rails.application.routes.draw do
              controllers: {
                registrations: 'users/registrations',
                confirmations: 'users/confirmations',
-               sessions: 'users/sessions'
+               sessions: 'users/sessions',
+               invitations: 'companies/invitations'
              }
+  devise_scope :user do
+    get 'companies/invitation' => 'companies/invitations#new', as: :new_company_invitation
+  end
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
