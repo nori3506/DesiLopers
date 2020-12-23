@@ -15,7 +15,8 @@ Rails.application.routes.draw do
              controllers: {
                registrations: 'users/registrations',
                confirmations: 'users/confirmations',
-               sessions: 'users/sessions'
+               sessions: 'users/sessions',
+               invitations: 'users/invitations'
              }
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
