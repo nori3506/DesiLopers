@@ -130,6 +130,10 @@ li.menu__single:hover ul.menu__second-level_4 {
 	z-index: 1;
 }
 
+.max-content{
+	width: max-content;
+}
+
 @media screen and (max-width: 1230px){
 	.header-nav img{
 		padding: 1rem 0;

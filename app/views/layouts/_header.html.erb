@@ -22,8 +22,8 @@
               <span class="nav-main-list"><%= current_user.name %> <i class="fas fa-caret-down"></i></span>
             <% end %>
             <ul class="menu__second-level_4">
-              <li class="u-px10 sub-nav-list"><%= link_to('Logout', destroy_user_session_path, method: :delete, class:"small-font") %></li>
-              <li class="u-px10 sub-nav-list"><%= link_to "Edit Acount", edit_user_path(current_user), class:"small-font"%></li>
+              <li class="u-px10 sub-nav-list max-content"><%= link_to('Logout', destroy_user_session_path, method: :delete, class:"small-font") %></li>
+              <li class="u-px10 sub-nav-list max-content"><%= link_to "Edit Acount", edit_user_path(current_user), class:"small-font"%></li>
               <% if current_user.portfolio.nil? %>
                 <li class="header-nav-list u-px10 sub-nav-list">
                   <%= link_to "Create Resume", new_portfolio_path, class:"small-font"%>
