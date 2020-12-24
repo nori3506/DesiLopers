@@ -58,8 +58,8 @@
             <li class="menu__single_2">
               <a href="#" class="init-bottom">Acount <i class="fas fa-caret-down"></i></a>
               <ul class="menu__second-level_2">
-                <li><%= link_to "Edit", new_company_invitation_path, class: "nav-main-list_2" %></li>
-                <li><%= link_to('Logout', destroy_user_session_path, { method: :delete, class: "nav-main-list_2" }) %></li>
+                <li class="nav-displya-control"><%= link_to "Edit", new_company_invitation_path, class: "nav-main-list_2" %></li>
+                <li class="nav-displya-control" ><%= link_to('Logout', destroy_user_session_path, { method: :delete, class: "nav-main-list_2" }) %></li>
               </ul>
             </li>
           </ul>
