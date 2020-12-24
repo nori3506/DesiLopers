@@ -1,24 +1,22 @@
 <nav class="header-nav">
   <ul class="u-px5">
     <% if user_signed_in? %>
-      <%= link_to(root_path, "aria-label" => "Link to Home") do %>
+      <%= link_to(companies_home_index_path, "aria-label" => "Link to Home") do %>
         <%= image_tag("logo_company_ver.png", alt: 'Logo') %>
       <% end %>
       <div class="nav-link-area u-mr20">
         <div class="header-items">
           <li class="header-nav-list">
-            <%= link_to "Deshboard", companies_home_index_path, class: "nav-main-list" %>
-          </li>
-          <li class="header-nav-list">
             <%= link_to "Candidates", companies_candidates_path, class: "nav-main-list" %>
           </li>
            <li class="header-nav-list">
             <%= link_to "Job Posts", companies_projects_path, class: "nav-main-list" %>
-          </li>
-          <li class="header-nav-list">
-            <%= link_to interests_path do %>
-              <%= link_to current_user.company.name, root_path %>
-            <% end %>
+          </li>       
+          <li class="header-nav-list menu__single">
+            <a href="#" class="nav-main-list"><%= current_user.company.name %> <i class="fas fa-caret-down"></i></a>
+            <ul class="menu__second-level_3">
+              <li><%= link_to "Invitation", new_company_invitation_path, class: "nav-main-list" %></li>
+            </ul>
           </li>
           <li class="header-nav-list">
             <%= link_to companies_channels_path do %>
@@ -26,28 +24,19 @@
             <% end %>
           </li>
           <li class="header-nav-list">
-            <%= link_to companies_notifications_path do %>
-              <i class="far fa-bell fa-2x"></i>
+            <%= link_to companies_notifications_path, class: "nav-main-list" do %>
+              <i class="far fa-bell logo_size"></i>
             <% end %>
           </li>
-          <div class="u-mt5 nav-user-link">
-            <a href="#" class="jsToggle nav-main-list">
-              <span class="nav-main-list"><i class="fas fa-user-edit"></i><i class="fas fa-caret-down"></i></span>
-            </a>
-            <ul class="list-toggle-con u-mt15">
-              <li class="u-px10 sub-nav-list"><%= link_to('Logout', destroy_user_session_path, method: :delete, class:"small-font") %></li>
-              <li class="u-px10 sub-nav-list"><%= link_to "Edit Acount", edit_user_path(current_user), class:"small-font"%></li>
-              <% if current_user.portfolio.nil? %>
-                <li class="header-nav-list u-px10 sub-nav-list">
-                  <%= link_to "Create Resume", new_portfolio_path, class:"small-font"%>
-                </li>
-              <% else %>
-                <li class="header-nav-list u-px10 sub-nav-list">
-                  <%= link_to "Edit Resume", edit_portfolio_path(current_user.portfolio)%>
-                </li>
-              <% end %>
+          <li class="header-nav-list menu__single">
+            <%= link_to  do %>
+              <i class="fas fa-user-edit logo_size"></i><i class="fas fa-caret-down"></i>
+            <% end %>
+            <ul class="menu__second-level_4">
+              <li class="u-px15 sub-nav-list"><%= link_to('Logout', destroy_user_session_path, method: :delete, class:"small-font") %></li>
+              <li class="u-px15"><%= link_to "Edit", new_company_invitation_path, class: "nav-main-list" %></li>
             </ul>
-          </div>
+          </li>
         </div>
         <div class="hamburger">
           <span></span>
@@ -55,13 +44,25 @@
           <span></span>
         </div>
         <nav class="globalMenuSp">
-            <ul>
-                <li><a href="#">Menu1</a></li>
-                <li><a href="#">Menu2</a></li>
-                <li><a href="#">Menu3</a></li>
-                <li><a href="#">Menu4</a></li>
-                <li><a href="#">Menu5</a></li>
-            </ul>
+          <ul class="drop-menu">
+            <li><%= link_to "Candidates", companies_candidates_path, class: "nav-main-list" %></li>
+            <li><%= link_to "Job Posts", companies_projects_path, class: "nav-main-list" %></li>
+            <li><%= link_to "Notification", companies_notifications_path, class: "nav-main-list" %></li>
+            <li><%= link_to "Message", companies_channels_path, class: "nav-main-list" %></li>
+            <li class="menu__single">
+              <a href="#" class="init-bottom"><%= current_user.company.name %> <i class="fas fa-caret-down"></i></a>
+              <ul class="menu__second-level">
+                <li><%= link_to "Invitation", new_company_invitation_path, class: "nav-main-list" %></li>
+              </ul>
+            </li>              
+            <li class="menu__single_2">
+              <a href="#" class="init-bottom">Acount <i class="fas fa-caret-down"></i></a>
+              <ul class="menu__second-level_2">
+                <li><%= link_to "Edit", new_company_invitation_path, class: "nav-main-list_2" %></li>
+                <li><%= link_to('Logout', destroy_user_session_path, { method: :delete, class: "nav-main-list_2" }) %></li>
+              </ul>
+            </li>
+          </ul>
         </nav>
       </div>
     <% else %>
@@ -77,21 +78,6 @@
         <li class="header-nav-list"><%= link_to "Sign up", new_user_registration_path, class:"nav-main-list" %></li>
         <li class="header-nav-list"><%= link_to "Login",  new_user_session_path, class:"nav-main-list" %></li>
       </div>
-      <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <nav class="globalMenuSp">
-            <ul>
-                <li><a href="#">Menu1</a></li>
-                <li><a href="#">Menu2</a></li>
-                <li><a href="#">Menu3</a></li>
-                <li><a href="#">Menu4</a></li>
-                <li><a href="#">Menu5</a></li>
-            </ul>
-        </nav>
     <% end %>
   </ul>
 </nav>

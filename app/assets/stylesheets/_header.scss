@@ -1,33 +1,3 @@
-// .navbar-collapse {
-//   background:rgb(248, 248, 248);
-//   // padding:0 20px;
-// }
-
-// .navbar-default .navbar-nav > .emphasize > a{
-//   color:red;
-//   &:visited, &:hover{
-//     color:red;
-//   }
-// }
-
-// .container-fluid{
-//   padding-left:0px;
-//   padding-right:0px;
-  
-// }
-
-// .nav > li > a > img {
-//     max-width: 70%;
-// }
-
-// .navbar{
-//   margin-bottom:0;
-// }
-
-// .nav-child2{
-// 	padding: 2rem 0;
-// }
-
 nav.header-nav a {
 	color: #ffffff;
 }
@@ -67,11 +37,91 @@ nav.header-nav a {
 	border-right: 1px solid black;
 }
 
+.logo_size{
+	font-size: xx-large;
+}
+
+.header-items{
+	display: block;
+}
+
 .nav-link-area{
-		display: inline-block;
-		text-align: right;
-    margin: auto 0;
-	}
+	display: inline-block;
+	text-align: right;
+	margin: auto 0;
+}
+
+.hamburger {
+	display : block;
+	position: fixed;
+	z-index : 3;
+	right : 13px;
+	top   : 12px;
+	width : 42px;
+	height: 42px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.globalMenuSp{
+	display: none;
+}
+
+.drop-menu li.menu__single, .drop-menu li.menu__single_2, .header-items .menu__single {
+	position: relative;
+}
+
+li.menu__single ul.menu__second-level, li.menu__single_2 ul.menu__second-level_2  {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	z-index: -1;
+}
+
+li.menu__single:hover ul.menu__second-level, li.menu__single_2:hover ul.menu__second-level_2 {
+	position: relative;
+	visibility: visible;
+	opacity: 1;
+	z-index: 1;
+}
+
+li.menu__single ul.menu__second-level_3 {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	z-index: -1;
+}
+
+li.menu__single:hover ul.menu__second-level_3 {
+	position: absolute;
+	top: 2rem;
+	visibility: visible;
+	opacity: 1;
+	z-index: 1;
+}
+
+li.menu__single ul.menu__second-level_4 {
+	position: absolute;
+	right: 4rem;
+	top: 0;
+	width: 100%;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	z-index: -1;
+}
+
+li.menu__single:hover ul.menu__second-level_4 {
+	position: absolute;
+	right: 4rem;
+	top: 2.5rem;
+	visibility: visible;
+	opacity: 1;
+	z-index: 1;
+}
 
 @media screen and (max-width: 1230px){
 	.header-nav img{
@@ -84,7 +134,7 @@ nav.header-nav a {
 	}
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1000px){
 	.header-nav img{
 		padding: 1rem 0;
 		width: 170px;
@@ -92,5 +142,132 @@ nav.header-nav a {
 
 	.header-nav ul li a{
 		font-size: larger;
+	}
+
+	.header-nav ul{
+		display: block;
+	}
+
+	.header-items{
+		display: none;
+	}
+
+	/*　ハンバーガーボタン　*/
+	.hamburger {
+		display : block;
+		position: absolute;
+		z-index : 3;
+		right : 13px;
+		top   : 18px;
+		width : 42px;
+		height: 42px;
+		cursor: pointer;
+		text-align: center;
+	}
+	.hamburger span {
+		display : block;
+		position: absolute;
+		width   : 30px;
+		height  : 2px ;
+		left    : 6px;
+		background : white;
+		-webkit-transition: 0.3s ease-in-out;
+		-moz-transition   : 0.3s ease-in-out;
+		transition        : 0.3s ease-in-out;
+	}
+	.hamburger span:nth-child(1) {
+		top: 10px;
+	}
+	.hamburger span:nth-child(2) {
+		top: 20px;
+	}
+	.hamburger span:nth-child(3) {
+		top: 30px;
+	}
+
+	/* ナビ開いてる時のボタン */
+	.hamburger.active {
+		-webkit-transition: all 0.3s ease-in-out;
+		-o-transition     : all 0.3s ease-in-out;
+		transition        : all 0.3s ease-in-out;
+		-webkit-transition-delay: 0.6s;
+		-o-transition-delay     : 0.6s;
+		transition-delay        : 0.6s;
+		-webkit-transform: rotate(45deg);
+		-ms-transform    : rotate(45deg);
+		-o-transform     : rotate(45deg);
+		transform        : rotate(45deg);
+	}
+	.hamburger.active span:nth-child(2){
+		width: 0px;
+	}
+	.hamburger.active span:nth-child(1),
+	.hamburger.active span:nth-child(3){
+		-webkit-transition-delay: 0.3s;
+		-o-transition-delay: 0.3s;
+		transition-delay: 0.3s;
+	}
+	.hamburger.active span:nth-child(1){
+		-webkit-transform: translateY(4px);
+		-ms-transform    : translateY(4px);
+		-o-transform     : translateY(4px);
+		transform        : translateY(4px);
+	}
+
+	.hamburger.active span:nth-child(3){
+		-webkit-transform: translateY(-16px) rotate(90deg);
+		-ms-transform: translateY(-16px) rotate(90deg);
+		-o-transform : translateY(-16px) rotate(90deg);
+		transform    : translateY(-16px) rotate(90deg);
+	}
+
+
+	nav.globalMenuSp {
+		display: block;
+		position: absolute;
+		z-index : 2;
+		top  : 0;
+		right : 0;
+		color: #000;
+		background: #fff;
+		text-align: center;
+		transform: translateX(100%);
+		transition: all .9s;
+		width: 45%;
+	}
+
+	nav.globalMenuSp ul {
+		background: #ccc;
+		margin: 0 auto;
+		padding: 0;
+		width: 100%;
+	}
+
+	nav.globalMenuSp ul li {
+		list-style-type: none;
+		padding: 0;
+		width: 100%;
+		border-bottom: 1px solid #fff;
+	}
+	nav.globalMenuSp ul li:last-child {
+		padding-bottom: 0;
+		border-bottom: none;
+		display: unset;
+	}
+	nav.globalMenuSp ul li:hover{
+		background :#ddd;
+	}
+
+	nav.globalMenuSp ul li a {
+		display: block;
+		color: white;
+		background: $color_blue;
+		padding: 1em 0;
+		text-decoration :none;
+	}
+
+	/* このクラスを、jQueryで付与・削除する */
+	nav.globalMenuSp.active {
+		transform: translateX(0%);
 	}
 }
