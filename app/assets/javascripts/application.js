@@ -17,7 +17,7 @@
 //= require bootstrap-sprockets 
 
 $(function(){
-  setTimeout("$('.alert').fadeOut('linear')", 3000) 
+  setTimeout("$('.alert').fadeOut('linear')", 3000)
 })//= require serviceworker-companion
 
 $(function() {
