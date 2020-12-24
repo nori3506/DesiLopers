@@ -11,4 +11,4 @@ document.addEventListener(
     };
   },
   false
-);s
+);
