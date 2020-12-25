@@ -1,5 +1,6 @@
 class Companies::CompaniesController < Companies::ApplicationController
-  layout 'company/regist'
+  layout 'company/regist', only: [:new]
+  layout 'layouts/company/layout.html.erb', only: [:show, :edit]
 
   def new
     @company = Company.new
@@ -17,6 +18,10 @@ class Companies::CompaniesController < Companies::ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @company = current_user.company
   end
 
   def edit

@@ -13,8 +13,16 @@
             <%= link_to "Job Posts", companies_projects_path, class: "nav-main-list" %>
           </li>       
           <li class="header-nav-list menu__single">
-            <a href="#" class="nav-main-list"><%= current_user.company.name %> <i class="fas fa-caret-down"></i></a>
-            <ul class="menu__second-level_3">
+            <%= link_to companies_company_path(current_user.company.id), class: "nav-main-list" do %>
+              <%= current_user.company.name %> <i class="fas fa-caret-down"></i>
+            <% end %>
+            <ul class="menu__second-level_3 left-position">
+              <li><%= link_to "Company Edit", edit_companies_company_path(current_user.company), class: "nav-main-list" %></li>
+            </ul>
+            <ul class="menu__second-level_3 center-position">
+              <li><%= link_to "Members", new_company_invitation_path, class: "nav-main-list" %></li>
+            </ul>
+            <ul class="menu__second-level_3 right-position">
               <li><%= link_to "Invitation", new_company_invitation_path, class: "nav-main-list" %></li>
             </ul>
           </li>
@@ -50,7 +58,9 @@
             <li><%= link_to "Notification", companies_notifications_path, class: "nav-main-list" %></li>
             <li><%= link_to "Message", companies_channels_path, class: "nav-main-list" %></li>
             <li class="menu__single">
-              <a href="#" class="init-bottom"><%= current_user.company.name %> <i class="fas fa-caret-down"></i></a>
+              <%= link_to companies_company_path(current_user.company.id), class: "init-bottom" do %>
+                <%= current_user.company.name %> <i class="fas fa-caret-down"></i>
+              <% end %>
               <ul class="menu__second-level">
                 <li><%= link_to "Invitation", new_company_invitation_path, class: "nav-main-list" %></li>
               </ul>
