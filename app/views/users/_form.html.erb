@@ -4,25 +4,25 @@
       <div class="FormContent">
         <h3><%= yield(:head_text) %></h3>
         <%= form_with(model: @user, local: true) do |f| %>
-          <div class="field">
-            <span><%= f.label:name, 'Name' %></span>
-            <%= f.text_field :name, placeholder: "Alexandle Ronald", class:"text-sm-field", required: true  %>
+          <div class="portfolio-field u-mt20">
+            <p><%= f.label:name, 'Name' %></p> 
+            <%= f.text_field :name, placeholder: "Alexandle Ronald", required: true,class:"text-field"  %>
           </div>
-          <div class="field">
-            <span><%= f.label:email, 'Email' %></span>
-            <%= f.text_field :email, placeholder: "desilopers@example.com", class:"text-sm-field", required: true %>
+          <div class="portfolio-field u-mt20">
+            <p><%= f.label:email, 'Email' %></p>
+            <%= f.text_field :email, placeholder: "desilopers@example.com", required: true,class:"text-field" %>
           </div>
-          <div class="field">
-            <span><%= f.label:password, 'Password' %></span>
-            <%= f.password_field :password, placeholder: "More Than 8 Letter", class:"text-sm-field", required: true %>
+          <div class="portfolio-field u-mt20">
+            <p><%= f.label:password, 'Password' %></p>
+            <%= f.password_field :password, placeholder: "More Than 8 Letter", required: true,class:"text-field" %>
           </div>
-          <div class="field">
-            <span><%= f.label:password_confirmation, 'Password Confirm' %></span>
-            <%= f.password_field :password_confirmation, placeholder: "More Than 8 Letter", class:"text-sm-field", required: true %>
+          <div class="portfolio-field u-mt20">
+            <p><%= f.label:password_confirmation, 'Password Confirm' %></p>
+            <%= f.password_field :password_confirmation, placeholder: "More Than 8 Letter", required: true,class:"text-field"%>
           </div>
           <% if false%>
-            <div class="field">
-              <span class="aaa"><%= f.label:career_year, 'Career' %></span>
+            <div class="portfolio-field u-mt20">
+              <p><span class="aaa"><%= f.label:career_year, 'Career' %></p>
               <div class="text-sm-aa">
                 <%= select(:user, :career_year, [['Nothing/Self-Learning ONLY'], ['1 year'],['2 years'],['3 years'],['4 years'],['5 years'],
                 ['6 years'],['7 years'],['8 years'],['9 years'],['10 years'],['11 years'],['12 years'],['13 years'],['14 years'],['15 years'],
@@ -30,30 +30,28 @@
               </div>
             </div>
           <% end %>
-          <div class="field">
-            <span><%= f.label:birthday, 'Birthday' %></span>
-            <%= f.date_field :birthday, placeholder: "Birthday", class:"text-sm-field", required: true %>
+          <div class="portfolio-field u-mt20">
+            <p><%= f.label:birthday, 'Birthday' %></p>
+            <%= f.date_field :birthday, class:"birthday-field", required: true,class:"text-field" %>
           </div>
-          <div class="field adjust">
-            <span><%= f.label :gender, 'Sex' %></span>
-            <%= f.radio_button :gender, :male, class:"", checked: true %>Male
-            <%= f.radio_button :gender, :female, class:"" %>Female
-            <%= f.radio_button :gender, :other, class:"" %>Other
+          <div class="portfolio-field adjust u-mt20">
+            <p><%= f.label :gender, 'Sex' %></p>
+            <%= f.radio_button :gender, :male, class:"u-px20", checked: true %>Male <br>
+            <%= f.radio_button :gender, :female, class:"u-px20" %>Female<br>
+            <%= f.radio_button :gender, :other, class:"u-px20" %>Other
           </div>
-          <p class="skill_head">Select your skills below</p>
-          <div class="field">
+          <div class="portfolio-field u-mt20">
+            <h3 class="u-mt30 u-mb10 u-left">Select your skills below</h3>
             <%= f.collection_check_boxes :tech_ids, Tech.all, :id, :name do |cb| %>
               <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
             <% end %>
           </div>
-          <div class="picture_create">
-            <div class="picture_head">Profile Picture</div> 
-            <div class="field">
-              <%= f.file_field :image %>
-            </div>
+          <div class="portfolio-field">
+            <h3 class="u-mt30 u-mb10 u-left">Profile Picture</h3> 
+            <%= f.file_field :image %>
           </div>
-          <div class="field">
-            <%= f.submit yield(:button_text), data: { disable_with: 'Creating...' } %>
+          <div class="">
+            <%= f.submit yield(:button_text), data: { disable_with: 'Creating...' }, class: 'regist-button u-mt20' %>
           </div>
         <% end %>
         <% if !user_signed_in? %>
