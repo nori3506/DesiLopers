@@ -5,47 +5,48 @@
    <div class="FormContent">
     <h1><%= yield(:portfolio_head) %></h1>
     <%= form_for @portfolio do |f| %>
-     <div class="field">
+     <div class="portfolio-field u-mt30">
       <%= f.label:career %>
       <%= select(:portfolio, :career, [['Developer', 1], ['Designer', 2],['Both', 3]]) %>
      </div>
-     <div class="field">
+     <div class="portfolio-field u-mt30">
       <%= f.label :experience, "Experience", class:"required" %> <br>
-      <%= f.text_area :experience, placeholder: "Your Experience",class:"text-field", required: true %>
+      <%= f.text_area :experience, placeholder: "2018- Lead Engineer
+2015- Jave Engineer",class:"text-field", required: true, size: "20x10" %>
      </div>
-     <div class="field">
-      <%= f.label :message, "Message", class:"required" %><br>
-      <%= f.text_area :message, placeholder: "Your Message",class:"text-field", required: true %>
+     <div class="portfolio-field u-mt30">
+      <%= f.label :message, "Appeal", class:"required" %><br>
+      <%= f.text_area :message, placeholder: "I am improving my skills by inputting and outputting new technologies on a regular basis.
+In addition to backend Ruby, PHP, Java, I also have experience in Angular, React on the frontend, and experience in building infrastructure such as AWS.
+I would like to work for a company that can handle multitasking rather than one specialized task.
+I attach great importance to teamwork and want to contribute to the growth of members.",class:"text-field", required: true, size: "20x10" %>
      </div>
-     <div class="field">
-      <h3>Main Portfolio</h3>
-      <%= f.label :first_site, "URL", class:"required" %><br>
-      <%= f.text_area :first_site, class:"text-field", required: true %>
+     <div class="portfolio-field">
+      <h3 class="u-mt30 u-mb10">Main Portfolio</h3>
+      <%= f.label :first_site, "URL"%><br>
+      <%= f.text_area :first_site, class:"text-field", size: "20x1", placeholder: "https://desilopers.herokuapp.com" %>
      </div>
-     <div class="field">
-      <%= f.label :first_image,"Image" %>
+     <div class="portfolio-field">
       <%= f.file_field :first_image %>
      </div>
-     <div class="field">
-      <h3>Second Portfolio</h3>
+     <div class="portfolio-field">
+      <h3 class="u-mt30 u-mb10">Second Portfolio</h3>
       <%= f.label :second_site,"URL" %><br>
-      <%= f.text_area :second_site, class:"text-field" %>
+      <%= f.text_area :second_site, class:"text-field", size: "20x1" %>
      </div>
-     <div class="field">
-      <%= f.label :second_image, "Image" %>
+     <div class="portfolio-field">
       <%= f.file_field :second_image %>
      </div>
-     <div class="field">
-      <h3>Third Portfolio</h3>
+     <div class="portfolio-field">
+      <h3 class="u-mt30 u-mb10">Third Portfolio</h3>
       <%= f.label :third_site, "URL" %><br>
-      <%= f.text_area :third_site, class:"text-field"%>
+      <%= f.text_area :third_site, class:"text-field", size: "20x1"%>
      </div>
-     <div class="field">
-      <%= f.label :third_image, "Image" %>
+     <div class="portfolio-field">
       <%= f.file_field :first_image %>
      </div>
      <div class="actions">
-      <%= f.submit yield(:button_text) %>
+      <%= f.submit yield(:button_text), class: 'regist-button u-mt20' %>
      </div>
     <% end %>
    </div>

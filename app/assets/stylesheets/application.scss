@@ -126,7 +126,6 @@ textarea select input{
     font-family: Helvetica Neue,Helvetica,Arial,Liberation Sans,Roboto,Noto,sans-serif;
     font-size: 1rem;
     letter-spacing: 0;
-    line-height: 2.5rem;
     font-weight: 400;
     width: 100%;
     box-sizing: border-box;
@@ -157,9 +156,14 @@ textarea select input{
   font-size:1.5rem;
 }
 
+.portfolio-field{
+  width: 90%;
+  margin: auto;
+  text-align: left;
+}
+
 .text-field{
-  width: 80%;
-  height: 15vh;
+  width: 100%;
 }
 
 .note{
