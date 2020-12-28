@@ -8,7 +8,7 @@ class InterestsController < ApplicationController
     project = Project.find(params[:project_id])
     Interest.transaction do
       current_user.interesting_projects << project
-      Modules::Notification.notice_company_user_interest(current_user, project)
+      Modules::Notification.notice_company_about_user_has_interest(current_user, project)
     end
     respond_to do |format|
       format.html { redirect_to project_path(project), notice: 'Your interest was successfully sent!' }

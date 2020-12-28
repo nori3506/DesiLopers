@@ -9,7 +9,7 @@ class Companies::InterestsController < Companies::ApplicationController
     user = User.find(params[:user_id])
 		Interest.transaction do
       project.interests.create(user_id: user.id, project_id: project.id, is_interest_by_user: false)
-      Modules::Notification.notice_company_user_interest(current_user, project, user)
+      Modules::Notification.notice_user_company_has_interest(current_user, project, user)
     end
     respond_to do |format|
       format.html { redirect_to companies_candidate_path(user), notice: 'Your interest was successfully sent!' }
