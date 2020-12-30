@@ -1,10 +1,14 @@
-<% if @project.interest_project? %>
+<% if current_user.nil? %>
+  <input type="button" onclick="location.href='/signup'" value="Interest!" class="u-mb10  u-p2 u-block-right interest-button">
+<% elsif @project.interest_project? %>
   <button type="button" class="u-mb10 u-disable-button u-p2 u-block-right" disabled> Already Interest </button>
 <% else %>
-  <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsInterestByUser" value="<%= @project.id %>">Interest!</button>
+  <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsInterestByUser" value="<%= @project.id %>">Interest</button>
 <% end %>
 
-<% if @project.applied_project? %>
+<% if current_user.nil? %>
+  <input type="button" onclick="location.href='/signup'" value="Apply!" class="u-mb10  u-p2 u-block-right interest-button">
+<% elsif @project.applied_project? %>
   <button type="button" class="u-mb10 u-disable-button u-p2 u-block-right" disabled> Already Applied </button>
 <% else %>
   <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsApplyByUser" value="<%= @project.id %>">Apply</button>
