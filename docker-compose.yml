@@ -23,7 +23,7 @@ services:
   web:
     build:
       context: .
-    command: bundle exec foreman start -f Procfile
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec foreman start -f Procfile"
     tty: true
     stdin_open: true
     depends_on:
