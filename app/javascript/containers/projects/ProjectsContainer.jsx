@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import ProjectIndex from '../../containers/projects/ProjectsContainer'
+import ProjectIndex from '../../components/projects/ProjectIndex'
 class ProjectsContainer extends React.Component {
 	constructor(props) {
 		super(props)
@@ -9,12 +9,10 @@ class ProjectsContainer extends React.Component {
 		}
 	}
 	componentDidMount() {
-		alert("")
 		this.loadProjectsFromServer()
 	}
 
 	loadProjectsFromServer() {
-		alert("kita")
 		axios
 			.get('projects.json')
 			.then(response => {
@@ -30,10 +28,10 @@ class ProjectsContainer extends React.Component {
 			project => <ProjectIndex key={project.id} project={project} />
 		)
 
-		console.log(this.state)
-
 		return (
-			<div className="">{ projectsList }</div>
+			<div className="">
+				{ projectsList}
+			</div>
 		)				
 	}
 }
