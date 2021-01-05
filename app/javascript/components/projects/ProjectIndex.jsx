@@ -13,18 +13,15 @@ const ProjectIndex = ({ project }) => (
 			</div>
 		</div>
 		<h3 className="project-element u-my25 project-header">
-			<a href="/company_detail/${project.company.id}">{project.title}</a>
+			<a href={`/company_detail/${project.company.id}`}>{project.title}</a>
 		</h3>
 		<div className="project-element u-mb10">
-			<a href="/company_detail/${project.company.id}">{project.detail}</a>
+			<a href={`/company_detail/${project.company.id}`}>{project.detail}</a>
 		</div>
 		<h3 className="project-element u-mt40 u-left company-name">
-			<a href="/company_detail/{project.company.id}">{project.company.name}</a>
+			<a href={`/company_detail/${project.company.id}`}>{project.company.name}</a>
 		</h3>
 	</div>
 )
 
-Project.propTypes = {
-	project: PropTypes.object.isRequired
-}
 export default ProjectIndex
