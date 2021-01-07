@@ -1,3 +1,42 @@
-<%= @company.name %><%= @company.id %>
 <br>
-<%= link_to "Edit", edit_companies_company_path(@company) %>
+
+
+<div class="companies_project_show_area">
+  <div class="companies_project_container u-mt20">
+    <p>Company Name</p>
+    <p class="u-left"><%= @company.name %></p>
+    <p>Status</p>
+    <p class="u-left"><%= @company.status %></p>
+    <p>Image</p>
+    <p><img src="<%= @company.main_image %>" class="image-size"></p>
+    <p>Slogan</p>
+    <p class="u-left"><%= @company.slogan %></p>
+    <p>Mission</p>
+    <p class="u-left"><%= @company.mission %></p>
+    <p>Mission detail</p>
+    <p class="u-left"><%= @company.mission_detail %></p>
+    <p>Overview</p>
+    <p class="u-left"><%= @company.overview %></p>
+    <p>URL</p>
+    <p class="u-left"><%= @company.url %></p>
+    <p>Phone</p>
+    <p class="u-left"><%= @company.phone %></p>
+    <p>Zip</p>
+    <p class="u-left"><%= @company.zip %></p>
+    <p>Prefecture</p>
+    <p class="u-left"><%= @company.prefecture %></p>
+    <p>Address</p>
+    <p class="u-left"><%= @company.address %></p>
+    <p>Number of employee</p>
+    <p class="u-left"><%= @company.emp_number %></p>
+		<p>Average age</p>
+    <p class="u-left"><%= @company.avarage_age %></p>
+		<p>Capital</p>
+    <p class="u-left"><%= @company.capital %></p>
+		<p>Foundated at</p>
+    <p class="u-left"><%= @company.foundation_date %></p>
+  </div> 
+</div>
+<p class="company-project-edit-button">
+	<%= link_to "Edit", edit_companies_company_path(@company) %>
+</p>
