@@ -63,7 +63,12 @@
   }
 
   &__image-area{
-    height: 285px;
+    height: 300px;
     contain: content;
+  }
+
+  &__image{
+    object-fit: contain;
+    width: 100%;
   }
 }

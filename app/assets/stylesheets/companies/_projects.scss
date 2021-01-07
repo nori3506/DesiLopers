@@ -104,6 +104,11 @@ thead th:nth-child(6) {
 		padding: 1rem;
 	}
 
+	.image-size{
+		width: 100%;
+		object-fit: contain;
+	}
+
 	.job-post-button-area{
 		text-align: center;
 	}
