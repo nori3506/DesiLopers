@@ -1,10 +1,4 @@
 <div class="wrapper">
-  <nav>
-    <ul class="link-list">
-      <li><%= link_to  "job" %></li>
-      <li><%= link_to  "job" %></li>
-    </ul>
-  </nav>
   <header class="u-mb10">
     <div class="image-area">
       <div class="company-image" style="background-image: url(<%= @company.main_image %>)">
@@ -44,7 +38,7 @@
     </section>
 
     <section class="company-projects u-mb20">
-      <h2 class="mission-title u-mb10">Other job posts of <%= @company.name %> </h2>
+      <h2 class="mission-title u-mb10">Job posts of <%= @company.name %> </h2>
       <% @projects.each do |project| %>
       <div class="project-area">
         <div class="other-project-img-area">
@@ -57,7 +51,6 @@
       </div>
       <% end %>
     </section>
-    <button type="button" class="u-center interest-button">Interest!</button>
   </main>
   <footer>
 
