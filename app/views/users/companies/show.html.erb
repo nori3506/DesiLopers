@@ -47,8 +47,8 @@
       <h2 class="mission-title u-mb10">Other job posts of <%= @company.name %> </h2>
       <% @projects.each do |project| %>
       <div class="project-area">
-        <div class="other-project-img">
-          <img src="<%= project.company.main_image %>">
+        <div class="other-project-img-area">
+          <img src="<%= project.company.main_image %>" class="other-project-img">
         </div>
         <div class="project_description">
           <h3><%= project.title %></h3>

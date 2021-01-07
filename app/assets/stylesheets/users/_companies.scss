@@ -81,8 +81,12 @@ main {
   padding: 1rem;
 }
 
-.other-project-img {
+.other-project-img-area {
   padding: 1rem;
   border-right: 1px solid black;
+}
 
+.other-project-img{
+  width: 250px;
+  object-fit: contain;
 }
