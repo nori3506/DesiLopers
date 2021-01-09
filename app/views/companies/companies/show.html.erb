@@ -1,8 +1,5 @@
-<br>
-
-
 <div class="companies_project_show_area">
-  <div class="companies_project_container u-mt20">
+  <div class="companies_project_container u-mt20 u-text-black">
     <p>Company Name</p>
     <p class="u-left"><%= @company.name %></p>
     <p>Status</p>
@@ -37,6 +34,4 @@
     <p class="u-left"><%= @company.foundation_date %></p>
   </div> 
 </div>
-<p class="company-project-edit-button">
-	<%= link_to "Edit", edit_companies_company_path(@company) %>
-</p>
+<%= link_to "Edit", edit_companies_company_path(@company), class: "company-project-edit-button" %>
