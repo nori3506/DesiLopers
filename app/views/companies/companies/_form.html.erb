@@ -15,7 +15,7 @@
         </div>
         <% if form.main_image.present? %>
           <div class="company-form__image-area">
-            <img src="<%= form.main_image %>", id="js-img_prev", value="<%= @form.company.main_image %>">
+            <img src="<%= form.main_image %>", id="js-img_prev", value="<%= @form.company.main_image %>" class="company-form__image">
           </div>
         <% else %>
           <div class="company-form__image-area">
