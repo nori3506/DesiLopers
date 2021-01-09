@@ -45,6 +45,17 @@
         </div>
       </div>
 
+      <div class="company-form__element u-mt40">
+        <div class="company-form__btn-area js-first-form-button">
+          Next
+        </div>
+        <div class="company-form__back-btn js-second-form-back">
+          <span class="u-pointer">Cancel</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="company-form__second">
       <div class="company-form__element">
         <div class="company-form__label">
           <%= f.label :phone, class: 'required' %>
@@ -62,15 +73,6 @@
           <%= f.text_field :url, class: 'company-form__input-area' %>
         </div>
       </div>
-
-      <div class="company-form__element">
-        <div class="company-form__btn-area js-first-form-button">
-          Next
-        </div>
-      </div>
-    </div>
-
-    <div class="company-form__second">
       <div class="company-form__element">
         <div class="company-form__label">
           <%= f.label :slogan %>
@@ -94,21 +96,11 @@
           <%= f.label :mission_detail %>
         </div>
         <div class="company-form__input">
-          <%= f.text_area :mission_detail, rows: 8, class: 'company-form__input-area' %>
+          <%= f.text_area :mission_detail, rows: 9, class: 'company-form__input-area' %>
         </div>
       </div>
 
-
-      <div class="company-form__element">
-        <div class="company-form__label">
-          <%= f.label :overview %>
-        </div>
-        <div class="company-form__input">
-          <%= f.text_area :overview, rows: 8, class: 'company-form__input-area'%>
-        </div>
-      </div>
-
-      <div class="company-form__element">
+      <div class="company-form__element u-mt35">
         <div class="js-second-form-button company-form__btn-area">
           Next
         </div>
@@ -119,6 +111,14 @@
     </div>
 
     <div class="company-form__third">
+      <div class="company-form__element">
+        <div class="company-form__label">
+          <%= f.label :overview %>
+        </div>
+        <div class="company-form__input">
+          <%= f.text_area :overview, rows: 10, class: 'company-form__input-area'%>
+        </div>
+      </div>
       <div class="company-form__element">
         <div class="company-form__label">
           <%= f.label :emp_number %>
@@ -162,7 +162,7 @@
         </div>
       </div>
 
-      <div class="company-form__element">
+      <div class="company-form__element  u-mt35">
         <div class="company-form__btn-area js-third-form-button">
           <%= f.submit yield(:button_text), class: "company-form__btn" %>
         </div>
