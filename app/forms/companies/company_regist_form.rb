@@ -109,7 +109,6 @@ class Companies::CompanyRegistForm < ::Companies::ApplicationForm
   private
 
   def validate_file_name
-    errors[:base] << 'company image is required' if file_name.nil?
-  end
-  
+    errors[:base] << 'company image is required' if @company.images.blank? && file_name.nil?
+  end  
 end

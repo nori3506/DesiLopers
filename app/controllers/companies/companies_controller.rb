@@ -33,13 +33,13 @@ class Companies::CompaniesController < Companies::ApplicationController
     @company = Company.find(params[:id])
     @form = Companies::CompanyRegistForm.new(@company, params, current_user)
 
-      if @form.save
-        @company.images.update(file_name: params[:company][:file_name])
-        flash[:success] = "Company was successfully updated"
-        redirect_to companies_home_index_path
-      else
-        render 'edit'
-      end
+    if @form.save
+      @company.images.update(file_name: params[:company][:file_name])
+      flash[:success] = "Company was successfully updated"
+      redirect_to companies_company_path(@company)
+    else
+      render 'edit'
+    end
   end
 
   private

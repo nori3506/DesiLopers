@@ -15,7 +15,7 @@
         </div>
         <% if form.main_image.present? %>
           <div class="company-form__image-area">
-            <img src="<%= form.main_image %>", id="js-img_prev">
+            <img src="<%= form.main_image %>", id="js-img_prev", value="<%= @form.company.main_image %>">
           </div>
         <% else %>
           <div class="company-form__image-area">
@@ -23,7 +23,7 @@
           </div>
         <% end %>
         <div class="company-form__input">
-          <%= f.file_field :file_name, id: 'js-user_img' %>
+          <%= f.file_field :file_name, id: 'js-user_img', accept:'.jpg,.gif,.png,image/gif,image/jpeg,image/png' %>
         </div>
       </div>
 
