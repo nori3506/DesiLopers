@@ -54,6 +54,9 @@
       <div class="project-form__btn-area js-first-form-button">
         <span class="project-form__btn">Next</span>
       </div>
+      <div class="company-form__back-btn">
+        <%= link_to  "Cancel", companies_project_path(@project) %>
+      </div>
     </div>
   </div>
   <div class="project-form__second">
@@ -62,7 +65,7 @@
         <%= f.label :benefit %>
       </div>
       <div class="project-form__input">
-        <%= f.text_area :benefit, class: 'project-form__input-area', rows: 4, value: @form.benefit %>
+        <%= f.text_area :benefit, class: 'project-form__input-area', rows: 5, value: @form.benefit %>
       </div>
     </div>
     <div class="project-form__element">
@@ -85,20 +88,20 @@
       <div class="project-form__label">
         <%= f.label :min_salary %>
       </div>
-      <div class="project-form__input">
+      <div class="project-form__input u-left">
         <%= f.select :min_salary, options_for_select(
-          { '100万円' => 1000000, '200万円' => 2000000,'300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
-          '700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000  }) %>
+          { '20k$' => 2000000, '30k$' => 3000000, '40k$' => 4000000, '50k$' => 5000000, '60k$' => 6000000,
+          '70k$' => 7000000, '80k$' => 8000000,'90k$' => 9000000, '100k$ +' => 10000000  }) %>
       </div>
     </div>
     <div class="project-form__element">	
       <div class="project-form__label">
         <%= f.label :max_salary %>
       </div>
-      <div class="project-form__input">
+      <div class="project-form__input u-left">
         <%= f.select :max_salary, options_for_select(
-          { '200万円' => 2000000, '300万円' => 3000000, '400万円' => 4000000, '500万円' => 5000000, '600万円' => 6000000,
-          '700万円' => 7000000, '800万円' => 8000000,'900万円' => 9000000, '1000万円以上' => 10000000 }) %>
+          { '20k$' => 2000000, '30k$' => 3000000, '40k$' => 4000000, '50k$' => 5000000, '60k$' => 6000000,
+          '70k$' => 7000000, '80k$' => 8000000,'90k$' => 9000000, '100k$ +' => 10000000 }) %>
       </div>
     </div>
     <div class="project-form__element">	
@@ -154,8 +157,8 @@
 
       </div>
     </div>
-    <div class="project-form__element">
-      <div class="project-form__btn-area js-third-form-button">
+    <div class="project-form__element u-mt50">
+      <div class="js-third-form-button">
         <%= f.submit yield(:button_text), class: "project-form__btn"%>
       </div>
       <div class="project-form__back-btn js-second-form-back">

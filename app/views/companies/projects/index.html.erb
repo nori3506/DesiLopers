@@ -1,8 +1,4 @@
-  <div class="job-post-create-button-area">
-    <p class="job-post-button-area">
-      <%= link_to  "Create Job Post", new_companies_project_path, class:"job_post_button" %>
-    </p>
-  </div>
+<%= link_to  "Create Job Post", new_companies_project_path, class:"company-project-edit-button u-my30" %>
 <div class="table-area">
   <table>
     <thead>
@@ -25,7 +21,6 @@
             <td><%= project.candidates.size %></td>
             <td><%= project.status %></td>
           </tr>
-        <br>
       <% end %>
     </tbody>
   </table>
