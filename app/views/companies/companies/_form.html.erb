@@ -45,13 +45,15 @@
         </div>
       </div>
 
-      <div class="company-form__element u-mt40">
+      <div class="company-form__element u-mt25">
         <div class="company-form__btn-area js-first-form-button">
           Next
         </div>
-        <div class="company-form__back-btn js-second-form-back">
-          <span class="u-pointer">Cancel</span>
-        </div>
+        <% if @company.present? %>
+          <div class="company-form__back-btn">
+            <%= link_to  "Cancel", companies_company_path(@company) %>
+          </div>
+        <% end %>
       </div>
     </div>
 
@@ -100,12 +102,12 @@
         </div>
       </div>
 
-      <div class="company-form__element u-mt35">
+      <div class="company-form__element u-mt20">
         <div class="js-second-form-button company-form__btn-area">
           Next
         </div>
         <div class="company-form__back-btn js-second-form-back">
-          <span class="u-pointer">Back</span>
+          <span class="u-pointer u-text-black">Back</span>
         </div>
       </div>
     </div>
@@ -116,23 +118,23 @@
           <%= f.label :overview %>
         </div>
         <div class="company-form__input">
-          <%= f.text_area :overview, rows: 10, class: 'company-form__input-area'%>
+          <%= f.text_area :overview, rows: 9, class: 'company-form__input-area'%>
         </div>
       </div>
       <div class="company-form__element">
         <div class="company-form__label">
           <%= f.label :emp_number %>
         </div>
-        <div class="company-form__input">
-          <%= f.number_field :emp_number, class: 'company-form__input-area' %>
+        <div class="company-form__input u-left">
+          <%= f.number_field :emp_number, class: 'company-form__input-area company-form__number-form-width' %>
         </div>
       </div>
       <div class="company-form__element">
         <div class="company-form__label">
           <%= f.label :avarage_age, "Employee's average age" %>
         </div>
-        <div class="company-form__input">
-          <%= f.number_field :avarage_age, class: 'company-form__input-area' %>
+        <div class="company-form__input u-left">
+          <%= f.number_field :avarage_age, class: 'company-form__input-area company-form__number-form-width' %>
         </div>
       </div>
 
@@ -140,8 +142,8 @@
         <div class="company-form__label">
           <%= f.label :capital %>
         </div>
-        <div class="company-form__input">
-          <%= f.number_field :capital, class: 'company-form__input-area' %>
+        <div class="company-form__input u-left">
+          <%= f.number_field :capital, class: 'company-form__input-area company-form__number-form-width' %>
         </div>
       </div>
 
@@ -149,7 +151,7 @@
         <div class="company-form__label">
           <%= f.label :foundation_date %>
         </div>
-        <div class="company-form__input">
+        <div class="company-form__input u-left">
           <%= raw sprintf(
             f.date_select(
               :foundation_date,
@@ -162,12 +164,12 @@
         </div>
       </div>
 
-      <div class="company-form__element  u-mt35">
-        <div class="company-form__btn-area js-third-form-button">
+      <div class="company-form__element  u-mt45">
+        <div class="js-third-form-button">
           <%= f.submit yield(:button_text), class: "company-form__btn" %>
         </div>
         <div class="company-form__back-btn js-third-form-back">
-          <span class="u-pointer">Back</span>
+          <span class="u-pointer u-text-black">Back</span>
         </div>
       </div>
     </div>
