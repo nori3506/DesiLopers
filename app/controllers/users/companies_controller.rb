@@ -5,6 +5,7 @@ class Users::CompaniesController < ApplicationController
 
   def show
     @projects = @company.projects.active_projects
+    authorize @company
   end
 
    private
