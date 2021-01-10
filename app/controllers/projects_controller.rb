@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id]).decorate
+    authorize @project
     # todo: other projects list @other_projects shoud be defined
   end
 end

@@ -5,6 +5,12 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    return false if company_user?
+
+    true
+  end
+
   def company_user?
     user&.company_user?
   end
