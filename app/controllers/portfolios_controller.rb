@@ -3,13 +3,10 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:edit, :show, :update, :destroy]
   before_action :same_user, only: [:edit, :update, :destroy]
 
-  def index
-    @portfolios = Portfolio.paginate(page: params[:page], per_page: 10)
-  end
-
   def create
     @portfolio = Portfolio.new(portfolio_param)
     @portfolio.user = current_user
+    authorize @portfolio
     if @portfolio.save
       flash[:success] = "New User Was Successfully Created, Welcome!"
       redirect_to projects_path
@@ -21,15 +18,19 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
+    authorize @portfolio
   end
 
   def edit
+    authorize @portfolio
   end
 
-  def show
+  def show 
+    authorize @portfolio
   end
 
   def update
+    authorize @portfolio
     if @portfolio.update(portfolio_param)
       flash[:success] = "User data was updated successfully!"
       redirect_to @portfolio.user
@@ -37,8 +38,9 @@ class PortfoliosController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def destroy
+    authorize @portfolio
     if @portfolio.destroy
       flash[:success] = "User was deleted successfully"
       redirect_to user_path(current_user)

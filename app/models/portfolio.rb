@@ -31,7 +31,7 @@ class Portfolio < ApplicationRecord
   belongs_to :user
   has_many :comments
   default_scope -> { order(created_at: :desc) }
-  validates :first_site, presence:true, format: /\A#{URI::regexp(%w(http https))}\z/
+  validates :first_site, format: /\A#{URI::regexp(%w(http https))}\z/, if: :first_site?
   mount_uploader :first_image, ImageUploader
   validates :second_site, format: /\A#{URI::regexp(%w(http https))}\z/, if: :second_site?
   mount_uploader :second_image, ImageUploader
