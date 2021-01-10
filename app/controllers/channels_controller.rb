@@ -1,5 +1,5 @@
 class ChannelsController < ApplicationController
-	before_action :find_channel, only: [:index, :show]
+	before_action :find_channel, only: [:show]
 
 	def index
 		channels = current_user.channels
