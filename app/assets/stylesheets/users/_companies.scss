@@ -55,7 +55,7 @@
 
 .information {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
   border: 1px solid black;
 }
 
@@ -79,11 +79,65 @@
 }
 
 .other-project-img-area {
-  padding: 1rem;
   border-right: 1px solid black;
 }
 
 .other-project-img{
-  width: 250px;
+  width: 400px;
   object-fit: contain;
+}
+
+.table-area-vertical-type {
+  overflow-x: scroll;
+  box-shadow: 0 0 6px rgba(0,0,0,.3);
+  padding: 1rem;
+	margin: 0 1rem;
+	table {
+		table-layout: inherit;
+  }
+  
+  tbody tr {
+    font-weight: 600;
+    text-align: center;
+  }
+
+  th{
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    background: #252593;
+    border: 1px solid black;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+
+  table td{
+    border: 1px solid black;
+    padding: 0.5rem;
+    color: black;
+  }
+
+  table td a{
+    color: black;
+  }
+
+  .external-link-icon{
+    font-size: 1rem;
+    margin-left: 0.4rem;
+  }
+}
+
+@media screen and (min-width:1000px) {
+  .table-area-vertical-type {
+    overflow-x: unset;
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table td{
+      white-space: unset;
+    }
+  }
 }

@@ -1,6 +1,6 @@
 <div class="wrapper">
   <header class="u-mb10">
-    <div class="image-area">
+    <div class="image-area u-pt30">
       <div class="company-image" style="background-image: url(<%= @company.main_image %>)">
         <div class="header-title">
           <h1 class="company-header"><%= @company.name %></h1>
@@ -9,45 +9,68 @@
       </div>
     </div>
   </header>
-  <main class="u-mb20 u-pb15">
+  <main class="u-my30 u-pb15 u-left u-text-black">
     <section class="mission u-mb20">
-      <h2 class="mission-title u-mb10"><%= @company.mission %></h2>
-      <p><%= @company.mission_detail %></p>
+      <h2 class="u-mb10">Mission</h2>
+      <p class="u-mb10 u-text-blue"><%= @company.mission %></p>
+      <p class="u-text-black"><%= @company.mission_detail %></p>
     </section>
-    <section class="overview u-mb20">
-      <h2 class="mission-title u-mb10">Company Overview</h2>
-      <p><%= @company.overview %></p>
+    <section class="overview u-my20">
+      <h2 class="u-mb10">Overview</h2>
+      <p class="u-text-black"><%= @company.overview %></p>
     </section>
-    <section class="information u-mb20">
-      <h2 class="mission-title u-mb10">Company Infomation </h2>
-      <p class="u-pb10">Company Name</p>
-      <p><%= @company.name %></p>
-      <p class="u-pb10">Foundation Date</p>
-      <p><%= @company.foundation_date %></p>
-      <p class="u-pb10">Employee Number</p>
-      <p><%= @company.emp_number %></p>
-      <p class="u-pb10">Capital</p>
-      <p><%= @company.capital %></p>
-      <p class="u-pb10">Ararage Age</p>
-      <p><%= @company.avarage_age %></p>
-      <p class="u-pb10">Company Address</p>
-      <p><%= @company.address %> , <%= @company.zip %> </p>
-      <p class="u-pb10">URL</p>
-      <p><%= link_to "#{ @company.url }" , @company.url, target: "_blank" %></p>
+    <section class="u-my30 u-text-black">
+      <div class="table-area-vertical-type">
+        <table>
+          <caption>Infomation</caption>
+          <thead>
+            <tr>
+              <th scope="col">Company Name</th>
+              <td><%= @company.name %></td>
+            </tr>
+            <tr>
+              <th scope="col">Foundation Date</th>
+              <td><%= @company.foundation_date %></td>
+            </tr>
+            <tr>
+              <th scope="col">Employee Number</th>
+              <td><%= @company.emp_number %></td>
+            </tr>
+            <tr>
+              <th scope="col">Capital</th>
+              <td><%= @company.capital %></td>
+            </tr>
+            <tr>
+              <th scope="col">Ararage Age</th>
+              <td><%= @company.avarage_age %></td>
+            </tr>
+            <tr>
+              <th scope="col">Company Address</th>
+              <td><%= @company.address %></td>
+            </tr>
+            <tr>
+              <th scope="col">URL</th>
+              <td><%= link_to "#{ @company.url }" , @company.url, target: "_blank" %></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
     </section>
 
-    <section class="company-projects u-mb20">
-      <h2 class="mission-title u-mb10">Job posts of <%= @company.name %> </h2>
+    <section class="u-my20">
+      <h2 class="u-mb10">Job posts of <%= @company.name %> </h2>
       <% @projects.each do |project| %>
-      <div class="project-area">
-        <div class="other-project-img-area">
-          <img src="<%= project.company.main_image %>" class="other-project-img">
-        </div>
-        <div class="project_description">
-          <h3><%= project.title %></h3>
-          <p><%= project.detail %></p>
-        </div>
-      </div>
+        <%= link_to project_path(project) do %>
+          <div class="project-area">
+            <div class="other-project-img-area">
+              <img src="<%= project.company.main_image %>" class="other-project-img">
+            </div>
+            <div class="project_description">
+              <h3 class="u-text-blue u-center"><%= project.title %></h3>
+              <p class="u-mt15"><%= truncate(project.detail, length: 350) %></p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </section>
   </main>
