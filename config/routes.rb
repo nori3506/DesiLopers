@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   end
   resource :comments, only: %i[create edit update destroy]
   resource :sessions, only: %i[new create destroy]
-  resources :portfolios
+  resources :portfolios, except: :index
   resources :teches
   resources :projects
   resources :interests, only: %i[create index]
