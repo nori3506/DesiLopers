@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     resources :messages, only:[:create]
     namespace :v1 do
       resources :lists
+      resources :projects
     end
   end
 
