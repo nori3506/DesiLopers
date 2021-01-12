@@ -6,6 +6,6 @@ class CompanySerializer < ActiveModel::Serializer
   )
   
   def main_image
-    object.main_image
+    object.main_image.url
   end
 end
