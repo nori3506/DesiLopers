@@ -4,10 +4,10 @@ const Description = () => (
 	<React.Fragment>
 		<div class="home-left-side">
 			<div class="home-desctiption">
-				<h1 class="welcome">DesiLopers for your career</h1>
+				<h1 class="welcome">DesiLopers<br /> for your career</h1>
 				<div class="home-text">
 					<p class="home-first-text-area">
-						<span class="u-text-yellow">Desi</span>gners + Deve<span class="u-text-yellow">lopers</span>  =
+						<span class="u-text-yellow">Desi</span>gners + Deve<span class="u-text-yellow">lopers</span> <br /> = <br />
 						<span class="u-text-yellow stronger">"DesiLopers"</span>
 					</p>
 					<p class="home-explanation u-pt20">

@@ -5,8 +5,6 @@ import PropTypes from 'prop-types'
 import ProjectsContainer from '../containers/projects/ProjectsContainer'
 
 document.addEventListener('DOMContentLoaded', () => {
-	const root = document.getElementById('unko')
+	const root = document.getElementById('jsProjectsIndex')
 	ReactDOM.render(<ProjectsContainer />, root)
 })
-
-console.log('Hello World from Webpacker')
