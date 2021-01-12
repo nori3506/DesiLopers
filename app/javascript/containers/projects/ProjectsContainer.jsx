@@ -29,7 +29,7 @@ class ProjectsContainer extends React.Component {
 		)
 
 		return (
-			<div className="">
+			<div className="project-main-container">
 				{ projectsList}
 			</div>
 		)				
