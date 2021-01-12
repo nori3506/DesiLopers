@@ -9,7 +9,7 @@ class ProjectSerializer < ActiveModel::Serializer
 
 
   def main_image
-    object.main_image
+    object.main_image.url
   end
 
   belongs_to :company,  serializer: CompanySerializer
