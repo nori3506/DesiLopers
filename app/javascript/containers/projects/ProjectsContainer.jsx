@@ -14,7 +14,7 @@ class ProjectsContainer extends React.Component {
 
 	loadProjectsFromServer() {
 		axios
-			.get('projects.json')
+			.get('/api/v1/projects')
 			.then(response => {
 				const { projects } = response.data
 				this.setState({ projects })
