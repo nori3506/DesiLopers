@@ -113,4 +113,9 @@ button.slick-next {
 .project-detail-container{
   width: 1080px;
   margin: 0 auto;
+
+  &__grid input, &__grid button {
+    display: inline-block;
+    margin: 1rem 2rem;
+  }
 }

@@ -1,20 +1,20 @@
-<% if current_user.nil? %>
-  <input type="button" onclick="location.href='/signup'" value="Interest!" class="u-mb10  u-p2 u-block-right interest-button">
-<% elsif @project.interest_project? %>
-  <button type="button" class="u-mb10 u-disable-button u-p2 u-block-right" disabled> Already Interest </button>
-<% else %>
-  <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsInterestByUser" value="<%= @project.id %>">Interest</button>
-<% end %>
-
-<% if current_user.nil? %>
-  <input type="button" onclick="location.href='/signup'" value="Apply!" class="u-mb10  u-p2 u-block-right interest-button">
-<% elsif @project.applied_project? %>
-  <button type="button" class="u-mb10 u-disable-button u-p2 u-block-right" disabled> Already Applied </button>
-<% else %>
-  <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsApplyByUser" value="<%= @project.id %>">Apply</button>
-<% end %>
-
 <div class="project-detail-container">
+  <div class="project-detail-container__grid">
+    <% if current_user.nil? %>
+      <input type="button" onclick="location.href='/signup'" value="Interest!" class="u-mb10  u-p2 u-block-right interest-button">
+    <% elsif @project.interest_project? %>
+      <button type="button" class="u-mb10 u-disable-button u-p2 u-block-right" disabled> Already Interest </button>
+    <% else %>
+      <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsInterestByUser" value="<%= @project.id %>">Interest</button>
+    <% end %>
+    <% if current_user.nil? %>
+      <input type="button" onclick="location.href='/signup'" value="Apply!" class="u-mb10  u-p2 u-block-right interest-button">
+    <% elsif @project.applied_project? %>
+      <button type="button" class="u-mb10 u-disable-button u-p2 u-block-right" disabled> Already Applied </button>
+    <% else %>
+      <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsApplyByUser" value="<%= @project.id %>">Apply</button>
+    <% end %>
+  </div>
   <h1><%= @project.title %></h1>
   <div class="project-main-image">
     <img src="<%= @project.main_image %>">
@@ -32,5 +32,5 @@
   <div class="project-detail">
     <%= @project.process %>
   </div>
-  <h3>Other Job Posts from <%= @project.company.name %></h3>
+  <h3>Job Posts from <%= @project.company.name %></h3>
 </div>
