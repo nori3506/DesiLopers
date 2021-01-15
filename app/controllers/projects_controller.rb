@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id]).decorate
-    authorize @projec
+    authorize @project
     @other_projects = Project.includes(:company).where('companies.id': @project.company.id).active_projects
   end
 end
