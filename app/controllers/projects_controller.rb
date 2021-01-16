@@ -8,6 +8,6 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id]).decorate
     authorize @project
-    @other_projects = Project.includes(:company).where('companies.id': @project.company.id).active_projects
+    @other_projects = Project.includes(:company).where('companies.id': @project.company.id).active_projects - [@project]
   end
 end
