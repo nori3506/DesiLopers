@@ -36,6 +36,7 @@
   <% @other_projects.each do |project| %>
     <%= link_to project_path(project) do %>
       <%= project.title %> <br>
+      <%= project.detail %>
     <% end %>
   <% end %>
 </div>
