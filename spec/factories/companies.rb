@@ -16,7 +16,7 @@
 #  prefecture                     :string(255)
 #  slogan(企業スローガン)         :string(255)
 #  status                         :string(255)      not null
-#  url                            :text(65535)
+#  url(会社HP URL)                :text(65535)
 #  zip                            :string(255)
 #  created_at                     :datetime         not null
 #  updated_at                     :datetime         not null

@@ -5,8 +5,8 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_DATABASE: desilopers_dev
-      MYSQL_USER: root
-      MYSQL_PASSWORD:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: Passw0rd
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     ports:
       - "3306:3306"
@@ -15,15 +15,14 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_DATABASE: desilopers_test
-      MYSQL_USER: root
-      MYSQL_PASSWORD:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: Passw0rd
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     ports:
       - "3307:3306"
   web:
-    build:
-      context: .
-    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec foreman start -f Procfile"
+    build: .
+    command: rails s -p 3000 -b '0.0.0.0'
     tty: true
     stdin_open: true
     depends_on:

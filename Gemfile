@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
-gem 'rails', '~> 6.0'
+gem 'rails', '~> 6.1'
 
 
 gem 'active_model_serializers', '~> 0.10.10'
@@ -14,7 +14,7 @@ gem 'carrierwave'
 gem 'coffee-rails', '~> 5.0'
 gem 'concurrent-ruby', '~> 1.1', '>= 1.1.6'
 gem 'devise'
-gem 'devise_invitable', '~> 2.0.0'
+gem 'devise_invitable'
 gem 'discard', '~> 1.2'
 gem 'dotenv-rails'
 gem 'draper'
@@ -51,7 +51,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 3.6.0'
+  gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'sqlite3'
 end
