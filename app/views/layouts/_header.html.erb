@@ -23,7 +23,7 @@
             <% end %>
             <ul class="menu__second-level_4">
               <li class="u-px10 sub-nav-list max-content"><%= link_to('Logout', destroy_user_session_path, method: :delete, class:"small-font") %></li>
-              <li class="u-px10 sub-nav-list max-content"><%= link_to "Edit Acount", edit_user_path(current_user), class:"small-font"%></li>
+              <li class="u-px10 sub-nav-list max-content"><%= link_to "Edit Account", edit_user_path(current_user), class:"small-font"%></li>
               <% if current_user.portfolio.nil? %>
                 <li class="header-nav-list u-px10 sub-nav-list">
                   <%= link_to "Create Resume", new_portfolio_path, class:"small-font"%>
@@ -49,7 +49,7 @@
             <li class="menu__single_2">
               <a href="#" class="init-bottom">Acount <i class="fas fa-caret-down"></i></a>
               <ul class="menu__second-level_2">
-                <li><%= link_to "Edit Acount", edit_user_path(current_user), class: "nav-main-list_2 nav-displya-control" %></li>
+                <li><%= link_to "Edit Account", edit_user_path(current_user), class: "nav-main-list_2 nav-displya-control" %></li>
                 <% if current_user.portfolio.nil? %>
                   <li class="header-nav-list sub-nav-list">
                     <%= link_to "Create Resume", new_portfolio_path, class:"small-font nav-displya-control" %>
