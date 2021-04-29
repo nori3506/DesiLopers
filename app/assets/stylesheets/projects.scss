@@ -60,12 +60,6 @@ button.slick-next {
     .project-image-area {
       display: grid;
       grid-template-columns: 1fr 1fr;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
     }
   }
 
@@ -97,25 +91,86 @@ button.slick-next {
 }
 
 // ***************************   project show    ***************************
-.project-main-image{
-  height: 500px;
-  width: 1080px;
-  background-size: cover;
-  background-position: top;
-
-  img{
-    object-fit: cover;
-    width: 1080px;
-    height: 500px;
-  }
-}
 
 .project-detail-container{
-  width: 1080px;
   margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1200px;
 
   &__grid input, &__grid button {
     display: inline-block;
     margin: 1rem 2rem;
+  }
+
+  &__job-detail{
+    display: flex;
+    flex-flow: column wrap;
+    padding: 1rem;
+  }
+
+  &__detail-area{
+    display: flex;
+    flex-flow: column;
+
+    .project-heading{
+      align-self: flex-start;
+
+    }
+
+    .project-description{
+      color: black;
+      text-align: left;
+    }
+  }
+}
+.other-projects {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  padding-bottom: 1rem;
+
+  &__block {
+    position: relative;
+  }
+
+  &__detail{
+    text-align: left;
+    background: black;
+    color: white;
+    position: absolute;
+    padding: 1rem;
+  }
+
+  h3{
+    width: 100%;
+  }
+
+  a{
+    overflow: hidden;
+    flex: 45%;
+  }
+}
+
+h4.other-projects__title.project-heading {
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.3rem;
+}
+
+@media screen and (max-width: 800px) {
+  .other-projects {
+    a{
+      flex: initial;
+    }
   }
 }

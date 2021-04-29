@@ -54,4 +54,14 @@ $(function(){
       'display': 'none',
     })
   })
+
+  $('.other-projects__block').on('mouseover', function () {
+    $(this).children('.other-projects__detail').css({ 'bottom': '0'})
+  })
+
+  $('.other-projects__block').on('mouseout', function () {
+    $(this).children('.other-projects__detail').css({ 'bottom': 'initial' })
+  })
+
 });
+

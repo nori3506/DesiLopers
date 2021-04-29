@@ -19,24 +19,48 @@
   <div class="project-main-image">
     <img src="<%= @project.main_image %>">
   </div>
-  <h1>Job Detail</h1>
-  <div class="project-detail">
-    <%= @project.detail %>
+  <div class="project-detail-container__job-detail">
+    <h1>Job Detail</h1>
+    <div class="project-detail-container__detail-area project-detail u-mb10">
+      <div class="project-heading">Detail</div>
+      <div class="project-description">
+        <%=safe_join(@project.detail.split("\n"),tag(:br))%>
+      </div>
+    </div>
+    <div class="project-detail-container__detail-area project-background u-mb10">
+      <div class="project-heading">Background</div>
+      <div class="project-description">
+        <%=safe_join(@project.background.split("\n"),tag(:br))%>
+      </div>
+    </div>
+    <div class="project-detail-container__detail-area project-detail u-mb10">
+      <div class="project-heading">Requirement</div>
+      <div class="project-description">
+        <%=safe_join(@project.requirement.split("\n"),tag(:br))%>
+      </div>
+    </div>
+    <div class="project-detail-container__detail-area project-detail u-mb10">
+      <div class="project-heading">Process</div>
+      <div class="project-description">
+        <%=safe_join(@project.process.split("\n"),tag(:br))%>
+      </div>
+      </div>
+    </div>
   </div>
-  <div class="project-detail">
-    <%= @project.background %>
-  </div>
-  <div class="project-detail">
-    <%= @project.requirement %>
-  </div>
-  <div class="project-detail">
-    <%= @project.process %>
-  </div>
-  <h3>Job Posts from <%= @project.company.name %></h3>
-  <% @other_projects.each do |project| %>
-    <%= link_to project_path(project) do %>
-      <%= project.title %> <br>
-      <%= project.detail %>
+  <div class="other-projects">
+    <h3>Job Posts from <%= @project.company.name %></h3>
+    <% @other_projects.each do |project| %>
+      <%= link_to project_path(project) do %>
+        <div class="other-projects__block">
+          <img src="<%= project.main_image %>">
+          <h4 class="other-projects__title project-heading">
+            <%=safe_join(project.title.truncate(30).split("\n"),tag(:br))%>
+          </h4>
+          <div class="other-projects__detail">     
+            <%=safe_join(project.detail.truncate(300).split("\n"),tag(:br))%>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
