@@ -38,6 +38,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 gem 'will_paginate', '3.2.1'
+gem 'libv8-node', '15.14.0.1'
 
 # Use Uglifier as compressor for JavaScript assets
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
