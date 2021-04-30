@@ -57,7 +57,7 @@
       </div>
     </section>
 
-    <section class="u-my20">
+    <section id="project-list" class="u-my20">
       <h2 class="u-mb10">Job posts of <%= @company.name %> </h2>
       <% @projects.each do |project| %>
         <%= link_to project_path(project) do %>
