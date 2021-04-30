@@ -27,10 +27,10 @@
             </div>
           </div>
           <h3 class="project-element u-my25 project-header"> 
-            <%= project.title %>
+            <%= truncate(project.title, length: 40) %>
           </h3>
-          <div class="project-element u-pb40">
-            <%= truncate(project.detail, length: 750) %>
+          <div class="project-element">
+            <%=safe_join(truncate(project.detail, length: 400).split("\n"),tag(:br))%>
           </div>
           <h3 class="project-element u-left company-name">
             <%= link_to  project.company.name, company_path(project.company) %>

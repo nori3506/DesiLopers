@@ -50,6 +50,11 @@ button.slick-next {
     margin: 3rem auto;
     padding: 2rem;
 
+    .company-name{
+      color: #1f71c5;
+      font-weight: 700;
+    }
+
     .company-name :hover,
     .project-header :hover {
       color: $color_blue;
