@@ -25,12 +25,12 @@ class ProjectsContainer extends React.Component {
 	render() {
 		const { projects } = this.state
 		const projectsList = projects.map(
-			project => <ProjectIndex key={project.id} project={project} />
+			project => <ProjectIndex key={ project.id } project={ project } />
 		)
 
 		return (
 			<div className="project-main-container">
-				{ projectsList}
+				{ projectsList }
 			</div>
 		)				
 	}

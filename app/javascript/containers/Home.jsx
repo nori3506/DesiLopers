@@ -28,7 +28,7 @@ class Home extends React.Component {
 	render() {
 		const { projects } = this.state
 		const projectsList = projects.map(
-			project => <ProjectIndex key={project.id} project={project} />
+			project => <ProjectIndex key={ project.id } project={ project } />
 		)
 
 		return (
@@ -37,7 +37,7 @@ class Home extends React.Component {
 					<Description />
 					<Login />
 					<div className="project-main-container">
-						{projectsList}
+						{ projectsList }
 					</div>
 				</div>
 			</div>
