@@ -1,19 +1,19 @@
 <div class="user-regist-wrapper">
   <div class="user-regist-form u-py35">
-    <h2 class="u-mb15">
+    <h2>
       <%= yield(:head_text) %>
     </h2>
     <section class="user-regist-form__content">
       <%= form_with( model: @user, url: {controller: 'users/registrations', action: 'create'}, local: true) do |f| %>
         <div class="user-regist-input-area">
           <%= f.label:name, 'Name', class: "u-left block-label" %>
-          <%= f.text_field :name, placeholder: "Alexaaaandle Ronald", class: 'user-regist-form__input u-mb20', required: true, autocomplete: 'off'  %>
+          <%= f.text_field :name, placeholder: "Alexandle Ronald", class: 'user-regist-form__input u-mb20 u-pl5', required: true, autocomplete: 'off'  %>
           <%= f.label:email, 'Email', class: "u-left block-label" %>
-          <%= f.text_field :email, placeholder: "desilopers@example.com", class: 'user-regist-form__input u-mb20', required: true, autocomplete: 'off' %>
+          <%= f.text_field :email, placeholder: "desilopers@example.com", class: 'user-regist-form__input u-mb20 u-pl5', required: true, autocomplete: 'off' %>
           <%= f.label:password, 'Password', class: "u-left block-label" %>
-          <%= f.password_field :password, placeholder: "More Than 8 Letter", class: 'user-regist-form__input u-mb20', required: true, autocomplete: 'off' %>
+          <%= f.password_field :password, placeholder: "More Than 8 Letter", class: 'user-regist-form__input u-mb20 u-pl5', required: true, autocomplete: 'off' %>
           <%= f.label:password_confirmation, 'Password Confirm', class: "u-left block-label" %>
-          <%= f.password_field :password_confirmation, placeholder: "More Than 8 Letter", class: 'user-regist-form__input u-mb20', required: true, autocomplete: 'off' %>
+          <%= f.password_field :password_confirmation, placeholder: "More Than 8 Letter", class: 'user-regist-form__input u-mb20 u-pl5', required: true, autocomplete: 'off' %>
           <%= hidden_field_tag :company_user_regist, params[:company_user_regist] %>
         </div>  
         <% if false%>
@@ -83,7 +83,7 @@
       <% end %>
       <% if !user_signed_in? %>
         <p class="under-little-space">
-          <%="Have an account？"%> <%= link_to "Login", new_user_session_path,class:"button-against-whitebackground" %>
+          <span>Have an account？</span> <strong><%= link_to "Login", new_user_session_path,class:"button-against-whitebackground" %></strong>
         </p>
       <% end %>
     </section>
