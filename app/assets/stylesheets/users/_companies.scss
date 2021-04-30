@@ -19,7 +19,7 @@
   max-width: 1000px;
 }
 
-.header-title{
+.header-title {
   padding: 16rem 8rem 3rem 9rem;
   margin: 0 0 0 auto;
 }
@@ -49,7 +49,14 @@
 .interest-button {
   display: block;
   padding: 0.3rem 4rem;
-  background: orange;
+  background: #1f71c5;
+  color: white;
+}
+
+.apply-button {
+  display: block;
+  padding: 0.3rem 4rem;
+  background: #c51f1f;
   color: white;
 }
 
@@ -67,8 +74,8 @@
   margin: 0 auto;
 }
 
-#project-list{
-  .other-projects{
+#project-list {
+  .other-projects {
     border-bottom: black 1px dashed;
     margin-bottom: 1rem;
   }
@@ -82,29 +89,29 @@
   justify-content: center;
 }
 
-.other-project-img-area {
-}
+.other-project-img-area {}
 
-.other-project-img{
+.other-project-img {
   width: 400px;
   object-fit: contain;
 }
 
 .table-area-vertical-type {
   overflow-x: scroll;
-  box-shadow: 0 0 6px rgba(0,0,0,.3);
+  box-shadow: 0 0 6px rgba(0, 0, 0, .3);
   padding: 1rem;
-	margin: 0 1rem;
-	table {
-		table-layout: inherit;
+  margin: 0 1rem;
+
+  table {
+    table-layout: inherit;
   }
-  
+
   tbody tr {
     font-weight: 600;
     text-align: center;
   }
 
-  th{
+  th {
     color: white;
     font-size: larger;
     font-weight: bolder;
@@ -114,17 +121,17 @@
     text-align: center;
   }
 
-  table td{
+  table td {
     border: 1px solid black;
     padding: 0.5rem;
     color: black;
   }
 
-  table td a{
+  table td a {
     color: black;
   }
 
-  .external-link-icon{
+  .external-link-icon {
     font-size: 1rem;
     margin-left: 0.4rem;
   }
@@ -133,13 +140,13 @@
 @media screen and (min-width:1000px) {
   .table-area-vertical-type {
     overflow-x: unset;
-    
+
     table {
       width: 100%;
       border-collapse: collapse;
     }
 
-    table td{
+    table td {
       white-space: unset;
     }
   }

@@ -1,9 +1,9 @@
 // ***************************   project index    ***************************
 
 .slider {
-max-width: 280px;
-margin: 0 auto;
-padding: 0;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .slider-area {
@@ -12,6 +12,7 @@ padding: 0;
 
 .slider-img {
   width: 700px;
+
   img {
     width: 100%;
     height: auto;
@@ -44,12 +45,13 @@ button.slick-next {
   padding: 1rem 1rem;
 
   .project-container {
-    max-width: 100%;  
+    max-width: 100%;
     background: white;
     margin: 3rem auto;
     padding: 2rem;
 
-    .company-name :hover, .project-header :hover{
+    .company-name :hover,
+    .project-header :hover {
       color: $color_blue;
     }
 
@@ -72,7 +74,7 @@ button.slick-next {
   background: $color_main-grey;
 }
 
-@media screen and(max-width: 1000px){
+@media screen and(max-width: 1000px) {
   .slider-img {
     width: 400px;
   }
@@ -84,7 +86,7 @@ button.slick-next {
   }
 }
 
-@media screen and(max-width: 540px){
+@media screen and(max-width: 540px) {
   .slider-img {
     width: 250px;
   }
@@ -92,39 +94,54 @@ button.slick-next {
 
 // ***************************   project show    ***************************
 
-.project-detail-container{
+.project-detail-container {
   margin: 0 auto;
   display: flex;
   flex-flow: column;
   align-items: center;
   max-width: 1200px;
 
-  &__grid input, &__grid button {
+  h1 {
+    margin: 1rem 0;
+    font-weight: 600;
+    color: black;
+  }
+
+  h2 {
+    color: black;
+    font-weight: 800;
+  }
+
+  &__grid input,
+  &__grid button {
     display: inline-block;
     margin: 1rem 2rem;
   }
 
-  &__job-detail{
+  &__job-detail {
     display: flex;
     flex-flow: column wrap;
     padding: 1rem;
   }
 
-  &__detail-area{
+  &__detail-area {
     display: flex;
     flex-flow: column;
 
-    .project-heading{
+    .project-heading {
       align-self: flex-start;
-
+      font-size: 1.3rem;
+      font-weight: 600;
     }
 
-    .project-description{
+    .project-description {
       color: black;
       text-align: left;
+      padding: 0.3rem 0 0 1rem;
     }
   }
 }
+
 .other-projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -139,7 +156,7 @@ button.slick-next {
     position: relative;
   }
 
-  &__detail{
+  &__detail {
     text-align: left;
     background: black;
     color: white;
@@ -147,15 +164,17 @@ button.slick-next {
     padding: 1rem;
   }
 
-  h3{
+  h2 {
     grid-column: 1 / -1;
+    color: black;
+    font-weight: 800;
   }
 
-  a{
+  a {
     overflow: hidden;
   }
 
-  img{
+  img {
     min-width: 100%;
   }
 }
