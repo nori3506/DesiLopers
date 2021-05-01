@@ -1,46 +1,80 @@
-<% if @user.interest_user? %>
-  <button type="button" class="u-mb10 u-disable-button u-p2 u-block-right" disabled> Already Interest </button>
-<% else %>
-  <%= form_with(url: companies_interests_path, local: true) do |f| %>
-    <%= f.hidden_field :user_id, value: @user.id %>
-    <%= f.select :project_id, options_for_select(@projects.map{|c|[c[:title], c[:id]]}) %>
-    <%= f.submit value:"Interest", class: "interest-button u-block-center", data: { confirm: "Did you choose correct job post for the candidate?"} %>
+<div class="button-area u-pt10">
+  <% if @user.interest_user? %>
+    <button type="button" class="u-mb10 u-disable-button u-p2 u-block-right" disabled> Already Interest </button>
+  <% else %>
+    <%= form_with(url: companies_interests_path, local: true) do |f| %>
+      <p class="u-left"> ※Select a job offer for the candidate</p>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.select :project_id, options_for_select(@projects.map{|c|[c[:title].truncate(30), c[:id]]}), class:"u-mb10" %>
+      <%= f.submit value:"Interest", class: "interest-button u-block-center", data: { confirm: "Did you choose correct job post for the candidate?"} %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-<% unless @is_channel %>
-  <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="jsModalOpen">Send Message</button>
-<% else%>
-  <%= link_to(companies_channel_path(@channel)) do %>
-  <button type="button" class="u-mb10 interest-button u-p2 u-block-right " id="">Open Message</button>
-  <% end %>
-<% end%>
 <div class="companies_candidate_show_area">
   <div class="companies_candiate_container u-mt20">
     <div class="image-content u-pt30">
       <% if @user.image? %>
-        <img src="<%= @user.image %>" class="candidate-img">
+        <div class="prof-content-area1">
+          <img src="<%= @user.image %>" class="candidate-img">
+        </div>
       <% else %>
-        <img src="../../assets/user-icon.png" class="candidate-img">
+        <div class="prof-content-area1">
+          <img src="../../assets/user-icon.png" class="candidate-img">
+        </div>
       <% end %><br>
-      <p class="u-pt30"><%= @user.name %></p>
-      <p class="u-pt5"><%= @user&.portfolio&.career_text %></p>
+      <div class="prof-content-area1">
+        <div class="contents-headeing">Name</div>
+        <p class="u-pt5"><%= @user.name %></p>
+      </div>
+      <div class="prof-content-area1">
+        <div class="contents-headeing">Type</div>
+        <p class="u-pt5"><%= @user&.portfolio&.career_text %></p>
+      </div>
     </div>
     <div class="companies-user-show-profile">
-      <p class="u-left"><%= @user&.career_year %></p>
-      <p><%= @user.age %></p>
-      <p><%= @user.area %></p>
-      <p><%= @user&.current_sign_in_at&.strftime("%Y/%m/%d/%H:%M") %></p>
-      <p class="u-left"><%= @user&.portfolio&.message %></p>
-      <p><%= @user&.portfolio&.experience %></p>
-      <p><%= @user&.portfolio&.first_site%></p>
-      <p><%= @user&.portfolio&.first_image%></p>
+      <div class="prof-content-area">
+        <div class="contents-headeing">Carrer</div>
+        <p class="u-left"><%= @user&.career_year %></p>
+      </div>
+      
+      <div class="prof-content-area">
+        <div class="contents-headeing">Age</div>
+        <p><%= @user.age %></p>
+      </div>
+      
+      <div class="prof-content-area">
+        <div class="contents-headeing">Area</div>
+        <p><%= @user.area %></p>
+      </div>
+      
+      <div class="prof-content-area">
+        <div class="contents-headeing">Current Sign in</div>
+        <p><%= @user&.current_sign_in_at&.strftime("%Y/%m/%d/%H:%M") %></p>
+      </div>
+      
+      <div class="prof-content-area">
+        <div class="contents-headeing">Message</div>
+        <p class="u-left"><%= @user&.portfolio&.message %></p>
+      </div>
+  
+      <div class="prof-content-area">
+        <div class="contents-headeing">Experience</div>
+        <p><%= @user&.portfolio&.experience %></p>
+      </div>
+      
+      <div class="prof-content-area">
+        <div class="contents-headeing">Portfolio URL</div>
+        <p><%= @user&.portfolio&.first_site%></p>
+      </div>
+      
+      <div class="prof-content-area">
+        <div class="contents-headeing">Portfolio Image</div>
+        <p><%= @user&.portfolio&.first_image%></p>
+      </div>
     </div>
   </div>
 </div>
-
-
-
 
 <div id="overlay">
   <div id="modalWindow">
@@ -57,3 +91,11 @@
     </div>
   </div>
 </div>
+
+<% unless @is_channel %>
+  <button type="button" class="u-mb10 interest-button u-p2 u-block-center" id="jsModalOpen">Send Message</button>
+<% else%>
+  <%= link_to(companies_channel_path(@channel)) do %>
+  <button type="button" class="u-mb10 interest-button u-p2 u-block-center" id="">Open Message</button>
+  <% end %>
+<% end%>
