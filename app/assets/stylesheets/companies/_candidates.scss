@@ -29,6 +29,7 @@
 //**************************  companies_candidates show page  **************************
 
 .button-area {
+	margin: 1rem 0;
 	color: black;
 	justify-content: space-evenly;
 	align-items: center;
@@ -36,7 +37,7 @@
 	flex-flow: row wrap;
 	gap: 1rem;
 
-	select{
+	select {
 		margin-bottom: 0.5rem;
 	}
 }
@@ -46,6 +47,7 @@
 	max-width: 1200px;
 	background: white;
 	color: black;
+	padding: 1rem 0;
 }
 
 .companies_candiate_container {
@@ -55,13 +57,26 @@
 
 .companies-user-show-profile {
 	padding: 2rem;
+	max-width: 800px;
+	margin: auto;
 }
 
-.image-content{
+.image-content {
 	display: flex;
 	justify-content: center;
 }
 
-.prof-content-area1{
+.prof-content-area {
+	border: 1px solid;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+.prof-content-area1 {
 	flex: 0 0 32%;
+}
+
+.contents-headeing {
+	padding: .5rem 0;
+	background: #efefef;
 }

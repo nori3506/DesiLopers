@@ -13,6 +13,10 @@
 
 <div class="companies_candidate_show_area">
   <div class="companies_candiate_container u-mt20">
+    <div class="prof-content-area1">
+      <p class="u-pt5 bigger thick"><%= @user.name %>　(<%= @user.age %>)</p>
+      <p class="u-pt5"><%= @user&.portfolio&.career_text %>　・ <%= @user&.career_year %></p>
+    </div>
     <div class="image-content u-pt30">
       <% if @user.image? %>
         <div class="prof-content-area1">
@@ -23,49 +27,26 @@
           <img src="../../assets/user-icon.png" class="candidate-img">
         </div>
       <% end %><br>
-      <div class="prof-content-area1">
-        <div class="contents-headeing">Name</div>
-        <p class="u-pt5"><%= @user.name %></p>
-      </div>
-      <div class="prof-content-area1">
-        <div class="contents-headeing">Type</div>
-        <p class="u-pt5"><%= @user&.portfolio&.career_text %></p>
-      </div>
     </div>
     <div class="companies-user-show-profile">
       <div class="prof-content-area">
-        <div class="contents-headeing">Carrer</div>
-        <p class="u-left"><%= @user&.career_year %></p>
-      </div>
-      
-      <div class="prof-content-area">
-        <div class="contents-headeing">Age</div>
-        <p><%= @user.age %></p>
-      </div>
-      
-      <div class="prof-content-area">
-        <div class="contents-headeing">Area</div>
-        <p><%= @user.area %></p>
-      </div>
-      
-      <div class="prof-content-area">
         <div class="contents-headeing">Current Sign in</div>
-        <p><%= @user&.current_sign_in_at&.strftime("%Y/%m/%d/%H:%M") %></p>
+        <p class="u-left u-p10"><%= @user&.current_sign_in_at&.strftime("%Y/%m/%d/%H:%M") %></p>
       </div>
       
       <div class="prof-content-area">
         <div class="contents-headeing">Message</div>
-        <p class="u-left"><%= @user&.portfolio&.message %></p>
+        <p class="u-left u-p10"><%= @user&.portfolio&.message %></p>
       </div>
   
       <div class="prof-content-area">
         <div class="contents-headeing">Experience</div>
-        <p><%= @user&.portfolio&.experience %></p>
+        <p class="u-left u-p10"><%= @user&.portfolio&.experience %></p>
       </div>
       
       <div class="prof-content-area">
         <div class="contents-headeing">Portfolio URL</div>
-        <p><%= @user&.portfolio&.first_site%></p>
+        <p class="u-left u-p10"><%= @user&.portfolio&.first_site%></p>
       </div>
       
       <div class="prof-content-area">
@@ -74,6 +55,13 @@
       </div>
     </div>
   </div>
+  <% unless @is_channel %>
+    <button type="button" class="u-mb10 interest-button u-p2 u-block-center" id="jsModalOpen">Send Message</button>
+  <% else%>
+    <%= link_to(companies_channel_path(@channel)) do %>
+      <button type="button" class="u-mb10 interest-button u-p2 u-block-center" id="">Open Message</button>
+    <% end %>
+  <% end%>
 </div>
 
 <div id="overlay">
@@ -91,11 +79,3 @@
     </div>
   </div>
 </div>
-
-<% unless @is_channel %>
-  <button type="button" class="u-mb10 interest-button u-p2 u-block-center" id="jsModalOpen">Send Message</button>
-<% else%>
-  <%= link_to(companies_channel_path(@channel)) do %>
-  <button type="button" class="u-mb10 interest-button u-p2 u-block-center" id="">Open Message</button>
-  <% end %>
-<% end%>

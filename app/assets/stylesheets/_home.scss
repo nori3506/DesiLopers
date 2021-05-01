@@ -4,16 +4,10 @@
 }
 
 .main-massage{
+  padding-bottom: 1rem;
   min-height: 85vh;
   height:auto;
   width:100vw;
-  // background-image: linear-gradient(
-  //    to right bottom,
-  //    rgba(white, .8),
-  //    rgba(32,100,243, .8)),
-  // asset-url('human2.jpg');
-  // background-size: cover;
-  // background-position: top;
   background-color: $color_main-grey;
   text-align:center;
 }
