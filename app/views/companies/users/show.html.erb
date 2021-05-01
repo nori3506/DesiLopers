@@ -67,15 +67,15 @@
 <div id="overlay">
   <div id="modalWindow">
     <div class="modal-message-box">
-      <p>Send Message to <%= @user.name %></p>
+      <p>Message to <%= @user.name %></p>
       <%= form_with(url: companies_channels_path, local: true) do |f| %>
         <%= f.label :content, "Message" %>
-        <%= f.text_area :content, required: true %>
+        <%= f.text_area :content, required: true, rows: 5 %>
         <%= f.hidden_field :company_id, value: current_user.company.id %>
         <%= f.hidden_field :user_id, value: @user.id %>
         <%= f.submit value:"Send" %>
       <% end %>
-      <button id="modal-close-btn">キャンセル</button>
+      <div id="modal-close-btn">Cancel</div>
     </div>
   </div>
 </div>

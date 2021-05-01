@@ -12,35 +12,47 @@
 }
 
 #modalWindow {
-// モーダルウィンドウの画面を設定(高さ・幅は調整ください)
   width: 500px;
-  height: 200px;
+  height: 390px;
   position: absolute;
-//トップからの場所を指定（topをいじれば高さが調整できます）
-  top: 20%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   z-index: 2;
-//flexboxで子要素のボタンとメッセージボックスの要素を配置する
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 
   .modal-message-box {
     width: 100%;
-//下記heightの60pxはボタンの高さで、それを画面の大きさから引いています。
-    height: calc(100% - 60px);
     text-align: center;
-//flexboxで文字の配置を決める（縦方向、中央揃え）
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    label{
+      margin: unset;
+    }
+
+    form{
+      margin:0 auto;
+      width: 85%;
+      display: flex;
+      flex-flow: column;
+    }
+
+    textarea{
+      margin-bottom: 1rem;
+    }
+
+    button{
+      margin: auto;
+    }
   }
 
   #modal-close-btn {
-    width: 50%;
-    height: 60px;
+    padding: 1rem 0;
   }
 
   #delete-comformation-btn {
