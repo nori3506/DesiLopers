@@ -14,11 +14,13 @@ $(function () {
 		return messages
 		
 	}
-
-  jsChannelGet.addEventListener('click', (e) => {
+  let clickedElements = document.querySelectorAll('.jsChannelGet')
+  console.log(clickedElements)
+  clickedElements.forEach(function(element){
+    element.addEventListener('click', (e) => {
     e.preventDefault();
     // jsInterestByUser.innerHTML = "Please wait..."
-		let targetId = $('#jsChannelGet').data('id');
+    let targetId = element.getAttribute('data-id');
     $.ajax({
       url: `/api/v1/channels/${targetId}`,
       type: "get",
@@ -39,5 +41,6 @@ $(function () {
       alert('something went wrong, sorry')
       // jsInterestByUser.innerHTML = "Interest!"
     })
+  })
   })
 });

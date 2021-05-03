@@ -1,4 +1,48 @@
 .channel-area {
 	display: flex;
 	flex-flow: row nowrap;
+	background: aliceblue;
+	min-height: inherit;
+}
+
+.messageFromUser {
+	background-color: $color-blue;
+	color: white;
+	width: fit-content;
+	display: block;
+	text-align: right;
+	padding: 1rem;
+	margin: 1rem;
+	align-self: flex-end;
+}
+
+.messageFromCompany {
+	width: fit-content;
+	display: block;
+	background-color: white;
+	text-align: left;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.channel-list {
+	flex: 0 0 40%;
+	background: white;
+
+}
+
+.messsage-area {
+	flex: 0 0 55%;
+}
+
+.channel-item {
+	border: 1px solid $color-blue;
+	padding: .5rem;
+}
+
+div#messageDisplay {
+	display: flex;
+	flex-flow: column;
+	padding: 2rem;
+
 }
