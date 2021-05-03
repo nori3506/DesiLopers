@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :lists
       resources :projects
+      resources :channels, only: [:show]
     end
   end
 
