@@ -7,7 +7,7 @@ $(function () {
 			if (!message.user_id) {
 			messages.push(`<div class="messageFromCompany"><p>${message.content}</p></div>`)
 			} else {
-			messages.push(`<div class="messageFromMyself"><<p>${message.content}</p></div>`)
+			messages.push(`<div class="messageFromUser"><p>${message.content}</p></div>`)
 			}
 		})
 		console.log(messages)

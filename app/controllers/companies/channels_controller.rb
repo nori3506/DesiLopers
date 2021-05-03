@@ -11,7 +11,7 @@ class Companies::ChannelsController < Companies::ApplicationController
     Channel.transaction do
       @channel = Channel.create
 		  @channel.channel_users.create(user_id: message_params[:user_id], company_id: current_user.company.id)
-      Modules::Message.create_message(@channel, current_user.company.id, message_params[:content])
+      Modules::Message.create_message_from_company(@channel, current_user.company.id, message_params[:content])
       flash[:success] = "Your message was successfully sent"
       redirect_to companies_channel_path(@channel)
     rescue => e
