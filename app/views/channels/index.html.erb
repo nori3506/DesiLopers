@@ -3,8 +3,11 @@
 		<% @messages.each do |message| %>
 			<%= link_to(channel_path(message.channel)) do %>
 				<div class="jsChannelGet channel-item" data-id=<%= message.channel.id %>>
-					<%= message.channel.companies.first.name %> <br>
-					<%= message.content %><br>
+					<div class="sender-image"><img src="<%= message.channel.companies.first.main_image %>" alt="Company Image"></div> <br>
+					<div class="channel-list-text">
+						<div class="sender-name"><%= message.channel.companies.first.name.truncate(20) %></div>
+						<div class="latest-message"><%= message.content.truncate(12) %></div>
+					</div>
 				</div>
 			<% end %>
 		<% end %>
