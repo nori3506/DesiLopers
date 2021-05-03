@@ -1,6 +1,17 @@
-<% @messages.each do |message| %>
-	<%= link_to(channel_path(message.channel)) do %>
-		<%= message.content %><br>
-		<%= message.channel.companies.first.name %> <br>
-	<% end %>
-<% end %>
+<div class="channel-area">
+	<div class="channel-list">
+		<% @messages.each do |message| %>
+			<%= link_to(channel_path(message.channel)) do %>
+				<div id="jsChannelGet" data-id=<%= message.channel.id %>>
+					<%= message.channel.companies.first.name %> <br>
+					<%= message.content %><br>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+<div class="messsage-area">
+	<div id="messageDisplay">
+	</div>
+</div>
