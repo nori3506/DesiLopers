@@ -3,7 +3,6 @@ $(function () {
 	function displayMessages(data) {
 		let messages = []
 		data.messages.forEach(function (message) {
-			console.log(message.user_id)
 			if (!message.user_id) {
 			messages.push(`<div class="messageFromCompany"><p>${message.content}</p></div>`)
 			} else {
@@ -15,7 +14,6 @@ $(function () {
 		
 	}
   let clickedElements = document.querySelectorAll('.jsChannelGet')
-  console.log(clickedElements)
   clickedElements.forEach(function(element){
     element.addEventListener('click', (e) => {
     e.preventDefault();
