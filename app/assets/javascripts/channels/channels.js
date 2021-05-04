@@ -9,10 +9,13 @@ $(function () {
 			messages.push(`<div class="messageFromUser"><p>${message.content}</p></div>`)
 			}
 		})
-		console.log(messages)
 		return messages
-		
-	}
+  }
+  
+  function addHiddenChannelId(data) {
+    let hiddenHtml = `<input type="hidden" name="channel_id" value="${data.messages[0].channel_id}">`
+    return hiddenHtml
+  }
   let clickedElements = document.querySelectorAll('.jsChannelGet')
   clickedElements.forEach(function(element){
     element.addEventListener('click', (e) => {
@@ -28,7 +31,8 @@ $(function () {
       dataType: 'json'
     })
     .done(function (data) {
-	 		$('#messageDisplay').empty().append(displayMessages(data))
+      $('#messageDisplay').empty().append(displayMessages(data))
+      $('#messageForm').append(addHiddenChannelId(data))
 
       // jsInterestByUser.disabled = true
       // document.getElementById('jsInterestByUser').innerHTML = 'Already Interest';
