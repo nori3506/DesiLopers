@@ -16,10 +16,10 @@
 		<div id="messageDisplay">
 		</div>
 		<div class="input-message-area">
-			<%= form_with(url: api_messages_path, local: true, id: "messageForm") do |f| %>
-				<%= f.text_area :content, required: true %>
+			<%= form_with(id: "messageForm") do |f| %>
+				<%= f.text_area :content, required: true, id: "messageTextArea" %>
 				<%= f.hidden_field :user_id, value: current_user.id %>
-				<%= f.submit value:"Send" %>
+		    <button type="button" id="messageSendBtn">Send</button>
 			<% end %>
 		</div>
 	</div>
