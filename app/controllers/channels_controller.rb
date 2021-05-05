@@ -6,11 +6,6 @@ class ChannelsController < ApplicationController
     @messages = channels.order(updated_at: :desc).map(&:messages).map(&:last)
 	end
 
-	def show
-		@messages = @channel.messages
-		@company = @channel.companies.first
-	end
-
 	private
 
 		def find_channel
