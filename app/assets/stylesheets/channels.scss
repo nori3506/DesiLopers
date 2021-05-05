@@ -31,7 +31,10 @@
 }
 
 .messsage-area {
-	flex: 0 0 55%;
+	display: flex;
+	flex: 0 0 60%;
+	flex-flow: column nowrap;
+	justify-content: space-between;
 }
 
 .channel-item {
@@ -60,4 +63,29 @@ div#messageDisplay {
 	text-align: left;
 	padding: 0 .4rem;
 	color: rgba(0, 0, 0, 45%);
+}
+
+.inputMessageArea {
+	position: sticky;
+	bottom: 0;
+	background: #1f71c5;
+	display: none;
+
+}
+
+.messageAreaDisplay {
+	display: block;
+}
+
+button#messageSendBtn {
+	flex: 0 0 20%;
+}
+
+form#messageForm {
+	display: flex;
+}
+
+textarea#messageTextArea {
+	flex: 0 0 80%;
+	line-height: 1;
 }

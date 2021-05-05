@@ -1,5 +1,9 @@
 $(function () {
 
+  $(document).on('turbolinks:load', function() {
+    $('#messageDisplay').animate({scrollTop: $('#messageDisplay').scrollHeight}, 'normal');
+  });
+
 	function displayMessages(data) {
 		let messages = []
 		data.messages.forEach(function (message) {
@@ -19,30 +23,24 @@ $(function () {
   let clickedElements = document.querySelectorAll('.jsChannelGet')
   clickedElements.forEach(function(element){
     element.addEventListener('click', (e) => {
-    e.preventDefault();
-    // jsInterestByUser.innerHTML = "Please wait..."
-    let targetId = element.getAttribute('data-id');
-    $.ajax({
-      url: `/api/v1/channels/${targetId}`,
-      type: "get",
-      data: {
-      	channel_id: targetId
-      },
-      dataType: 'json'
+      e.preventDefault();
+      let targetId = element.getAttribute('data-id');
+      $.ajax({
+        url: `/api/v1/channels/${targetId}`,
+        type: "get",
+        data: {
+          channel_id: targetId
+        },
+        dataType: 'json'
+      })
+      .done(function (data) {
+        $('#messageDisplay').empty().append(displayMessages(data))
+        $('#MessageArea').addClass("messageAreaDisplay");
+        $('#messageForm').append(addHiddenChannelId(data));  
+      })
+      .fail(function (data) {
+        alert('something went wrong, sorry')
+      })
     })
-    .done(function (data) {
-      $('#messageDisplay').empty().append(displayMessages(data))
-      $('#messageForm').append(addHiddenChannelId(data))
-
-      // jsInterestByUser.disabled = true
-      // document.getElementById('jsInterestByUser').innerHTML = 'Already Interest';
-      // $("#jsInterestByUser").removeClass("interest-button").addClass("u-disable-button");
-      return
-    })
-    .fail(function (data) {
-      alert('something went wrong, sorry')
-      // jsInterestByUser.innerHTML = "Interest!"
-    })
-  })
   })
 });

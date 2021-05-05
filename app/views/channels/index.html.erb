@@ -15,7 +15,7 @@
 	<div class="messsage-area">
 		<div id="messageDisplay">
 		</div>
-		<div class="input-message-area">
+		<div class="inputMessageArea" id="MessageArea">
 			<%= form_with(id: "messageForm") do |f| %>
 				<%= f.text_area :content, required: true, id: "messageTextArea" %>
 				<%= f.hidden_field :user_id, value: current_user.id %>
