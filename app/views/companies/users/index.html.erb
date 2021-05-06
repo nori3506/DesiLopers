@@ -1,13 +1,13 @@
 <div class="main-container u-mt15">
   <div class="side-container">
 		<%= link_to(companies_candidates_path) do%>
-      <p>All Candidates</p>
+      <p>All</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "interested_by_user")) do%>
-      <p>Users pushing interesting</p>
+      <p>Interested by Users</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "interested_by_company")) do%>
-      <p>Users Company pushing interesting</p>
+      <p>Interested by Company</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "under_screening")) do%>
       <p>Screening</p>
@@ -40,12 +40,13 @@
             <% end %>
           </div>
           <div class="candidate-info">
-            <h3 class="project-element u-mb25 project-header"> 
-              <%= user.name %>
-            </h3>
-            <%= user.age %>
-            <%= user.career_year %>
-            <%= user.area %>
+            <h4 class="project-element project-header word-break"> 
+              <%= user.name %> ・ <%= user.age %>
+            </h4>
+            <p class="u-pt5 word-break"><%= @user&.portfolio&.career_text %> ・ <%= @user&.career_year %></p>
+            <p class="u-left u-p10 word-break"><%= truncate(@user&.portfolio&.experience, length:90) %></p>
+            <p class="u-center u-p10 word-break"><%= user.area %></p>
+            <p class="u-right u-p10 word-break"><%= @user&.current_sign_in_at&.strftime("%Y/%m/%d/%H:%M") %></p>
           </div>
         </div>
       <% end %>

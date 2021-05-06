@@ -37,12 +37,13 @@ button.slick-next {
 }
 
 .main-container {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 .project-main-container {
   padding: 1rem 1rem;
+  flex: 0 0 75%;
 
   .project-container {
     max-width: 100%;
@@ -76,7 +77,22 @@ button.slick-next {
 }
 
 .side-container {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 1.3rem;
   background: $color_main-grey;
+  flex: 0 0 25%;
+
+  a{
+    background: $color-blue;
+    padding: 1rem .3rem;
+    color: white;
+  }
+
+  a:hover{
+    font-weight: 700;
+    color: #FCFC27;
+  }
 }
 
 @media screen and(max-width: 1000px) {
@@ -89,6 +105,10 @@ button.slick-next {
       margin: 1rem auto;
     }
   }
+}
+
+@media screen and(max-width: 850px) {
+
 }
 
 @media screen and(max-width: 540px) {
