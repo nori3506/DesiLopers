@@ -1,31 +1,31 @@
 <div class="main-container u-mt15">
   <div class="side-container">
 		<%= link_to(companies_candidates_path) do%>
-      <p>All</p>
+      <p>All (<%= @all_number %>)</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "interested_by_user")) do%>
-      <p>Interested by Users</p>
+      <p>Interested by Users (<%= @interested_by_user_number %>)</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "interested_by_company")) do%>
-      <p>Interested by Company</p>
+      <p>Interested by Company (<%= @interested_by_user_number %>)</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "under_screening")) do%>
-      <p>Screening</p>
+      <p>Screening (<%= @screening_number %>)</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "under_skill_checking")) do%>
-      <p>Skill Checking</p>
+      <p>Skill Checking (<%= @skill_checking_number %>)</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "under_interview")) do%>
-      <p>Interview</p>
+      <p>Interview (<%=@interview_number %>)</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "under_offerring")) do%>
-      <p>Recruitment Offerring</p>
+      <p>Recruitment Offerring (<%= @recruitment_offerring_number %>)</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "under_signed")) do%>
-      <p>Signed</p>
+      <p>Signed (<%= @signed_number %>)</p>
     <% end %>
     <%= link_to(companies_candidates_path(filter: "rejected")) do%>
-      <p>Rejected</p>
+      <p>Rejected (<%= @rejected_number %>)</p>
     <% end %>
   </div>
   <div class="project-main-container">

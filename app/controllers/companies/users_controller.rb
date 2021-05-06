@@ -4,24 +4,33 @@ class Companies::UsersController < Companies::ApplicationController
     if params[:filter].present?
       case params[:filter]
       when "interested_by_user"
-        return @users = current_user.company.projects.includes([interests: :user], :interest_users).map(&:interest_users).flatten
+        @users = current_user.company.projects.includes([interests: :user], :interest_users).map(&:interest_users).flatten
       # when "interested_by_company"
       #   @users = 
       when "under_screening"
-        return @users = User.candidates_users(current_user.company, "screening")
+        @users = User.candidates_users(current_user.company, "screening")
       when "under_skill_checking"
-        return @users = User.candidates_users(current_user.company, "skill_check")
+        @users = User.candidates_users(current_user.company, "skill_check")
       when "under_interview"
-        return @users = User.candidates_users(current_user.company, "interview")
+        @users = User.candidates_users(current_user.company, "interview")
       when "under_offerring"
-        return @users = User.candidates_users(current_user.company, "recruitment_offer")
+        @users = User.candidates_users(current_user.company, "recruitment_offer")
       when "under_signed"
-        return @users = User.candidates_users(current_user.company, "signed")
+        @users = User.candidates_users(current_user.company, "signed")
       when "rejected"
-        return @users = User.candidates_users(current_user.company, "rejected")
+        @users = User.candidates_users(current_user.company, "rejected")
       end
     end
     @users = User.normal_users.order(updated_at: :desc)
+    @all_number = User.normal_users.order(updated_at: :desc).size
+    @interested_by_user_number = current_user.company.projects.includes([interests: :user], :interest_users).map(&:interest_users).flatten.size
+    @interested_by_company_number = current_user.company.projects.includes([interests: :user], :interest_users).map(&:interest_users).flatten.size
+    @screening_number = User.candidates_users(current_user.company, "screening").size
+    @skill_checking_number = User.candidates_users(current_user.company, "skill_check").size
+    @interview_number = User.candidates_users(current_user.company, "interview").size
+    @recruitment_offerring_number = User.candidates_users(current_user.company, "recruitment_offer").size
+    @signed_number = User.candidates_users(current_user.company, "signed").size
+    @rejected_number = User.candidates_users(current_user.company, "rejected").size
   end
 
   def show
