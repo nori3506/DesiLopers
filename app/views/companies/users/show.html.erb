@@ -5,7 +5,7 @@
     <%= form_with(url: companies_interests_path, local: true) do |f| %>
       <p class="u-left"> ※Select a job offer for the candidate</p>
       <%= f.hidden_field :user_id, value: @user.id %>
-      <%= f.select :project_id, options_for_select(@projects.map{|c|[c[:title].truncate(30), c[:id]]}), class:"u-mb10" %>
+      <%= f.select :project_id, options_for_select(@projects.active_projects.map{|c|[c[:title].truncate(30), c[:id]]}), class:"u-mb10" %>
       <%= f.submit value:"Interest", class: "interest-button u-block-center", data: { confirm: "Did you choose correct job post for the candidate?"} %>
     <% end %>
   <% end %>
