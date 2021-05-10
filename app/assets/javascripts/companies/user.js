@@ -3,13 +3,14 @@ $(function () {
 	$('#select_condition').on('change', function (e) {
 		let selected_status = $('#selected_status option:selected').val();
 		let subjected_user_id = $('#subjected_user_id').val();
-		let subjected_user_projects = $('#subjected_user_projects');
+		let subjected_user_projects = $('#subjected_user_projects').val();
 
 		$.ajax({
-				url: `/api/v1/users/${subjected_user_id}`,
+				url: `/api/v1/companies/users/${subjected_user_id}`,
 				type: "PATCH",
 				data: {
-					status: selected_status
+					status: selected_status,
+					user_projects: subjected_user_projects
 				},
 				dataType: 'json'
 			})
