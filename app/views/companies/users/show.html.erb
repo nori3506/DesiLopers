@@ -13,10 +13,12 @@
 
 <div class="companies_candidate_show_area">
   <div class="companies_candiate_container u-mt20">
-    <%= form_with(local: true, id:"select_condition") do |f| %>
-      <%= f.hidden_field :subjected_user_id, value: @user.id %>      
-      <%= f.hidden_field :subjected_user_projects, value: @user_projects.ids  %>
-      <%= f.select :selected_status, options_for_select(UserProject.status.options, selected:@user_projects.first.status) %>
+    <% if @is_applied %>
+      <%= form_with(local: true, id:"select_condition") do |f| %>
+        <%= f.hidden_field :subjected_user_id, value: @user.id %>      
+        <%= f.hidden_field :subjected_user_projects, value: @user_projects.ids  %>
+        <%= f.select :selected_status, options_for_select(UserProject.status.options, selected:@user_projects.first.status) %>
+      <% end %>
     <% end %>
     <div class="prof-content-area1">
       <p class="u-pt5 bigger thick"><%= @user.name %>　(<%= @user.age %>)</p>

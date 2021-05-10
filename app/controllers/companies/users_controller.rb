@@ -37,6 +37,7 @@ class Companies::UsersController < Companies::ApplicationController
   def show
     @projects= current_user.company.projects
     @user = User.find(params[:id]).decorate
+    @is_applied = @user.applied_projects.where('user_projects.project_id' => @projects.map{|project| project.id}, 'user_projects.user_id' => @user.id).present?
     @user_projects = @user.user_projects.where('user_projects.project_id' => @projects.map{|project| project.id}, 'user_projects.user_id' => @user.id)
     user_channel = Channel.includes(:channel_users).where('channel_users.user_id' => @user.id)
     company_channel = Channel.includes(:channel_users).where('channel_users.company_id' => current_user.company.id)
