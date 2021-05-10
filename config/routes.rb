@@ -55,7 +55,9 @@ Rails.application.routes.draw do
       resources :lists
       resources :projects
       resources :channels, only: [:show]
-      resources :users, only: [:update]
+      namespace :companies do
+        resources :users, only: [:update]
+      end
     end
   end
 
