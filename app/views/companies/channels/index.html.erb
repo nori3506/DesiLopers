@@ -1,6 +1,24 @@
-<% @messages.each do |message| %>
-	<%= link_to(companies_channel_path(message.channel)) do %>
-		<%= message.content %><br>
-		<%= message.channel.users.first.name %> <br>
-	<% end %>
-<% end %>
+<div class="channel-area">
+	<div class="channel-list">
+		<% @messages.each do |message| %>
+			<div class="jsChannelGet channel-item" data-id=<%= message.channel.id %>>
+				<div class="sender-image"><img src="<%= message.channel.companies.first.main_image %>" alt="Company Image"></div> <br>
+				<div class="channel-list-text">
+					<div class="sender-name"><%= message.channel.users.first.name.truncate(20) %></div>
+					<div class="latest-message"><%= message.content.truncate(12) %></div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="messsage-area">
+		<div id="messageDisplay">
+		</div>
+		<div class="inputMessageArea" id="MessageArea">
+			<%= form_with(id: "messageForm") do |f| %>
+				<%= f.text_area :content, required: true, id: "messageTextArea" %>
+				<%= f.hidden_field :user_id, value: current_user.id %>
+		    <button type="button" id="messageSendBtn">Send</button>
+			<% end %>
+		</div>
+	</div>
+</div>
