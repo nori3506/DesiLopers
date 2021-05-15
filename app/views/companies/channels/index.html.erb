@@ -1,4 +1,4 @@
-<div class="channel-area">
+<div class="channel-area" id="channelArea" data-companyUser=<%= @is_company_user %>>
 	<div class="channel-list">
 		<% @messages.each do |message| %>
 			<div class="jsChannelGet channel-item" data-id=<%= message.channel.id %>>

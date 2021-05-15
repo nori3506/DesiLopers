@@ -2,6 +2,7 @@ class Companies::ChannelsController < Companies::ApplicationController
   before_action :find_channel, only: [:show]
 
   def index
+    @is_company_user = current_user.company_user?
     channels = current_user.company.channels
     @messages = channels.order(updated_at: :desc).map(&:messages).map(&:last)
     # @users = @messages.map(&:channel).map(&:users)

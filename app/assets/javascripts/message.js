@@ -1,12 +1,22 @@
 $(function () {
+	let isCompanyUser = channelArea.getAttribute('data-companyUser');
 
 	function displayMessages(data) {
 		let messages = []
+		if (isCompanyUser) {
 			if (!data.message.user_id) {
-			messages.push(`<div class="messageFromCompany"><p>${data.message.content}</p></div>`)
+				messages.push(`<div class="messageFromUser"><p>${data.message.content}</p></div>`)
 			} else {
-			messages.push(`<div class="messageFromUser"><p>${data.message.content}</p></div>`)
+				messages.push(`<div class="messageFromCompany"><p>${data.message.content}</p></div>`)
 			}
+		} else {
+			if (!data.message.user_id) {
+				messages.push(`<div class="messageFromCompany"><p>${data.message.content}</p></div>`)
+			} else {
+				messages.push(`<div class="messageFromUser"><p>${data.message.content}</p></div>`)
+			}
+		}
+		
 		return messages
   }
   
