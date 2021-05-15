@@ -14,7 +14,7 @@ class Companies::ChannelsController < Companies::ApplicationController
 		  @channel.channel_users.create(user_id: message_params[:user_id], company_id: current_user.company.id)
       Modules::Message.create_message_from_company(@channel, current_user.company.id, message_params[:content])
       flash[:success] = "Your message was successfully sent"
-      redirect_to companies_channel_path(@channel)
+      redirect_to companies_channels_path
     rescue => e
       flash[:alert] = "Sorry, Message could not be sent"
       @user = User.find(message_params[:user_id])
