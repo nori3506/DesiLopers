@@ -1,10 +1,11 @@
 class Companies::CompaniesController < Companies::ApplicationController
-  layout 'company/regist', only: [:new]
+  # layout 'layouts/regist.html.erb', only: [:new]
   layout 'layouts/company/layout.html.erb', only: [:show, :edit]
 
   def new
     @company = Company.new
     @form = Companies::CompanyRegistForm.new(@company, current_user)
+    render :layout => 'regist'
   end
 
   def create
@@ -16,7 +17,7 @@ class Companies::CompaniesController < Companies::ApplicationController
       flash[:success] = "Company was successfully created"
       redirect_to companies_home_index_path
     else
-      render 'new'
+      render(action: 'new', layout:"regist")
     end
   end
 
@@ -38,7 +39,7 @@ class Companies::CompaniesController < Companies::ApplicationController
       flash[:success] = "Company was successfully updated"
       redirect_to companies_company_path(@company)
     else
-      render 'edit'
+      render(action: 'edit', layout:"layouts/company/layout.html.erb")
     end
   end
 

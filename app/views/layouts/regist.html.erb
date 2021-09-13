@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DesiLopers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="manifest" href="/manifest.json" />
+    <script src="https://kit.fontawesome.com/8bedfb3bd6.js" crossorigin="anonymous"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
+
+  <body>
+    <%= alerts %>
+    <div class="main-massage">
+    	<%= yield %>
+    </div>
+    <div class="u-center u-text-white">
+      <%= copyright_generator %>
+    </div>
+  </body>
+</html>

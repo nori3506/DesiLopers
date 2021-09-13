@@ -49,9 +49,9 @@
         <div class="company-form__btn-area js-first-form-button">
           Next
         </div>
-        <% if @company.present? %>
+        <% if @company.id? %>
           <div class="company-form__back-btn">
-            <%= link_to  "Cancel", companies_company_path(@company) %>
+            <%= link_to  "Cancel", companies_company_path(@form.company) %>
           </div>
         <% end %>
       </div>
