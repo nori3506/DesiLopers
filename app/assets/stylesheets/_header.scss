@@ -11,6 +11,18 @@ nav.header-nav a {
 	padding: 0 1rem;
 }
 
+.hover_menu{
+	display: flex;
+	flex-flow: column nowrap;
+	text-align: center;
+	background: $color_blue;
+
+	li{
+		padding: 1rem;
+		border-bottom: 1px solid white;
+	}
+}
+
 .nav-user-link {
 	display: inline;
 }

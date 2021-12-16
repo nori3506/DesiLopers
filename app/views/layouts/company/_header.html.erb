@@ -16,13 +16,9 @@
             <%= link_to companies_company_path(current_user.company.id), class: "nav-main-list" do %>
               <%= current_user.company.name %> <i class="fas fa-caret-down"></i>
             <% end %>
-            <ul class="menu__second-level_3 left-position">
+            <ul class="menu__second-level_3 hover_menu">
               <li><%= link_to "Company Edit", edit_companies_company_path(current_user.company), class: "nav-main-list" %></li>
-            </ul>
-            <ul class="menu__second-level_3 center-position">
               <li><%= link_to "Members", new_company_invitation_path, class: "nav-main-list" %></li>
-            </ul>
-            <ul class="menu__second-level_3 right-position">
               <li><%= link_to "Invitation", new_company_invitation_path, class: "nav-main-list" %></li>
             </ul>
           </li>
