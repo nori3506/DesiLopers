@@ -36,7 +36,7 @@
             <%= link_to  do %>
               <i class="fas fa-user-edit logo_size"></i><i class="fas fa-caret-down"></i>
             <% end %>
-            <ul class="menu__second-level_4">
+            <ul class="menu__second-level_4 hover_menu open-menu">
               <li class="u-px10"><%= link_to('Logout', destroy_user_session_path, method: :delete, class:"nav-main-list") %></li>
               <li class="u-px10"><%= link_to "Edit", new_company_invitation_path, class: "nav-main-list" %></li>
             </ul>
