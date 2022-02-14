@@ -17,7 +17,8 @@
   </div>
   <h1><%= @project.title %></h1>
   <div class="project-main-image">
-    <img src="<%= @project.main_image %>">
+    <%# <img src="<%= @project.main_image %>
+    <%= image_tag "office-inside#{rand(1..9)}.jpg" %>
   </div>
   <div class="project-detail-container__job-detail">
     <h2>Job Detail</h2>
@@ -52,7 +53,8 @@
     <% @other_projects.each do |project| %>
       <%= link_to project_path(project) do %>
         <div class="other-projects__block">
-          <img src="<%= project.main_image %>">
+          <%# <img src="<%= project.main_image %>
+          <%= image_tag "office-inside#{rand(1..9)}.jpg" %>
           <h4 class="other-projects__title project-heading">
             <%=safe_join(project.title.truncate(30).split("\n"),tag(:br))%>
           </h4>

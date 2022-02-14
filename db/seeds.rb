@@ -86,9 +86,9 @@ if Rails.env.development?
                   capital: 1_000_000_000,
                   foundation_date: '1950-10-23 02:05:20.588849')
 
-  Image.create!(file_name: open('./app/assets/images/office-inside.jpg'))
-  Image.create!(file_name: open('./app/assets/images/office_inside.jpg'))
+  Image.create!(file_name: open('./app/assets/images/office-inside1.jpg'))
   Image.create!(file_name: open('./app/assets/images/office-inside2.jpg'))
+  Image.create!(file_name: open('./app/assets/images/office-inside3.jpg'))
   Image.create!(file_name: open('./app/assets/images/office-work.jpg'))
   Image.create!(file_name: open('./app/assets/images/office_building.jpg'))
   Image.create!(file_name: open('./app/assets/images/meeting.jpg'))
