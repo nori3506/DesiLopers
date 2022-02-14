@@ -9,7 +9,7 @@
     <% @projects.each do |project| %>
       <%= link_to(project_path(project), class:"") do %>
         <div class="interest-project-area u-mb20">
-          <img src="<%= project.main_image %>", id="js-img_prev", class="project-img">
+          <%= image_tag "office-inside#{rand(1..9)}.jpg", id: 'js-img_prev', class:'project-img' %>
           <div class="project-description">
             <p class="u-right u-my10" ><%= project.created_at.strftime("%x") %></p>
             <h2 class="u-left u-mb10"><%= project.title %></h1>
