@@ -12,11 +12,18 @@
 
 .slider-img {
   width: 700px;
+  margin: .6rem .3rem;
 
   img {
     width: 100%;
     height: auto;
   }
+}
+
+.carousel-title{
+  background: black;
+  color: white;
+  font-size: 1.4rem;
 }
 
 .project-header {
