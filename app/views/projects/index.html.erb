@@ -6,7 +6,7 @@
           <%# <img src="<%= carousel_project.main_image %>
           <%= image_tag "office-inside#{rand(1..9)}.jpg" %>
         <% end %>
-        <p class="carousel-title"><%= carousel_project.title %></p>
+        <p class="carousel-title"><%= truncate(carousel_project.title, length: 30) %></p>
       </div>
     <% end%>
   </div>
